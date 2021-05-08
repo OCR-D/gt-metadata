@@ -1,133 +1,294 @@
-<!DOCTYPE html>
-<html style="font-size: 16px;">
+<!doctype html>
+<html lang="fr">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HTR-United Home Page">
+    <meta name="author" content="Alix Chagué">
     <title>HTR-United</title>
-    <link rel="stylesheet" href="static/css/style.css" media="screen">
-    <!--<link rel="stylesheet" href="Page-1.css" media="screen">-->
-    <script class="u-script" type="text/javascript" src="static/js/jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="static/js/nicepage.js" defer=""></script>
-    <meta name="generator" content="Nicepage 2.29.0, nicepage.com">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
-    <link rel="icon" href="static/images/favicon.ico" />
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"url": "index.html",
-		"logo": "static/images/logo_htr_united.png"
-}</script>
-    <meta property="og:title" content="Welcome to HTR-United!">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#478ac9">
-    <link rel="canonical" href="index.html">
-    <meta property="og:url" content="index.html">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/heroes/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">-->
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/favicon.ico" />
+    
+    <!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <style>
+      body {
+        background-color: #fefefe;
+      }
+
+      .btn-info {
+        background-color: #dce8ae !important;
+        color: #383c2c !important;
+        border: #89926a !important;
+
+      }
+
+      .btn-info:hover {
+        background-color: #cedf8e !important;
+        color: #383c2c !important;
+        border: #89926a !important;
+      }
+
+      .btn-info:active {
+        box-shadow: #dce8ae !important;
+      }
+
+      .btn-info:focus {
+        box-shadow: 0 0 0 .25rem #dce8ae !important;
+      }
+
+      .block-scenario {
+        background-color: #fff;
+      }
+
+      .btn-nav:hover {
+        box-shadow: 0 0 0 .25rem #dce8ae !important;
+      }
+
+      .btn-nav-ext:hover {
+        box-shadow: 0 0 0 .25rem #ffc107 !important;
+      }
+
+      header {
+        background-color: #fff;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <!--<link href="heroes.css" rel="stylesheet">-->
   </head>
-  <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-ffda"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="#" class="u-align-center u-image u-logo u-image-1" data-image-width="827" data-image-height="827">
-          <img src="static/images/logo_htr_united.png" class="u-logo-image u-logo-image-1" data-image-width="86">
-        </a>
-      </div></header>
-    <section class="u-clearfix u-section-1" id="sec-80e4">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-clearfix u-expanded-width-sm u-expanded-width-xs u-gutter-14 u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-col">
-              <div class="u-size-30">
-                <div class="u-layout-row">
-                  <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" src="" data-image-width="300" data-image-height="300">
-                    <div class="u-container-layout u-valign-middle u-container-layout-1"></div>
-                  </div>
-                  <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                    <div class="u-container-layout u-valign-top u-container-layout-2">
-                      <p class="u-custom-font u-font-lato u-text u-text-1">HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun les transcriptions HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.<br>
-                      </p>
-                      <a href="https://github.com/HTR-United/htr-united/blob/master/README.md" class="u-border-2 u-border-grey-75 u-border-hover-palette-4-dark-1 u-btn u-button-style u-palette-4-light-1 u-btn-1" target="_blank">En savoir plus</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="u-size-30">
-                <div class="u-layout-row">
-                  <div class="u-align-center-sm u-align-center-xs u-align-right-lg u-align-right-md u-align-right-xl u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-3">
-                    <div class="u-container-layout u-container-layout-3">
-                      <p class="u-custom-font u-font-lato u-text u-text-2" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
-                        HTR-United is a Github organization without any other form of legal personality. It aims at gathering HTR/OCR transcriptions of all periods and style of writing, mostly but not exclusively in French.&nbsp;<br>It was born from the mere necessity -for projects- to possess potentiel ground truth to rapidly train models on smaller corpora.
-                      </p>
-                      <a href="https://github.com/HTR-United/htr-united/blob/master/README.eng.md" class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-border-2 u-border-grey-75 u-border-hover-palette-4-dark-1 u-btn u-button-style u-palette-4-light-1 u-btn-2" target="_blank">Learn more</a>
-                    </div>
-                  </div>
-                  <div class="u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-2" src="" data-image-width="550" data-image-height="550">
-                    <div class="u-container-layout u-valign-middle u-container-layout-4"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <body id="top">
+
+    <!-- Navbar -->
+    <div class="container fixed-top">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#top" class="nav-link btn btn-nav px-2 link-secondary">HTR-United</a></li>
+        <li><a href="#use-data" class="nav-link btn btn-nav px-2 link-dark">Utiliser les données</a></li>
+        <li><a href="#provide-data" class="nav-link btn btn-nav px-2 link-dark">Proposer des données</a></li>
+        <li><a href="#scenarios" class="nav-link btn btn-nav px-2 link-dark">Scénarios</a></li>
+        <li><a href="document-your-data.html" class="nav-link btn btn-nav-ext px-2 link-dark">Aller au formulaire</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <a href="index-en.html" type="button" class="btn btn-outline-secondary me-2">English</a>
       </div>
-    </section>
-    <section class="u-clearfix" id="sec-d027" style="margin-bottom: 10%; margin-top: 10%">
-      <div class="u-clearfix u-sheet u-valign-middle-md u-sheet-1">
-        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-          <div class="u-gutter-0 u-layout">
-            <div class="u-layout-row">
-              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-13-lg u-size-13-xl u-size-22-md u-size-22-sm u-size-22-xs u-layout-cell-1">
-                <div class="u-container-layout u-container-layout-1">
-                  <h3 class="u-text u-text-1">Prêt à <br/>contribuer ?</h3>
-                </div>
-              </div>
-              <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-38-md u-size-38-sm u-size-38-xs u-size-47-lg u-size-47-xl u-layout-cell-2">
-                <div class="u-container-layout u-valign-bottom-sm u-valign-bottom-xs u-container-layout-2">
-                  <p class="u-text u-text-2">Un formulaire vous aide à générer les métadonnées nécessaires pour signaler vos sets de données.</p>
-                  <a href="document-your-repo.html" class="u-border-2 u-border-grey-75 u-btn u-button-style u-palette-4-light-1 u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Vers le formulaire</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-border-3 u-border-grey-dark-1 u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-line u-line-horizontal u-line-1"></div>
-        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-2">
-          <div class="u-gutter-0 u-layout">
-            <div class="u-layout-row">
-              <div class="u-align-left-lg u-align-left-md u-align-left-xl u-align-right-sm u-align-right-xs u-container-style u-layout-cell u-left-cell u-size-13-lg u-size-13-xl u-size-22-md u-size-22-sm u-size-22-xs u-layout-cell-3">
-                <div class="u-container-layout u-container-layout-3">
-                  <h3 class="u-text u-text-3">Ready to contribute?</h3>
-                </div>
-              </div>
-              <div class="u-align-left-lg u-align-left-md u-align-left-xl u-align-right-sm u-align-right-xs u-container-style u-layout-cell u-right-cell u-size-38-md u-size-38-sm u-size-38-xs u-size-47-lg u-size-47-xl u-layout-cell-4">
-                <div class="u-container-layout u-valign-bottom-sm u-container-layout-4">
-                  <p class="u-text u-text-4">A form helps you to generate the necessary metadata to present your datasets.</p>
-                  <a href="document-your-repo.html" class="u-border-2 u-border-grey-75 u-btn u-button-style u-palette-4-light-1 u-btn-2" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Go to form!</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    </header>
+  </div>
+    
+
+<!-- Presentation -->
+<main>
+  <div class="px-4 py-5 my-5 text-center mt-5" id="main">
+    <img src="assets/images/logo_htr-united.png" class="u-logo-image u-logo-image-1 mt-5" data-image-width="40" height="86">
+    <h1 class="display-5 fw-bold my-4">HTR-United</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.<br></p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-5">
+        <a type="button" class="btn btn-info btn-lg px-4 me-sm-3" href="#use-data"><i class="far fa-arrow-alt-circle-down"></i> Utiliser les données</a>
+        <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="#provide-data"><i class="far fa-arrow-alt-circle-up"></i> Proposer des données</a>
       </div>
-    </section>
-    
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-7a6d"><!--<div class="u-clearfix u-sheet u-sheet-1">-->
-        <p class="u-small-text u-text u-text-variant u-text-1">
-          <a href="https://github.com/HTR-United" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1">HTR-United</a> | 2020
+    </div>
+  </div>
+
+  <!-- Use data -->
+  <div class="container col-xxl-8 px-4 py-5" id="use-data">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="assets/images/image_seg.png" class="d-block mx-lg-auto img-fluid" alt="Aperçu d'une page segmentée" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6" >
+        <h1 class="display-5 fw-bold lh-1 mb-2">Utiliser les données d'HTR-United</h1>
+        <p class="lead">
+          HTR-United est un catalogue de jeux de données et de modèles pour la reconnaissance automatique d'écritures. Il prend la forme d'un fichier YML comprenant les métadonnées essentielles pour repérer les jeux de données compatibles avec vos documents et y accéder. Vous pouvez alors directement télécharger les jeux de données ou contacter leur(s) propriétaires, selon les modalités de partage définies.</p>
+          <p class="lead mt-2 mb-3">
+          Outre des informations sur le mode d'accès aux données, le catalogue rassemble des métadonnées décrivant les écritures représentées dans un jeu de données (temporalité, nombre de mains, caractéristiques) et les conditions de création des données (autorité, règles d'annotation, format).
         </p>
-      <!--</div>--></footer>
-    <!--<section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
-    </section>-->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-3">
+          <a type="button" class="btn btn-info btn-lg px-4 me-md-2" href="https://raw.githubusercontent.com/HTR-United/htr-united/master/htr-united.yml" download="htr-united.yml" ><!--<i class="fa fa-download"></i>--><i class="fas fa-arrow-alt-circle-down"></i> Télécharger le catalogue</a>
+          <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml" target="_blank"><!--<i class="fas fa-external-link-alt"></i>--><i class="fab fa-github"></i> Voir le catalogue sur Github</a>
+        </div>
+        <!-- TODO -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-3">
+          <a type="button" class="btn btn-info btn-lg px-4 me-md-2 disabled" href="#" download="htr-united.yml" ><i class="fas fa-question-circle"></i> Accéder à la FAQ</a>
+          <a type="button" class="btn btn-outline-secondary btn-lg px-4 disabled" href="#" ><i class="fas fa-quote-right"></i> Citer HTR-United</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Provide Data -->
+    <div class="container col-xxl-8 px-4 py-5" id="provide-data">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-lg-6" >
+        <h1 class="display-5 fw-bold lh-1 mb-3">Proposer mes données avec HTR-United</h1>
+        <p class="lead">Vous pouvez contribuer au projet HTR-United en référençant votre jeu de données de vérité de terrain dans le catalogue. Il suffit d'ajouter vos informations, générées à l'aide de notre formulaire, de manière à décrire vos données et leurs conditions d'accès et de réutilisation. Pas besoin de charger vos données sur Github, elles peuvent être hébergée n'importe où ! </p>
+        <p class="lead">Vos données peuvent avoir été générées avec n'importe quel logiciel d'HTR ou à la main et peuvent être proposées dans plusieurs formats standards, par exemple XML ALTO ou XML PAGE. Afin qu'ils puissent être utiles à d'autres projets, les jeux de données doivent rassembler à minima : des transcription associées à des images, un lien vers les imges, des métadonnées décrivant notamment les règles d'annotation suivies.</p>
+        <p class="lead">Pour vous aider à comprendre quelles étapes suivre pour ajouter vos données au catalogue HTR-United, consultez nos scénarios !</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a type="button" class="btn btn-info btn-lg px-4 me-md-2" href="document-your-repo.html"><i class="fas fa-clipboard-list"></i> Générer une description</a>
+          <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="#scenarios"><i class="fas fa-list"></i> Découvrir les scénarios</a>
+        </div>
+        <!-- TODO -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-3">
+          <a type="button" class="btn btn-info btn-lg px-4 me-md-2 disabled" href="#" download="htr-united.yml" ><i class="fas fa-question-circle"></i> Accéder à la FAQ</a>
+          <a type="button" class="btn btn-outline-secondary btn-lg px-4 disabled" href="#" ><i class="fas fa-quote-right"></i> Citer HTR-United</a>
+        </div>
+      </div>
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="assets/images/image_alto.png" class="d-block mx-lg-auto img-fluid" alt="Extrait d'un fichier XML ALTO 4" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scenarios -->
+  <div class="container my-3 col-xxl-8 px-4 pt-5" id="scenarios">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5 text-center">
+      <h1 class="display-5 fw-bold lh-1">Scénarios</h1>
+    </div>
+  </div>
+
+  <!-- Scenario 1 -->
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
+      <div class="col-lg-12 p-3 p-lg-5 pt-lg-3" id="scenarios">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Scénario 1</h1>
+        <p class="lead">Vos fichiers ne sont pas encore publiés. Vous pouvez rejoindre l'organisation HTR-United et créer un nouveau repository dédié à vos données. Celles-ci peuvent être constituées des fichiers XML seuls si les images sont aisément accessibles par un autre moyen. Après avoir associé à votre jeu une documentation sous la forme d'un README ainsi qu'une license, vous pouvez demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a class="text-decoration-none" href="document-your-repo.html">un formulaire</a> <i class="fas fa-link"></i>.</p>
+        <!--<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold">Primary</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+        </div>-->
+      </div>
+      <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
+      <div class="container px-5 text-center">
+        <img src="assets/images/sc1-full-htr-united.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Illustration du scénario 1" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Scenario 2 -->
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
+      <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Scénario 2</h1>
+        <p class="lead">Vos fichiers ne sont pas encore publiés et vous ne souhaitez pas les publier dans le cadre de l'organisation HTR-United. Aucun problème ! Il vous suffit de les publier sur la plateforme que vous souhaitez, par exemple Github. Elles peuvent être constituées des fichiers XML seuls si les images sont aisément accessibles par un autre moyen. Pensez à associer à vos données une license et une documentation sous la forme d'un README. Une fois le répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-repo.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
+      </div>
+      <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
+      <div class="container px-5 text-center">
+        <img src="assets/images/sc2-github.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Illustration du scénario 2" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Scenario 3 -->
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
+      <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Scénario 3</h1>
+        <p class="lead">Vos fichiers ne sont pas encore publiés et vous ne souhaitez pas les publier sur Github. Aucun problème ! Il vous suffit de les publier sur la plateforme de votre souhait, par exemple Zenodo. Pensez à associer à vos données une license et une documentation. Une fois le répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-repo.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
+      </div>
+      <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
+      <div class="container px-5 text-center">
+        <img src="assets/images/sc3-zenodo.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Illustration du scénario 3" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Scenario 4 -->
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
+      <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Scénario 4</h1>
+        <p class="lead">Vos données sont déjà en ligne et librement accessibles. Il vous suffit alors de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-repo.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
+        <p class="lead">
+          Pensez à compléter la documentation de votre jeu de données si celle que vous avez produite n'est pas suffisante pour HTR-United ! Vous pouvez pour cela créer un répertoire Github au sein de l'organisation HTR-United ou en dehors (scénarios 1 et 2) contenant seulement un README de documentation et un lien vers le jeu de données. 
+        </p>
+      </div>
+      <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
+      <div class="container px-5 text-center">
+        <img src="assets/images/sc4-already-online.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Illustration du scénario 4" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Scenario 5 -->
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
+      <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1">Scénario 5</h1>
+        <p class="lead">Vous ne pouvez pas librement partager vos données (images ou transcriptions) mais vous souhaitez tout de même contribuer à HTR-United. Pas de problème : vous pouvez créer un répertoire au sein de l'organisation HTR-United uniquement dédié à la documentation de vos données grâce à un fichier README. Indiquez alors comment joindre le(s) propriétaire(s) des données afin d'en demander l'accès. Une fois ce répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-repo.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
+      </div>
+      <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
+      <div class="container px-5 text-center">
+        <img src="assets/images/sc5-not-public.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Illustration du scénario 5" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="bg-dark text-secondary px-4 py-2 text-center">
+    <div class="py-3">
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5 mb-4">HTR-United | 2021</p>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="https://github.com/orgs/HTR-United/people" target="_blank">Qui est derrière HTR-United ?</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- utiliser mode dark pour version en anglais
+  <div class="bg-dark text-secondary px-4 py-5 text-center">
+    <div class="py-5">
+      <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
+          <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+
+</main>
+
+
+    <script src="static/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+    <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
+
+      
   </body>
 </html>
