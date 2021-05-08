@@ -100,10 +100,11 @@
     </header>
   </div>
     
-
-<!-- Presentation -->
+<!-- top padding -->
+<div class="my-4 py-5"></div>
+<!-- Main -->
 <main>
-  <div class="px-4 py-5 my-5 text-center mt-5" id="main">
+  <div class="px-4 py-5 my-5 text-center" id="main">
     <img src="assets/images/logo_htr-united.png" class="u-logo-image u-logo-image-1 mt-5" data-image-width="40" height="86">
     <h1 class="display-5 fw-bold my-4">HTR-United</h1>
     <div class="col-lg-6 mx-auto">
@@ -130,7 +131,7 @@
         </p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-3">
           <a type="button" class="btn btn-info btn-lg px-4 me-md-2" href="https://raw.githubusercontent.com/HTR-United/htr-united/master/htr-united.yml" download="htr-united.yml" ><!--<i class="fa fa-download"></i>--><i class="fas fa-arrow-alt-circle-down"></i> Télécharger le catalogue</a>
-          <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml" target="_blank"><!--<i class="fas fa-external-link-alt"></i>--><i class="fab fa-github"></i> Voir le catalogue sur Github</a>
+          <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml"><!--<i class="fas fa-external-link-alt"></i>--><i class="fab fa-github"></i> Voir le catalogue sur Github</a>
         </div>
         <!-- TODO -->
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-3">
@@ -150,7 +151,7 @@
         <p class="lead">Vos données peuvent avoir été générées avec n'importe quel logiciel d'HTR ou à la main et peuvent être proposées dans plusieurs formats standards, par exemple XML ALTO ou XML PAGE. Afin qu'ils puissent être utiles à d'autres projets, les jeux de données doivent rassembler à minima : des transcription associées à des images, un lien vers les imges, des métadonnées décrivant notamment les règles d'annotation suivies.</p>
         <p class="lead">Pour vous aider à comprendre quelles étapes suivre pour ajouter vos données au catalogue HTR-United, consultez nos scénarios !</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <a type="button" class="btn btn-info btn-lg px-4 me-md-2" href="document-your-repo.html"><i class="fas fa-clipboard-list"></i> Générer une description</a>
+          <a type="button" class="btn btn-info btn-lg px-4 me-md-2" href="document-your-data.html"><i class="fas fa-clipboard-list"></i> Générer une description</a>
           <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="#scenarios"><i class="fas fa-list"></i> Découvrir les scénarios</a>
         </div>
         <!-- TODO -->
@@ -178,7 +179,7 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3" id="scenarios">
         <h1 class="display-4 fw-bold lh-1 mb-3">Scénario 1</h1>
-        <p class="lead">Vos fichiers ne sont pas encore publiés. Vous pouvez rejoindre l'organisation HTR-United et créer un nouveau repository dédié à vos données. Celles-ci peuvent être constituées des fichiers XML seuls si les images sont aisément accessibles par un autre moyen. Après avoir associé à votre jeu une documentation sous la forme d'un README ainsi qu'une license, vous pouvez demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a class="text-decoration-none" href="document-your-repo.html">un formulaire</a> <i class="fas fa-link"></i>.</p>
+        <p class="lead">Vos fichiers ne sont pas encore publiés. Vous pouvez rejoindre l'organisation HTR-United et créer un nouveau repository dédié à vos données. Celles-ci peuvent être constituées des fichiers XML seuls si les images sont aisément accessibles par un autre moyen. Après avoir associé à votre jeu une documentation sous la forme d'un README ainsi qu'une license, vous pouvez demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a class="text-decoration-none" href="document-your-data.html">un formulaire</a> <i class="fas fa-link"></i>.</p>
         <!--<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
           <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold">Primary</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
@@ -197,7 +198,7 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1 mb-3">Scénario 2</h1>
-        <p class="lead">Vos fichiers ne sont pas encore publiés et vous ne souhaitez pas les publier dans le cadre de l'organisation HTR-United. Aucun problème ! Il vous suffit de les publier sur la plateforme que vous souhaitez, par exemple Github. Elles peuvent être constituées des fichiers XML seuls si les images sont aisément accessibles par un autre moyen. Pensez à associer à vos données une license et une documentation sous la forme d'un README. Une fois le répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-repo.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
+        <p class="lead">Vos fichiers ne sont pas encore publiés et vous ne souhaitez pas les publier dans le cadre de l'organisation HTR-United. Aucun problème ! Il vous suffit de les publier sur la plateforme que vous souhaitez, par exemple Github. Elles peuvent être constituées des fichiers XML seuls si les images sont aisément accessibles par un autre moyen. Pensez à associer à vos données une license et une documentation sous la forme d'un README. Une fois le répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-data.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
       </div>
       <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
       <div class="container px-5 text-center">
@@ -212,7 +213,7 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1 mb-3">Scénario 3</h1>
-        <p class="lead">Vos fichiers ne sont pas encore publiés et vous ne souhaitez pas les publier sur Github. Aucun problème ! Il vous suffit de les publier sur la plateforme de votre souhait, par exemple Zenodo. Pensez à associer à vos données une license et une documentation. Une fois le répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-repo.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
+        <p class="lead">Vos fichiers ne sont pas encore publiés et vous ne souhaitez pas les publier sur Github. Aucun problème ! Il vous suffit de les publier sur la plateforme de votre souhait, par exemple Zenodo. Pensez à associer à vos données une license et une documentation. Une fois le répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-data.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
       </div>
       <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
       <div class="container px-5 text-center">
@@ -227,7 +228,7 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1 mb-3">Scénario 4</h1>
-        <p class="lead">Vos données sont déjà en ligne et librement accessibles. Il vous suffit alors de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-repo.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
+        <p class="lead">Vos données sont déjà en ligne et librement accessibles. Il vous suffit alors de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-data.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
         <p class="lead">
           Pensez à compléter la documentation de votre jeu de données si celle que vous avez produite n'est pas suffisante pour HTR-United ! Vous pouvez pour cela créer un répertoire Github au sein de l'organisation HTR-United ou en dehors (scénarios 1 et 2) contenant seulement un README de documentation et un lien vers le jeu de données. 
         </p>
@@ -245,7 +246,7 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1">Scénario 5</h1>
-        <p class="lead">Vous ne pouvez pas librement partager vos données (images ou transcriptions) mais vous souhaitez tout de même contribuer à HTR-United. Pas de problème : vous pouvez créer un répertoire au sein de l'organisation HTR-United uniquement dédié à la documentation de vos données grâce à un fichier README. Indiquez alors comment joindre le(s) propriétaire(s) des données afin d'en demander l'accès. Une fois ce répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-repo.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
+        <p class="lead">Vous ne pouvez pas librement partager vos données (images ou transcriptions) mais vous souhaitez tout de même contribuer à HTR-United. Pas de problème : vous pouvez créer un répertoire au sein de l'organisation HTR-United uniquement dédié à la documentation de vos données grâce à un fichier README. Indiquez alors comment joindre le(s) propriétaire(s) des données afin d'en demander l'accès. Une fois ce répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i>. Pour vous aider à générer ces métadonnées, nous mettons à votre disposition <a href="document-your-data.html" class="text-decoration-none">un formulaire</a> <i class="fas fa-link"></i>.</p>
       </div>
       <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
       <div class="container px-5 text-center">
