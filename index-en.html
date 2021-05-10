@@ -82,26 +82,35 @@
   </head>
   <body id="top">
 
-    <!-- Navbar -->
-    <div class="container fixed-top">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#top" class="nav-link btn btn-nav px-2 link-secondary">HTR-United</a></li>
-        <li><a href="#use-data" class="nav-link btn btn-nav px-2 link-dark">Use the data</a></li>
-        <li><a href="#provide-data" class="nav-link btn btn-nav px-2 link-dark">Provide data</a></li>
-        <li><a href="#scenarios" class="nav-link btn btn-nav px-2 link-dark">Scenarios</a></li>
-        <li><a href="document-your-data-en.html" class="nav-link btn btn-nav-ext px-2 link-dark">Go to form</a></li>
-      </ul>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom  py-3 mb-4 px-5 shadow-lg">
+        <a class="navbar-brand" href="#top">HTR-United</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_htr-united" aria-controls="navbar_htr-united" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span><!--<i class="far fa-minus-square"></i>-->
+        </button>
 
-      <div class="col-md-3 text-end">
-        <a href="index.html" type="button" class="btn btn-outline-secondary me-2">Français</a>
-      </div>
-    </header>
-  </div>
-    
-<!-- top padding -->
-<div class="my-4 py-5"></div>
+        <div class="collapse navbar-collapse" id="navbar_htr-united">
+          <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
+            <li class="nav-item active">
+              <a class="nav-link btn btn-nav me-2" href="#use-data">Use the data</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="#provide-data">Provide data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="#scenarios">Scenarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav-ext me-2" href="document-your-data-en.html">Go to form</a>
+            </li>
+          </ul>
+          <div class="col-sm-2 text-end">
+            <a class="btn btn-outline-secondary me-2" href="index.html">Français</a>
+          </div>
+        </div>
+      </nav>
+
 <!-- Main -->
 <main>
   <div class="px-4 py-5 my-5 text-center" id="main">
@@ -269,7 +278,15 @@
 </main>
 
 
-    <script src="static/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+     <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!--<script src="static/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
 
     <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
 

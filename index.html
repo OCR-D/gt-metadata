@@ -82,33 +82,41 @@
   </head>
   <body id="top">
 
-    <!-- Navbar -->
-    <div class="container fixed-top">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom  py-3 mb-4 px-5 shadow-lg">
+        <a class="navbar-brand" href="#top">HTR-United</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_htr-united" aria-controls="navbar_htr-united" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span><!--<i class="far fa-minus-square"></i>-->
+        </button>
 
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#top" class="nav-link btn btn-nav px-2 link-secondary">HTR-United</a></li>
-        <li><a href="#use-data" class="nav-link btn btn-nav px-2 link-dark">Utiliser les données</a></li>
-        <li><a href="#provide-data" class="nav-link btn btn-nav px-2 link-dark">Proposer des données</a></li>
-        <li><a href="#scenarios" class="nav-link btn btn-nav px-2 link-dark">Scénarios</a></li>
-        <li><a href="document-your-data.html" class="nav-link btn btn-nav-ext px-2 link-dark">Aller au formulaire</a></li>
-      </ul>
+        <div class="collapse navbar-collapse" id="navbar_htr-united">
+          <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
+            <li class="nav-item active">
+              <a class="nav-link btn btn-nav me-2" href="#use-data">Utiliser les données</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="#provide-data">Proposer des données</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="#scenarios">Scénarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav-ext me-2" href="document-your-data.html">Aller au formulaire</a>
+            </li>
+          </ul>
+          <div class="col-sm-2 text-end">
+            <a class="btn btn-outline-secondary me-2" href="index-en.html">English</a>
+          </div>
+        </div>
+      </nav>
 
-      <div class="col-md-3 text-end">
-        <a href="index-en.html" type="button" class="btn btn-outline-secondary me-2">English</a>
-      </div>
-    </header>
-  </div>
-    
-<!-- top padding -->
-<div class="my-2 py-4"></div>
 <!-- Main -->
 <main>
   <div class="px-4 py-5 my-5 text-center" id="main">
     <img src="assets/images/logo_htr-united.png" class="u-logo-image u-logo-image-1 mt-5" data-image-width="40" height="86">
     <h1 class="display-5 fw-bold my-4">HTR-United</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.<br></p>
+      <p class="lead mb-4">HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentielles vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.<br></p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-5">
         <a type="button" class="btn btn-info btn-lg px-4 me-sm-3" href="#use-data"><i class="far fa-arrow-alt-circle-down"></i> Utiliser les données</a>
         <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="#provide-data"><i class="far fa-arrow-alt-circle-up"></i> Proposer des données</a>
@@ -285,8 +293,15 @@
 
 </main>
 
-
-    <script src="static/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!--<script src="static/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
 
     <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
 
