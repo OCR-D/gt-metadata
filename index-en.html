@@ -125,9 +125,9 @@
       <div class="col-lg-6" >
         <h1 class="display-5 fw-bold lh-1 mb-4">Use data referenced in HTR-United</h1>
         <p class="lead">
-          HTR-United is a catalog of datasets and models for (handwritten) text recognition. It takes the form of a YML file containing metadata essential to identify datasets compatibles with your document and to access them. You can download datasets or contact their owner(s), according to the modality they provided.</p>
+          HTR-United is a catalog of datasets and models for (handwritten) text recognition. It takes the form of a YML file containing metadata essential to identify datasets compatible with your document and to access them. You can download datasets or contact their owner(s), according to the modality they specified.</p>
           <p class="lead mt-2 mb-4">
-          Besides information on how to reach the data, the catalog gathers metadata describing the writings presented in the datasets (temporality, number of hands, features) and the condition of creation (authority, annotation rules, format).
+          Besides information on how to reach the data, the catalog gathers metadata describing the writings presented in the datasets (temporality, number of hands, features) and the conditions of creation (authority, annotation rules, format).
         </p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-3">
           <a type="button" class="btn btn-info btn-lg px-4 me-md-2" href="https://raw.githubusercontent.com/HTR-United/htr-united/master/htr-united.yml" download="htr-united.yml" ><!--<i class="fa fa-download"></i>--><i class="fas fa-arrow-alt-circle-down"></i> Download the catalog</a>
@@ -148,8 +148,8 @@
       <div class="col-lg-6" >
         <h1 class="display-5 fw-bold lh-1 mb-4">Provide data to HTR-United</h1>
         <p class="lead">You can contribute to the HTR-United project by referencing your ground truth dataset in the catalog. You only need to add the information generated thanks to the form we provide you, so as to describe your data and their conditions of access and reuse. No need to load your data onto Github, they can be hosted anywhere you want.</p>
-        <p class="lead">Your data can originate from any OCR/HTR software, or even from a manual process, and can be shared following various standards, for example ALTO XML or PAGE XML. In order for your dataset to be useful to other projects, it needs to be composed of at least : images, their transcription, metadata describing, among other things, the rules set to produce the annotation.</p>
-        <p class="lead mb-4">To help you understand which step to follow in order to contribute to contribute to the project, check out our scenarios!</p>
+        <p class="lead">Your data can originate from any OCR/HTR software, or even from a manual process, and can be shared following various standards, for example ALTO XML or PAGE XML. In order for your dataset to be useful to other projects, it needs to be composed of, at least: images, their transcriptions, metadata describing, among other things, the rules set to produce the annotation.</p>
+        <p class="lead mb-4">To help you understand which step to follow in order to contribute to the project, check out our scenarios!</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
           <a type="button" class="btn btn-info btn-lg px-4 me-md-2" href="document-your-data-en.html"><i class="fas fa-clipboard-list"></i> Generate a description</a>
           <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="#scenarios"><i class="fas fa-list"></i> Check out the scenarios</a>
@@ -179,7 +179,7 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3" id="scenarios">
         <h1 class="display-4 fw-bold lh-1 mb-3">Scenario 1</h1>
-        <p class="lead">Your files are not yet published. You can join the HTR-United Github organization and create a new repository dedicated to your data. They can be constituted by XML files exclusively if your images are hosted and downloadable somewhere else. After adding a basic documentation in a README file as well as a license, you can request an update on the <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i> file. To help you generate the required metadata, we provide you with <a class="text-decoration-none" href="document-your-data-en.html">a form</a> <i class="fas fa-link"></i>.</p>
+        <p class="lead">Your files are not yet published. You can join the HTR-United Github organization and create a new repository dedicated to your data. If your images are hosted and can be downloaded somewhere else, your repository can solely contain the transcriptions. Then, after adding a basic documentation in a README file as well as a license, you can request an update on the <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i> file. To help you generate the required metadata, we provide you with <a class="text-decoration-none" href="document-your-data-en.html">a form</a> <i class="fas fa-link"></i>.</p>
         <!--<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
           <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold">Primary</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
@@ -198,7 +198,7 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1 mb-3">Scenario 2</h1>
-        <p class="lead">Your files are not yet published and you do not wish to publish them within the HTR-United Github organization. No problem! You can publish you data on any platform, for example your own Github space. The dataset can be constituted by XML files exclusively if your images are hosted and downloadable somewhere else. After adding a basic documentation in a README file as well as a license, you can request an update on the <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i> file. To help you generate the required metadata, we provide you with <a class="text-decoration-none" href="document-your-data-en.html">a form</a> <i class="fas fa-link"></i>.</p>
+        <p class="lead">Your files are not yet published and you do not wish to publish them within the HTR-United Github organization. No problem! You can publish you data on any platform, for example your own Github space. If your images are hosted and can be downloaded somewhere else, your repository can solely contain the transcriptions. Then, after adding a basic documentation in a README file as well as a license, you can request an update on the <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i> file. To help you generate the required metadata, we provide you with <a class="text-decoration-none" href="document-your-data-en.html">a form</a> <i class="fas fa-link"></i>.</p>
       </div>
       <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
       <div class="container px-5 text-center">
@@ -228,8 +228,8 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg block-scenario">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1 mb-3">Scenario 4</h1>
-        <p class="lead">Your dataset is already online and accessile. Then you just need to request an update on the <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i> file. To help you generate the required metadata, we provide you with <a class="text-decoration-none" href="document-your-data-en.html">a form</a> <i class="fas fa-link"></i>.</p>
-        <p class="lead">Think of adding documentation to your dataset if it is not detailed enough. You can perfectly create a very basic repository under the HTR-United Github organization or in your own space (scenarios 1 and 2) containing only a README file and links to the online dataset.</p>
+        <p class="lead">Your dataset is already online and accessible. Then you just need to request an update on the <a class="text-decoration-none" href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">htr-united.yml</a> <i class="fas fa-link"></i> file. To help you generate the required metadata, we provide you with <a class="text-decoration-none" href="document-your-data-en.html">a form</a> <i class="fas fa-link"></i>.</p>
+        <p class="lead">Think of adding documentation to your dataset if it is not detailed enough. You can perfectly create a very basic repository under the HTR-United Github organization or in your own space (scenarios 1 and 2) containing only a README file and pointers to the published dataset.</p>
       </div>
       <div><!-- class="overflow-hidden" style="max-height: 30vh;">-->
       <div class="container px-5 text-center">
