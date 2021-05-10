@@ -62,6 +62,16 @@
         background-color: #fff;
       }
 
+      .form-control {
+        background-color: #fff !important;
+      }
+
+      .output-field {
+        background-color: #dce8ae;
+        width: 100%; 
+        min-height:50px;
+      }
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -119,83 +129,296 @@
 
 <!-- Use data -->
   <div class="container col-xxl-8 px-4 py-4" id="use-data">
-		<!-- Je laisse rajouter pour faire joli, je pense que je suis le moins bien placé -->
 		<div class="row">
 			<div class="col-12">
 				<form id="generate">
-				  <div class="form-group row">
-				    <label for="title" class="col-sm-2 col-form-label">Titre du projet</label>
-				    <div class="col-sm-10">
-				      <input type="text" name="title" class="form-control-plaintext" id="title" placeholder="Titre du projet">
+				  <div class="form-group row my-2">
+				    <label for="title" class="col-sm-3 col-form-label">Titre du projet</label>
+				    <div class="col-sm-9">
+				      <input type="text" name="title" class="form-control" id="title" placeholder="Titre du projet">
 				    </div>
 				  </div>
-				  <div class="form-group row">
-				    <label for="repoLink" class="col-sm-2 col-form-label">Lien du dépôt du projet</label>
-				    <div class="col-sm-10">
-				      <input type="text" name="repoLink" class="form-control-plaintext" id="repoLink" placeholder="Lien du dépôt du projet">
+				  <div class="form-group row my-2">
+				    <label for="repoLink" class="col-sm-3 col-form-label">Lien du dépôt du projet</label>
+				    <div class="col-sm-9">
+				      <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien du dépôt du projet">
 				    </div>
 				  </div>
-				  <div class="form-group row">
-				    <label for="desc" class="col-sm-2 col-form-label">Courte description</label>
-				    <div class="col-sm-10">
-				      <input type="text" name="desc" class="form-control-plaintext" id="desc" placeholder="Description">
+          <div class="form-group row my-2">
+            <label for="language" class="col-sm-3 col-form-label">Langue</label>
+            <div class="col-sm-9">
+              <input type="text" name="language" class="form-control" id="language" placeholder="Langue dans les documents">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="script" class="col-sm-3 col-form-label">Système d'écriture</label>
+            <div class="col-sm-9">
+              <select name="script" title="Main script" id="script" class="form-control">
+                <option value="Adlam">Adlam</option>
+                <option value="Afaka">Afaka</option>
+                <option value="Ahom, Tai Ahom">Ahom, Tai Ahom</option>
+                <option value="Anatolian Hieroglyphs (Luwian Hieroglyphs, Hittite Hieroglyphs)">Anatolian Hieroglyphs (Luwian Hieroglyphs, Hittite Hieroglyphs)</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Arabic (Nastaliq variant)">Arabic (Nastaliq variant)</option>
+                <option value="Armenian">Armenian</option>
+                <option value="Avestan">Avestan</option>
+                <option value="Balinese">Balinese</option>
+                <option value="Bamum">Bamum</option>
+                <option value="Bassa Vah">Bassa Vah</option>
+                <option value="Batak">Batak</option>
+                <option value="Bengali (Bangla)">Bengali (Bangla)</option>
+                <option value="Bhaiksuki">Bhaiksuki</option>
+                <option value="Blissymbols">Blissymbols</option>
+                <option value="Book Pahlavi">Book Pahlavi</option>
+                <option value="Bopomofo">Bopomofo</option>
+                <option value="Brahmi">Brahmi</option>
+                <option value="Braille">Braille</option>
+                <option value="Buginese">Buginese</option>
+                <option value="Buhid">Buhid</option>
+                <option value="Carian">Carian</option>
+                <option value="Caucasian Albanian">Caucasian Albanian</option>
+                <option value="Chakma">Chakma</option>
+                <option value="Cham">Cham</option>
+                <option value="Cherokee">Cherokee</option>
+                <option value="Chu Nom">Chu Nom</option>
+                <option value="Cirth">Cirth</option>
+                <option value="Code for inherited script">Code for inherited script</option>
+                <option value="Code for uncoded script">Code for uncoded script</option>
+                <option value="Code for undetermined script">Code for undetermined script</option>
+                <option value="Code for unwritten documents">Code for unwritten documents</option>
+                <option value="Coptic">Coptic</option>
+                <option value="Cuneiform, Sumero-Akkadian">Cuneiform, Sumero-Akkadian</option>
+                <option value="Cypriot syllabary">Cypriot syllabary</option>
+                <option value="Cypro-Minoan">Cypro-Minoan</option>
+                <option value="Cyrillic">Cyrillic</option>
+                <option value="Cyrillic (Old Church Slavonic variant)">Cyrillic (Old Church Slavonic variant)</option>
+                <option value="Deseret (Mormon)">Deseret (Mormon)</option>
+                <option value="Devanagari (Nagari)">Devanagari (Nagari)</option>
+                <option value="Dogra">Dogra</option>
+                <option value="Duployan shorthand, Duployan stenography">Duployan shorthand, Duployan stenography</option>
+                <option value="Egyptian demotic">Egyptian demotic</option>
+                <option value="Egyptian hieratic">Egyptian hieratic</option>
+                <option value="Egyptian hieroglyphs">Egyptian hieroglyphs</option>
+                <option value="Elbasan">Elbasan</option>
+                <option value="Elymaic">Elymaic</option>
+                <option value="Ethiopic (Geʻez)">Ethiopic (Geʻez)</option>
+                <option value="Georgian (Mkhedruli and Mtavruli)">Georgian (Mkhedruli and Mtavruli)</option>
+                <option value="Glagolitic">Glagolitic</option>
+                <option value="Gothic">Gothic</option>
+                <option value="Grantha">Grantha</option>
+                <option value="Greek">Greek</option>
+                <option value="Gujarati">Gujarati</option>
+                <option value="Gunjala Gondi">Gunjala Gondi</option>
+                <option value="Gurmukhi">Gurmukhi</option>
+                <option value="Han (Hanzi, Kanji, Hanja)">Han (Hanzi, Kanji, Hanja)</option>
+                <option value="Han (Simplified variant)">Han (Simplified variant)</option>
+                <option value="Han (Traditional variant)">Han (Traditional variant)</option>
+                <option value="Han with Bopomofo (alias for Han + Bopomofo)">Han with Bopomofo (alias for Han + Bopomofo)</option>
+                <option value="Hangul (Hangŭl, Hangeul)">Hangul (Hangŭl, Hangeul)</option>
+                <option value="Hanifi Rohingya">Hanifi Rohingya</option>
+                <option value="Hanunoo (Hanunóo)">Hanunoo (Hanunóo)</option>
+                <option value="Hatran">Hatran</option>
+                <option value="Hebrew">Hebrew</option>
+                <option value="Hiragana">Hiragana</option>
+                <option value="Imperial Aramaic">Imperial Aramaic</option>
+                <option value="Indus (Harappan)">Indus (Harappan)</option>
+                <option value="Inscriptional Pahlavi">Inscriptional Pahlavi</option>
+                <option value="Inscriptional Parthian">Inscriptional Parthian</option>
+                <option value="Jamo (alias for Jamo subset of Hangul)">Jamo (alias for Jamo subset of Hangul)</option>
+                <option value="Japanese (alias for Han + Hiragana + Katakana)">Japanese (alias for Han + Hiragana + Katakana)</option>
+                <option value="Japanese syllabaries (alias for Hiragana + Katakana)">Japanese syllabaries (alias for Hiragana + Katakana)</option>
+                <option value="Javanese">Javanese</option>
+                <option value="Jurchen">Jurchen</option>
+                <option value="Kaithi">Kaithi</option>
+                <option value="Kannada">Kannada</option>
+                <option value="Katakana">Katakana</option>
+                <option value="Kayah Li">Kayah Li</option>
+                <option value="Kharoshthi">Kharoshthi</option>
+                <option value="Khitan large script">Khitan large script</option>
+                <option value="Khitan small script">Khitan small script</option>
+                <option value="Khmer">Khmer</option>
+                <option value="Khojki">Khojki</option>
+                <option value="Khudawadi, Sindhi">Khudawadi, Sindhi</option>
+                <option value="Khutsuri (Asomtavruli and Nuskhuri)">Khutsuri (Asomtavruli and Nuskhuri)</option>
+                <option value="Klingon (KLI pIqaD)">Klingon (KLI pIqaD)</option>
+                <option value="Korean (alias for Hangul + Han)">Korean (alias for Hangul + Han)</option>
+                <option value="Kpelle">Kpelle</option>
+                <option value="Lao">Lao</option>
+                <option value="Latin" selected="">Latin</option>
+                <option value="Latin (Fraktur variant)">Latin (Fraktur variant)</option>
+                <option value="Latin (Gaelic variant)">Latin (Gaelic variant)</option>
+                <option value="Leke">Leke</option>
+                <option value="Lepcha (Róng)">Lepcha (Róng)</option>
+                <option value="Limbu">Limbu</option>
+                <option value="Linear A">Linear A</option>
+                <option value="Linear B">Linear B</option>
+                <option value="Lisu (Fraser)">Lisu (Fraser)</option>
+                <option value="Loma">Loma</option>
+                <option value="Lycian">Lycian</option>
+                <option value="Lydian">Lydian</option>
+                <option value="Mahajani">Mahajani</option>
+                <option value="Makasar">Makasar</option>
+                <option value="Malayalam">Malayalam</option>
+                <option value="Mandaic, Mandaean">Mandaic, Mandaean</option>
+                <option value="Manichaean">Manichaean</option>
+                <option value="Marchen">Marchen</option>
+                <option value="Masaram Gondi">Masaram Gondi</option>
+                <option value="Mathematical notation">Mathematical notation</option>
+                <option value="Mayan hieroglyphs">Mayan hieroglyphs</option>
+                <option value="Medefaidrin (Oberi Okaime, Oberi Ɔkaimɛ)">Medefaidrin (Oberi Okaime, Oberi Ɔkaimɛ)</option>
+                <option value="Meitei Mayek (Meithei, Meetei)">Meitei Mayek (Meithei, Meetei)</option>
+                <option value="Mende Kikakui">Mende Kikakui</option>
+                <option value="Meroitic Cursive">Meroitic Cursive</option>
+                <option value="Meroitic Hieroglyphs">Meroitic Hieroglyphs</option>
+                <option value="Miao (Pollard)">Miao (Pollard)</option>
+                <option value="Modi, Moḍī">Modi, Moḍī</option>
+                <option value="Mongolian">Mongolian</option>
+                <option value="Moon (Moon code, Moon script, Moon type)">Moon (Moon code, Moon script, Moon type)</option>
+                <option value="Mro, Mru">Mro, Mru</option>
+                <option value="Multani">Multani</option>
+                <option value="Myanmar (Burmese)">Myanmar (Burmese)</option>
+                <option value="Nabataean">Nabataean</option>
+                <option value="Nandinagari">Nandinagari</option>
+                <option value="Naxi Dongba (na²¹ɕi³³ to³³ba²¹, Nakhi Tomba)">Naxi Dongba (na²¹ɕi³³ to³³ba²¹, Nakhi Tomba)</option>
+                <option value="Naxi Geba (na²¹ɕi³³ gʌ²¹ba²¹, 'Na-'Khi ²Ggŏ-¹baw, Nakhi Geba)">Naxi Geba (na²¹ɕi³³ gʌ²¹ba²¹, 'Na-'Khi ²Ggŏ-¹baw, Nakhi Geba)</option>
+                <option value="New Tai Lue">New Tai Lue</option>
+                <option value="Newa, Newar, Newari, Nepāla lipi">Newa, Newar, Newari, Nepāla lipi</option>
+                <option value="Nyiakeng Puachue Hmong">Nyiakeng Puachue Hmong</option>
+                <option value="Nüshu">Nüshu</option>
+                <option value="N’Ko">N’Ko</option>
+                <option value="Ogham">Ogham</option>
+                <option value="Ol Chiki (Ol Cemet’, Ol, Santali)">Ol Chiki (Ol Cemet’, Ol, Santali)</option>
+                <option value="Old Hungarian (Hungarian Runic)">Old Hungarian (Hungarian Runic)</option>
+                <option value="Old Italic (Etruscan, Oscan, etc.)">Old Italic (Etruscan, Oscan, etc.)</option>
+                <option value="Old North Arabian (Ancient North Arabian)">Old North Arabian (Ancient North Arabian)</option>
+                <option value="Old Permic">Old Permic</option>
+                <option value="Old Persian">Old Persian</option>
+                <option value="Old Sogdian">Old Sogdian</option>
+                <option value="Old South Arabian">Old South Arabian</option>
+                <option value="Old Turkic, Orkhon Runic">Old Turkic, Orkhon Runic</option>
+                <option value="Oriya (Odia)">Oriya (Odia)</option>
+                <option value="Osage">Osage</option>
+                <option value="Osmanya">Osmanya</option>
+                <option value="Pahawh Hmong">Pahawh Hmong</option>
+                <option value="Palmyrene">Palmyrene</option>
+                <option value="Pau Cin Hau">Pau Cin Hau</option>
+                <option value="Phags-pa">Phags-pa</option>
+                <option value="Phoenician">Phoenician</option>
+                <option value="Psalter Pahlavi">Psalter Pahlavi</option>
+                <option value="Rejang (Redjang, Kaganga)">Rejang (Redjang, Kaganga)</option>
+                <option value="Reserved for private use (end)">Reserved for private use (end)</option>
+                <option value="Reserved for private use (start)">Reserved for private use (start)</option>
+                <option value="Rongorongo">Rongorongo</option>
+                <option value="Runic">Runic</option>
+                <option value="Samaritan">Samaritan</option>
+                <option value="Sarati">Sarati</option>
+                <option value="Saurashtra">Saurashtra</option>
+                <option value="Sharada, Śāradā">Sharada, Śāradā</option>
+                <option value="Shavian (Shaw)">Shavian (Shaw)</option>
+                <option value="Shuishu">Shuishu</option>
+                <option value="Siddham, Siddhaṃ, Siddhamātṛkā">Siddham, Siddhaṃ, Siddhamātṛkā</option>
+                <option value="SignWriting">SignWriting</option>
+                <option value="Sinhala">Sinhala</option>
+                <option value="Sogdian">Sogdian</option>
+                <option value="Sora Sompeng">Sora Sompeng</option>
+                <option value="Soyombo">Soyombo</option>
+                <option value="Sundanese">Sundanese</option>
+                <option value="Syloti Nagri">Syloti Nagri</option>
+                <option value="Symbols">Symbols</option>
+                <option value="Symbols (Emoji variant)">Symbols (Emoji variant)</option>
+                <option value="Syriac">Syriac</option>
+                <option value="Syriac (Eastern variant)">Syriac (Eastern variant)</option>
+                <option value="Syriac (Estrangelo variant)">Syriac (Estrangelo variant)</option>
+                <option value="Syriac (Western variant)">Syriac (Western variant)</option>
+                <option value="Tagalog (Baybayin, Alibata)">Tagalog (Baybayin, Alibata)</option>
+                <option value="Tagbanwa">Tagbanwa</option>
+                <option value="Tai Le">Tai Le</option>
+                <option value="Tai Tham (Lanna)">Tai Tham (Lanna)</option>
+                <option value="Tai Viet">Tai Viet</option>
+                <option value="Takri, Ṭākrī, Ṭāṅkrī">Takri, Ṭākrī, Ṭāṅkrī</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Tangut">Tangut</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Tengwar">Tengwar</option>
+                <option value="Thaana">Thaana</option>
+                <option value="Thai">Thai</option>
+                <option value="Tibetan">Tibetan</option>
+                <option value="Tifinagh (Berber)">Tifinagh (Berber)</option>
+                <option value="Tirhuta">Tirhuta</option>
+                <option value="Ugaritic">Ugaritic</option>
+                <option value="Unified Canadian Aboriginal Syllabics">Unified Canadian Aboriginal Syllabics</option>
+                <option value="Urdu">Urdu</option>
+                <option value="Vai">Vai</option>
+                <option value="Visible Speech">Visible Speech</option>
+                <option value="Wancho">Wancho</option>
+                <option value="Warang Citi (Varang Kshiti)">Warang Citi (Varang Kshiti)</option>
+                <option value="Woleai">Woleai</option>
+                <option value="Yi">Yi</option>
+                <option value="Zanabazar Square (Zanabazarin Dörböljin Useg, Xewtee Dörböljin Bicig, Horizontal Square Script)">Zanabazar Square (Zanabazarin Dörböljin Useg, Xewtee Dörböljin Bicig, Horizontal Square Script)</option>
+              </select>
+            </div>
+          </div>
+				  <div class="form-group row my-2">
+				    <label for="desc" class="col-sm-3 col-form-label">Courte description</label>
+				    <div class="col-sm-9">
+				      <textarea name="desc" class="form-control" id="desc" placeholder="Description"></textarea>
 				    </div>
 				  </div>
-				  <div class="form-group row">
-				    <label for="date-begin" class="col-sm-2 col-form-label">Année de début des sources (environ)</label>
-				    <div class="col-sm-10">
-				      <input type="number" name="date-begin" class="form-control-plaintext" id="date-begin" placeholder="Exemple: 1800">
+				  <div class="form-group row my-2">
+				    <label for="date-begin" class="col-sm-3 col-form-label">Année de début des sources (environ)</label>
+				    <div class="col-sm-9">
+				      <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800">
 				    </div>
 				  </div>
-				  <div class="form-group row">
-				    <label for="date-end" class="col-sm-2 col-form-label">Année de fin des sources (environ)</label>
-				    <div class="col-sm-10">
-				      <input type="number" name="date-end" class="form-control-plaintext" id="date-end" placeholder="Exemple: 1948">
+				  <div class="form-group row my-2">
+				    <label for="date-end" class="col-sm-3 col-form-label">Année de fin des sources (environ)</label>
+				    <div class="col-sm-9">
+				      <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948">
 				    </div>
 				  </div>
-				  <div class="form-group row">
-				    <label for="hands" class="col-sm-2 col-form-label">Nombre de mains (Environ)</label>
-				    <div class="col-sm-10">
-				      <input type="number" name="hands" class="form-control-plaintext" id="hands" placeholder="Exemple: 2">
+				  <div class="form-group row my-2">
+				    <label for="hands" class="col-sm-3 col-form-label">Nombre de mains (Environ)</label>
+				    <div class="col-sm-9">
+				      <input type="number" name="hands" class="form-control " id="hands" placeholder="Exemple: 2">
 				    </div>
 				  </div>
-				  <div class="form-group row">
-				    <label for="license" class="col-sm-2 col-form-label">Licence</label>
-				    <div class="col-sm-10">
-				    	<select name="license" id="license">
+				  <div class="form-group row my-2">
+				    <label for="license" class="col-sm-3 col-form-label">Licence</label>
+				    <div class="col-sm-9">
+				    	<select class="form-control" name="license" id="license">
 				    		<option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
 				    		<!-- Ajouter d'autres options !-->
 				    	</select>
 				    </div>
 				  </div>
-				  <div class="form-group row">
-				    <label for="format" class="col-sm-2 col-form-label">Format des données</label>
-				    <div class="col-sm-10">
-				    	<select name="format" id="format">
-				    		<option value="XML-Alto">ALTO XML</option>
-						<option value="XML-Page">PAGE XML</option>
+				  <div class="form-group row my-2">
+				    <label for="format" class="col-sm-3 col-form-label">Format des données</label>
+				    <div class="col-sm-9">
+				    	<select name="format" id="format" class="form-control">
+				    		<option value="Alto-XML">ALTO XML</option>
+                <option value="Page-XML">PAGE XML</option>
 				    		<!-- Ajouter d'autres options !-->
 				    	</select>
 				    </div>
 				  </div>
-				  <div class="form-group row">
-				    <label for="metric" class="col-sm-2 col-form-label">Nombre (environ) de lignes ou de pages</label>
-				    <div class="col-sm-10">
-				      <input type="number" name="units" class="form-control-plaintext" id="units" placeholder="Exemple: 200">
-				    	<select name="metric" id="metric">
+				  <div class="form-group row my-2">
+				    <label for="metric" class="col-sm-3 col-form-label">Nombre (environ) de lignes ou de pages</label>
+				    <div class="col-sm-9">
+				      <input type="number" name="units" class="form-control mb-2" id="units" placeholder="Exemple: 200">
+				    	<select name="metric" id="metric" class="form-control my-2">
 				    		<option value="lines">Lignes</option>
 				    		<option value="pages">Pages</option>
 				    		<!-- Ajouter d'autres options !-->
 				    	</select>
 				    </div>
 				  </div>
-				  <button class="btn btn-secondary mt-4" type="submit">Obtenir les métadonnées formattées</button>
+				  <button class="btn btn-secondary mt-4" type="submit">Obtenir les métadonnées formatées</button>
 				</form>
 			</div>
 		</div>
-		<div class="row" style="margin-top: 5%; margin-bottom: 5%">
+		<div class="row my-5">
 			<div class="col-12">
-				<pre id="output" style="margin:5px; border-radius: 5px; padding: 1em; background-color: #dce8ae; width: 100%; min-height:50px;"></pre>
+				<pre id="output" class="my-3 p-4 rounded output-field"></pre>
 			</div>
 		</div>
 	</div>
@@ -243,16 +466,17 @@
 			output.innerText = `title : '${normalize(data.title)}'
 url: '${data.repoLink}'
 description: '${normalize(data.desc)}'
-language: French
+language: '${data.language}'
 #other-languages:
-#    - "Optionel"
+#    - "Optional"
+script: '${data.script}'
 time: ${data["date-begin"]}--${data["date-end"]}
 hands: ${data.hands}
 license:
     - ${data.license}
 format: '${data.format}'
 volume:
-    - {count: "${data.units}", metric: "${data.metric}}
+    - {count: "${data.units}", metric: "${data.metric}"}
 `;
 		});
 	</script>
