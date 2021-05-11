@@ -95,6 +95,7 @@
         <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom  py-3 mb-4 px-5 shadow-lg">
         <a class="navbar-brand" href="index.html#top">HTR-United</a>
+        <a class="navbar-brand" href="https://github.com/HTR-United"><i class="fab fa-github"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_htr-united" aria-controls="navbar_htr-united" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span><!--<i class="far fa-minus-square"></i>-->
         </button>
@@ -119,13 +120,43 @@
 
 <!-- Main -->
   <main>
-  <div class="px-4 py-5 my-5 text-center mt-5" id="main">
+  <div class="px-4 pt-5 pb-2 mt-5 text-center" id="main">
     <img src="assets/images/logo_htr-united.png" class="u-logo-image u-logo-image-1 mt-5" data-image-width="40" height="86">
     <h1 class="display-5 fw-bold my-4">HTR-United</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.<br></p>
+      </div>
   </div>
-</div>
+
+  <div class="px-4 pb-5 pt-2 mb-5" id="steps">
+    <h2 class="display-5 mb-4 text-center">Étapes</h1>
+    <div class="col-lg-4 mx-auto">
+      <div class="list-group list-group-flush">
+        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep1" aria-expanded="false" aria-controls="collapseStep1">Remplir le formulaire</button>
+        <div class="collapse" id="collapseStep1">
+          <div class="card card-body bg-light">Suivre les examples. Si nécessaire, modifier manuellement l'output : ce formulaire aide seulement à structurer la description et à s'assurer que toutes les rubriques sont documentées.
+          </div>
+        </div>
+        <!-- step 2 -->
+        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep2" aria-expanded="false" aria-controls="collapseStep2">Cliquer sur "Obtenir les métadonnées formatées"</button>
+        <div class="collapse" id="collapseStep2">
+          <div class="card card-body bg-light">Et copier le résultat !
+          </div>
+        </div>
+        <!-- step 3 -->
+        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep3" aria-expanded="false" aria-controls="collapseStep3">Ajouter le résultat au catalogue d'HTR-United</button>
+        <div class="collapse" id="collapseStep3">
+          <div class="card card-body bg-light">Il est possible de faire cela de plusieurs manières, en fonction de la maîtrise de Github : 
+            <ul>
+              <li>Forker le <a href="https://github.com/HTR-United/htr-united" target="_blank" class="text-decoration-none">projet htr-united</a>, modifier htr-united.yml et créer une Pull Request.</li>
+              <li>Or <a href="https://github.com/HTR-United/htr-united/issues/new" target="_blank" class="text-decoration-none">créer un ticket</a> au sein du projet htr-united pour que quelqu'un d'autre modifie htr-united.yml.</li>
+              <!--<li>Or send us a message using our contact form.</li>-->
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- Use data -->
   <div class="container col-xxl-8 px-4 py-4" id="use-data">
