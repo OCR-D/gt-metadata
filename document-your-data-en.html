@@ -388,6 +388,18 @@
             </div>
           </div>
           <div class="form-group row my-2">
+            <label for="scriptType" class="col-sm-3 col-form-label">Script type</label>
+            <div class="col-sm-9">
+              <select name="scriptType" id="format" class="form-control">
+                <option value="only-manuscript">Manuscript only</option>
+                <option value="only-typed">Typed only</option>
+                <option value="mainly-manuscript">Mainly manuscript</option>
+                <option value="mainly-typed">Mainly typed</option>
+                <option value="evenly-mixed">Evenly typed and manuscript</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2">
             <label for="desc" class="col-sm-3 col-form-label">Short description</label>
             <div class="col-sm-9">
               <textarea name="desc" class="form-control" id="desc" placeholder="Description"></textarea>
@@ -499,6 +511,7 @@ language: '${data.language}'
 #other-languages:
 #    - "Optional"
 script: '${data.script}'
+script-type: '${data.scriptType}'
 time: ${data["date-begin"]}--${data["date-end"]}
 hands: ${data.hands}
 license:
