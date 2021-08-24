@@ -406,9 +406,21 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label">Estimated number of hands</label>
+            <label for="hands" class="col-sm-3 col-form-label">Number of hands</label>
             <div class="col-sm-9">
-              <input type="number" name="hands" class="form-control " id="hands" placeholder="Example: 2">
+              <select name="hands" id="hands" class="form-control my-2">
+                <option value="<=10">Less or equal to 10</option>
+                <option value=">10">More than 10</option>
+                <option value="1" selected="">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <select name="precision" id="precision" class="form-control my-2">
+                <option value="exact" selected="">Exact value</option>
+                <option value="estimated">Estimated value</option>
+              </select>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -500,7 +512,8 @@ language: '${data.language}'
 #    - "Optional"
 script: '${data.script}'
 time: ${data["date-begin"]}--${data["date-end"]}
-hands: ${data.hands}
+hands: 
+    - {count: "${data.hands}", precision: "${data.precision}"}
 license:
     - ${data.license}
 format: '${data.format}'
