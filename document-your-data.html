@@ -435,13 +435,12 @@
             <label for="hands" class="col-sm-3 col-form-label">Nombre de mains</label>
             <div class="col-sm-9">
               <select name="hands" id="hands" class="form-control my-2">
-                <option value="<=10">Inférieur ou égal à 10</option>
-                <option value=">10">Plus de 10</option>
                 <option value="1" selected="">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <option value="1-per-file">1 par fichier</option>
+                <option value="1-per-folder">1 par dossier</option>
+                <option value="<11">Inférieur ou égal à 10 (peu)</option>
+                <option value=">10">Supérieur à 10 (beaucoup)</option>
+                <option value="unknown">Inconnu</option>
               </select>
               <select name="precision" id="precision" class="form-control my-2">
                 <option value="exact" selected="">Valeur exacte</option>

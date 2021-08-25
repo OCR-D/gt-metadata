@@ -433,13 +433,12 @@
             <label for="hands" class="col-sm-3 col-form-label">Number of hands</label>
             <div class="col-sm-9">
               <select name="hands" id="hands" class="form-control my-2">
-                <option value="<=10">Less or equal to 10</option>
-                <option value=">10">More than 10</option>
                 <option value="1" selected="">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <option value="1-per-file">1 per file</option>
+                <option value="1-per-folder">1 per folder</option>
+                <option value="<11">Less than or equal to 10 (few)</option>
+                <option value=">10">More than 10 (many)</option>
+                <option value="unknown">Unknown</option>
               </select>
               <select name="precision" id="precision" class="form-control my-2">
                 <option value="exact" selected="">Exact value</option>
