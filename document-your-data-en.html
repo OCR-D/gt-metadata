@@ -430,9 +430,20 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label">Estimated number of hands</label>
+            <label for="hands" class="col-sm-3 col-form-label">Number of hands (or fonts)</label>
             <div class="col-sm-9">
-              <input type="number" name="hands" class="form-control " id="hands" placeholder="Example: 2">
+              <select name="hands" id="hands" class="form-control my-2">
+                <option value="1" selected="">1</option>
+                <option value="1-per-file">1 per file</option>
+                <option value="1-per-folder">1 per folder</option>
+                <option value="less-than-11">Less than or equal to 10 (few)</option>
+                <option value="more-than-10">More than 10 (many)</option>
+                <option value="unknown">Unknown</option>
+              </select>
+              <select name="precision" id="precision" class="form-control my-2">
+                <option value="exact" selected="">Exact value</option>
+                <option value="estimated">Estimated value</option>
+              </select>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -527,7 +538,8 @@ language: '${data.language}'
 script: '${data.script}'
 script-type: '${data.scriptType}'
 time: ${data["date-begin"]}--${data["date-end"]}
-hands: ${data.hands}
+hands: 
+    - {count: "${data.hands}", precision: "${data.precision}"}
 license:
     - ${data.license}
 format: '${data.format}'
