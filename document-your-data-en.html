@@ -164,15 +164,27 @@
       <div class="col-12">
         <form id="generate">
           <div class="form-group row my-2">
-            <label for="title" class="col-sm-3 col-form-label">Project Title</label>
+            <label for="repoName" class="col-sm-3 col-form-label">Repository's title</label>
             <div class="col-sm-9">
-              <input type="text" name="title" class="form-control" id="title" placeholder="Project title">
+              <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Repository's title">
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="repoLink" class="col-sm-3 col-form-label">Link to the dataset</label>
+            <label for="repoLink" class="col-sm-3 col-form-label">Link to repository</label>
             <div class="col-sm-9">
-              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Link to the dataset">
+              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Link to repository">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectName" class="col-sm-3 col-form-label">Project's name</label>
+            <div class="col-sm-9">
+              <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Project's name">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectWebsite" class="col-sm-3 col-form-label">Link to project's website</label>
+            <div class="col-sm-9">
+              <input type="text" name="projectWebsite" class="form-control" id="projectWebsite" placeholder="Link to project's website (if applicable)">
             </div>
           </div>
           <div class="form-group row my-2">
@@ -388,6 +400,18 @@
             </div>
           </div>
           <div class="form-group row my-2">
+            <label for="scriptType" class="col-sm-3 col-form-label">Script type</label>
+            <div class="col-sm-9">
+              <select name="scriptType" id="format" class="form-control">
+                <option value="only-manuscript">Manuscript only</option>
+                <option value="only-typed">Typed only</option>
+                <option value="mainly-manuscript">Mainly manuscript</option>
+                <option value="mainly-typed">Mainly typed</option>
+                <option value="evenly-mixed">Evenly typed and manuscript</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2">
             <label for="desc" class="col-sm-3 col-form-label">Short description</label>
             <div class="col-sm-9">
               <textarea name="desc" class="form-control" id="desc" placeholder="Description"></textarea>
@@ -504,13 +528,16 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       var data = Object.fromEntries(new FormData(form));
-      output.innerText = `title : '${normalize(data.title)}'
+      output.innerText = `title : '${normalize(data.repoName)}'
 url: '${data.repoLink}'
+project-name: '${data.projectName}'
+project-website: '${data.projectWebsite}'
 description: '${normalize(data.desc)}'
 language: '${data.language}'
 #other-languages:
 #    - "Optional"
 script: '${data.script}'
+script-type: '${data.scriptType}'
 time: ${data["date-begin"]}--${data["date-end"]}
 hands: 
     - {count: "${data.hands}", precision: "${data.precision}"}
