@@ -188,26 +188,35 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="authority" class="col-sm-3 col-form-label">Autorité et rôle(s)</label>
-            <!-- add duplication -->
-            <div class="col-sm-9">
-              <input type="text" name="authoritySurname" class="form-control mb-2" id="authority" placeholder="Nom de l'auteur-rice">
-              <input type="text" name="authorityName" class="form-control mb-2" id="authority" placeholder="Prénom de l'auteur-rice">
-              <div class="form-check-inline checkbox checkbox-inline my-1 py-2">
-                <input type="checkbox" value="transcriber" name="roleTranscriber" id="roleTranscriber">
-                <label class="form-check-label" for="roleTranscriber">Transcription</label>
-              </div>
-              <div class="form-check-inline my-1 py-2">
-                <input type="checkbox" value="aligner" name="roleAligner" id="roleAligner">
-                <label class="form-check-label" for="roleAligner">Alignement</label>
-              </div>
-              <div class="form-check-inline my-1 py-2">
-                <input type="checkbox" value="main-creator" name="roleMainCreator" id="roleMainCreator">
-                <label class="form-check-label" for="roleMainCreator">Création</label>
-              </div>
-              <div class="form-check-inline my-1 py-2">
-                <input type="checkbox" value="support" name="roleSupport" id="roleSupport">
-                <label class="form-check-label" for="roleSupport">Assistance</label>
+            <div class="col-3">
+              Acteur-rice-s du projet
+            </div>
+            <div class="col-9">
+              <div class="row author original-author" style="border: 1px solid #CCCCCC; padding:1em; margin-bottom: 1em;">
+                <div class="col-sm-3">
+                  <button class="btn btn-primary btn-sm add-author">Ajouter une personne</button>
+                  <button class="btn btn-danger btn-sm remove-author invisible" style="margin-top:5px;">Supprimer cette personne</button>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" name="authorityName" class="form-control mb-2" placeholder="Nom de l'auteur-rice">
+                  <input type="text" name="authoritySurname" class="form-control mb-2" placeholder="Prénom de l'auteur-rice">
+                  <div class="form-check-inline checkbox checkbox-inline my-1 py-2">
+                    <input type="checkbox" value="transcriber" name="roleTranscriber" id="roleTranscriber">
+                    <label class="form-check-label" for="roleTranscriber">Transcription</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="aligner" name="roleAligner" id="roleAligner">
+                    <label class="form-check-label" for="roleAligner">Alignement</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="project-manager" name="roleMainCreator" id="roleMainCreator">
+                    <label class="form-check-label" for="roleMainCreator">Responsable du projet</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="support" name="roleSupport" id="roleSupport">
+                    <label class="form-check-label" for="roleSupport">Assistance</label>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -508,7 +517,9 @@
     </div>
     <div class="row my-5">
       <div class="col-12">
-        <pre id="output" class="my-3 p-4 rounded output-field"></pre>
+        <hr />
+        <a id="output-link" class="invisible btn btn-success">Copiez le texte ci-dessous dans le formulaire en lien dans ce bouton !</a>
+        <pre id="output" class="my-3 p-4 rounded output-field invisible"></pre>
       </div>
     </div>
   </div>
@@ -542,47 +553,7 @@
     <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
 
 
-    <script type="text/javascript">
-    const form = document.getElementById("generate"),
-        output = document.getElementById("output");
-
-    const normalize = function(a_string) {
-      return a_string.replace("'", "’");
-    };
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var data = Object.fromEntries(new FormData(form));
-      output.innerText = `title : '${normalize(data.repoName)}'
-url: '${data.repoLink}'
-project-name: '${data.projectName}'
-project-website: '${data.projectWebsite}'
-authors:
-    - name: '${data.authoritySurname}'
-      surname: '${data.authorityName}'
-      roles:
-        - '${data.roleTranscriber}'
-        - '${data.roleAligner}'
-        - '${data.roleMainCreator}'
-        - '${data.roleSupport}'
-description: '${normalize(data.desc)}'
-language: '${data.language}'
-#other-languages:
-#    - "Optional"
-script: '${data.script}'
-script-type: '${data.scriptType}'
-time: ${data["date-begin"]}--${data["date-end"]}
-hands: 
-    - {count: "${data.hands}", precision: "${data.precision}"}
-license:
-    - ${data.license}
-format: '${data.format}'
-volume:
-    - {count: "${data.units}", metric: "${data.metric}"}
-`;
-    });
-  </script>
-
+    <script type="text/javascript" src="assets/catalog.js"></script>
   </body>
 </html>
 
