@@ -402,6 +402,17 @@
             </div>
           </div>
           <div class="form-group row my-2">
+            <label for="scriptType" class="col-sm-3 col-form-label">Type d'écriture</label>
+            <div class="col-sm-9">
+              <select name="scriptType" id="format" class="form-control">
+                <option value="only-manuscript">Manuscrit uniquement</option>
+                <option value="only-typed">Imprimé/dactylographié uniquement</option>
+                <option value="mainly-manuscript">Principalement manuscrit</option>
+                <option value="mainly-typed">Principalement imprimé/dactylographié</option>
+                <option value="evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
+              </select>
+            </div>
+          </div>
             <label for="desc" class="col-sm-3 col-form-label">Courte description</label>
             <div class="col-sm-9">
               <textarea name="desc" class="form-control" id="desc" placeholder="Description"></textarea>
@@ -515,6 +526,7 @@ language: '${data.language}'
 #other-languages:
 #    - "Optional"
 script: '${data.script}'
+script-type: '${data.scriptType}'
 time: ${data["date-begin"]}--${data["date-end"]}
 hands: ${data.hands}
 license:
