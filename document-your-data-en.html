@@ -164,15 +164,61 @@
       <div class="col-12">
         <form id="generate">
           <div class="form-group row my-2">
-            <label for="title" class="col-sm-3 col-form-label">Project Title</label>
+            <label for="repoName" class="col-sm-3 col-form-label">Repository's title</label>
             <div class="col-sm-9">
-              <input type="text" name="title" class="form-control" id="title" placeholder="Project title">
+              <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Repository's title">
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="repoLink" class="col-sm-3 col-form-label">Link to the dataset</label>
+            <label for="repoLink" class="col-sm-3 col-form-label">Link to repository</label>
             <div class="col-sm-9">
-              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Link to the dataset">
+              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Link to repository">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectName" class="col-sm-3 col-form-label">Project's name</label>
+            <div class="col-sm-9">
+              <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Project's name">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectWebsite" class="col-sm-3 col-form-label">Link to project's website</label>
+            <div class="col-sm-9">
+              <input type="text" name="projectWebsite" class="form-control" id="projectWebsite" placeholder="Link to project's website (if applicable)">
+            </div>
+          </div>
+
+          <div class="form-group row my-2">
+            <div class="col-3">
+              Authority and role(s)
+            </div>
+            <div class="col-9">
+              <div class="row author original-author" style="border: 1px solid #CCCCCC; padding:1em; margin-bottom: 1em;">
+                <div class="col-sm-3">
+                  <button class="btn btn-primary btn-sm add-author">Add a member</button>
+                  <button class="btn btn-danger btn-sm remove-author invisible" style="margin-top:5px;">Remove a member</button>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" name="authorityName" class="form-control mb-2" placeholder="Author's last name">
+                  <input type="text" name="authoritySurname" class="form-control mb-2" placeholder="Author first name">
+                  <div class="form-check-inline checkbox checkbox-inline my-1 py-2">
+                    <input type="checkbox" value="transcriber" name="roleTranscriber" id="roleTranscriber">
+                    <label class="form-check-label" for="roleTranscriber">Transcription</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="aligner" name="roleAligner" id="roleAligner">
+                    <label class="form-check-label" for="roleAligner">Alignment</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="project-manager" name="roleMainCreator" id="roleMainCreator">
+                    <label class="form-check-label" for="roleMainCreator">Project Manager</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="support" name="roleSupport" id="roleSupport">
+                    <label class="form-check-label" for="roleSupport">Support</label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -388,6 +434,18 @@
             </div>
           </div>
           <div class="form-group row my-2">
+            <label for="scriptType" class="col-sm-3 col-form-label">Script type</label>
+            <div class="col-sm-9">
+              <select name="scriptType" id="format" class="form-control">
+                <option value="only-manuscript">Manuscript only</option>
+                <option value="only-typed">Typed only</option>
+                <option value="mainly-manuscript">Mainly manuscript</option>
+                <option value="mainly-typed">Mainly typed</option>
+                <option value="evenly-mixed">Evenly typed and manuscript</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2">
             <label for="desc" class="col-sm-3 col-form-label">Short description</label>
             <div class="col-sm-9">
               <textarea name="desc" class="form-control" id="desc" placeholder="Description"></textarea>
@@ -406,9 +464,20 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label">Estimated number of hands</label>
+            <label for="hands" class="col-sm-3 col-form-label">Number of hands (or fonts)</label>
             <div class="col-sm-9">
-              <input type="number" name="hands" class="form-control " id="hands" placeholder="Example: 2">
+              <select name="hands" id="hands" class="form-control my-2">
+                <option value="1" selected="">1</option>
+                <option value="1-per-file">1 per file</option>
+                <option value="1-per-folder">1 per folder</option>
+                <option value="less-than-11">Less than or equal to 10 (few)</option>
+                <option value="more-than-10">More than 10 (many)</option>
+                <option value="unknown">Unknown</option>
+              </select>
+              <select name="precision" id="precision" class="form-control my-2">
+                <option value="exact" selected="">Exact value</option>
+                <option value="estimated">Estimated value</option>
+              </select>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -447,6 +516,7 @@
     </div>
     <div class="row my-5">
       <div class="col-12">
+        <a id="output-link" class="invisible btn btn-success">Copy the data in the form here !</a>
         <pre id="output" class="my-3 p-4 rounded output-field"></pre>
       </div>
     </div>
@@ -481,34 +551,7 @@
     <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
 
 
-        <script type="text/javascript">
-    const form = document.getElementById("generate"),
-        output = document.getElementById("output");
-
-    const normalize = function(a_string) {
-      return a_string.replace("'", "’");
-    };
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var data = Object.fromEntries(new FormData(form));
-      output.innerText = `title : '${normalize(data.title)}'
-url: '${data.repoLink}'
-description: '${normalize(data.desc)}'
-language: '${data.language}'
-#other-languages:
-#    - "Optional"
-script: '${data.script}'
-time: ${data["date-begin"]}--${data["date-end"]}
-hands: ${data.hands}
-license:
-    - ${data.license}
-format: '${data.format}'
-volume:
-    - {count: "${data.units}", metric: "${data.metric}"}
-`;
-    });
-  </script>
+        <script type="text/javascript" src="assets/catalog.js"></script>
       
   </body>
 </html>

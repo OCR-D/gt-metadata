@@ -160,21 +160,66 @@
 
 <!-- Use data -->
   <div class="container col-xxl-8 px-4 py-4" id="use-data">
-		<div class="row">
-			<div class="col-12">
-				<form id="generate">
-				  <div class="form-group row my-2">
-				    <label for="title" class="col-sm-3 col-form-label">Titre du projet</label>
-				    <div class="col-sm-9">
-				      <input type="text" name="title" class="form-control" id="title" placeholder="Titre du projet">
-				    </div>
-				  </div>
-				  <div class="form-group row my-2">
-				    <label for="repoLink" class="col-sm-3 col-form-label">Lien du dépôt du projet</label>
-				    <div class="col-sm-9">
-				      <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien du dépôt du projet">
-				    </div>
-				  </div>
+    <div class="row">
+      <div class="col-12">
+        <form id="generate">
+          <div class="form-group row my-2">
+            <label for="repoName" class="col-sm-3 col-form-label">Nom du dépôt (titre)</label>
+            <div class="col-sm-9">
+              <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Nom du dépôt">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="repoLink" class="col-sm-3 col-form-label">Lien vers le dépôt</label>
+            <div class="col-sm-9">
+              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien vers le dépôt">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectName" class="col-sm-3 col-form-label">Nom du projet</label>
+            <div class="col-sm-9">
+              <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Nom du projet">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectWebsite" class="col-sm-3 col-form-label">Lien vers le site du projet</label>
+            <div class="col-sm-9">
+              <input type="text" name="projectWebsite" class="form-control" id="projectWebsite" placeholder="Lien vers le site du projet (s'il existe)">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <div class="col-3">
+              Acteur-rice-s du projet
+            </div>
+            <div class="col-9">
+              <div class="row author original-author" style="border: 1px solid #CCCCCC; padding:1em; margin-bottom: 1em;">
+                <div class="col-sm-3">
+                  <button class="btn btn-primary btn-sm add-author">Ajouter une personne</button>
+                  <button class="btn btn-danger btn-sm remove-author invisible" style="margin-top:5px;">Supprimer cette personne</button>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" name="authorityName" class="form-control mb-2" placeholder="Nom de l'auteur-rice">
+                  <input type="text" name="authoritySurname" class="form-control mb-2" placeholder="Prénom de l'auteur-rice">
+                  <div class="form-check-inline checkbox checkbox-inline my-1 py-2">
+                    <input type="checkbox" value="transcriber" name="roleTranscriber" id="roleTranscriber">
+                    <label class="form-check-label" for="roleTranscriber">Transcription</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="aligner" name="roleAligner" id="roleAligner">
+                    <label class="form-check-label" for="roleAligner">Alignement</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="project-manager" name="roleMainCreator" id="roleMainCreator">
+                    <label class="form-check-label" for="roleMainCreator">Responsable du projet</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="support" name="roleSupport" id="roleSupport">
+                    <label class="form-check-label" for="roleSupport">Assistance</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="form-group row my-2">
             <label for="language" class="col-sm-3 col-form-label">Langue</label>
             <div class="col-sm-9">
@@ -389,71 +434,96 @@
               </select>
             </div>
           </div>
-				  <div class="form-group row my-2">
-				    <label for="desc" class="col-sm-3 col-form-label">Courte description</label>
-				    <div class="col-sm-9">
-				      <textarea name="desc" class="form-control" id="desc" placeholder="Description"></textarea>
-				    </div>
-				  </div>
-				  <div class="form-group row my-2">
-				    <label for="date-begin" class="col-sm-3 col-form-label">Année de début des sources (environ)</label>
-				    <div class="col-sm-9">
-				      <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800">
-				    </div>
-				  </div>
-				  <div class="form-group row my-2">
-				    <label for="date-end" class="col-sm-3 col-form-label">Année de fin des sources (environ)</label>
-				    <div class="col-sm-9">
-				      <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948">
-				    </div>
-				  </div>
-				  <div class="form-group row my-2">
-				    <label for="hands" class="col-sm-3 col-form-label">Nombre de mains (Environ)</label>
-				    <div class="col-sm-9">
-				      <input type="number" name="hands" class="form-control " id="hands" placeholder="Exemple: 2">
-				    </div>
-				  </div>
-				  <div class="form-group row my-2">
-				    <label for="license" class="col-sm-3 col-form-label">Licence</label>
-				    <div class="col-sm-9">
-				    	<select class="form-control" name="license" id="license">
-				    		<option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
-				    		<!-- Ajouter d'autres options !-->
-				    	</select>
-				    </div>
-				  </div>
-				  <div class="form-group row my-2">
-				    <label for="format" class="col-sm-3 col-form-label">Format des données</label>
-				    <div class="col-sm-9">
-				    	<select name="format" id="format" class="form-control">
-				    		<option value="Alto-XML">ALTO XML</option>
+          <div class="form-group row my-2">
+            <label for="scriptType" class="col-sm-3 col-form-label">Type d'écriture</label>
+            <div class="col-sm-9">
+              <select name="scriptType" id="format" class="form-control">
+                <option value="only-manuscript">Manuscrit uniquement</option>
+                <option value="only-typed">Imprimé/dactylographié uniquement</option>
+                <option value="mainly-manuscript">Principalement manuscrit</option>
+                <option value="mainly-typed">Principalement imprimé/dactylographié</option>
+                <option value="evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="desc" class="col-sm-3 col-form-label">Courte description</label>
+            <div class="col-sm-9">
+              <textarea name="desc" class="form-control" id="desc" placeholder="Description"></textarea>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="date-begin" class="col-sm-3 col-form-label">Année de début des sources (environ)</label>
+            <div class="col-sm-9">
+              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="date-end" class="col-sm-3 col-form-label">Année de fin des sources (environ)</label>
+            <div class="col-sm-9">
+              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="hands" class="col-sm-3 col-form-label">Nombre de mains (ou de fontes)</label>
+            <div class="col-sm-9">
+              <select name="hands" id="hands" class="form-control my-2">
+                <option value="1" selected="">1</option>
+                <option value="1-per-file">1 par fichier</option>
+                <option value="1-per-folder">1 par dossier</option>
+                <option value="less-than-11">Inférieur ou égal à 10 (peu)</option>
+                <option value="more-than-10">Supérieur à 10 (beaucoup)</option>
+                <option value="unknown">Inconnu</option>
+              </select>
+              <select name="precision" id="precision" class="form-control my-2">
+                <option value="exact" selected="">Valeur exacte</option>
+                <option value="estimated">Estimation</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="license" class="col-sm-3 col-form-label">Licence</label>
+            <div class="col-sm-9">
+              <select class="form-control" name="license" id="license">
+                <option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
+                <!-- Ajouter d'autres options !-->
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="format" class="col-sm-3 col-form-label">Format des données</label>
+            <div class="col-sm-9">
+              <select name="format" id="format" class="form-control">
+                <option value="Alto-XML">ALTO XML</option>
                 <option value="Page-XML">PAGE XML</option>
-				    		<!-- Ajouter d'autres options !-->
-				    	</select>
-				    </div>
-				  </div>
-				  <div class="form-group row my-2">
-				    <label for="metric" class="col-sm-3 col-form-label">Nombre (environ) de lignes ou de pages</label>
-				    <div class="col-sm-9">
-				      <input type="number" name="units" class="form-control mb-2" id="units" placeholder="Exemple: 200">
-				    	<select name="metric" id="metric" class="form-control my-2">
-				    		<option value="lines">Lignes</option>
-				    		<option value="pages">Pages</option>
-				    		<!-- Ajouter d'autres options !-->
-				    	</select>
-				    </div>
-				  </div>
-				  <button class="btn btn-secondary mt-4" type="submit">Obtenir les métadonnées formatées</button>
-				</form>
-			</div>
-		</div>
-		<div class="row my-5">
-			<div class="col-12">
-				<pre id="output" class="my-3 p-4 rounded output-field"></pre>
-			</div>
-		</div>
-	</div>
-	</section>
+                <!-- Ajouter d'autres options !-->
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="metric" class="col-sm-3 col-form-label">Nombre (environ) de lignes ou de pages</label>
+            <div class="col-sm-9">
+              <input type="number" name="units" class="form-control mb-2" id="units" placeholder="Exemple: 200">
+              <select name="metric" id="metric" class="form-control my-2">
+                <option value="lines">Lignes</option>
+                <option value="pages">Pages</option>
+                <!-- Ajouter d'autres options !-->
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-secondary mt-4" type="submit">Obtenir les métadonnées formatées</button>
+        </form>
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col-12">
+        <hr />
+        <a id="output-link" class="invisible btn btn-success">Copiez le texte ci-dessous dans le formulaire en lien dans ce bouton !</a>
+        <pre id="output" class="my-3 p-4 rounded output-field invisible"></pre>
+      </div>
+    </div>
+  </div>
+  </section>
 
   <!-- Footer -->
   <div class="bg-dark text-secondary px-4 py-2 text-center">
@@ -483,35 +553,7 @@
     <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
 
 
-    <script type="text/javascript">
-		const form = document.getElementById("generate"),
-			  output = document.getElementById("output");
-
-		const normalize = function(a_string) {
-			return a_string.replace("'", "’");
-		};
-
-		form.addEventListener('submit', function(e) {
-			e.preventDefault();
-			var data = Object.fromEntries(new FormData(form));
-			output.innerText = `title : '${normalize(data.title)}'
-url: '${data.repoLink}'
-description: '${normalize(data.desc)}'
-language: '${data.language}'
-#other-languages:
-#    - "Optional"
-script: '${data.script}'
-time: ${data["date-begin"]}--${data["date-end"]}
-hands: ${data.hands}
-license:
-    - ${data.license}
-format: '${data.format}'
-volume:
-    - {count: "${data.units}", metric: "${data.metric}"}
-`;
-		});
-	</script>
-      
+    <script type="text/javascript" src="assets/catalog.js"></script>
   </body>
 </html>
 
