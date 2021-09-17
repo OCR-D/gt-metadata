@@ -168,5 +168,20 @@
         }
     }
   },
-  "required": ["title", "description", "url", "language", "script", "time", "format", "hands", "volume"]
+  "licence": {
+    "description": "Licence under which the data are shared",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the Licence, eg. CC-BY 4.0"
+        },
+        "url": {
+            "type": "string",
+            "description": "URL of the Licence",
+            "format": "uri"
+        }
+    }
+  }
+  "required": ["title", "description", "url", "language", "script", "time", "format", "hands", "volume", "licence"]
 }
