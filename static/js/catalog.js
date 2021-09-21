@@ -1,6 +1,6 @@
 (function() { // Document ready
 
-      const form = document.getElementById("generate"),
+    const form = document.getElementById("generate"),
         output = document.getElementById("output"),
         link = document.getElementById("output-link"),
         authorOriginal = document.querySelector(".original-author"),
@@ -109,20 +109,45 @@
       return text;
     };
 
+    const languageSelect = new SelectPure(".language", {
+        options: languages,
+        multiple: true,
+        autocomplete: true, // default: false
+        value: ["frm", "fro", "lat", "eng", "fra"], 
+
+        icon: "fa fa-times", // uses Font Awesome
+        inlineIcon: false // custom cross icon for multiple select.
+    });
+    const scriptSelect = new SelectPure(".scripts", {
+        options: scripts,
+        multiple: true,
+        autocomplete: true, // default: false
+        value: ["Latn"],
+            
+        icon: "fa fa-times", // uses Font Awesome
+        inlineIcon: false // custom cross icon for multiple select.
+    });
+
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      var data = Object.fromEntries(new FormData(form));
+      let data = Object.fromEntries(new FormData(form));
+      let languages = languageSelect.value().join("\n  - ");
+      let scripts = scriptSelect.value().join("\n  - ");
       output.innerText = `title : '${normalize(data.repoName)}'
+
 url: '${data.repoLink}'
 project-name: '${data.projectName}'
 project-website: '${data.projectWebsite}'${getAuthors()}
 description: '${normalize(data.desc)}'
-language: '${data.language}'
-#other-languages:
-#    - "Optional"
-script: '${data.script}'
+language:
+  - ${languages}
+script: 
+  - ${scripts}
 script-type: '${data.scriptType}'
-time: ${data["date-begin"]}--${data["date-end"]}
+time: 
+  start: ${data["date-begin"]}
+  end: ${data["date-end"]}
 hands: 
     - count: '${data.hands}'
       precision: '${data.precision}'
@@ -130,7 +155,7 @@ license:
     - ${data.license}
 format: '${data.format}'
 volume:
-    - {count: "${data.units}", metric: "${data.metric}"}
+    - {count: ${data.units}, metric: "${data.metric}"}
 `;
     output.classList.remove("invisible");
     link.classList.remove("invisible");
