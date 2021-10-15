@@ -150,7 +150,7 @@
         if (metric_count.trim() === "") { continue; }
 
         // DO NOT REINDENT
-        text = text + `\n  - metric: '${metric_metric}'\n    count: '${metric_count}'`;
+        text = text + `\n  - metric: '${metric_metric}'\n    count: ${metric_count}`;
       }
 
       return text;
@@ -193,8 +193,8 @@ script:
   - ${scripts}
 script-type: '${data.scriptType}'
 time: 
-  start: ${data["date-begin"]}
-  end: ${data["date-end"]}
+  notBefore: "${data["date-begin"]}"
+  notAfter: "${data["date-end"]}"
 hands: 
   count: '${data.hands}'
   precision: '${data.precision}'
