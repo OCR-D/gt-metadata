@@ -201,6 +201,7 @@ hands:
 license:
   - ${data.license}
 format: '${data.format}'${getMetrics()}
+schema: "https://htr-united.github.io/schema/2021-10-15.json"
 `;
     output.classList.remove("invisible");
     link.classList.remove("invisible");
