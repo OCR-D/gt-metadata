@@ -32,8 +32,6 @@
         inp.checked = null;
       }
 
-
-
       idForAuthors++;
       // Insert element in the DOM
       authorOriginal.after(new_elem);
@@ -43,11 +41,40 @@
       // Register events
       add_button.addEventListener("click", addAuthor);
       remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
-
     };
+
 
     document.querySelector(".add-author").addEventListener("click", addAuthor);
 
+    const metricOriginal = document.querySelector(".metric-form");
+
+    const addMetric = function(event) {
+      event.preventDefault();
+      // Retrieve element and their copy
+      let new_elem = metricOriginal.cloneNode(true),
+          add_button = new_elem.querySelector(".add-metric"),
+          remove_button = new_elem.querySelector(".remove-metric"),
+          options = new_elem.querySelectorAll("option[selected]"),
+          text_inputs = new_elem.querySelectorAll("input[type='text']");
+
+
+      // Clean text inputs
+      for (var i = text_inputs.length - 1; i >= 0; i--) {
+        text_inputs[i].value = "0";
+      }
+
+      idForAuthors++;
+      // Insert element in the DOM
+      metricOriginal.after(new_elem);
+      // Un-hide the element for removal
+      remove_button.classList.remove("d-none");
+
+      // Register events
+      add_button.addEventListener("click", addMetric);
+      remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
+    };
+
+    document.querySelector(".add-metric").addEventListener("click", addMetric);
 
     const normalize = function(a_string) {
       return a_string.replace("'", "’");
@@ -107,6 +134,26 @@
       }
 
       return text;
+    };    
+
+    const getMetrics = function () {
+      let text = "\nvolume:",
+          metrics = document.querySelectorAll(".metric-form");
+
+      if (metrics.length == 0) {
+        return "";
+      }
+      for (var i = 0; i < metrics.length; i++) {
+        let metric_count = metrics[i].querySelector("input[name='metric-count']").value,
+            metric_metric = metrics[i].querySelector("select[name='metric-metric']").value;
+
+        if (metric_count.trim() === "") { continue; }
+
+        // DO NOT REINDENT
+        text = text + `\n  - metric: '${metric_metric}'\n    count: '${metric_count}'`;
+      }
+
+      return text;
     };
 
     const languageSelect = new SelectPure(".language", {
@@ -134,8 +181,8 @@
       let data = Object.fromEntries(new FormData(form));
       let languages = languageSelect.value().join("\n  - ");
       let scripts = scriptSelect.value().join("\n  - ");
-      output.innerText = `title : '${normalize(data.repoName)}'
 
+      output.innerText = `title : '${normalize(data.repoName)}'
 url: '${data.repoLink}'
 project-name: '${data.projectName}'
 project-website: '${data.projectWebsite}'${getAuthors()}
@@ -149,13 +196,11 @@ time:
   start: ${data["date-begin"]}
   end: ${data["date-end"]}
 hands: 
-    - count: '${data.hands}'
-      precision: '${data.precision}'
+  count: '${data.hands}'
+  precision: '${data.precision}'
 license:
-    - ${data.license}
-format: '${data.format}'
-volume:
-    - {count: ${data.units}, metric: "${data.metric}"}
+  - ${data.license}
+format: '${data.format}'${getMetrics()}
 `;
     output.classList.remove("invisible");
     link.classList.remove("invisible");

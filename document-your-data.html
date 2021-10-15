@@ -167,13 +167,13 @@
           <div class="form-group row my-2">
             <label for="repoName" class="col-sm-3 col-form-label">Nom du dépôt (titre)</label>
             <div class="col-sm-9">
-              <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Nom du dépôt">
+              <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Nom du dépôt" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
             <label for="repoLink" class="col-sm-3 col-form-label">Lien vers le dépôt</label>
             <div class="col-sm-9">
-              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien vers le dépôt">
+              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien vers le dépôt" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
@@ -223,13 +223,16 @@
           </div>
           <div class="form-group row my-2">
             <label for="language" class="col-sm-3 col-form-label">Langue</label>
-            <div class="col-sm-9"><span class="language"></span>
+            <div class="col-sm-9">
+              <span class="language"></span>
+              <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
             </div>
           </div>
           <div class="form-group row my-2">
             <label for="script" class="col-sm-3 col-form-label">Système d'écriture</label>
             <div class="col-sm-9">
               <span class="scripts"></span>
+              <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -247,25 +250,25 @@
           <div class="form-group row my-2">
             <label for="desc" class="col-sm-3 col-form-label">Courte description</label>
             <div class="col-sm-9">
-              <textarea name="desc" class="form-control" id="desc" placeholder="Description"></textarea>
+              <textarea name="desc" class="form-control" id="desc" placeholder="Description" required="true"></textarea>
             </div>
           </div>
           <div class="form-group row my-2">
             <label for="date-begin" class="col-sm-3 col-form-label">Année de début des sources (environ)</label>
             <div class="col-sm-9">
-              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800">
+              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
             <label for="date-end" class="col-sm-3 col-form-label">Année de fin des sources (environ)</label>
             <div class="col-sm-9">
-              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948">
+              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
             <label for="hands" class="col-sm-3 col-form-label">Nombre de mains (ou de fontes)</label>
             <div class="col-sm-9">
-              <select name="hands" id="hands" class="form-control my-2">
+              <select name="hands" id="hands" class="form-control my-2" required="true">
                 <option value="1" selected="">1</option>
                 <option value="1-per-file">1 par fichier</option>
                 <option value="1-per-folder">1 par dossier</option>
@@ -299,17 +302,24 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="metric" class="col-sm-3 col-form-label">Nombre (environ) de lignes ou de pages</label>
+            <label for="metric" class="col-sm-3 col-form-label">Description sommaire des quantités</label>
             <div class="col-sm-9">
-              <input type="number" name="units" class="form-control mb-2" id="units" placeholder="Exemple: 200">
-              <select name="metric" id="metric" class="form-control my-2">
-                <option value="lines">Lignes</option>
-                <option value="pages">Pages</option>
-                <option value="characters">Caractères</option>
-                <option value="regions">Zones</option>
-                <option value="files">Fichiers</option>
-                <!-- Ajouter d'autres options !-->
-              </select>
+              <div class="metric-form">
+                <div class="input-group">
+                  <input type="number" name="metric-count" class="form-control" placeholder="Exemple: 200" min="1">
+                  <select name="metric-metric" class="form-control ">
+                    <option value="lines">Lignes</option>
+                    <option value="pages">Pages</option>
+                    <option value="characters">Caractères</option>
+                    <option value="regions">Zones</option>
+                    <option value="files">Fichiers</option>
+                  </select>
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-primary add-metric" type="button">Add metric</button>
+                    <button class="btn btn-outline-danger d-none remove-metric" type="button">Remove</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <button class="btn btn-secondary mt-4" type="submit">Obtenir les métadonnées formatées</button>
