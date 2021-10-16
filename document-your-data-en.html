@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="HTR-United Home Page">
     <meta name="author" content="Alix Chagué">
+    <meta name="author" content="Thibault Clérice">
     <title>Document your data for pour HTR-United</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/heroes/">
 
     <!-- Bootstrap core CSS -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/catalog.css" rel="stylesheet">
     <!--<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">-->
 
     <!-- Favicons -->
@@ -111,6 +111,9 @@
             <li class="nav-item">
               <a class="nav-link btn btn-nav me-2" href="index-en.html#scenarios">Scenarios</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav-ext me-2" href="team.html">The Team</a>
+            </li>
           </ul>
           <div class="col-sm-2 text-end">
             <a class="btn btn-outline-secondary me-2" href="document-your-data.html">Français</a>
@@ -161,22 +164,65 @@
 <!-- Use data -->
   <div class="container col-xxl-8 px-4 py-4" id="use-data">
     <div class="row">
+      <div class="col-12 text-muted"><p>Fields followed by a <span class="required">*</span> are the only one required.</p></div>
+    </div>
+    <div class="row">
       <div class="col-12">
         <form id="generate">
-          <div class="form-group row my-2">
-            <label for="repoName" class="col-sm-3 col-form-label">Repository's title</label>
-            <div class="col-sm-9">
-              <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Repository's title">
+          <div class="row">
+            <div class="col">
+              <h2>General information about the dataset</h2>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="repoLink" class="col-sm-3 col-form-label">Link to repository</label>
+            <label for="repoName" class="col-sm-3 col-form-label">Repository's or dataset's title<span class="required">*</span></label>
             <div class="col-sm-9">
-              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Link to repository">
+              <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Repository's title" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="projectName" class="col-sm-3 col-form-label">Project's name</label>
+            <label for="repoLink" class="col-sm-3 col-form-label">Link to repository<span class="required">*</span></label>
+            <div class="col-sm-9">
+              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Link to repository" required="true">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="desc" class="col-sm-3 col-form-label">Short description<span class="required">*</span></label>
+            <div class="col-sm-9">
+              <textarea name="desc" class="form-control" id="desc" placeholder="Description" required="true"></textarea>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="citationCFF" class="col-sm-3 col-form-label">Link to a CITATION.cff file</label>
+            <div class="col-sm-9">
+              <input type="text" name="cff" class="form-control" id="citationCFF" placeholder="Link to a CITATION.cff file">
+              <p><small class="text-muted">CITATION.cf files allow for generating quick APA citations or Bibtex ones on github for example. See: <a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small></p>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="license" class="col-sm-3 col-form-label">License<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <select class="form-control" name="license" id="license">
+                <option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
+                <!-- Ajouter d'autres options !-->
+              </select>
+            </div>
+            <label for="format" class="col-sm-3 col-form-label">Format Standard<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <select name="format" id="format" class="form-control">
+                <option value="Alto-XML">ALTO XML</option>
+                <option value="Page-XML">PAGE XML</option>
+                <!-- Add more options !-->
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h2>General information about the project</h2>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectName" class="col-sm-3 col-form-label">Project's name (if different from the repository/dataset's one)</label>
             <div class="col-sm-9">
               <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Project's name">
             </div>
@@ -214,6 +260,14 @@
                     <label class="form-check-label" for="roleMainCreator">Project Manager</label>
                   </div>
                   <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="quality-control" name="roleQualityControl" id="roleQualityControl">
+                    <label class="form-check-label" for="roleQualityControl">QualityControl</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="digitization" name="roleDigitization" id="roleDigitization">
+                    <label class="form-check-label" for="roleDigitization">Digitization</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
                     <input type="checkbox" value="support" name="roleSupport" id="roleSupport">
                     <label class="form-check-label" for="roleSupport">Support</label>
                   </div>
@@ -221,220 +275,40 @@
               </div>
             </div>
           </div>
-          <div class="form-group row my-2">
-            <label for="language" class="col-sm-3 col-form-label">Language</label>
-            <div class="col-sm-9">
-              <input type="text" name="language" class="form-control" id="language" placeholder="Main language in documents">
+          <div class="row">
+            <div class="col">
+              <h2>General information about the data</h2>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="script" class="col-sm-3 col-form-label">Main script</label>
+            <label for="date-begin" class="col-sm-3 col-form-label">Source Start-Year<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Example: 1800" required="true">
+            </div>
+            <label for="date-end" class="col-sm-3 col-form-label">Source End-Year<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Example: 1948" required="true">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col offset-3"><p><small class="text-muted">For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.</small></p></div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="language" class="col-sm-3 col-form-label">Language<span class="required">*</span></label>
             <div class="col-sm-9">
-              <select name="script" title="Main script" id="script" class="form-control">
-                <option value="Adlam">Adlam</option>
-                <option value="Afaka">Afaka</option>
-                <option value="Ahom, Tai Ahom">Ahom, Tai Ahom</option>
-                <option value="Anatolian Hieroglyphs (Luwian Hieroglyphs, Hittite Hieroglyphs)">Anatolian Hieroglyphs (Luwian Hieroglyphs, Hittite Hieroglyphs)</option>
-                <option value="Arabic">Arabic</option>
-                <option value="Arabic (Nastaliq variant)">Arabic (Nastaliq variant)</option>
-                <option value="Armenian">Armenian</option>
-                <option value="Avestan">Avestan</option>
-                <option value="Balinese">Balinese</option>
-                <option value="Bamum">Bamum</option>
-                <option value="Bassa Vah">Bassa Vah</option>
-                <option value="Batak">Batak</option>
-                <option value="Bengali (Bangla)">Bengali (Bangla)</option>
-                <option value="Bhaiksuki">Bhaiksuki</option>
-                <option value="Blissymbols">Blissymbols</option>
-                <option value="Book Pahlavi">Book Pahlavi</option>
-                <option value="Bopomofo">Bopomofo</option>
-                <option value="Brahmi">Brahmi</option>
-                <option value="Braille">Braille</option>
-                <option value="Buginese">Buginese</option>
-                <option value="Buhid">Buhid</option>
-                <option value="Carian">Carian</option>
-                <option value="Caucasian Albanian">Caucasian Albanian</option>
-                <option value="Chakma">Chakma</option>
-                <option value="Cham">Cham</option>
-                <option value="Cherokee">Cherokee</option>
-                <option value="Chu Nom">Chu Nom</option>
-                <option value="Cirth">Cirth</option>
-                <option value="Code for inherited script">Code for inherited script</option>
-                <option value="Code for uncoded script">Code for uncoded script</option>
-                <option value="Code for undetermined script">Code for undetermined script</option>
-                <option value="Code for unwritten documents">Code for unwritten documents</option>
-                <option value="Coptic">Coptic</option>
-                <option value="Cuneiform, Sumero-Akkadian">Cuneiform, Sumero-Akkadian</option>
-                <option value="Cypriot syllabary">Cypriot syllabary</option>
-                <option value="Cypro-Minoan">Cypro-Minoan</option>
-                <option value="Cyrillic">Cyrillic</option>
-                <option value="Cyrillic (Old Church Slavonic variant)">Cyrillic (Old Church Slavonic variant)</option>
-                <option value="Deseret (Mormon)">Deseret (Mormon)</option>
-                <option value="Devanagari (Nagari)">Devanagari (Nagari)</option>
-                <option value="Dogra">Dogra</option>
-                <option value="Duployan shorthand, Duployan stenography">Duployan shorthand, Duployan stenography</option>
-                <option value="Egyptian demotic">Egyptian demotic</option>
-                <option value="Egyptian hieratic">Egyptian hieratic</option>
-                <option value="Egyptian hieroglyphs">Egyptian hieroglyphs</option>
-                <option value="Elbasan">Elbasan</option>
-                <option value="Elymaic">Elymaic</option>
-                <option value="Ethiopic (Geʻez)">Ethiopic (Geʻez)</option>
-                <option value="Georgian (Mkhedruli and Mtavruli)">Georgian (Mkhedruli and Mtavruli)</option>
-                <option value="Glagolitic">Glagolitic</option>
-                <option value="Gothic">Gothic</option>
-                <option value="Grantha">Grantha</option>
-                <option value="Greek">Greek</option>
-                <option value="Gujarati">Gujarati</option>
-                <option value="Gunjala Gondi">Gunjala Gondi</option>
-                <option value="Gurmukhi">Gurmukhi</option>
-                <option value="Han (Hanzi, Kanji, Hanja)">Han (Hanzi, Kanji, Hanja)</option>
-                <option value="Han (Simplified variant)">Han (Simplified variant)</option>
-                <option value="Han (Traditional variant)">Han (Traditional variant)</option>
-                <option value="Han with Bopomofo (alias for Han + Bopomofo)">Han with Bopomofo (alias for Han + Bopomofo)</option>
-                <option value="Hangul (Hangŭl, Hangeul)">Hangul (Hangŭl, Hangeul)</option>
-                <option value="Hanifi Rohingya">Hanifi Rohingya</option>
-                <option value="Hanunoo (Hanunóo)">Hanunoo (Hanunóo)</option>
-                <option value="Hatran">Hatran</option>
-                <option value="Hebrew">Hebrew</option>
-                <option value="Hiragana">Hiragana</option>
-                <option value="Imperial Aramaic">Imperial Aramaic</option>
-                <option value="Indus (Harappan)">Indus (Harappan)</option>
-                <option value="Inscriptional Pahlavi">Inscriptional Pahlavi</option>
-                <option value="Inscriptional Parthian">Inscriptional Parthian</option>
-                <option value="Jamo (alias for Jamo subset of Hangul)">Jamo (alias for Jamo subset of Hangul)</option>
-                <option value="Japanese (alias for Han + Hiragana + Katakana)">Japanese (alias for Han + Hiragana + Katakana)</option>
-                <option value="Japanese syllabaries (alias for Hiragana + Katakana)">Japanese syllabaries (alias for Hiragana + Katakana)</option>
-                <option value="Javanese">Javanese</option>
-                <option value="Jurchen">Jurchen</option>
-                <option value="Kaithi">Kaithi</option>
-                <option value="Kannada">Kannada</option>
-                <option value="Katakana">Katakana</option>
-                <option value="Kayah Li">Kayah Li</option>
-                <option value="Kharoshthi">Kharoshthi</option>
-                <option value="Khitan large script">Khitan large script</option>
-                <option value="Khitan small script">Khitan small script</option>
-                <option value="Khmer">Khmer</option>
-                <option value="Khojki">Khojki</option>
-                <option value="Khudawadi, Sindhi">Khudawadi, Sindhi</option>
-                <option value="Khutsuri (Asomtavruli and Nuskhuri)">Khutsuri (Asomtavruli and Nuskhuri)</option>
-                <option value="Klingon (KLI pIqaD)">Klingon (KLI pIqaD)</option>
-                <option value="Korean (alias for Hangul + Han)">Korean (alias for Hangul + Han)</option>
-                <option value="Kpelle">Kpelle</option>
-                <option value="Lao">Lao</option>
-                <option value="Latin" selected="">Latin</option>
-                <option value="Latin (Fraktur variant)">Latin (Fraktur variant)</option>
-                <option value="Latin (Gaelic variant)">Latin (Gaelic variant)</option>
-                <option value="Leke">Leke</option>
-                <option value="Lepcha (Róng)">Lepcha (Róng)</option>
-                <option value="Limbu">Limbu</option>
-                <option value="Linear A">Linear A</option>
-                <option value="Linear B">Linear B</option>
-                <option value="Lisu (Fraser)">Lisu (Fraser)</option>
-                <option value="Loma">Loma</option>
-                <option value="Lycian">Lycian</option>
-                <option value="Lydian">Lydian</option>
-                <option value="Mahajani">Mahajani</option>
-                <option value="Makasar">Makasar</option>
-                <option value="Malayalam">Malayalam</option>
-                <option value="Mandaic, Mandaean">Mandaic, Mandaean</option>
-                <option value="Manichaean">Manichaean</option>
-                <option value="Marchen">Marchen</option>
-                <option value="Masaram Gondi">Masaram Gondi</option>
-                <option value="Mathematical notation">Mathematical notation</option>
-                <option value="Mayan hieroglyphs">Mayan hieroglyphs</option>
-                <option value="Medefaidrin (Oberi Okaime, Oberi Ɔkaimɛ)">Medefaidrin (Oberi Okaime, Oberi Ɔkaimɛ)</option>
-                <option value="Meitei Mayek (Meithei, Meetei)">Meitei Mayek (Meithei, Meetei)</option>
-                <option value="Mende Kikakui">Mende Kikakui</option>
-                <option value="Meroitic Cursive">Meroitic Cursive</option>
-                <option value="Meroitic Hieroglyphs">Meroitic Hieroglyphs</option>
-                <option value="Miao (Pollard)">Miao (Pollard)</option>
-                <option value="Modi, Moḍī">Modi, Moḍī</option>
-                <option value="Mongolian">Mongolian</option>
-                <option value="Moon (Moon code, Moon script, Moon type)">Moon (Moon code, Moon script, Moon type)</option>
-                <option value="Mro, Mru">Mro, Mru</option>
-                <option value="Multani">Multani</option>
-                <option value="Myanmar (Burmese)">Myanmar (Burmese)</option>
-                <option value="Nabataean">Nabataean</option>
-                <option value="Nandinagari">Nandinagari</option>
-                <option value="Naxi Dongba (na²¹ɕi³³ to³³ba²¹, Nakhi Tomba)">Naxi Dongba (na²¹ɕi³³ to³³ba²¹, Nakhi Tomba)</option>
-                <option value="Naxi Geba (na²¹ɕi³³ gʌ²¹ba²¹, 'Na-'Khi ²Ggŏ-¹baw, Nakhi Geba)">Naxi Geba (na²¹ɕi³³ gʌ²¹ba²¹, 'Na-'Khi ²Ggŏ-¹baw, Nakhi Geba)</option>
-                <option value="New Tai Lue">New Tai Lue</option>
-                <option value="Newa, Newar, Newari, Nepāla lipi">Newa, Newar, Newari, Nepāla lipi</option>
-                <option value="Nyiakeng Puachue Hmong">Nyiakeng Puachue Hmong</option>
-                <option value="Nüshu">Nüshu</option>
-                <option value="N’Ko">N’Ko</option>
-                <option value="Ogham">Ogham</option>
-                <option value="Ol Chiki (Ol Cemet’, Ol, Santali)">Ol Chiki (Ol Cemet’, Ol, Santali)</option>
-                <option value="Old Hungarian (Hungarian Runic)">Old Hungarian (Hungarian Runic)</option>
-                <option value="Old Italic (Etruscan, Oscan, etc.)">Old Italic (Etruscan, Oscan, etc.)</option>
-                <option value="Old North Arabian (Ancient North Arabian)">Old North Arabian (Ancient North Arabian)</option>
-                <option value="Old Permic">Old Permic</option>
-                <option value="Old Persian">Old Persian</option>
-                <option value="Old Sogdian">Old Sogdian</option>
-                <option value="Old South Arabian">Old South Arabian</option>
-                <option value="Old Turkic, Orkhon Runic">Old Turkic, Orkhon Runic</option>
-                <option value="Oriya (Odia)">Oriya (Odia)</option>
-                <option value="Osage">Osage</option>
-                <option value="Osmanya">Osmanya</option>
-                <option value="Pahawh Hmong">Pahawh Hmong</option>
-                <option value="Palmyrene">Palmyrene</option>
-                <option value="Pau Cin Hau">Pau Cin Hau</option>
-                <option value="Phags-pa">Phags-pa</option>
-                <option value="Phoenician">Phoenician</option>
-                <option value="Psalter Pahlavi">Psalter Pahlavi</option>
-                <option value="Rejang (Redjang, Kaganga)">Rejang (Redjang, Kaganga)</option>
-                <option value="Rongorongo">Rongorongo</option>
-                <option value="Runic">Runic</option>
-                <option value="Samaritan">Samaritan</option>
-                <option value="Sarati">Sarati</option>
-                <option value="Saurashtra">Saurashtra</option>
-                <option value="Sharada, Śāradā">Sharada, Śāradā</option>
-                <option value="Shavian (Shaw)">Shavian (Shaw)</option>
-                <option value="Shuishu">Shuishu</option>
-                <option value="Siddham, Siddhaṃ, Siddhamātṛkā">Siddham, Siddhaṃ, Siddhamātṛkā</option>
-                <option value="SignWriting">SignWriting</option>
-                <option value="Sinhala">Sinhala</option>
-                <option value="Sogdian">Sogdian</option>
-                <option value="Sora Sompeng">Sora Sompeng</option>
-                <option value="Soyombo">Soyombo</option>
-                <option value="Sundanese">Sundanese</option>
-                <option value="Syloti Nagri">Syloti Nagri</option>
-                <option value="Symbols">Symbols</option>
-                <option value="Symbols (Emoji variant)">Symbols (Emoji variant)</option>
-                <option value="Syriac">Syriac</option>
-                <option value="Syriac (Eastern variant)">Syriac (Eastern variant)</option>
-                <option value="Syriac (Estrangelo variant)">Syriac (Estrangelo variant)</option>
-                <option value="Syriac (Western variant)">Syriac (Western variant)</option>
-                <option value="Tagalog (Baybayin, Alibata)">Tagalog (Baybayin, Alibata)</option>
-                <option value="Tagbanwa">Tagbanwa</option>
-                <option value="Tai Le">Tai Le</option>
-                <option value="Tai Tham (Lanna)">Tai Tham (Lanna)</option>
-                <option value="Tai Viet">Tai Viet</option>
-                <option value="Takri, Ṭākrī, Ṭāṅkrī">Takri, Ṭākrī, Ṭāṅkrī</option>
-                <option value="Tamil">Tamil</option>
-                <option value="Tangut">Tangut</option>
-                <option value="Telugu">Telugu</option>
-                <option value="Tengwar">Tengwar</option>
-                <option value="Thaana">Thaana</option>
-                <option value="Thai">Thai</option>
-                <option value="Tibetan">Tibetan</option>
-                <option value="Tifinagh (Berber)">Tifinagh (Berber)</option>
-                <option value="Tirhuta">Tirhuta</option>
-                <option value="Ugaritic">Ugaritic</option>
-                <option value="Unified Canadian Aboriginal Syllabics">Unified Canadian Aboriginal Syllabics</option>
-                <option value="Urdu">Urdu</option>
-                <option value="Vai">Vai</option>
-                <option value="Visible Speech">Visible Speech</option>
-                <option value="Wancho">Wancho</option>
-                <option value="Warang Citi (Varang Kshiti)">Warang Citi (Varang Kshiti)</option>
-                <option value="Woleai">Woleai</option>
-                <option value="Yi">Yi</option>
-                <option value="Zanabazar Square (Zanabazarin Dörböljin Useg, Xewtee Dörböljin Bicig, Horizontal Square Script)">Zanabazar Square (Zanabazarin Dörböljin Useg, Xewtee Dörböljin Bicig, Horizontal Square Script)</option>
-              </select>
+              <span class="language"></span>
+              <small class="form-text text-muted">To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.</small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="scriptType" class="col-sm-3 col-form-label">Script type</label>
+            <label for="script" class="col-sm-3 col-form-label">Script<span class="required">*</span></label>
+            <div class="col-sm-9">
+              <span class="script"></span>
+              <small class="form-text text-muted">To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.</small>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="scriptType" class="col-sm-3 col-form-label">Script type<span class="required">*</span></label>
             <div class="col-sm-9">
               <select name="scriptType" id="format" class="form-control">
                 <option value="only-manuscript">Manuscript only</option>
@@ -446,26 +320,8 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="desc" class="col-sm-3 col-form-label">Short description</label>
-            <div class="col-sm-9">
-              <textarea name="desc" class="form-control" id="desc" placeholder="Description"></textarea>
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="date-begin" class="col-sm-3 col-form-label">Source Start-Year (aproximately)</label>
-            <div class="col-sm-9">
-              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Example: 1800">
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="date-end" class="col-sm-3 col-form-label">Source End-Year (aproximately)</label>
-            <div class="col-sm-9">
-              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Example: 1948">
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label">Number of hands (or fonts)</label>
-            <div class="col-sm-9">
+            <label for="hands" class="col-sm-3 col-form-label">Number of hands (or fonts)<span class="required">*</span></label>
+            <div class="col-sm-3">
               <select name="hands" id="hands" class="form-control my-2">
                 <option value="1" selected="">1</option>
                 <option value="1-per-file">1 per file</option>
@@ -474,6 +330,9 @@
                 <option value="more-than-10">More than 10 (many)</option>
                 <option value="unknown">Unknown</option>
               </select>
+            </div>
+            <label for="precision" class="col-sm-3 col-form-label">Precision<span class="required">*</span></label>
+            <div class="col-sm-3">
               <select name="precision" id="precision" class="form-control my-2">
                 <option value="exact" selected="">Exact value</option>
                 <option value="estimated">Estimated value</option>
@@ -481,42 +340,70 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="license" class="col-sm-3 col-form-label">License</label>
+            <label for="transcriptionGuidelines" class="col-sm-3 col-form-label">Transcription guidelines</label>
             <div class="col-sm-9">
-              <select class="form-control" name="license" id="license">
-                <option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
-                <!-- Ajouter d'autres options !-->
-              </select>
+              <textarea name="transcriptionGuidelines" class="form-control" id="transcriptionGuidelines" placeholder="Transcription guidelines"></textarea>
+              <p><small class="text-muted">Guidelines used to transcribe the resources (normalization, resolution of abbreviation, correction of mispelling, etc.)</small></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h2>Detailed information about the data</h2>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="format" class="col-sm-3 col-form-label">Standard</label>
+            <label for="metric" class="col-sm-3 col-form-label">Estimated quantity</label>
             <div class="col-sm-9">
-              <select name="format" id="format" class="form-control">
-                <option value="Alto-XML">ALTO XML</option>
-                <option value="Page-XML">PAGE XML</option>
-                <!-- Add more options !-->
-              </select>
+               <div class="metric-form">
+                <div class="input-group">
+                  <input type="number" name="metric-count" class="form-control" placeholder="Exemple: 200" min="1">
+                  <select name="metric-metric" class="form-control ">
+                    <option value="lines">Lines</option>
+                    <option value="pages">Pages</option>
+                    <option value="characters">Characters</option>
+                    <option value="regions">Zones</option>
+                    <option value="files">Files</option>
+                  </select>
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-primary add-metric" type="button">+</button>
+                    <button class="btn btn-outline-danger d-none remove-metric" type="button">-</button>
+                  </div>
+                </div>
+              </div>
+              <hr/>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="metric" class="col-sm-3 col-form-label">Estimated number of lines/pages</label>
+            <label for="source-desc" class="col-sm-3 col-form-label">Sources</label>
             <div class="col-sm-9">
-              <input type="number" name="units" class="form-control mb-2" id="units" placeholder="Example: 200">
-              <select name="metric" id="metric" class="form-control my-2">
-                <option value="lines">Lines</option>
-                <option value="pages">Pages</option>
-                <!-- Ajouter d'autres options !-->
-              </select>
+              <div><p><small class="text-muted">We prefer APA references, which can look like the following <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, see <a href="https://apastyle.apa.org/style-grammar-guidelines/references/archival">APA Style</a>, but simpler formats are okay too. The link or the APA reference are sufficient but you can provide both</small></div>
+              <div class="sources-form">
+                <div class="input-group">
+                  <input type="text" name="sources-ref" class="form-control" placeholder="APA Reference for a source">
+                  <input type="text" name="sources-link" class="form-control" placeholder="Link to the source or a catalog description">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-primary add-sources" type="button">+</button>
+                    <button class="btn btn-outline-danger d-none remove-sources" type="button">-</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <button class="btn btn-secondary mt-4" type="submit">Get formatted metadata</button>
+          <div class="row">
+            <div class="col">
+              <h2>Generate the <code>htr-united.yml</code> file</h2>
+              <p class="text-center">
+                <button class="btn btn-secondary mt-4" type="submit">Get formatted metadata</button>
+              </p>
+            </div>
+          </div>
         </form>
       </div>
     </div>
-    <div class="row my-5">
+    <div class="row my-5 d-none" id="output-container">
       <div class="col-12">
-        <a id="output-link" class="invisible btn btn-success">Copy the data in the form here !</a>
+        <hr />
+        <a id="download" href="#">Download</a> or copy the file below, paste its content at this <a id="output-link" href="#">link</a>
         <pre id="output" class="my-3 p-4 rounded output-field"></pre>
       </div>
     </div>
@@ -551,7 +438,9 @@
     <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
 
 
-        <script type="text/javascript" src="assets/catalog.js"></script>
+    <script type="text/javascript" src="static/js/typeahead.js"></script>
+    <script type="text/javascript" src="static/js/catalog_values.js"></script>
+    <script type="text/javascript" src="static/js/catalog.js"></script>
       
   </body>
 </html>
