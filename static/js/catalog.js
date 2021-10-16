@@ -77,6 +77,36 @@
 
     document.querySelector(".add-metric").addEventListener("click", addMetric);
 
+
+    const sourcesOriginal = document.querySelector(".sources-form");
+
+    const addSources = function(event) {
+      event.preventDefault();
+      // Retrieve element and their copy
+      let new_elem = sourcesOriginal.cloneNode(true),
+          add_button = new_elem.querySelector(".add-sources"),
+          remove_button = new_elem.querySelector(".remove-sources"),
+          text_inputs = new_elem.querySelectorAll("input[type='text']");
+
+
+      // Clean text inputs
+      for (var i = text_inputs.length - 1; i >= 0; i--) {
+        text_inputs[i].value = "";
+      }
+
+      idForAuthors++;
+      // Insert element in the DOM
+      sourcesOriginal.after(new_elem);
+      // Un-hide the element for removal
+      remove_button.classList.remove("d-none");
+
+      // Register events
+      add_button.addEventListener("click", addSources);
+      remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
+    };
+
+    document.querySelector(".add-sources").addEventListener("click", addSources);
+
     const normalize = function(a_string) {
       return a_string.replace("'", "’");
     };
@@ -158,6 +188,27 @@
       return text;
     };
 
+    const getSources = function () {
+      let text = "\nsources:",
+          sources = document.querySelectorAll(".sources-form");
+
+      if (sources.length == 0) {
+        return "";
+      }
+      for (var i = 0; i < sources.length; i++) {
+        let sources_ref = sources[i].querySelector("input[name='sources-ref']").value,
+            sources_link = sources[i].querySelector("input[name='sources-link']").value;
+
+        if (sources_ref.trim() === "" && sources_link.trim() === "") { continue; }
+
+        // DO NOT REINDENT
+        text = text + `\n  - reference: '${sources_ref}'\n    link: '${sources_link}'`;
+      }
+      if (text.trim() === "sources:") { return ""; }
+
+      return text;
+    };
+
     const languageSelect = new SelectPure(".language", {
         options: languages,
         multiple: true,
@@ -202,7 +253,8 @@
       let languages = languageSelect.value().join("\n  - ");
       let scripts = scriptSelect.value().join("\n  - ");
 
-      output.innerText = `title : '${normalize(data.repoName)}'
+      output.innerText = `schema: "https://htr-united.github.io/schema/2021-10-15.json"
+title : '${normalize(data.repoName)}'
 url: '${data.repoLink}'
 ${get_or_none(data.projectName, 'project-name')}
 ${get_or_none(data.projectWebsite, 'project-website')}${getAuthors()}
@@ -220,8 +272,7 @@ hands:
   precision: '${data.precision}'
 license:
   - ${data.license}
-format: '${data.format}'${getMetrics()}
-schema: "https://htr-united.github.io/schema/2021-10-15.json"
+format: '${data.format}'${getMetrics()}${getSources()}
 ${get_or_none(data.cff, 'citation-file-link')}
 ${get_or_none(data.transcriptionGuidelines, 'transcription-guidelines')}
 `;

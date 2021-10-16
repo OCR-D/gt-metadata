@@ -197,7 +197,7 @@
           <div class="form-group row my-2">
             <label for="citationCFF" class="col-sm-3 col-form-label">Lien vers un fichier CITATION.cff</label>
             <div class="col-sm-9">
-              <input type="text" name="cff" class="form-control" id="citationCFF" placeholder="Lien vers le site du projet (s'il existe)">
+              <input type="text" name="cff" class="form-control" id="citationCFF" placeholder="Lien vers un fichier CITATION.cff">
               <p><small class="text-muted">Les fichiers CITATION.cff permettent de fournir un mode de citation assez simple sur github par exemple. Lien: <a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small></p>
             </div>
           </div>
@@ -347,6 +347,11 @@
               <p><small class="text-muted">Normes de transcriptions utilisées (format libre). Peut concerner la résolution des abréviations, corrections de fautes d'orthographe, l'usage de caractères spéciaux, la normalisation, etc.</small></p>
             </div>
           </div>
+          <div class="row">
+            <div class="col">
+              <h2>Informations détaillées sur les données</h2>
+            </div>
+          </div>
           <div class="form-group row my-2">
             <label for="metric" class="col-sm-3 col-form-label">Description sommaire des quantités</label>
             <div class="col-sm-9">
@@ -361,8 +366,23 @@
                     <option value="files">Fichiers</option>
                   </select>
                   <div class="input-group-append">
-                    <button class="btn btn-outline-primary add-metric" type="button">Ajouter un autre type de mesure</button>
-                    <button class="btn btn-outline-danger d-none remove-metric" type="button">Supprimer cette ligne</button>
+                    <button class="btn btn-outline-primary add-metric" type="button">+</button>
+                    <button class="btn btn-outline-danger d-none remove-metric" type="button">-</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="source-desc" class="col-sm-3 col-form-label">Détails des sources transcrites</label>
+            <div class="col-sm-9">
+              <div class="sources-form">
+                <div class="input-group">
+                  <input type="text" name="sources-ref" class="form-control" placeholder="Référence en mode APA">
+                  <input type="text" name="sources-link" class="form-control" placeholder="Lien vers le catalogue ou la ressource">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-primary add-sources" type="button">+</button>
+                    <button class="btn btn-outline-danger d-none remove-sources" type="button">-</button>
                   </div>
                 </div>
               </div>
@@ -382,7 +402,7 @@
     <div class="row my-5 d-none" id="output-container">
       <div class="col-12">
         <hr />
-        <a id="download" href="#">Téléchargez</a> le fichier ci-dessous et copiez son contenu au bout de ce lien <a id="output-link" href="#">Copiez le texte ci-dessous dans le formulaire en lien dans ce bouton !</a>
+        <a id="download" href="#">Téléchargez</a> le fichier ci-dessous et copiez son contenu au bout de ce <a id="output-link" href="#">lien</a>
         <pre id="output" class="my-3 p-4 rounded output-field"></pre>
       </div>
     </div>

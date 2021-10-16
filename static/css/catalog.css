@@ -104,3 +104,7 @@
 .required {
   color: red;
 }
+
+.metric-form, .sources-form {
+  padding-bottom: 0.5em;
+}

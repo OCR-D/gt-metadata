@@ -164,24 +164,67 @@
 <!-- Use data -->
   <div class="container col-xxl-8 px-4 py-4" id="use-data">
     <div class="row">
+      <div class="col-12 text-muted"><p>Fields followed by a <span class="required">*</span> are the only one required.</p></div>
+    </div>
+    <div class="row">
       <div class="col-12">
         <form id="generate">
+          <div class="row">
+            <div class="col">
+              <h2>General information about the dataset</h2>
+            </div>
+          </div>
           <div class="form-group row my-2">
-            <label for="repoName" class="col-sm-3 col-form-label">Repository's title</label>
+            <label for="repoName" class="col-sm-3 col-form-label">Repository's or dataset's title<span class="required">*</span></label>
             <div class="col-sm-9">
               <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Repository's title" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="repoLink" class="col-sm-3 col-form-label">Link to repository</label>
+            <label for="repoLink" class="col-sm-3 col-form-label">Link to repository<span class="required">*</span></label>
             <div class="col-sm-9">
               <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Link to repository" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="projectName" class="col-sm-3 col-form-label">Project's name</label>
+            <label for="desc" class="col-sm-3 col-form-label">Short description</label>
             <div class="col-sm-9">
-              <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Project's name" required="true">
+              <textarea name="desc" class="form-control" id="desc" placeholder="Description" required="true"></textarea>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="citationCFF" class="col-sm-3 col-form-label">Link to a CITATION.cff file</label>
+            <div class="col-sm-9">
+              <input type="text" name="cff" class="form-control" id="citationCFF" placeholder="Link to a CITATION.cff file">
+              <p><small class="text-muted">CITATION.cf files allow for generating quick APA citations or Bibtex ones on github for example. See: <a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small></p>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="license" class="col-sm-3 col-form-label">License<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <select class="form-control" name="license" id="license">
+                <option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
+                <!-- Ajouter d'autres options !-->
+              </select>
+            </div>
+            <label for="format" class="col-sm-3 col-form-label">Format Standard<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <select name="format" id="format" class="form-control">
+                <option value="Alto-XML">ALTO XML</option>
+                <option value="Page-XML">PAGE XML</option>
+                <!-- Add more options !-->
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h2>General information about the project</h2>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectName" class="col-sm-3 col-form-label">Project's name (if different from the repository/dataset's one)</label>
+            <div class="col-sm-9">
+              <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Project's name">
             </div>
           </div>
           <div class="form-group row my-2">
@@ -232,22 +275,40 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col">
+              <h2>General information about the data</h2>
+            </div>
+          </div>
           <div class="form-group row my-2">
-            <label for="language" class="col-sm-3 col-form-label">Language</label>
+            <label for="date-begin" class="col-sm-3 col-form-label">Source Start-Year<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Example: 1800" required="true">
+            </div>
+            <label for="date-end" class="col-sm-3 col-form-label">Source End-Year<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Example: 1948" required="true">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col offset-3"><p><small class="text-muted">For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.</small></p></div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="language" class="col-sm-3 col-form-label">Language<span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="language"></span>
               <small class="form-text text-muted">To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.</small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="script" class="col-sm-3 col-form-label">Script</label>
+            <label for="script" class="col-sm-3 col-form-label">Script<span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="script"></span>
               <small class="form-text text-muted">To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.</small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="scriptType" class="col-sm-3 col-form-label">Script type</label>
+            <label for="scriptType" class="col-sm-3 col-form-label">Script type<span class="required">*</span></label>
             <div class="col-sm-9">
               <select name="scriptType" id="format" class="form-control">
                 <option value="only-manuscript">Manuscript only</option>
@@ -259,26 +320,8 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="desc" class="col-sm-3 col-form-label">Short description</label>
-            <div class="col-sm-9">
-              <textarea name="desc" class="form-control" id="desc" placeholder="Description" required="true"></textarea>
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="date-begin" class="col-sm-3 col-form-label">Source Start-Year (aproximately)</label>
-            <div class="col-sm-9">
-              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Example: 1800" required="true">
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="date-end" class="col-sm-3 col-form-label">Source End-Year (aproximately)</label>
-            <div class="col-sm-9">
-              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Example: 1948" required="true">
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label">Number of hands (or fonts)</label>
-            <div class="col-sm-9">
+            <label for="hands" class="col-sm-3 col-form-label">Number of hands (or fonts)<span class="required">*</span></label>
+            <div class="col-sm-3">
               <select name="hands" id="hands" class="form-control my-2">
                 <option value="1" selected="">1</option>
                 <option value="1-per-file">1 per file</option>
@@ -287,29 +330,18 @@
                 <option value="more-than-10">More than 10 (many)</option>
                 <option value="unknown">Unknown</option>
               </select>
+            </div>
+            <label for="precision" class="col-sm-3 col-form-label">Precision<span class="required">*</span></label>
+            <div class="col-sm-3">
               <select name="precision" id="precision" class="form-control my-2">
                 <option value="exact" selected="">Exact value</option>
                 <option value="estimated">Estimated value</option>
               </select>
             </div>
           </div>
-          <div class="form-group row my-2">
-            <label for="license" class="col-sm-3 col-form-label">License</label>
-            <div class="col-sm-9">
-              <select class="form-control" name="license" id="license">
-                <option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
-                <!-- Ajouter d'autres options !-->
-              </select>
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="format" class="col-sm-3 col-form-label">Standard</label>
-            <div class="col-sm-9">
-              <select name="format" id="format" class="form-control">
-                <option value="Alto-XML">ALTO XML</option>
-                <option value="Page-XML">PAGE XML</option>
-                <!-- Add more options !-->
-              </select>
+          <div class="row">
+            <div class="col">
+              <h2>Detailed information about the data</h2>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -326,20 +358,43 @@
                     <option value="files">Files</option>
                   </select>
                   <div class="input-group-append">
-                    <button class="btn btn-outline-primary add-metric" type="button">Add a new type of metric</button>
-                    <button class="btn btn-outline-danger d-none remove-metric" type="button">Remove this line</button>
+                    <button class="btn btn-outline-primary add-metric" type="button">+</button>
+                    <button class="btn btn-outline-danger d-none remove-metric" type="button">-</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <button class="btn btn-secondary mt-4" type="submit">Get formatted metadata</button>
+          <div class="form-group row my-2">
+            <label for="source-desc" class="col-sm-3 col-form-label">Sources</label>
+            <div class="col-sm-9">
+              <div class="sources-form">
+                <div class="input-group">
+                  <input type="text" name="sources-ref" class="form-control" placeholder="APA Reference for a source">
+                  <input type="text" name="sources-link" class="form-control" placeholder="Link to the source or a catalog description">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-primary add-sources" type="button">+</button>
+                    <button class="btn btn-outline-danger d-none remove-sources" type="button">-</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h2>Generate the <code>htr-united.yml</code> file</h2>
+              <p class="text-center">
+                <button class="btn btn-secondary mt-4" type="submit">Get formatted metadata</button>
+              </p>
+            </div>
+          </div>
         </form>
       </div>
     </div>
-    <div class="row my-5">
+    <div class="row my-5 d-none" id="output-container">
       <div class="col-12">
-        <a id="output-link" class="invisible btn btn-success">Copy the data in the form here !</a>
+        <hr />
+        <a id="download" href="#">Download</a> or copy the file below, paste its content at this <a id="output-link" href="#">link</a>
         <pre id="output" class="my-3 p-4 rounded output-field"></pre>
       </div>
     </div>
