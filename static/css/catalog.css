@@ -99,3 +99,8 @@
   padding: 10px;
   width: 100%;
 }
+
+/* Home made */
+.required {
+  color: red;
+}

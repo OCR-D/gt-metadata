@@ -166,22 +166,65 @@
 <!-- Use data -->
   <div class="container col-xxl-8 px-4 py-4" id="use-data">
     <div class="row">
+      <div class="col-12 text-muted"><p>Les champs dont le nom est suivi d'un <span class="required">*</span> sont obligatoires.</p></div>
+    </div>
+    <div class="row">
       <div class="col-12">
         <form id="generate">
+          <div class="row">
+            <div class="col">
+              <h2>Informations générales sur le set de données</h2>
+            </div>
+          </div>
           <div class="form-group row my-2">
-            <label for="repoName" class="col-sm-3 col-form-label">Nom du dépôt (titre)</label>
+            <label for="repoName" class="col-sm-3 col-form-label">Nom du dépôt / dataset (titre)<span class="required">*</span></label>
             <div class="col-sm-9">
               <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Nom du dépôt" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="repoLink" class="col-sm-3 col-form-label">Lien vers le dépôt</label>
+            <label for="repoLink" class="col-sm-3 col-form-label">Lien vers le dépôt<span class="required">*</span></label>
             <div class="col-sm-9">
               <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien vers le dépôt" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="projectName" class="col-sm-3 col-form-label">Nom du projet</label>
+            <label for="desc" class="col-sm-3 col-form-label">Courte description<span class="required">*</span></label>
+            <div class="col-sm-9">
+              <textarea name="desc" class="form-control" id="desc" placeholder="Description" required="true"></textarea>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="citationCFF" class="col-sm-3 col-form-label">Lien vers un fichier CITATION.cff</label>
+            <div class="col-sm-9">
+              <input type="text" name="cff" class="form-control" id="citationCFF" placeholder="Lien vers le site du projet (s'il existe)">
+              <p><small class="text-muted">Les fichiers CITATION.cff permettent de fournir un mode de citation assez simple sur github par exemple. Lien: <a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small></p>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="license" class="col-sm-3 col-form-label">Licence<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <select class="form-control" name="license" id="license">
+                <option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
+                <!-- Ajouter d'autres options !-->
+              </select>
+            </div>
+            <label for="format" class="col-sm-3 col-form-label">Format des données<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <select name="format" id="format" class="form-control">
+                <option value="Alto-XML">ALTO XML</option>
+                <option value="Page-XML">PAGE XML</option>
+                <!-- Ajouter d'autres options !-->
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h2>Informations générales sur le projet</h2>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="projectName" class="col-sm-3 col-form-label">Nom du projet (si différent du nom du dépôt)</label>
             <div class="col-sm-9">
               <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Nom du projet">
             </div>
@@ -218,6 +261,14 @@
                     <label class="form-check-label" for="roleMainCreator">Responsable du projet</label>
                   </div>
                   <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="quality-control" name="roleQualityControl" id="roleQualityControl">
+                    <label class="form-check-label" for="roleQualityControl">Contrôle Qualité</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
+                    <input type="checkbox" value="digitization" name="roleDigitization" id="roleDigitization">
+                    <label class="form-check-label" for="roleDigitization">Numérisation</label>
+                  </div>
+                  <div class="form-check-inline my-1 py-2">
                     <input type="checkbox" value="support" name="roleSupport" id="roleSupport">
                     <label class="form-check-label" for="roleSupport">Assistance</label>
                   </div>
@@ -225,22 +276,40 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col">
+              <h2>Informations générales sur les données</h2>
+            </div>
+          </div>
           <div class="form-group row my-2">
-            <label for="language" class="col-sm-3 col-form-label">Langue</label>
+            <label for="date-begin" class="col-sm-3 col-form-label">Année de début des sources<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800" required="true">
+            </div>
+            <label for="date-end" class="col-sm-3 col-form-label">Année de fin des sources<span class="required">*</span></label>
+            <div class="col-sm-3">
+              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948" required="true">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col offset-3"><p><small class="text-muted">Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e isècle. Les dates n'ont pas besoin d'être précises, cela reste une indication</small></p></div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="language" class="col-sm-3 col-form-label">Langue<span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="language"></span>
               <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="script" class="col-sm-3 col-form-label">Système d'écriture</label>
+            <label for="script" class="col-sm-3 col-form-label">Système d'écriture<span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="scripts"></span>
               <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="scriptType" class="col-sm-3 col-form-label">Type d'écriture</label>
+            <label for="scriptType" class="col-sm-3 col-form-label">Type d'écriture<span class="required">*</span></label>
             <div class="col-sm-9">
               <select name="scriptType" id="format" class="form-control">
                 <option value="only-manuscript">Manuscrit uniquement</option>
@@ -252,26 +321,8 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="desc" class="col-sm-3 col-form-label">Courte description</label>
-            <div class="col-sm-9">
-              <textarea name="desc" class="form-control" id="desc" placeholder="Description" required="true"></textarea>
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="date-begin" class="col-sm-3 col-form-label">Année de début des sources (environ)</label>
-            <div class="col-sm-9">
-              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800" required="true">
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="date-end" class="col-sm-3 col-form-label">Année de fin des sources (environ)</label>
-            <div class="col-sm-9">
-              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948" required="true">
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label">Nombre de mains (ou de fontes)</label>
-            <div class="col-sm-9">
+            <label for="hands" class="col-sm-3 col-form-label">Nombre de mains (ou de fontes)<span class="required">*</span></label>
+            <div class="col-sm-3">
               <select name="hands" id="hands" class="form-control my-2" required="true">
                 <option value="1" selected="">1</option>
                 <option value="1-per-file">1 par fichier</option>
@@ -280,6 +331,9 @@
                 <option value="more-than-10">Supérieur à 10 (beaucoup)</option>
                 <option value="unknown">Inconnu</option>
               </select>
+            </div>
+            <label for="precision" class="col-sm-3 col-form-label">Précision<span class="required">*</span></label>
+            <div class="col-sm-3">
               <select name="precision" id="precision" class="form-control my-2">
                 <option value="exact" selected="">Valeur exacte</option>
                 <option value="estimated">Estimation</option>
@@ -287,22 +341,10 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="license" class="col-sm-3 col-form-label">Licence</label>
+            <label for="transcriptionGuidelines" class="col-sm-3 col-form-label">Normes de transcription</label>
             <div class="col-sm-9">
-              <select class="form-control" name="license" id="license">
-                <option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
-                <!-- Ajouter d'autres options !-->
-              </select>
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="format" class="col-sm-3 col-form-label">Format des données</label>
-            <div class="col-sm-9">
-              <select name="format" id="format" class="form-control">
-                <option value="Alto-XML">ALTO XML</option>
-                <option value="Page-XML">PAGE XML</option>
-                <!-- Ajouter d'autres options !-->
-              </select>
+              <textarea name="transcriptionGuidelines" class="form-control" id="transcriptionGuidelines" placeholder="Normes de transcription"></textarea>
+              <p><small class="text-muted">Normes de transcriptions utilisées (format libre). Peut concerner la résolution des abréviations, corrections de fautes d'orthographe, l'usage de caractères spéciaux, la normalisation, etc.</small></p>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -326,15 +368,22 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-secondary mt-4" type="submit">Obtenir les métadonnées formatées</button>
+          <div class="row">
+            <div class="col">
+              <h2>Générer le fichier <code>htr-united.yml</code></h2>
+              <p class="text-center">
+                <button class="btn btn-primary mt-4" type="submit">Obtenir les métadonnées formatées</button>
+              </p>
+            </div>
+          </div>
         </form>
       </div>
     </div>
-    <div class="row my-5">
+    <div class="row my-5 d-none" id="output-container">
       <div class="col-12">
         <hr />
-        <a id="output-link" class="invisible btn btn-success">Copiez le texte ci-dessous dans le formulaire en lien dans ce bouton !</a>
-        <pre id="output" class="my-3 p-4 rounded output-field invisible"></pre>
+        <a id="download" href="#">Téléchargez</a> le fichier ci-dessous et copiez son contenu au bout de ce lien <a id="output-link" href="#">Copiez le texte ci-dessous dans le formulaire en lien dans ce bouton !</a>
+        <pre id="output" class="my-3 p-4 rounded output-field"></pre>
       </div>
     </div>
   </div>
@@ -347,7 +396,7 @@
         <p class="fs-5 mb-4">HTR-United | 2021</p>
       </div>
       <div class="col-lg-6 mx-auto">
-        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="https://github.com/orgs/HTR-United/people" target="_blank">Qui est derrière HTR-United ?</a></p>
+        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank">Qui est derrière HTR-United ?</a></p>
       </div>
     </div>
   </div>

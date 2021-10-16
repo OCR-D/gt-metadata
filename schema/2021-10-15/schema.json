@@ -25,8 +25,13 @@
       "type": "string",
       "format": "uri"
     },
+    "citation-file-link": {
+      "description": "Link a CITATION.cff File (https://citation-file-format.github.io/)",
+      "type": "string",
+      "format": "uri"
+    },
     "project-name": {
-      "description": "Name of the project",
+      "description": "Name of the project (If different from the dataset name)",
       "type": "string"
     },
     "project-website": {
@@ -157,6 +162,34 @@
             }
         }
     }
+  },
+  "sources": {
+    "description": "Sources that are present in the dataset",
+    "type": "array",
+    "uniqueItems": true,
+    "items": {
+      "type": "object",
+      "description": "A source",
+      "properties": {
+        "reference": {
+          "type": "string",
+          "description": "APA-Style reference"
+        },
+        "link": {
+            "type": "string",
+            "description": "URL of the resource or a link to its catalog page for exemple",
+            "format": "uri"
+        },
+        "description": {
+          "type": "string",
+          "description": "Free text field to describe the source"
+        }
+      }
+    }
+  },
+  "transcription-guidelines": {
+    "description": "Guidelines used to transcribe the resources (normalization, resolution of abbreviation, correction of mispelling, etc.)",
+    "type": "string"
   },
   "license": {
     "description": "Licence under which the data are shared",

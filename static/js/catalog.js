@@ -3,6 +3,7 @@
     const form = document.getElementById("generate"),
         output = document.getElementById("output"),
         link = document.getElementById("output-link"),
+        outputContainer = document.getElementById("output-container"),
         authorOriginal = document.querySelector(".original-author"),
         authorContainer = authorOriginal.parent;
 
@@ -152,6 +153,7 @@
         // DO NOT REINDENT
         text = text + `\n  - metric: '${metric_metric}'\n    count: ${metric_count}`;
       }
+      if (text.trim() === "volume:") { return ""; }
 
       return text;
     };
@@ -175,6 +177,24 @@
         inlineIcon: false // custom cross icon for multiple select.
     });
 
+    document.querySelector("#download").addEventListener("click", function (e) {
+      e.preventDefault();
+      let element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(document.querySelector("#output").innerText));
+      element.setAttribute('download', "htr-united.yml");
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    });
+
+    const get_or_none = function(field, yaml) {
+      if (field !== undefined && field.trim() != ""){
+        return `${yaml}: '${field}'`
+      }
+      return "";
+    };
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -184,8 +204,8 @@
 
       output.innerText = `title : '${normalize(data.repoName)}'
 url: '${data.repoLink}'
-project-name: '${data.projectName}'
-project-website: '${data.projectWebsite}'${getAuthors()}
+${get_or_none(data.projectName, 'project-name')}
+${get_or_none(data.projectWebsite, 'project-website')}${getAuthors()}
 description: '${normalize(data.desc)}'
 language:
   - ${languages}
@@ -202,10 +222,11 @@ license:
   - ${data.license}
 format: '${data.format}'${getMetrics()}
 schema: "https://htr-united.github.io/schema/2021-10-15.json"
+${get_or_none(data.cff, 'citation-file-link')}
+${get_or_none(data.transcriptionGuidelines, 'transcription-guidelines')}
 `;
-    output.classList.remove("invisible");
-    link.classList.remove("invisible");
-    link.href = `https://github.com/HTR-United/htr-united/new/master?filename=catalog/${slugify(data.projectName)}.yml`;
+    outputContainer.classList.remove("d-none");
+    link.href = `https://github.com/HTR-United/htr-united/new/master?filename=catalog/${slugify(data.projectName || data.repoName)}/${slugify(data.repoName)}.yml`;
 
     });
 })();
