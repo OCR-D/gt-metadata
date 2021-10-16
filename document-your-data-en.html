@@ -339,6 +339,13 @@
               </select>
             </div>
           </div>
+          <div class="form-group row my-2">
+            <label for="transcriptionGuidelines" class="col-sm-3 col-form-label">Transcription guidelines</label>
+            <div class="col-sm-9">
+              <textarea name="transcriptionGuidelines" class="form-control" id="transcriptionGuidelines" placeholder="Transcription guidelines"></textarea>
+              <p><small class="text-muted">Guidelines used to transcribe the resources (normalization, resolution of abbreviation, correction of mispelling, etc.)</small></p>
+            </div>
+          </div>
           <div class="row">
             <div class="col">
               <h2>Detailed information about the data</h2>
@@ -363,11 +370,13 @@
                   </div>
                 </div>
               </div>
+              <hr/>
             </div>
           </div>
           <div class="form-group row my-2">
             <label for="source-desc" class="col-sm-3 col-form-label">Sources</label>
             <div class="col-sm-9">
+              <div><p><small class="text-muted">We prefer APA references, which can look like the following <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, see <a href="https://apastyle.apa.org/style-grammar-guidelines/references/archival">APA Style</a>, but simpler formats are okay too. The link or the APA reference are sufficient but you can provide both</small></div>
               <div class="sources-form">
                 <div class="input-group">
                   <input type="text" name="sources-ref" class="form-control" placeholder="APA Reference for a source">
