@@ -253,7 +253,7 @@
       let languages = languageSelect.value().join("\n  - ");
       let scripts = scriptSelect.value().join("\n  - ");
 
-      output.innerText = `schema: "https://htr-united.github.io/schema/2021-10-15.json"
+      output.innerText = `schema: "https://htr-united.github.io/schema/2021-10-15/schema.json"
 title : '${normalize(data.repoName)}'
 url: '${data.repoLink}'
 ${get_or_none(data.projectName, 'project-name')}
