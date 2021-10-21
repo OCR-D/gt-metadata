@@ -149,8 +149,8 @@
         if (name.trim() === "") { continue; }
 
         // DO NOT REINDENT
-        text = text + `\n    - name: '${name}'
-      surname: '${surname}'`;
+        text = text + `\n    - name: '${escape_yaml(name)}'
+      surname: '${escape_yaml(surname)}'`;
 
 
         let roles = authors[i].querySelectorAll("input[type='checkbox']:checked");
@@ -202,7 +202,7 @@
         if (sources_ref.trim() === "" && sources_link.trim() === "") { continue; }
 
         // DO NOT REINDENT
-        text = text + `\n  - reference: '${sources_ref}'\n    link: '${sources_link}'`;
+        text = text + `\n  - reference: '${escape_yaml(sources_ref)}'\n    link: '${sources_link}'`;
       }
       if (text.trim() === "sources:") { return ""; }
 
@@ -240,9 +240,20 @@
       document.body.removeChild(element);
     });
 
+    const escape_yaml = function(str) {
+      return str.replace("'", "\\u0027")
+    };
+
     const get_or_none = function(field, yaml) {
       if (field !== undefined && field.trim() != ""){
-        return `${yaml}: '${field}'`
+        return `${yaml}: '${escape_yaml(field)}'`
+      }
+      return "";
+    };
+
+    const get_or_none_charriot = function(field, yaml) {
+      if (field !== undefined && field.trim() != ""){
+        return `${yaml}: >\n    ${field.split('\n').join('\n    ')}'`
       }
       return "";
     };
@@ -254,11 +265,12 @@
       let scripts = scriptSelect.value().join("\n  - ");
 
       output.innerText = `schema: "https://htr-united.github.io/schema/2021-10-15/schema.json"
-title : '${normalize(data.repoName)}'
+title: ${escape_yaml(normalize(data.repoName))}
 url: '${data.repoLink}'
-${get_or_none(data.projectName, 'project-name')}
+${get_or_none_charriot(data.projectName, 'project-name')}
 ${get_or_none(data.projectWebsite, 'project-website')}${getAuthors()}
-description: '${normalize(data.desc)}'
+description: >
+  ${normalize(data.desc)}
 language:
   - ${languages}
 script: 
@@ -274,7 +286,7 @@ license:
   - ${data.license}
 format: '${data.format}'${getMetrics()}${getSources()}
 ${get_or_none(data.cff, 'citation-file-link')}
-${get_or_none(data.transcriptionGuidelines, 'transcription-guidelines')}
+${get_or_none_charriot(data.transcriptionGuidelines, 'transcription-guidelines')}
 `;
     outputContainer.classList.remove("d-none");
     link.href = `https://github.com/HTR-United/htr-united/new/master?filename=catalog/${slugify(data.projectName || data.repoName)}/${slugify(data.repoName)}.yml`;
