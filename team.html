@@ -81,6 +81,27 @@
     <!-- Custom styles for this template -->
     <!--<link href="heroes.css" rel="stylesheet">-->
   </head>
+
+  <!-- i18n -->
+  <script src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
+  <script>
+    const languages = [
+      "Français",
+      "English"
+    ];
+    new vanilla_i18n (
+      languages,
+      opts = {
+        path: "assets/vanilla-i18n",
+        debug: false,
+        i18n_attr_name: "vanilla-i18n",
+        toggler_id: "vanilla-i18n-toggler",
+        default_language: languages[0],
+      }
+    ).run();
+  </script>
+  <!-- end of i18n -->
+
   <body id="top">
 
     <!-- navbar -->
@@ -110,7 +131,11 @@
             </li>
           </ul>
           <div class="col-sm-2 text-end">
-            <a class="btn btn-outline-secondary me-2" href="#">English</a>
+            <select id="vanilla-i18n-toggler">
+              <option>Français</option>
+              <option>English</option>
+            </select>
+            <!--<a class="btn btn-outline-secondary me-2" href="#">English</a>-->
           </div>
         </div>
       </nav>
@@ -119,21 +144,21 @@
 <main>
   <div class="px-4 py-5 my-5" id="main">
 	  <div class="container">
-	  	<h1>Éditrices-eurs</h1>
+	  	<h1><i18n vanilla-i18n="team.title">Éditrices-eurs</i18n></h1>
 	  	<section class="row" id="alix">
 	  		<div class="col-md-2">
 	  			<img src="https://alix-tz.github.io/assets/images/profile.png" class="img-fluid rounded" alt="Photo d'Alix Chagué" />
 	  		</div>
 	  		<div class="col-offset-1 col text-justify">
-	  			<h2><span aria-ssml="{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;a.liks ʃaɡe&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}">Alix Chagué</span> <!--(\a.liks ʃaɡe\)--></h2>
-	  			<p>Je suis ingénieure Recherche et Développement au sein de l'équipe ALMAnaCH du centre Inria de Paris et je suis spécialiste des traitements informatiques pour la valorisation de données patrimoniales, par le biais notamment des méthodes de transcription automatique. J'ai notamment contribué aux projets TIMEUS (ANR), LECTAUREP et DAHN. Initialement issue d'une formation classique en sciences humaines et en histoire de l'art, je suis co-responsable du Master 2 Documentation et Humanités Numériques de l'Ecole du Louvre, où je dispense des enseignements méthodologiques et techniques.</p>
+	  			<h2><!--<span aria-ssml="{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;a.liks ʃaɡe&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}">-->Alix Chagué</span> <!--(\a.liks ʃaɡe\)--></h2>
+	  			<p><i18n vanilla-i18n="team.alix">Je suis doctorante en Humanités numérique au sein des équipes ALMAnaCH du centre Inria de Paris et celle du CRIHN de l'Université de Montréal, en cotutelle EPHE-Université de Montréal. Mes recherches portes sur l'appropriation des outils de transcription automatique (HTR) par la communauté des humanités numériques. Initialement issue d'une formation classique en sciences humaines et en histoire de l'art, je suis co-responsable du Master 2 Documentation et Humanités Numériques de l'Ecole du Louvre, où je dispense des enseignements méthodologiques et techniques. En tant qu'ingénieure R&D pour ALMAnaCH, j'ai notamment contribué aux projets TIMEUS (ANR), LECTAUREP et DAHN. </i18n></p>
 	  		</div>
 	  	</section>
 	  	<hr />
 	  	<section class="row" id="thibault">
 	  		<div class="col-offset-1 col  text-justify">
 	  			<h2>Thibault Clérice</h2>
-	  			<p>Je suis responsable du master « Technologies numériques appliquées à l’histoire » de l’École nationale des chartes (Paris, France). J'ai été ingénieur au Centre for eResearch (Kings College de Londres, Royaume-Uni) et à la chaire Humboldt pour les humanités numériques (Leipzig, Allemagne), où j'ai travaillé sur les fondations de Perseus 5 et du projet CapiTainS.org. Je suis membre fondateur du Technical Committee du standard Distributed Text Services ( w3id.org/dts ). Mes enseignements portent en majeure partie sur l’ingénierie des données patrimoine, qu’il s’agisse de la gestion numérique des données, des bonnes pratiques de développement, de standards de communication ou de langages de programmation. Mes recherches portent principalement sur le traitement automatique des langues anciennes à travers l’apprentissage profond et sur la mise à disposition de corpora.</p>
+	  			<p><i18n vanilla-i18n="team.thibault">Je suis responsable du master « Technologies numériques appliquées à l’histoire » de l’École nationale des chartes (Paris, France). J'ai été ingénieur au Centre for eResearch (Kings College de Londres, Royaume-Uni) et à la chaire Humboldt pour les humanités numériques (Leipzig, Allemagne), où j'ai travaillé sur les fondations de Perseus 5 et du projet CapiTainS.org. Je suis membre fondateur du Technical Committee du standard Distributed Text Services ( w3id.org/dts ). Mes enseignements portent en majeure partie sur l’ingénierie des données patrimoine, qu’il s’agisse de la gestion numérique des données, des bonnes pratiques de développement, de standards de communication ou de langages de programmation. Mes recherches portent principalement sur le traitement automatique des langues anciennes à travers l’apprentissage profond et sur la mise à disposition de corpora.</i18n></p>
 	  		</div>
 	  		<div class="col-md-2">
 	  			<img src="https://pbs.twimg.com/profile_images/922043022916902913/Xdvaypzu_400x400.jpg" class="img-fluid rounded" alt="Photo de Thibault Clérice" />
@@ -149,7 +174,7 @@
         <p class="fs-5 mb-4">HTR-United | 2021</p>
       </div>
       <div class="col-lg-6 mx-auto">
-        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank">Qui est derrière HTR-United ?</a></p>
+        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank"><i18n vanilla-i18n="footer.team">Qui est derrière HTR-United ?</i18n></a></p>
       </div>
     </div>
   </div>
