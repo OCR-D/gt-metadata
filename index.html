@@ -81,11 +81,31 @@
     <!-- Custom styles for this template -->
     <!--<link href="heroes.css" rel="stylesheet">-->
   </head>
+  <!-- i18n -->
+  <script src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
+  <script>
+    const languages = [
+      "Français",
+      "English"
+    ];
+    new vanilla_i18n (
+      languages,
+      opts = {
+        path: "assets/vanilla-i18n",
+        debug: false,
+        i18n_attr_name: "vanilla-i18n",
+        toggler_id: "vanilla-i18n-toggler",
+        default_language: languages[0],
+      }
+    ).run();
+  </script>
+  <!-- end of i18n -->
+
   <body id="top">
 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom  py-3 mb-4 px-5 shadow-lg">
-        <a class="navbar-brand" href="#top">HTR-United</a>
+        <a class="navbar-brand" href="index.html/#top">HTR-United</a>
         <a class="navbar-brand" href="https://github.com/HTR-United"><i class="fab fa-github"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_htr-united" aria-controls="navbar_htr-united" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span><!--<i class="far fa-minus-square"></i>-->
@@ -94,23 +114,27 @@
         <div class="collapse navbar-collapse" id="navbar_htr-united">
           <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
             <li class="nav-item active">
-              <a class="nav-link btn btn-nav me-2" href="index.html#use-data">Utiliser les données</span></a>
+              <a class="nav-link btn btn-nav me-2" href="index.html#use-data"><i18n vanilla-i18n="nav.use">Utiliser les données</i18n></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav me-2" href="index.html#provide-data">Proposer des données</a>
+              <a class="nav-link btn btn-nav me-2" href="index.html#provide-data"><i18n vanilla-i18n="nav.provide">Proposer des données</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav me-2" href="index.html#scenarios">Scénarios</a>
+              <a class="nav-link btn btn-nav me-2" href="index.html#scenarios"><i18n vanilla-i18n="nav.scenario">Scénarios</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav-ext me-2" href="document-your-data.html">Aller au formulaire</a>
+              <a class="nav-link btn btn-nav-ext me-2" href="document-your-data.html"><i18n vanilla-i18n="nav.form">Aller au formulaire</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav-ext me-2" href="team.html">L'Équipe</a>
+              <a class="nav-link btn btn-nav-ext me-2" href="team.html"><i18n vanilla-i18n="nav.team">L'Équipe</i18n></a>
             </li>
           </ul>
           <div class="col-sm-2 text-end">
-            <a class="btn btn-outline-secondary me-2" href="index-en.html">English</a>
+            <select id="vanilla-i18n-toggler">
+              <option>Français</option>
+              <option>English</option>
+            </select>
+            <!--<a class="btn btn-outline-secondary me-2" href="#">English</a>-->
           </div>
         </div>
       </nav>
@@ -281,25 +305,10 @@
         <p class="fs-5 mb-4">HTR-United | 2021</p>
       </div>
       <div class="col-lg-6 mx-auto">
-        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank">Qui est derrière HTR-United ?</a></p>
+        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank"><i18n vanilla-i18n="footer.team">Qui est derrière HTR-United ?</i18n></a></p>
       </div>
     </div>
   </div>
-
-  <!-- utiliser mode dark pour version en anglais
-  <div class="bg-dark text-secondary px-4 py-5 text-center">
-    <div class="py-5">
-      <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
-          <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button>
-        </div>
-      </div>
-    </div>
-  </div>
--->
 
 </main>
 
