@@ -82,26 +82,6 @@
     <!--<link href="heroes.css" rel="stylesheet">-->
   </head>
 
-  <!-- i18n -->
-  <script src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
-  <script>
-    const languages = [
-      "Français",
-      "English"
-    ];
-    new vanilla_i18n (
-      languages,
-      opts = {
-        path: "assets/vanilla-i18n",
-        debug: false,
-        i18n_attr_name: "vanilla-i18n",
-        toggler_id: "vanilla-i18n-toggler",
-        default_language: languages[0],
-      }
-    ).run();
-  </script>
-  <!-- end of i18n -->
-
   <body id="top">
 
     <!-- navbar -->
@@ -115,27 +95,23 @@
         <div class="collapse navbar-collapse" id="navbar_htr-united">
           <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
             <li class="nav-item active">
-              <a class="nav-link btn btn-nav me-2" href="index.html#use-data">Utiliser les données</span></a>
+              <a class="nav-link btn btn-nav me-2" href="index-en.html#use-data">Use the data</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav me-2" href="index.html#provide-data">Proposer des données</a>
+              <a class="nav-link btn btn-nav me-2" href="index-en.html#provide-data">Provide data</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav me-2" href="index.html#scenarios">Scénarios</a>
+              <a class="nav-link btn btn-nav me-2" href="index-en.html#scenarios">Scenarios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav-ext me-2" href="document-your-data.html">Aller au formulaire</a>
+              <a class="nav-link btn btn-nav-ext me-2" href="document-your-data-en.html">Go to form</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav-ext me-2" href="team.html">L'Équipe</a>
+              <a class="nav-link btn btn-nav-ext me-2" href="team-en.html">The Team</a>
             </li>
           </ul>
           <div class="col-sm-2 text-end">
-            <select id="vanilla-i18n-toggler">
-              <option>Français</option>
-              <option>English</option>
-            </select>
-            <!--<a class="btn btn-outline-secondary me-2" href="#">English</a>-->
+            <a class="btn btn-outline-secondary me-2" href="team.html">Français</a>
           </div>
         </div>
       </nav>
@@ -144,21 +120,21 @@
 <main>
   <div class="px-4 py-5 my-5" id="main">
 	  <div class="container">
-	  	<h1><i18n vanilla-i18n="team.title">Éditrices-eurs</i18n></h1>
+	  	<h1>Editors</h1>
 	  	<section class="row" id="alix">
 	  		<div class="col-md-2">
 	  			<img src="https://alix-tz.github.io/assets/images/profile.png" class="img-fluid rounded" alt="Photo d'Alix Chagué" />
 	  		</div>
 	  		<div class="col-offset-1 col text-justify">
 	  			<h2><!--<span aria-ssml="{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;a.liks ʃaɡe&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}">-->Alix Chagué</span> <!--(\a.liks ʃaɡe\)--></h2>
-	  			<p><i18n vanilla-i18n="team.alix">Je suis doctorante en Humanités numérique au sein des équipes ALMAnaCH du centre Inria de Paris et celle du CRIHN de l'Université de Montréal, en cotutelle EPHE-Université de Montréal. Mes recherches portes sur l'appropriation des outils de transcription automatique (HTR) par la communauté des humanités numériques. Initialement issue d'une formation classique en sciences humaines et en histoire de l'art, je suis co-responsable du Master 2 Documentation et Humanités Numériques de l'Ecole du Louvre, où je dispense des enseignements méthodologiques et techniques. En tant qu'ingénieure R&D pour ALMAnaCH, j'ai notamment contribué aux projets TIMEUS (ANR), LECTAUREP et DAHN. </i18n></p>
+	  			<p>I am a phD student in Digital Humanities working for both the ALMAnaCH team at the Inria Paris Center and the CRIHN at the Unversity of Montreal, enrolled at the EPHE and University of Montréal. My research in focused on the appropriation of automatique transcription (HTR) tools by the DH community. Initially trained in art history, I am co-supervising the Master 2 "Documentation et Humanités Numériques" at the Ecole du Louvre, where I teach methodological and technical courses. As a R&D engineer for ALMAnaCH, I contributed to various projects : TIMEUS (ANR), LECTAUREP, or else DAHN.</p>
 	  		</div>
 	  	</section>
 	  	<hr />
 	  	<section class="row" id="thibault">
 	  		<div class="col-offset-1 col  text-justify">
 	  			<h2>Thibault Clérice</h2>
-	  			<p><i18n vanilla-i18n="team.thibault">Je suis responsable du master « Technologies numériques appliquées à l’histoire » de l’École nationale des chartes (Paris, France). J'ai été ingénieur au Centre for eResearch (Kings College de Londres, Royaume-Uni) et à la chaire Humboldt pour les humanités numériques (Leipzig, Allemagne), où j'ai travaillé sur les fondations de Perseus 5 et du projet CapiTainS.org. Je suis membre fondateur du Technical Committee du standard Distributed Text Services ( w3id.org/dts ). Mes enseignements portent en majeure partie sur l’ingénierie des données patrimoine, qu’il s’agisse de la gestion numérique des données, des bonnes pratiques de développement, de standards de communication ou de langages de programmation. Mes recherches portent principalement sur le traitement automatique des langues anciennes à travers l’apprentissage profond et sur la mise à disposition de corpora.</i18n></p>
+	  			<p>I am the head of the MA "Digital Technologies Applied to History" (Technologies Numériques Appliquées à l’Histoire) at the École Nationale des Chartes (Paris, France). I am a classicist who served as an engineer both at the Centre for eResearch (Kings College London, UK) and the Humboldt Chair for Digital Humanities (Leipzig, Germany) where I developed the data backbone of the future Perseus 5 (under the CapiTainS.org project). I am a founding member of the Technical Committee for the Distributed Text Services standard ( w3id.org/dts ). The major part of my teaching is dedicated to patrimonial data engineering, namely digital data management, development good practices, standards for communication and programming languages. My research mainly focus on automatically processing ancient languages through deep learning and the distribution of corpora.</p>
 	  		</div>
 	  		<div class="col-md-2">
 	  			<img src="https://pbs.twimg.com/profile_images/922043022916902913/Xdvaypzu_400x400.jpg" class="img-fluid rounded" alt="Photo de Thibault Clérice" />
@@ -168,13 +144,14 @@
 	</div>
 
   <!-- Footer -->
+  <!-- Footer -->
   <div class="bg-dark text-secondary px-4 py-2 text-center">
     <div class="py-3">
       <div class="col-lg-6 mx-auto">
         <p class="fs-5 mb-4">HTR-United | 2021</p>
       </div>
       <div class="col-lg-6 mx-auto">
-        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank"><i18n vanilla-i18n="footer.team">Qui est derrière HTR-United ?</i18n></a></p>
+        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team-en.html" target="_blank">Who are the people behind HTR-United?</a></p>
       </div>
     </div>
   </div>
