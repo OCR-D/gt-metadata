@@ -129,9 +129,9 @@ form.field.year.start,Source Start-Year,Année de début des sources
 form.field.year.end,Source End-Year,Année de fin des sources
 form.field.example,Example:,Exemple :
 form.field.year.info,"For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.","Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication"
-form.field.lgg.label,Language,Langue
+form.field.lgg.label,"<label for=""language"" class=""col-sm-3 col-form-label"">Language<span class=""required"">*</span></label>","<label for=""language"" class=""col-sm-3 col-form-label"">Langue<span class=""required"">*</span></label>"
 form.field.lgg.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner."
-form.field.script.label,Script,Système d'écriture
+form.field.script.label,"<label for=""script"" class=""col-sm-3 col-form-label"">Script<span class=""required"">*</span></label>","<label for=""script"" class=""col-sm-3 col-form-label"">Système d'écriture<span class=""required"">*</span></label>"
 form.field.script.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner."
 form.field.script.type.label,Script type,Type d'écriture
 form.field.script.type.select,"<option value=""only-manuscript"">Manuscript only</option>

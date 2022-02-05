@@ -312,69 +312,75 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="date-begin" class="col-sm-3 col-form-label">Année de début des sources<span class="required">*</span></label>
+            <label for="date-begin" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.year.start">Année de début des sources</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800" required="true">
             </div>
-            <label for="date-end" class="col-sm-3 col-form-label">Année de fin des sources<span class="required">*</span></label>
+            <label for="date-end" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.year.start">Année de fin des sources</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948" required="true">
             </div>
           </div>
           <div class="row">
-            <div class="col offset-3"><p><small class="text-muted">Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication</small></p></div>
+            <div class="col offset-3"><p><small class="text-muted"><i18n vanilla-i18n="form.field.year.info">Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication</i18n></small></p></div>
           </div>
-          <div class="form-group row my-2">
-            <label for="language" class="col-sm-3 col-form-label">Langue<span class="required">*</span></label>
+          
+            <label for="language" class="col-sm-3 col-form-label">Language<span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="language"></span>
-              <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
+              <small class="form-text text-muted">To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.</small>
+            </div>
+          <div class="form-group row my-2">
+            <i18n vanilla-i18n="form.field.lgg.label"><label for="language" class="col-sm-3 col-form-label">Langue<span class="required">*</span></label></i18n>
+            <div class="col-sm-9">
+              <span class="language"></span>
+              <small class="form-text text-muted"><i18n vanilla-i18n="form.field.lgg.info">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n></small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="script" class="col-sm-3 col-form-label">Système d'écriture<span class="required">*</span></label>
+            <i18n vanilla-i18n="form.field.script.label"><label for="script" class="col-sm-3 col-form-label">Système d'écriture<span class="required">*</span></label></i18n>
             <div class="col-sm-9">
               <span class="scripts"></span>
-              <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
+              <small class="form-text text-muted"><i18n vanilla-i18n="form.field.script.info">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n></small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="scriptType" class="col-sm-3 col-form-label">Type d'écriture<span class="required">*</span></label>
+            <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <select name="scriptType" id="format" class="form-control">
-                <option value="only-manuscript">Manuscrit uniquement</option>
+                <i18n vanilla-i18n="form.field.script.type.select"><option value="only-manuscript">Manuscrit uniquement</option>
                 <option value="only-typed">Imprimé/dactylographié uniquement</option>
                 <option value="mainly-manuscript">Principalement manuscrit</option>
                 <option value="mainly-typed">Principalement imprimé/dactylographié</option>
-                <option value="evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
+                <option value="evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option></i18n>
               </select>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label">Nombre de mains (ou de fontes)<span class="required">*</span></label>
+            <label for="hands" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.hands.label">Nombre de mains (ou de fontes)</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="hands" id="hands" class="form-control my-2" required="true">
-                <option value="1" selected="">1</option>
+                <i18n vanilla-i18n="form.field.script.hands.select"><option value="1" selected="">1</option>
                 <option value="1-per-file">1 par fichier</option>
                 <option value="1-per-folder">1 par dossier</option>
                 <option value="less-than-11">Inférieur ou égal à 10 (peu)</option>
                 <option value="more-than-10">Supérieur à 10 (beaucoup)</option>
-                <option value="unknown">Inconnu</option>
+                <option value="unknown">Inconnu</option></i18n>
               </select>
             </div>
-            <label for="precision" class="col-sm-3 col-form-label">Précision<span class="required">*</span></label>
+            <label for="precision" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.prec.label">Précision</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="precision" id="precision" class="form-control my-2">
-                <option value="exact" selected="">Valeur exacte</option>
-                <option value="estimated">Estimation</option>
+                <i18n vanilla-i18n="form.field.prec.select"><option value="exact" selected="">Valeur exacte</option>
+                <option value="estimated">Estimation</option></i18n>
               </select>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="transcriptionGuidelines" class="col-sm-3 col-form-label">Normes de transcription</label>
+            <label for="transcriptionGuidelines" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.guidelines.label">Normes de transcription</i18n></label>
             <div class="col-sm-9">
               <textarea name="transcriptionGuidelines" class="form-control" id="transcriptionGuidelines" placeholder="Normes de transcription"></textarea>
-              <p><small class="text-muted">Normes de transcriptions utilisées (format libre). Peut concerner la résolution des abréviations, corrections de fautes d'orthographe, l'usage de caractères spéciaux, la normalisation, etc.</small></p>
+              <p><small class="text-muted"><i18n vanilla-i18n="form.field.guidelines.info">Normes de transcriptions utilisées (format libre). Peut concerner la résolution des abréviations, corrections de fautes d'orthographe, l'usage de caractères spéciaux, la normalisation, etc.</i18n></small></p>
             </div>
           </div>
           <div class="row">
