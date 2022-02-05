@@ -1,0 +1,10 @@
+vanilla-i18n-key,English,Français
+nav.use,Use the data,Utiliser les données
+nav.provide,Provide data,Proposer des données
+nav.scenario,Scenario,Scénarios
+nav.form,Go to form,Aller au formulaire
+nav.team,The Team,L'Équipe
+team.title,Editors,Éditrices-eurs
+team.alix,(translation not yet available),"Je suis ingénieure Recherche et Développement au sein de l'équipe ALMAnaCH du centre Inria de Paris et je suis spécialiste des traitements informatiques pour la valorisation de données patrimoniales, par le biais notamment des méthodes de transcription automatique. J'ai notamment contribué aux projets TIMEUS (ANR), LECTAUREP et DAHN. Initialement issue d'une formation classique en sciences humaines et en histoire de l'art, je suis co-responsable du Master 2 Documentation et Humanités Numériques de l'Ecole du Louvre, où je dispense des enseignements méthodologiques et techniques."
+team.thibault,(translation not yet available),"Je suis responsable du master « Technologies numériques appliquées à l’histoire » de l’École nationale des chartes (Paris, France). J'ai été ingénieur au Centre for eResearch (Kings College de Londres, Royaume-Uni) et à la chaire Humboldt pour les humanités numériques (Leipzig, Allemagne), où j'ai travaillé sur les fondations de Perseus 5 et du projet CapiTainS.org. Je suis membre fondateur du Technical Committee du standard Distributed Text Services ( w3id.org/dts ). Mes enseignements portent en majeure partie sur l’ingénierie des données patrimoine, qu’il s’agisse de la gestion numérique des données, des bonnes pratiques de développement, de standards de communication ou de langages de programmation. Mes recherches portent principalement sur le traitement automatique des langues anciennes à travers l’apprentissage profond et sur la mise à disposition de corpora."
+footer.team,Who are the people behind HTR-United?,Qui est derrière HTR-United ?
