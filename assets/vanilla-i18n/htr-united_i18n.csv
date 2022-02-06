@@ -41,8 +41,8 @@ main.btn.cite,Cite HTR-United,Citer HTR-United
 main.btn.generate,Generate a description,Générer une description
 main.btn.scenario,Check out the scenarios,Découvrir les scénarios
 main.btn.faq,Go to FAQ,Aller à la FAQ
-form.desc.main,"<p class=""lead mb-4"">HTR-United is a Github organization without any other form of legal personality. It aims at gathering HTR/OCR models for and transcriptions of all periods and style of writing, mostly but not exclusively in French. <br/>It was born from the mere necessity -for projects- to possess potentiel ground truth to rapidly train models on smaller corpora.<br/></p>","<p class=""lead mb-4"">HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.<br></p>"
-form.step.title,Steps,Étapes
+form.desc.main,"HTR-United is a Github organization without any other form of legal personality. It aims at gathering HTR/OCR models for and transcriptions of all periods and style of writing, mostly but not exclusively in French. <br/>It was born from the mere necessity -for projects- to possess potentiel ground truth to rapidly train models on smaller corpora.","HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits."
+form.steps.title,Steps,Étapes
 form.step1.title,Fill the form,Remplir le formulaire
 form.step1.desc,Follow the examples and note that you can always manually modify the output. This form only helps you structure the description and ensure that every item is documented.,"Suivre les examples. Si nécessaire, modifier manuellement l'output : ce formulaire aide seulement à structurer la description et à s'assurer que toutes les rubriques sont documentées."
 form.step2.title,"Click on ""Get formatted metadata""","Cliquer sur ""Obtenir les métadonnées formatées"
@@ -135,7 +135,6 @@ form.field.roles,"<div class=""col-sm-9"">
                 </div>"
 form.field.year.start,Source Start-Year,Année de début des sources
 form.field.year.end,Source End-Year,Année de fin des sources
-form.field.example,Example:,Exemple :
 form.field.year.info,"For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.","Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication"
 form.field.lggs,"<div class=""form-group row my-2"">
             <label for=""language"" class=""col-sm-3 col-form-label"">Language<span class=""required"">*</span></label>
