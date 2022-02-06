@@ -78,7 +78,10 @@ form.field.project.link,Link to project's website,Lien vers le site du projet
 form.field.authors,Authority and role(s),Acteur-rice-s du projet
 form.field.member.add,Add a member,Ajouter une personne
 form.field.member.rm,Remove a member,Supprimer cette personne
-form.field.roles,"<div class=""form-check-inline checkbox checkbox-inline my-1 py-2"">
+form.field.roles,"<div class=""col-sm-9"">
+                  <input type=""text"" name=""authorityName"" class=""form-control mb-2"" placeholder=""Author's last name"">
+                  <input type=""text"" name=""authoritySurname"" class=""form-control mb-2"" placeholder=""Author first name"">
+                  <div class=""form-check-inline checkbox checkbox-inline my-1 py-2"">
                     <input type=""checkbox"" value=""transcriber"" name=""roleTranscriber"" id=""roleTranscriber"">
                     <label class=""form-check-label"" for=""roleTranscriber"">Transcription</label>
                   </div>
@@ -101,7 +104,11 @@ form.field.roles,"<div class=""form-check-inline checkbox checkbox-inline my-1 p
                   <div class=""form-check-inline my-1 py-2"">
                     <input type=""checkbox"" value=""support"" name=""roleSupport"" id=""roleSupport"">
                     <label class=""form-check-label"" for=""roleSupport"">Support</label>
-                  </div>","<div class=""form-check-inline checkbox checkbox-inline my-1 py-2"">
+                  </div>
+                </div>","<div class=""col-sm-9"">
+                  <input type=""text"" name=""authorityName"" class=""form-control mb-2"" placeholder=""Nom de l'auteur-rice"">
+                  <input type=""text"" name=""authoritySurname"" class=""form-control mb-2"" placeholder=""Prénom de l'auteur-rice"">
+                  <div class=""form-check-inline checkbox checkbox-inline my-1 py-2"">
                     <input type=""checkbox"" value=""transcriber"" name=""roleTranscriber"" id=""roleTranscriber"">
                     <label class=""form-check-label"" for=""roleTranscriber"">Transcription</label>
                   </div>
@@ -124,15 +131,38 @@ form.field.roles,"<div class=""form-check-inline checkbox checkbox-inline my-1 p
                   <div class=""form-check-inline my-1 py-2"">
                     <input type=""checkbox"" value=""support"" name=""roleSupport"" id=""roleSupport"">
                     <label class=""form-check-label"" for=""roleSupport"">Assistance</label>
-                  </div>"
+                  </div>
+                </div>"
 form.field.year.start,Source Start-Year,Année de début des sources
 form.field.year.end,Source End-Year,Année de fin des sources
 form.field.example,Example:,Exemple :
 form.field.year.info,"For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.","Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication"
-form.field.lgg.label,"<label for=""language"" class=""col-sm-3 col-form-label"">Language<span class=""required"">*</span></label>","<label for=""language"" class=""col-sm-3 col-form-label"">Langue<span class=""required"">*</span></label>"
-form.field.lgg.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner."
-form.field.script.label,"<label for=""script"" class=""col-sm-3 col-form-label"">Script<span class=""required"">*</span></label>","<label for=""script"" class=""col-sm-3 col-form-label"">Système d'écriture<span class=""required"">*</span></label>"
-form.field.script.info,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner."
+form.field.lggs,"<div class=""form-group row my-2"">
+            <label for=""language"" class=""col-sm-3 col-form-label"">Language<span class=""required"">*</span></label>
+            <div class=""col-sm-9"">
+              <span class=""language""></span>
+              <small class=""form-text text-muted"">To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.</small>
+            </div>
+          </div>","<div class=""form-group row my-2"">
+            <label for=""language"" class=""col-sm-3 col-form-label"">Langue<span class=""required"">*</span></label>
+            <div class=""col-sm-9"">
+              <span class=""language""></span>
+              <small class=""form-text text-muted"">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
+            </div>
+          </div>"
+form.field.scripts,"<div class=""form-group row my-2"">
+            <label for=""script"" class=""col-sm-3 col-form-label"">Script<span class=""required"">*</span></label>
+            <div class=""col-sm-9"">
+              <span class=""scripts""></span>
+              <small class=""form-text text-muted"">To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.</small>
+            </div>
+          </div>","<div class=""form-group row my-2"">
+            <label for=""script"" class=""col-sm-3 col-form-label"">Système d'écriture<span class=""required"">*</span></label>
+            <div class=""col-sm-9"">
+              <span class=""scripts""></span>
+              <small class=""form-text text-muted"">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
+            </div>
+          </div>"
 form.field.script.type.label,Script type,Type d'écriture
 form.field.script.type.select,"<option value=""only-manuscript"">Manuscript only</option>
                 <option value=""only-typed"">Typed only</option>
@@ -176,3 +206,15 @@ form.field.apa,"<small class=""text-muted"">We prefer APA references, which can 
 form.title.generate,Generate the <code>htr-united.yml</code> file,Générer le fichier <code>htr-united.yml</code>
 form.btn.get,Get formatted metadata,Obtenir les métadonnées formatées
 form.btn.dl,"<a id=""download"" href=""#"">Download</a> or copy the file below, paste its content at this <a id=""output-link"" href=""#"">link</a>","<a id=""download"" href=""#"">Téléchargez</a> le fichier ci-dessous et copiez son contenu au bout de ce <a id=""output-link"" href=""#"">lien</a>"
+form.input.reponame,"<input type=""text"" name=""repoName"" class=""form-control"" id=""repoName"" placeholder=""Repository's title"" required=""true"">","<input type=""text"" name=""repoName"" class=""form-control"" id=""repoName"" placeholder=""Nom du dépôt"" required=""true"">"
+form.input.repolink,"<input type=""text"" name=""repoLink"" class=""form-control"" id=""repoLink"" placeholder=""Link to repository"" required=""true"">","<input type=""text"" name=""repoLink"" class=""form-control"" id=""repoLink"" placeholder=""Lien vers le dépôt"" required=""true"">"
+form.input.cff,"<input type=""text"" name=""cff"" class=""form-control"" id=""citationCFF"" placeholder=""Link to a CITATION.cff file"">","<input type=""text"" name=""cff"" class=""form-control"" id=""citationCFF"" placeholder=""Lien vers un fichier CITATION.cff"">"
+form.field.std_info,This is a non-exhaustive selection of license options.,Les licences sont ici proposées à titre indicatif.
+form.input.projectname,"<input type=""text"" name=""projectName"" class=""form-control"" id=""projectName"" placeholder=""Project's name"">","<input type=""text"" name=""projectName"" class=""form-control"" id=""projectName"" placeholder=""Nom du projet"">"
+form.input.projectlink,"<input type=""text"" name=""projectWebsite"" class=""form-control"" id=""projectWebsite"" placeholder=""Link to project's website (if applicable)"">","<input type=""text"" name=""projectWebsite"" class=""form-control"" id=""projectWebsite"" placeholder=""Lien vers le site du projet (s'il existe)"">"
+form.input.datebegin,"<input type=""number"" name=""date-begin"" class=""form-control"" id=""date-begin"" placeholder=""Example: 1800"" required=""true"">","<input type=""number"" name=""date-begin"" class=""form-control"" id=""date-begin"" placeholder=""Exemple: 1800"" required=""true"">"
+form.input.dateend,"<input type=""number"" name=""date-end"" class=""form-control"" id=""date-end"" placeholder=""Example: 1948"" required=""true"">","<input type=""number"" name=""date-end"" class=""form-control"" id=""date-end"" placeholder=""Exemple: 1948"" required=""true"">"
+form.input.guidelines,"<textarea name=""transcriptionGuidelines"" class=""form-control"" id=""transcriptionGuidelines"" placeholder=""Transcription guidelines""></textarea>","<textarea name=""transcriptionGuidelines"" class=""form-control"" id=""transcriptionGuidelines"" placeholder=""Normes de transcription""></textarea>"
+form.input.quantity,"<input type=""number"" name=""metric-count"" class=""form-control"" placeholder=""Example: 200"" min=""1"">","<input type=""number"" name=""metric-count"" class=""form-control"" placeholder=""Exemple: 200"" min=""1"">"
+form.input.apa,"<input type=""text"" name=""sources-ref"" class=""form-control"" placeholder=""APA Reference for a source"">","<input type=""text"" name=""sources-ref"" class=""form-control"" placeholder=""Référence en mode APA"">"
+form.input.src,"<input type=""text"" name=""sources-link"" class=""form-control"" placeholder=""Link to the source or a catalog description"">","<input type=""text"" name=""sources-link"" class=""form-control"" placeholder=""Lien vers le catalogue ou la ressource"">"
