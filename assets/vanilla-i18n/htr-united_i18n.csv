@@ -163,7 +163,7 @@ form.field.scripts,"<div class=""form-group row my-2"">
             </div>
           </div>"
 form.field.script.type.label,Script type,Type d'écriture
-form.field.script.type.select,"<option value=""only-manuscript"">Manuscript only</option>
+form.field.script.type.select," <option value=""only-manuscript"">Manuscript only</option>
                 <option value=""only-typed"">Typed only</option>
                 <option value=""mainly-manuscript"">Mainly manuscript</option>
                 <option value=""mainly-typed"">Mainly typed</option>
