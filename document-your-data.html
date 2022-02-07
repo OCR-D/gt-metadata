@@ -103,7 +103,7 @@
       i18n_languages,
       opts = {
         path: "assets/vanilla-i18n",
-        debug: false,
+        debug: true,
         i18n_attr_name: "vanilla-i18n",
         toggler_id: "vanilla-i18n-toggler",
         default_language: i18n_languages[0],
@@ -271,10 +271,10 @@
               <i18n vanilla-i18n="form.field.authors">Acteur-rice-s du projet</i18n>
             </div>
             <div class="col-9">
-              <div class="row author original-author" style="border: 1px solid #CCCCCC; padding:1em; margin-bottom: 1em;">
+              <div class="row author original-author p-2 mx-1 mt-1 mb-2 rounded border border-secondary">
                 <div class="col-sm-3">
-                  <button class="btn btn-primary btn-sm add-author"><i18n vanilla-i18n="form.field.member.add">Ajouter une personne</i18n></button>
-                  <button class="btn btn-danger btn-sm remove-author invisible" style="margin-top:5px;"><i18n vanilla-i18n="form.field.member.rm">Supprimer cette personne</i18n></button>
+                  <button class="btn btn-info btn-sm add-author"><i18n vanilla-i18n="form.field.member.add">Ajouter une personne</i18n></button>
+                  <button class="btn btn-danger btn-sm remove-author invisible my-2"><i18n vanilla-i18n="form.field.member.rm">Supprimer cette personne</i18n></button>
                 </div>
                 <i18n vanilla-i18n="form.field.roles"><div class="col-sm-9">
                   <input type="text" name="authorityName" class="form-control mb-2" placeholder="Nom de l'auteur-rice">
