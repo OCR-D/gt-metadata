@@ -92,25 +92,7 @@
     <!-- Custom styles for this template -->
     <!--<link href="heroes.css" rel="stylesheet">-->
   </head>
-  <!-- i18n -->
-  <script src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
-  <script>
-    const i18n_languages = [
-      "Français",
-      "English"
-    ];
-    new vanilla_i18n (
-      i18n_languages,
-      opts = {
-        path: "assets/vanilla-i18n",
-        debug: true,
-        i18n_attr_name: "vanilla-i18n",
-        toggler_id: "vanilla-i18n-toggler",
-        default_language: i18n_languages[0],
-      }
-    ).run();
-  </script>
-  <!-- end of i18n -->
+  
 
   <body id="top">
 
@@ -473,6 +455,27 @@
     <script type="text/javascript" src="static/js/typeahead.js"></script>
     <script type="text/javascript" src="static/js/catalog_values.js"></script>
     <script type="text/javascript" src="static/js/catalog.js"></script>
+    <!-- i18n -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            const i18n_languages = [
+              "Français",
+              "English"
+            ];
+            new vanilla_i18n (
+              i18n_languages,
+              opts = {
+                path: "assets/vanilla-i18n",
+                debug: true,
+                i18n_attr_name: "vanilla-i18n",
+                toggler_id: "vanilla-i18n-toggler",
+                default_language: i18n_languages[0],
+              }
+            ).run();
+        }()
+    </script>
+    <!-- end of i18n -->
   </body>
 </html>
 
