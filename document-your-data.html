@@ -92,9 +92,11 @@
     <!-- Custom styles for this template -->
     <!--<link href="heroes.css" rel="stylesheet">-->
   </head>
+  
+
   <body id="top">
 
-        <!-- navbar -->
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom  py-3 mb-4 px-5 shadow-lg">
         <a class="navbar-brand" href="index.html#top">HTR-United</a>
         <a class="navbar-brand" href="https://github.com/HTR-United"><i class="fab fa-github"></i></a>
@@ -105,23 +107,27 @@
         <div class="collapse navbar-collapse" id="navbar_htr-united">
           <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
             <li class="nav-item active">
-              <a class="nav-link btn btn-nav me-2" href="index.html#use-data">Utiliser les données</span></a>
+              <a class="nav-link btn btn-nav me-2" href="index.html#use-data"><i18n vanilla-i18n="nav.use">Utiliser les données</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav me-2" href="index.html#provide-data">Proposer des données</a>
+              <a class="nav-link btn btn-nav me-2" href="index.html#provide-data"><i18n vanilla-i18n="nav.provide">Proposer des données</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav me-2" href="index.html#scenarios">Scénarios</a>
+              <a class="nav-link btn btn-nav me-2" href="index.html#scenarios"><i18n vanilla-i18n="nav.scenario">Scénarios</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav-ext me-2" href="document-your-data.html">Aller au formulaire</a>
+              <a class="nav-link btn btn-nav-ext me-2" href="document-your-data.html"><i18n vanilla-i18n="nav.form">Aller au formulaire</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav-ext me-2" href="team.html">L'Équipe</a>
+              <a class="nav-link btn btn-nav-ext me-2" href="team.html"><i18n vanilla-i18n="nav.team">L'Équipe</i18n></a>
             </li>
           </ul>
           <div class="col-sm-2 text-end">
-            <a class="btn btn-outline-secondary me-2" href="document-your-data-en.html">English</a>
+            <select id="vanilla-i18n-toggler">
+              <option>Français</option>
+              <option>English</option>
+            </select>
+            <!--<a class="btn btn-outline-secondary me-2" href="#">English</a>-->
           </div>
         </div>
       </nav>
@@ -132,35 +138,35 @@
     <img src="assets/images/logo_htr-united.png" class="u-logo-image u-logo-image-1 mt-5" data-image-width="40" height="86">
     <h1 class="display-5 fw-bold my-4">HTR-United</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.<br></p>
+      <p class="lead mb-4"><i18n vanilla-i18n="form.desc.main">HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.</i18n><br></p>
       </div>
   </div>
 
   <div class="px-4 pb-5 pt-2 mb-5" id="steps">
-    <h2 class="display-5 mb-4 text-center">Étapes</h1>
+    <h2 class="display-5 mb-4 text-center"><i18n vanilla-i18n="form.steps.title">Étapes</i18n></h2>
     <div class="col-lg-4 mx-auto">
       <div class="list-group list-group-flush">
-        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep1" aria-expanded="false" aria-controls="collapseStep1">Remplir le formulaire</button>
+        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep1" aria-expanded="false" aria-controls="collapseStep1"><i18n vanilla-i18n="form.step1.title">Remplir le formulaire</i18n></button>
         <div class="collapse" id="collapseStep1">
-          <div class="card card-body bg-light">Suivre les examples. Si nécessaire, modifier manuellement l'output : ce formulaire aide seulement à structurer la description et à s'assurer que toutes les rubriques sont documentées.
+          <div class="card card-body bg-light"><i18n vanilla-i18n="form.step1.desc">Suivre les examples. Si nécessaire, modifier manuellement l'output : ce formulaire aide seulement à structurer la description et à s'assurer que toutes les rubriques sont documentées.</i18n>
           </div>
         </div>
         <!-- step 2 -->
-        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep2" aria-expanded="false" aria-controls="collapseStep2">Cliquer sur "Obtenir les métadonnées formatées"</button>
+        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep2" aria-expanded="false" aria-controls="collapseStep2"><i18n vanilla-i18n="form.step2.title">Cliquer sur "Obtenir les métadonnées formatées"</i18n></button>
         <div class="collapse" id="collapseStep2">
-          <div class="card card-body bg-light">Et copier le résultat !
+          <div class="card card-body bg-light"><i18n vanilla-i18n="form.step2.desc">Et copier le résultat !</i18n>
           </div>
         </div>
         <!-- step 3 -->
-        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep3" aria-expanded="false" aria-controls="collapseStep3">Ajouter le résultat au catalogue d'HTR-United</button>
+        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep3" aria-expanded="false" aria-controls="collapseStep3"><i18n vanilla-i18n="form.step3.title">1jouter le résultat au catalogue d'HTR-United</i18n></button>
         <div class="collapse" id="collapseStep3">
-          <div class="card card-body bg-light">Il est possible de faire cela de plusieurs manières, en fonction de la maîtrise de Github : 
+          <i18n vanilla-i18n="form.step3.desc"><div class="card card-body bg-light">Il est possible de faire cela de plusieurs manières, en fonction de la maîtrise de Github : 
             <ul>
               <li>Forker le <a href="https://github.com/HTR-United/htr-united" target="_blank" class="text-decoration-none">projet htr-united</a>, modifier htr-united.yml et créer une Pull Request.</li>
               <li>Or <a href="https://github.com/HTR-United/htr-united/issues/new" target="_blank" class="text-decoration-none">créer un ticket</a> au sein du projet htr-united pour que quelqu'un d'autre modifie htr-united.yml.</li>
               <!--<li>Or send us a message using our contact form.</li>-->
           </ul>
-          </div>
+          </div></i18n>
         </div>
       </div>
     </div>
@@ -176,36 +182,36 @@
         <form id="generate">
           <div class="row">
             <div class="col">
-              <h2>Informations générales sur le set de données</h2>
+              <h2><i18n vanilla-i18n="form.title.ds">Informations générales sur le set de données</i18n></h2>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="repoName" class="col-sm-3 col-form-label">Nom du dépôt / dataset (titre)<span class="required">*</span></label>
+            <label for="repoName" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.ds_title">Nom du dépôt / dataset (titre)</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
-              <input type="text" name="repoName" class="form-control" id="repoName" placeholder="Nom du dépôt" required="true">
+              <i18n vanilla-i18n="form.input.reponame"><input type="text" name="repoName" class="form-control" id="repoName" placeholder="Nom du dépôt" required="true"></i18n>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="repoLink" class="col-sm-3 col-form-label">Lien vers le dépôt<span class="required">*</span></label>
+            <label for="repoLink" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.repolink">Lien vers le dépôt</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
-              <input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien vers le dépôt" required="true">
+              <i18n vanilla-i18n="form.input.repolink"><input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien vers le dépôt" required="true"></i18n>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="desc" class="col-sm-3 col-form-label">Courte description<span class="required">*</span></label>
+            <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.ds_desc">Courte description</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <textarea name="desc" class="form-control" id="desc" placeholder="Description" required="true"></textarea>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="citationCFF" class="col-sm-3 col-form-label">Lien vers un fichier CITATION.cff</label>
+            <label for="citationCFF" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.cff.link">Lien vers un fichier CITATION.cff</i18n></label>
             <div class="col-sm-9">
-              <input type="text" name="cff" class="form-control" id="citationCFF" placeholder="Lien vers un fichier CITATION.cff">
-              <p><small class="text-muted">Les fichiers CITATION.cff permettent de fournir un mode de citation assez simple sur github par exemple. Lien: <a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small></p>
+              <i18n vanilla-i18n="form.input.cff"><input type="text" name="cff" class="form-control" id="citationCFF" placeholder="Lien vers un fichier CITATION.cff"></i18n>
+              <p><small class="text-muted"><i18n vanilla-i18n="form.field.cff.info">Les fichiers CITATION.cff permettent de fournir un mode de citation assez simple sur github par exemple. Lien:</i18n> <a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small></p>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="license" class="col-sm-3 col-form-label">Licence<span class="required">*</span></label>
+            <label for="license" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.license">Licence</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select class="form-control" name="license" id="license">
                 <option value="{name: 'CC-BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/'}">CC-BY 4.0</option>
@@ -215,7 +221,7 @@
                 <!-- Ajouter d'autres options !-->
               </select>
             </div>
-            <label for="format" class="col-sm-3 col-form-label">Format des données<span class="required">*</span></label>
+            <label for="format" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.std">Format des données</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="format" id="format" class="form-control">
                 <option value="Alto-XML">ALTO XML</option>
@@ -224,34 +230,35 @@
               </select>
             </div>
           </div>
+          <p><small class="text-muted"><i18n vanilla-i18n="form.field.std_info">Les licenses sont ici proposées à titre indicatif.</i18n></small></p>
           <div class="row">
             <div class="col">
-              <h2>Informations générales sur le projet</h2>
+              <h2><i18n vanilla-i18n="form.title.project">Informations générales sur le projet</i18n></h2>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="projectName" class="col-sm-3 col-form-label">Nom du projet (si différent du nom du dépôt)</label>
+            <label for="projectName" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.project.name">Nom du projet (si différent du nom du dépôt)</i18n></label>
             <div class="col-sm-9">
-              <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Nom du projet">
+              <i18n vanilla-i18n="form.input.projectname"><input type="text" name="projectName" class="form-control" id="projectName" placeholder="Nom du projet"></i18n>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="projectWebsite" class="col-sm-3 col-form-label">Lien vers le site du projet</label>
+            <label for="projectWebsite" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.project.link">Lien vers le site du projet</i18n></label>
             <div class="col-sm-9">
-              <input type="text" name="projectWebsite" class="form-control" id="projectWebsite" placeholder="Lien vers le site du projet (s'il existe)">
+              <i18n vanilla-i18n="form.input.projectlink"><input type="text" name="projectWebsite" class="form-control" id="projectWebsite" placeholder="Lien vers le site du projet (s'il existe)"></i18n>
             </div>
           </div>
           <div class="form-group row my-2">
             <div class="col-3">
-              Acteur-rice-s du projet
+              <i18n vanilla-i18n="form.field.authors">Acteur-rice-s du projet</i18n>
             </div>
             <div class="col-9">
-              <div class="row author original-author" style="border: 1px solid #CCCCCC; padding:1em; margin-bottom: 1em;">
+              <div class="row author original-author p-2 mx-1 mt-1 mb-2 rounded border border-secondary">
                 <div class="col-sm-3">
-                  <button class="btn btn-primary btn-sm add-author">Ajouter une personne</button>
-                  <button class="btn btn-danger btn-sm remove-author invisible" style="margin-top:5px;">Supprimer cette personne</button>
+                  <button class="btn btn-info btn-sm add-author"><i18n vanilla-i18n="form.field.member.add">Ajouter une personne</i18n></button>
+                  <button class="btn btn-danger btn-sm remove-author invisible my-2"><i18n vanilla-i18n="form.field.member.rm">Supprimer cette personne</i18n></button>
                 </div>
-                <div class="col-sm-9">
+                <i18n vanilla-i18n="form.field.roles"><div class="col-sm-9">
                   <input type="text" name="authorityName" class="form-control mb-2" placeholder="Nom de l'auteur-rice">
                   <input type="text" name="authoritySurname" class="form-control mb-2" placeholder="Prénom de l'auteur-rice">
                   <div class="form-check-inline checkbox checkbox-inline my-1 py-2">
@@ -278,98 +285,99 @@
                     <input type="checkbox" value="support" name="roleSupport" id="roleSupport">
                     <label class="form-check-label" for="roleSupport">Assistance</label>
                   </div>
-                </div>
+                </div></i18n>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <h2>Informations générales sur les données</h2>
+              <h2><i18n vanilla-i18n="form.title.data">Informations générales sur les données</i18n></h2>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="date-begin" class="col-sm-3 col-form-label">Année de début des sources<span class="required">*</span></label>
+            <label for="date-begin" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.year.start">Année de début des sources</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
-              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800" required="true">
+              <i18n vanilla-i18n="form.input.datebegin"><input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800" required="true"></i18n>
             </div>
-            <label for="date-end" class="col-sm-3 col-form-label">Année de fin des sources<span class="required">*</span></label>
+            <label for="date-end" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.year.start">Année de fin des sources</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
-              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948" required="true">
+              <i18n vanilla-i18n="form.input.dateend"><input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948" required="true"></i18n>
             </div>
           </div>
           <div class="row">
-            <div class="col offset-3"><p><small class="text-muted">Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication</small></p></div>
+            <div class="col offset-3"><p><small class="text-muted"><i18n vanilla-i18n="form.field.year.info">Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication</i18n></small></p></div>
           </div>
           <div class="form-group row my-2">
-            <label for="language" class="col-sm-3 col-form-label">Langue<span class="required">*</span></label>
+            <label for="language" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.fields.languages.label">Langue</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="language"></span>
-              <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
+              <small class="form-text text-muted"><i18n vanilla-i18n="form.fields.languages.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n>
+              /</small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="script" class="col-sm-3 col-form-label">Système d'écriture<span class="required">*</span></label>
+            <label for="script" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.fields.scripts.label">Langue</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="scripts"></span>
-              <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
+              <small class="form-text text-muted"><i18n vanilla-i18n="form.fields.scripts.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n></small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="scriptType" class="col-sm-3 col-form-label">Type d'écriture<span class="required">*</span></label>
+            <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <select name="scriptType" id="format" class="form-control">
-                <option value="only-manuscript">Manuscrit uniquement</option>
-                <option value="only-typed">Imprimé/dactylographié uniquement</option>
-                <option value="mainly-manuscript">Principalement manuscrit</option>
-                <option value="mainly-typed">Principalement imprimé/dactylographié</option>
-                <option value="evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
+                <option value="only-manuscript" vanilla-i18n="form.field.script.type.select.only-manuscript">Manuscrit uniquement</option>
+                <option value="only-typed" vanilla-i18n="form.field.script.type.select.only-typed">Imprimé/dactylographié uniquement</option>
+                <option value="mainly-manuscript" vanilla-i18n="form.field.script.type.select.mainly-manuscript">Principalement manuscrit</option>
+                <option value="mainly-typed" vanilla-i18n="form.field.script.type.select.mainly-typed">Principalement imprimé/dactylographié</option>
+                <option value="evenly-mixed" vanilla-i18n="form.field.script.type.select.evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
               </select>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label">Nombre de mains (ou de fontes)<span class="required">*</span></label>
+            <label for="hands" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.hands.label">Nombre de mains (ou de fontes)</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="hands" id="hands" class="form-control my-2" required="true">
                 <option value="1" selected="">1</option>
-                <option value="1-per-file">1 par fichier</option>
-                <option value="1-per-folder">1 par dossier</option>
-                <option value="less-than-11">Inférieur ou égal à 10 (peu)</option>
-                <option value="more-than-10">Supérieur à 10 (beaucoup)</option>
-                <option value="unknown">Inconnu</option>
+                <option value="1-per-file" vanilla-i18n="form.field.hands.select.1perfile">1 par fichier</option>
+                <option value="1-per-folder"  vanilla-i18n="form.field.hands.select.1perfolder">1 par dossier</option>
+                <option value="less-than-11" vanilla-i18n="form.field.hands.select.less10">Inférieur ou égal à 10 (peu)</option>
+                <option value="more-than-10" vanilla-i18n="form.field.hands.select.more10">Supérieur à 10 (beaucoup)</option>
+                <option value="unknown" vanilla-i18n="form.field.hands.select.unknown">Inconnu</option>
               </select>
             </div>
-            <label for="precision" class="col-sm-3 col-form-label">Précision<span class="required">*</span></label>
+            <label for="precision" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.prec.label">Précision</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="precision" id="precision" class="form-control my-2">
-                <option value="exact" selected="">Valeur exacte</option>
-                <option value="estimated">Estimation</option>
+                <option value="exact" selected="" vanilla-i18n="form.field.prec.select.exact">Valeur exacte</option>
+                <option value="estimated" vanilla-i18n="form.field.prec.select.estimated">Estimation</option>
               </select>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="transcriptionGuidelines" class="col-sm-3 col-form-label">Normes de transcription</label>
+            <label for="transcriptionGuidelines" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.guidelines.label">Normes de transcription</i18n></label>
             <div class="col-sm-9">
-              <textarea name="transcriptionGuidelines" class="form-control" id="transcriptionGuidelines" placeholder="Normes de transcription"></textarea>
-              <p><small class="text-muted">Normes de transcriptions utilisées (format libre). Peut concerner la résolution des abréviations, corrections de fautes d'orthographe, l'usage de caractères spéciaux, la normalisation, etc.</small></p>
+              <i18n vanilla-i18n="form.input.guidelines"><textarea name="transcriptionGuidelines" class="form-control" id="transcriptionGuidelines" placeholder="Normes de transcription"></textarea></i18n>
+              <p><small class="text-muted"><i18n vanilla-i18n="form.field.guidelines.info">Normes de transcriptions utilisées (format libre). Peut concerner la résolution des abréviations, corrections de fautes d'orthographe, l'usage de caractères spéciaux, la normalisation, etc.</i18n></small></p>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <h2>Informations détaillées sur les données</h2>
+              <h2><i18n vanilla-i18n="form.title.detail">Informations détaillées sur les données</i18n></h2>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="metric" class="col-sm-3 col-form-label">Description sommaire des quantités</label>
+            <label for="metric" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.qual.label">Description sommaire des quantités</i18n></label>
             <div class="col-sm-9">
               <div class="metric-form">
                 <div class="input-group">
-                  <input type="number" name="metric-count" class="form-control" placeholder="Exemple: 200" min="1">
+                  <i18n vanilla-i18n="form.input.quantity"><input type="number" name="metric-count" class="form-control" placeholder="Exemple: 200" min="1"></i18n>
                   <select name="metric-metric" class="form-control ">
-                    <option value="lines">Lignes</option>
-                    <option value="pages">Pages</option>
-                    <option value="characters">Caractères</option>
-                    <option value="regions">Zones</option>
-                    <option value="files">Fichiers</option>
+                    <option vanilla-i18n="form.field.qual.select.lines" value="lines">Lignes</option>
+                    <option vanilla-i18n="form.field.qual.select.pages" value="pages">Pages</option>
+                    <option vanilla-i18n="form.field.qual.select.characters" value="characters">Caractères</option>
+                    <option vanilla-i18n="form.field.qual.select.regions" value="regions">Zones</option>
+                    <option vanilla-i18n="form.field.qual.select.files" value="files">Fichiers</option>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-outline-primary add-metric" type="button">+</button>
@@ -381,14 +389,14 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="source-desc" class="col-sm-3 col-form-label">Détails des sources transcrites</label>
+            <label for="source-desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.src">Détails des sources transcrites</i18n></label>
             <div class="col-sm-9">
-              <div><p><small class="text-muted">Le format APA est préféré pour les citations, ce qui peut donner des références longues comme <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, cf. <a href="https://apastyle.apa.org/style-grammar-guidelines/references/archival">APA Style</a>. Des formats plus courts sont autorisé. Le lien ou la référence APA peuvent suffire.</small></div>
+              <div><p><i18n vanilla-i18n="form.field.apa"><small class="text-muted">Le format APA est préféré pour les citations, ce qui peut donner des références longues comme <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, cf. <a href="https://apastyle.apa.org/style-grammar-guidelines/references/archival">APA Style</a>. Des formats plus courts sont autorisé. Le lien ou la référence APA peuvent suffire.</small></i18n></div>
               <div class="sources-form">
                 <div class="input-group">
-                  <input type="text" name="sources-ref" class="form-control" placeholder="Référence en mode APA">
-                  <input type="text" name="sources-link" class="form-control" placeholder="Lien vers le catalogue ou la ressource">
-                  <div class="input-group-append">
+                  <input type="text" name="sources-ref" class="form-control" placeholder="Référence en mode APA" vanilla-i18n-placeholder="form.input.apa">
+                  <input type="text" name="sources-link" class="form-control" placeholder="Lien vers le catalogue ou la ressource" vanilla-i18n-placeholder="form.input.src">
+                  <div class="input-group-append"></div>
                     <button class="btn btn-outline-primary add-sources" type="button">+</button>
                     <button class="btn btn-outline-danger d-none remove-sources" type="button">-</button>
                   </div>
@@ -398,19 +406,19 @@
           </div>
           <div class="row">
             <div class="col">
-              <h2>Générer le fichier <code>htr-united.yml</code></h2>
+              <h2><i18n vanilla-i18n="form.title.generate">Générer le fichier <code>htr-united.yml</code></i18n></h2>
               <p class="text-center">
-                <button class="btn btn-primary mt-4" type="submit">Obtenir les métadonnées formatées</button>
+                <button class="btn btn-info btn-lg mt-4 py-3" type="submit"><i18n vanilla-i18n="form.btn.get">Obtenir les métadonnées formatées</i18n></button>
               </p>
             </div>
           </div>
         </form>
       </div>
     </div>
-    <div class="row my-5 d-none" id="output-container">
-      <div class="col-12">
+    <div class="row mb-5 d-none" id="output-container">
+      <div class="col-10 mx-auto">
         <hr />
-        <a id="download" href="#">Téléchargez</a> le fichier ci-dessous et copiez son contenu au bout de ce <a id="output-link" href="#">lien</a>
+        <div class="my-3 p-4 "><i18n vanilla-i18n="form.btn.dl"><a id="download" href="#">Téléchargez</a> le fichier ci-dessous et copiez son contenu au bout de ce <a id="output-link" href="#">lien</a></i18n></div>
         <pre id="output" class="my-3 p-4 rounded output-field"></pre>
       </div>
     </div>
@@ -424,7 +432,7 @@
         <p class="fs-5 mb-4">HTR-United | 2021</p>
       </div>
       <div class="col-lg-6 mx-auto">
-        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank">Qui est derrière HTR-United ?</a></p>
+        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank"><i18n vanilla-i18n="footer.team">Qui est derrière HTR-United ?</i18n></a></p>
       </div>
     </div>
   </div>
@@ -448,6 +456,10 @@
     <script type="text/javascript" src="static/js/typeahead.js"></script>
     <script type="text/javascript" src="static/js/catalog_values.js"></script>
     <script type="text/javascript" src="static/js/catalog.js"></script>
+    <!-- i18n -->
+    <script type="text/javascript" src="static/js/i18n-advanced.js"></script>
+    <script type="text/javascript" src="static/js/i18n.js"></script>
+    <!-- end of i18n -->
   </body>
 </html>
 

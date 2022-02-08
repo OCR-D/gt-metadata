@@ -136,70 +136,33 @@ form.field.roles,"<div class=""col-sm-9"">
 form.field.year.start,Source Start-Year,Année de début des sources
 form.field.year.end,Source End-Year,Année de fin des sources
 form.field.year.info,"For centuries, please prefer the use of 1200 when a dataset starts in the 13th century and 1299 when it ends in the 13th century. Dates do not need to be precise.","Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication"
-form.field.lggs,"<div class=""form-group row my-2"">
-            <label for=""language"" class=""col-sm-3 col-form-label"">Language<span class=""required"">*</span></label>
-            <div class=""col-sm-9"">
-              <span class=""language""></span>
-              <small class=""form-text text-muted"">To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.</small>
-            </div>
-          </div>","<div class=""form-group row my-2"">
-            <label for=""language"" class=""col-sm-3 col-form-label"">Langue<span class=""required"">*</span></label>
-            <div class=""col-sm-9"">
-              <span class=""language""></span>
-              <small class=""form-text text-muted"">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
-            </div>
-          </div>"
-form.field.scripts,"<div class=""form-group row my-2"">
-            <label for=""script"" class=""col-sm-3 col-form-label"">Script<span class=""required"">*</span></label>
-            <div class=""col-sm-9"">
-              <span class=""scripts""></span>
-              <small class=""form-text text-muted"">To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.</small>
-            </div>
-          </div>","<div class=""form-group row my-2"">
-            <label for=""script"" class=""col-sm-3 col-form-label"">Système d'écriture<span class=""required"">*</span></label>
-            <div class=""col-sm-9"">
-              <span class=""scripts""></span>
-              <small class=""form-text text-muted"">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
-            </div>
-          </div>"
+form.fields.languages.label,"Language(s)","Langue(s)"
+form.fields.languages.helper,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner."
+form.fields.scripts.label,"Script","Système d'écriture"
+form.fields.scripts.helper,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner."
 form.field.script.type.label,Script type,Type d'écriture
-form.field.script.type.select,"<option value=""only-manuscript"">Manuscript only</option>
-                <option value=""only-typed"">Typed only</option>
-                <option value=""mainly-manuscript"">Mainly manuscript</option>
-                <option value=""mainly-typed"">Mainly typed</option>
-                <option value=""evenly-mixed"">Evenly typed and manuscript</option>","<option value=""only-manuscript"">Manuscrit uniquement</option>
-                <option value=""only-typed"">Imprimé/dactylographié uniquement</option>
-                <option value=""mainly-manuscript"">Principalement manuscrit</option>
-                <option value=""mainly-typed"">Principalement imprimé/dactylographié</option>
-                <option value=""evenly-mixed"">Egale répartition manuscrit/dactylographié et imprimé</option>"
+form.field.script.type.select.only-manuscript,"Manuscript only","Manuscrit uniquement"
+form.field.script.type.select.only-typed,"Typed only","Imprimé/dactylographié uniquement"
+form.field.script.type.select.mainly-manuscript,"Mainly manuscript","Principalement manuscrit"
+form.field.script.type.select.mainly-typed,"Mainly typed","Principalement imprimé/dactylographié"
+form.field.script.type.select.evenly-mixed,"Evenly typed and manuscript","Egale répartition manuscrit/dactylographié et imprimé"
 form.field.hands.label,Number of hands (or fonts),Nombre de mains (ou de fontes)
-form.field.hands.select,"<option value=""1"" selected="""">1</option>
-                <option value=""1-per-file"">1 per file</option>
-                <option value=""1-per-folder"">1 per folder</option>
-                <option value=""less-than-11"">Less than or equal to 10 (few)</option>
-                <option value=""more-than-10"">More than 10 (many)</option>
-                <option value=""unknown"">Unknown</option>","<option value=""1"" selected="""">1</option>
-                <option value=""1-per-file"">1 par fichier</option>
-                <option value=""1-per-folder"">1 par dossier</option>
-                <option value=""less-than-11"">Inférieur ou égal à 10 (peu)</option>
-                <option value=""more-than-10"">Supérieur à 10 (beaucoup)</option>
-                <option value=""unknown"">Inconnu</option>"
+form.field.hands.select.1perfile,"1 per file","1 par fichier"
+form.field.hands.select.1perfolder,"1 per folder","1 par dossier"
+form.field.hands.select.less10,"Less than or equal to 10 (few)","Inférieur ou égal à 10 (peu)"
+form.field.hands.select.more10,"More than 10 (many)","Supérieur à 10 (beaucoup)"
+form.field.hands.select.unknown,"Unknown","Inconnu"
 form.field.prec.label,Precision,Précision
-form.field.prec.select,"<option value=""exact"" selected="""">Exact value</option>
-                <option value=""estimated"">Estimated value</option>","<option value=""exact"" selected="""">Valeur exacte</option>
-                <option value=""estimated"">Estimation</option>"
+form.field.prec.select.exact,"Exact value","Valeur exacte"
+form.field.prec.select.estimated,"Estimated value","Estimation"
 form.field.guidelines.label,Transcription guidelines,Normes de transcription
 form.field.guidelines.info,"Guidelines used to transcribe the resources (normalization, resolution of abbreviation, correction of mispelling, etc.)","Normes de transcriptions utilisées (format libre). Peut concerner la résolution des abréviations, corrections de fautes d'orthographe, l'usage de caractères spéciaux, la normalisation, etc."
 form.field.qual.label,Estimated quantity,Description sommaire des quantités
-form.field.qual.select," <option value=""lines"">Lines</option>
-                    <option value=""pages"">Pages</option>
-                    <option value=""characters"">Characters</option>
-                    <option value=""regions"">Zones</option>
-                    <option value=""files"">Files</option>","<option value=""lines"">Lignes</option>
-                    <option value=""pages"">Pages</option>
-                    <option value=""characters"">Caractères</option>
-                    <option value=""regions"">Zones</option>
-                    <option value=""files"">Fichiers</option>"
+form.field.qual.select.lines,"Lines","Lignes"
+form.field.qual.select.pages,"Pages","Pages"
+form.field.qual.select.characters,"Characters","Caractères"
+form.field.qual.select.regions,"Zones","Zones"
+form.field.qual.select.files,"Files","Fichiers"
 form.field.src,Sources,Détails des sources transcrites
 form.field.apa,"<small class=""text-muted"">We prefer APA references, which can look like the following <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, see <a href=""https://apastyle.apa.org/style-grammar-guidelines/references/archival"">APA Style</a>, but simpler formats are okay too. The link or the APA reference are sufficient but you can provide both</small>","<small class=""text-muted"">Le format APA est préféré pour les citations, ce qui peut donner des références longues comme <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, cf. <a href=""https://apastyle.apa.org/style-grammar-guidelines/references/archival"">APA Style</a>. Des formats plus courts sont autorisé. Le lien ou la référence APA peuvent suffire.</small>"
 form.title.generate,Generate the <code>htr-united.yml</code> file,Générer le fichier <code>htr-united.yml</code>
@@ -215,5 +178,5 @@ form.input.datebegin,"<input type=""number"" name=""date-begin"" class=""form-co
 form.input.dateend,"<input type=""number"" name=""date-end"" class=""form-control"" id=""date-end"" placeholder=""Example: 1948"" required=""true"">","<input type=""number"" name=""date-end"" class=""form-control"" id=""date-end"" placeholder=""Exemple: 1948"" required=""true"">"
 form.input.guidelines,"<textarea name=""transcriptionGuidelines"" class=""form-control"" id=""transcriptionGuidelines"" placeholder=""Transcription guidelines""></textarea>","<textarea name=""transcriptionGuidelines"" class=""form-control"" id=""transcriptionGuidelines"" placeholder=""Normes de transcription""></textarea>"
 form.input.quantity,"<input type=""number"" name=""metric-count"" class=""form-control"" placeholder=""Example: 200"" min=""1"">","<input type=""number"" name=""metric-count"" class=""form-control"" placeholder=""Exemple: 200"" min=""1"">"
-form.input.apa,"<input type=""text"" name=""sources-ref"" class=""form-control"" placeholder=""APA Reference for a source"">","<input type=""text"" name=""sources-ref"" class=""form-control"" placeholder=""Référence en mode APA"">"
-form.input.src,"<input type=""text"" name=""sources-link"" class=""form-control"" placeholder=""Link to the source or a catalog description"">","<input type=""text"" name=""sources-link"" class=""form-control"" placeholder=""Lien vers le catalogue ou la ressource"">"
+form.input.apa,"APA Reference for a source","Référence en mode APA"
+form.input.src,"Link to the source or a catalog description","Lien vers le catalogue ou la ressource"
