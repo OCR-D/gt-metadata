@@ -91,6 +91,25 @@
 
     <!-- Custom styles for this template -->
     <!--<link href="heroes.css" rel="stylesheet">-->
+    <!-- i18n -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.js"></script>
+    <script type="text/javascript">
+            const i18n_languages = [
+              "Français",
+              "English"
+            ];
+            new vanilla_i18n (
+              i18n_languages,
+              opts = {
+                path: "assets/vanilla-i18n",
+                debug: true,
+                i18n_attr_name: "vanilla-i18n",
+                toggler_id: "vanilla-i18n-toggler",
+                default_language: i18n_languages[0],
+              }
+            ).run();
+    </script>
+    <!-- end of i18n -->
   </head>
   
 
@@ -107,7 +126,7 @@
         <div class="collapse navbar-collapse" id="navbar_htr-united">
           <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
             <li class="nav-item active">
-              <a class="nav-link btn btn-nav me-2" href="index.html#use-data"><i18n vanilla-i18n="nav.use">Utiliser les données</i18n></span></a>
+              <a class="nav-link btn btn-nav me-2" href="index.html#use-data"><i18n vanilla-i18n="nav.use">Utiliser les données</i18n></a>
             </li>
             <li class="nav-item">
               <a class="nav-link btn btn-nav me-2" href="index.html#provide-data"><i18n vanilla-i18n="nav.provide">Proposer des données</i18n></a>
@@ -143,7 +162,7 @@
   </div>
 
   <div class="px-4 pb-5 pt-2 mb-5" id="steps">
-    <h2 class="display-5 mb-4 text-center"><i18n vanilla-i18n="form.steps.title">Étapes</i18n></h1>
+    <h2 class="display-5 mb-4 text-center"><i18n vanilla-i18n="form.steps.title">Étapes</i18n></h2>
     <div class="col-lg-4 mx-auto">
       <div class="list-group list-group-flush">
         <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep1" aria-expanded="false" aria-controls="collapseStep1"><i18n vanilla-i18n="form.step1.title">Remplir le formulaire</i18n></button>
@@ -307,49 +326,50 @@
           <div class="row">
             <div class="col offset-3"><p><small class="text-muted"><i18n vanilla-i18n="form.field.year.info">Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication</i18n></small></p></div>
           </div>
-          <i18n vanilla-i18n="form.field.lggs"><div class="form-group row my-2">
-            <label for="language" class="col-sm-3 col-form-label">Langue<span class="required">*</span></label>
+          <div class="form-group row my-2">
+            <label for="language" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.fields.languages.label">Langue</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="language"></span>
-              <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
+              <small class="form-text text-muted"><i18n vanilla-i18n="form.fields.languages.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n>
+              /</small>
             </div>
-          </div></i18n>
-          <i18n vanilla-i18n="form.field.scripts"><div class="form-group row my-2">
-            <label for="script" class="col-sm-3 col-form-label">Système d'écriture<span class="required">*</span></label>
+          </div>
+          <div class="form-group row my-2">
+            <label for="script" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.fields.scripts.label">Langue</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="scripts"></span>
-              <small class="form-text text-muted">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</small>
+              <small class="form-text text-muted"><i18n vanilla-i18n="form.fields.scripts.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n></small>
             </div>
-          </div></i18n>
+          </div>
           <div class="form-group row my-2">
             <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <select name="scriptType" id="format" class="form-control">
-                <i18n vanilla-i18n="form.field.script.type.select"><option value="only-manuscript">Manuscrit uniquement</option>
-                <option value="only-typed">Imprimé/dactylographié uniquement</option>
-                <option value="mainly-manuscript">Principalement manuscrit</option>
-                <option value="mainly-typed">Principalement imprimé/dactylographié</option>
-                <option value="evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option></i18n>
+                <option value="only-manuscript" vanilla-i18n="form.field.script.type.select.only-manuscript">Manuscrit uniquement</option>
+                <option value="only-typed" vanilla-i18n="form.field.script.type.select.only-typed">Imprimé/dactylographié uniquement</option>
+                <option value="mainly-manuscript" vanilla-i18n="form.field.script.type.select.mainly-manuscript">Principalement manuscrit</option>
+                <option value="mainly-typed" vanilla-i18n="form.field.script.type.select.mainly-typed">Principalement imprimé/dactylographié</option>
+                <option value="evenly-mixed" vanilla-i18n="form.field.script.type.select.evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
               </select>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.hands.label">Nombre de mains (ou de fontes)</i18n><span class="required">*</span></label>
+            <label for="hands" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.hands.label">Nombre de mains (ou de fontes)</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="hands" id="hands" class="form-control my-2" required="true">
-                <i18n vanilla-i18n="form.field.script.hands.select"><option value="1" selected="">1</option>
-                <option value="1-per-file">1 par fichier</option>
-                <option value="1-per-folder">1 par dossier</option>
-                <option value="less-than-11">Inférieur ou égal à 10 (peu)</option>
-                <option value="more-than-10">Supérieur à 10 (beaucoup)</option>
-                <option value="unknown">Inconnu</option></i18n>
+                <option value="1" selected="">1</option>
+                <option value="1-per-file" vanilla-i18n="form.field.hands.select.1perfile">1 par fichier</option>
+                <option value="1-per-folder"  vanilla-i18n="form.field.hands.select.1perfolder">1 par dossier</option>
+                <option value="less-than-11" vanilla-i18n="form.field.hands.select.less10">Inférieur ou égal à 10 (peu)</option>
+                <option value="more-than-10" vanilla-i18n="form.field.hands.select.more10">Supérieur à 10 (beaucoup)</option>
+                <option value="unknown" vanilla-i18n="form.field.hands.select.unknown">Inconnu</option>
               </select>
             </div>
             <label for="precision" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.prec.label">Précision</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="precision" id="precision" class="form-control my-2">
-                <i18n vanilla-i18n="form.field.prec.select"><option value="exact" selected="">Valeur exacte</option>
-                <option value="estimated">Estimation</option></i18n>
+                <option value="exact" selected="" vanilla-i18n="form.field.prec.select.exact">Valeur exacte</option>
+                <option value="estimated" vanilla-i18n="form.field.prec.select.estimated">Estimation</option>
               </select>
             </div>
           </div>
@@ -372,11 +392,11 @@
                 <div class="input-group">
                   <i18n vanilla-i18n="form.input.quantity"><input type="number" name="metric-count" class="form-control" placeholder="Exemple: 200" min="1"></i18n>
                   <select name="metric-metric" class="form-control ">
-                    <i18n vanilla-i18n="form.field.qual.select"><option value="lines">Lignes</option>
-                    <option value="pages">Pages</option>
-                    <option value="characters">Caractères</option>
-                    <option value="regions">Zones</option>
-                    <option value="files">Fichiers</option></i18n>
+                    <option vanilla-i18n="form.field.qual.select.lines" value="lines">Lignes</option>
+                    <option vanilla-i18n="form.field.qual.select.pages" value="pages">Pages</option>
+                    <option vanilla-i18n="form.field.qual.select.characters" value="characters">Caractères</option>
+                    <option vanilla-i18n="form.field.qual.select.regions" value="regions">Zones</option>
+                    <option vanilla-i18n="form.field.qual.select.files" value="files">Fichiers</option>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-outline-primary add-metric" type="button">+</button>
@@ -455,27 +475,6 @@
     <script type="text/javascript" src="static/js/typeahead.js"></script>
     <script type="text/javascript" src="static/js/catalog_values.js"></script>
     <script type="text/javascript" src="static/js/catalog.js"></script>
-    <!-- i18n -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            const i18n_languages = [
-              "Français",
-              "English"
-            ];
-            new vanilla_i18n (
-              i18n_languages,
-              opts = {
-                path: "assets/vanilla-i18n",
-                debug: true,
-                i18n_attr_name: "vanilla-i18n",
-                toggler_id: "vanilla-i18n-toggler",
-                default_language: i18n_languages[0],
-              }
-            ).run();
-        }()
-    </script>
-    <!-- end of i18n -->
   </body>
 </html>
 
