@@ -58,25 +58,26 @@ header {
   font-weight: normal!important;
   font-size: .6em;
 }
-.badge-script {
+
+.bg-script {
   background: #5ab8aa;
 }
-.badge-license {
+.bg-license {
   background: #000;
 }
-.badge-language {
+.bg-language {
   background: #1d6c80;
 }
-.badge-link {
+.bg-link {
   background: #112e9e;
 }
-.badge-script-type {
+.bg-script-type {
   background: #cc7a29;
 }
-.badge-hands {
+.bg-hands {
   background: #cc4429;
 }
-.badge-volumes {
+.bg-volumes {
   background: #cc296a;
 }
 .card h7 {
