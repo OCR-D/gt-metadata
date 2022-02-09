@@ -143,6 +143,7 @@ form.fields.scripts.label,"Script","Système d'écriture"
 form.fields.scripts.helper,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner."
 form.field.script.type.label,Script type,Type d'écriture
 form.field.script.type.select.only-manuscript,"Manuscript only","Manuscrit uniquement"
+form.field.script.type.select.all,"All","Tous"
 form.field.script.type.select.only-typed,"Typed only","Imprimé/dactylographié uniquement"
 form.field.script.type.select.mainly-manuscript,"Mainly manuscript","Principalement manuscrit"
 form.field.script.type.select.mainly-typed,"Mainly typed","Principalement imprimé/dactylographié"
@@ -183,3 +184,5 @@ form.input.apa,"APA Reference for a source","Référence en mode APA"
 form.input.src,"Link to the source or a catalog description","Lien vers le catalogue ou la ressource"
 cat.title,Catalog,Catalogue
 cat.nota,The languages used to introduce the datasets depend on language used by the author(s) of a descripion.,La langue utilisée pour la description des jeux de données correspond à celle employée lors du dépôt d'un signalement dans HTR-United.
+cat.resultCount,"Number of results","Nombre de résultats"
+cat.filters,"Filters","Filtres"

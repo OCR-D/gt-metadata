@@ -76,10 +76,31 @@
           font-size: 3.5rem;
         }
       }
-      .catalog-card {
-        width: 45%;
-        margin:1%;
-        float: left;
+      .badge-sm {
+        height: .8em;
+        font-weight: normal!important;
+        font-size: .6em;
+      }
+      .badge-script {
+        background: #5ab8aa;
+      }
+      .badge-license {
+        background: #000;
+      }
+      .badge-language {
+        background: #1d6c80;
+      }
+      .badge-link {
+        background: #112e9e;
+      }
+      .badge-script-type {
+        background: #cc7a29;
+      }
+      .badge-hands {
+        background: #cc4429;
+      }
+      .badge-volumes {
+        background: #cc296a;
       }
       .card h7 {
         font-style: italic;
@@ -87,6 +108,18 @@
         font-size: .8em;
         text-align: right;
         display: block;
+      }
+      /*
+      #card-receiver {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: masonry;
+      }
+      */
+      .catalog-card {
+        width: 45%;
+        margin:1%;
+        float: left;
       }
       @media (max-width: 1024px) {
         .catalog-card {
@@ -153,8 +186,23 @@
               <p><small class="text-muted"><i18n vanilla-i18n="cat.nota">La langue utilisée pour la description des jeux de données correspond à celle employée lors du dépôt d'un signalement dans HTR-United.</i18n></small></p>
             </div>
         </div>
-        <form id="card-selector">
-          <div class="row">
+        <form id="card-selector" class="m-2 border p-2">
+          <h3><span  vanilla-i18n="cat.filters">Filtres</span></h3>
+          <div class="form-group row my-2">
+            <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n><span class="required">*</span></label>
+            <div class="col-sm-9">
+              <select name="scriptType" id="scriptType" class="form-control">
+                <option value="all" vanilla-i18n="form.field.script.type.select.all">Tout</option>
+                <option value="only-manuscript" vanilla-i18n="form.field.script.type.select.only-manuscript">Manuscrit uniquement</option>
+                <option value="only-typed" vanilla-i18n="form.field.script.type.select.only-typed">Imprimé/dactylographié uniquement</option>
+                <option value="mainly-manuscript" vanilla-i18n="form.field.script.type.select.mainly-manuscript">Principalement manuscrit</option>
+                <option value="mainly-typed" vanilla-i18n="form.field.script.type.select.mainly-typed">Principalement imprimé/dactylographié</option>
+                <option value="evenly-mixed" vanilla-i18n="form.field.script.type.select.evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="scriptType" class="col-md-3 col-form-label">Dates</label>
             <div class="col-md-6">
               <div class="input-group">
                 <span class="input-group-text">Not before:</span>
@@ -164,6 +212,9 @@
               </div>
             </div>
           </div>
+          <div class="form-group row my-2">
+            <div class="col-md-3"><span  vanilla-i18n="cat.resultCount">Nombre de résultats:</span> <span id="resultCount"></span></div>
+          </div>    
         </form>
 	  		<div id="card-receiver"></div>
 
@@ -205,27 +256,11 @@
     	const catalogURI = "https://htr-united.github.io/htr-united/catalog.json";
     	const catalogDiv = document.querySelector("#card-receiver"),
             notAfterSelector = document.querySelector("#notAfter"),
-            notBeforeSelector = document.querySelector("#notBefore");
-    	function nl2br (str, is_xhtml) {
-		  // http://kevin.vanzonneveld.net
-		  // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-		  // +   improved by: Philip Peterson
-		  // +   improved by: Onno Marsman
-		  // +   improved by: Atli Þór
-		  // +   bugfixed by: Onno Marsman
-		  // +      input by: Brett Zamir (http://brett-zamir.me)
-		  // +   bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-		  // +   improved by: Brett Zamir (http://brett-zamir.me)
-		  // +   improved by: Maximusya
-		  // *     example 1: nl2br('Kevin\nvan\nZonneveld');
-		  // *     returns 1: 'Kevin<br />\nvan<br />\nZonneveld'
-		  // *     example 2: nl2br("\nOne\nTwo\n\nThree\n", false);
-		  // *     returns 2: '<br>\nOne<br>\nTwo<br>\n<br>\nThree<br>\n'
-		  // *     example 3: nl2br("\nOne\nTwo\n\nThree\n", true);
-		  // *     returns 3: '<br />\nOne<br />\nTwo<br />\n<br />\nThree<br />\n'
+            notBeforeSelector = document.querySelector("#notBefore"),
+            scriptTypeFilter = document.querySelector("#scriptType"),
+            resultCount = document.querySelector("#resultCount");
 
-		  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2');
-		}
+    	function nl2br (str, is_xhtml) { return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2'); }
     	function createElementFromHTML(htmlString) {
 		  let div = document.createElement('div');
 		  div.innerHTML = htmlString.trim();
@@ -255,25 +290,57 @@
 
       return str;
     }
+    function getVolumes(listOfValue) {
+      return listOfValue.map((val) => `<span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left"><span class="fas fa-database"></span> Volume</span><span class="py-1 px-2 rounded-right badge-volumes">${val.count.toLocaleString()} ${val.metric}</span></span>`).join(" ")
+    }
 		function getImages(listOfValue, label, color) {
-			return listOfValue.map((val) => `<img src="https://img.shields.io/badge/${label}-${val}-${color}?style=flat-square" alt="${label}: ${val}" />`).join(" ")
+			return listOfValue.map((val) => `<span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">${label}</span><span class="py-1 px-2 rounded-right badge-${color}">${val}</span></span>`).join(" ")
 		}
-    	function template(catalogEntry, key) {
+    function getTypeBadge(scriptType) {
+      // fa-print
+      // fa-pen
+      // fa-archive
+      if (typeof scriptType !== "string") {
+        return "";
+      }
+      let badge = "fa-archive";
+      if (scriptType.includes("manuscript")) { badge = "fa-pen-fancy"; } else if (scriptType.includes("typed")) { badge = "fa-print"; }
+      return `<span class="badge badge-sm text-white p-0 m-1">
+        <span class="bg-secondary py-1 px-2 rounded-left">Script Type</span><span class="py-1 px-2 rounded-right badge-script-type"><span class="fas ${badge}"></span> ${scriptType}</span>
+      </span>`
+    }
+    function citationCFF(link) {
+      if(link) {
+        return `<a href="${link}"><span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">Link</span><span class="py-1 px-2 rounded-right badge-link">Citation File</span></span>
+      </a>`;
+      } else { return ""; }
+    }
+    function getAuthors(catalogEntry) {
+      if (catalogEntry.authors) {
+        return `<p class="card-text"><b>Authors:</b> ${catalogEntry.authors.map((val) => val.name + ', ' + val.surname).join(' and ')}</p>`;
+      } else {
+        return "";
+      }
+    }
+    function template(catalogEntry, key) {
     		return createElementFromHTML(`<div class="card float-left catalog-card"  data-key="${key}">
   <div class="card-body">
     <h5 class="card-title">${catalogEntry.title}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${catalogEntry['project-name'] || ''}</h6>
     <h7>${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
     <p class="card-text">${nl2br(catalogEntry.description)}</p>
+    ${getAuthors(catalogEntry)}
     <p>
-	    ${getImages(catalogEntry.language, "Language", "blue")}
-	    ${getImages(catalogEntry.script, "Script", "orange")}
+	    ${getImages(catalogEntry.language, "Language", "language")}
+	    ${getImages(catalogEntry.script, "Script", "script")}
+      ${getTypeBadge(catalogEntry['script-type'])}
+      <span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">Hands</span><span class="py-1 px-2 rounded-right badge-hands">${catalogEntry.hands.count}</span></span>
+      <span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">License</span><span class="py-1 px-2 rounded-right badge-license">${catalogEntry.license[0].name}</span></span>
     </p>
+    <p>${getVolumes(catalogEntry.volume)}</p>
     <p>
-      <img src="https://img.shields.io/badge/License-${catalogEntry.license[0].name.replace('-',' ')}-black?style=flat-square" alt="${catalogEntry.license[0].name}" />
-      <a href="${catalogEntry.url}">
-        <img src="https://img.shields.io/badge/Link-Repository-green?style=flat-square" alt="Repository Link" />
-      </a>
+      <a href="${catalogEntry.url}"><span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">Link</span><span class="py-1 px-2 rounded-right badge-link">Data</span></span></a>
+      ${citationCFF(catalogEntry['citation-file-link'])}
     </p>
     
   </div>
@@ -321,26 +388,42 @@
       function inRange(minStart, minEnd, dataStart, dataEnd) {
         return (dataStart <= minEnd) && (minStart <= dataEnd);
       }
+      function scriptTypeFilterFn(entry, filterValue) {
+        if (filterValue == "all") { return true; }
+        return (entry['script-type'] == filterValue);
+      }
+      function updateResultCount() {
+        resultCount.innerText = catalogDiv.querySelectorAll(".card:not([style*='none'])").length;
+      }
 
-      function filterDates() {
+      function applyFilters() {
         let localMin = parseInt(notBeforeSelector.value),
             localMax = parseInt(notAfterSelector.value),
-            localSelected = knownDates.filter((val) => inRange(localMin, localMax, val.start, val.end));
+            localSelected = knownDates.filter((val) => inRange(localMin, localMax, val.start, val.end)),
+            localScriptTypeFilter = scriptTypeFilter.value;
 
         // Avoids rerunning things on divs if things did not change
-        if (localSelected.sort() !== selectedDates.sort()) {
+        //if (localSelected.sort() !== selectedDates.sort()) {
           // Refresh the list
-          selectedDates = localSelected;
-          document.querySelectorAll(".catalog-card").forEach((div) => div.style.display = "none");
-          Object.keys(CATALOG).forEach( (key) => {
-            if(inRange(localMin, localMax, CATALOG[key].time.notBeforeInt, CATALOG[key].time.notAfterInt)) {
-              document.querySelector(`.catalog-card[data-key="${key}"`).style.display = "block";
-            }
-          });
-        }
+        selectedDates = localSelected;
+        document.querySelectorAll(".catalog-card").forEach((div) => div.style.display = "none");
+        Object.keys(CATALOG).forEach( (key) => {
+          if (
+              // Filter for dates
+              (inRange(localMin, localMax, CATALOG[key].time.notBeforeInt, CATALOG[key].time.notAfterInt)) &&
+              // Filter for script
+              (scriptTypeFilterFn(CATALOG[key], localScriptTypeFilter))
+            ) {
+            document.querySelector(`.catalog-card[data-key="${key}"]`).style.display = "block";
+          }
+        });
+        //}
+        updateResultCount();
       };
-      notBeforeSelector.addEventListener('change', filterDates);
-      notAfterSelector.addEventListener('change', filterDates);
+      notBeforeSelector.addEventListener('change', applyFilters);
+      notAfterSelector.addEventListener('change', applyFilters);
+      scriptTypeFilter.addEventListener('change', applyFilters);
+      applyFilters();
 		}
 		showCatalog();
     </script>
