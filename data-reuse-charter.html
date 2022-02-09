@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HTR-United Home Page">
+    <meta name="author" content="Alix Chagué">
+    <meta name="author" content="Thibault Clérice">
+    <title>HTR-United</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/heroes/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">-->
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/favicon.ico" />
+    
+    <!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <style>
+      body {
+        background-color: #fefefe;
+      }
+
+      .btn-info {
+        background-color: #dce8ae !important;
+        color: #383c2c !important;
+        border: #89926a !important;
+
+      }
+
+      .btn-info:hover {
+        background-color: #cedf8e !important;
+        color: #383c2c !important;
+        border: #89926a !important;
+      }
+
+      .btn-info:active {
+        box-shadow: #dce8ae !important;
+      }
+
+      .btn-info:focus {
+        box-shadow: 0 0 0 .25rem #dce8ae !important;
+      }
+
+      .block-scenario {
+        background-color: #fff;
+      }
+
+      /*.btn-nav:hover {
+        box-shadow: 0 0 0 .05rem #dce8ae !important;
+      }
+
+      .btn-nav-ext:hover {
+        box-shadow: 0 0 0 .05rem #ffc107 !important;
+      }*/
+
+      header {
+        background-color: #fff;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <!--<link href="heroes.css" rel="stylesheet">-->
+  </head>
+
+  <body id="top">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom  py-3 mb-4 px-5 shadow-lg">
+        <a class="navbar-brand" href="index.html#top">HTR-United</a>
+        <a class="navbar-brand" href="https://github.com/HTR-United"><i class="fab fa-github"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_htr-united" aria-controls="navbar_htr-united" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span><!--<i class="far fa-minus-square"></i>-->
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar_htr-united">
+          <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i18n vanilla-i18n="nav.home">Accueil </i18n></a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="index.html#use-data"><i18n vanilla-i18n="nav.use">Utiliser les données</i18n></a>
+                <a class="dropdown-item" href="index.html#provide-data"><i18n vanilla-i18n="nav.provide">Proposer des données</i18n></a>
+                <a class="dropdown-item" href="index.html#scenarios"><i18n vanilla-i18n="nav.scenario">Scénarios</i18n></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="document-your-data.html"><i18n vanilla-i18n="nav.form">Voir le formulaire</i18n></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="catalog.html"><i18n vanilla-i18n="nav.catalog">Voir le catalogue</i18n></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="data-reuse-charter.html"><i18n vanilla-i18n="nav.charter">Charte - Réutilisation des données</i18n></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="team.html"><i18n vanilla-i18n="nav.team">L'Équipe</i18n></a>
+            </li>
+          </ul>
+          <div class="col-sm-2 text-end">
+            <select id="vanilla-i18n-toggler">
+              <option>Français</option>
+              <option>English</option>
+            </select>
+          </div>
+        </div>
+      </nav>
+
+<!-- Main -->
+<main>
+  <div class="px-4 py-5 my-5" id="main">
+	  <div class="container">
+	  	<div class="row">
+	  		<!-- placeholder -->
+	  	</div>
+	  </div>
+	</div>
+
+  <!-- Footer -->
+  <div class="bg-dark text-secondary px-4 py-2 text-center">
+    <div class="py-3">
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5 mb-4">HTR-United | 2021</p>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank"><i18n vanilla-i18n="footer.team">Qui est derrière HTR-United ?</i18n></a></p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!--<script src="static/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
+
+    <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
+
+    <!-- i18n -->
+    <script type="text/javascript" src="static/js/i18n-advanced.js"></script>
+    <script type="text/javascript" src="static/js/i18n.js"></script>
+    <!-- end of i18n -->
+    <script type="text/javascript">
+    	const catalogURI = "https://htr-united.github.io/htr-united/catalog.json";
+    	const catalogDiv = document.querySelector("#card-receiver");
+    	function nl2br (str, is_xhtml) {
+		  // http://kevin.vanzonneveld.net
+		  // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+		  // +   improved by: Philip Peterson
+		  // +   improved by: Onno Marsman
+		  // +   improved by: Atli Þór
+		  // +   bugfixed by: Onno Marsman
+		  // +      input by: Brett Zamir (http://brett-zamir.me)
+		  // +   bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+		  // +   improved by: Brett Zamir (http://brett-zamir.me)
+		  // +   improved by: Maximusya
+		  // *     example 1: nl2br('Kevin\nvan\nZonneveld');
+		  // *     returns 1: 'Kevin<br />\nvan<br />\nZonneveld'
+		  // *     example 2: nl2br("\nOne\nTwo\n\nThree\n", false);
+		  // *     returns 2: '<br>\nOne<br>\nTwo<br>\n<br>\nThree<br>\n'
+		  // *     example 3: nl2br("\nOne\nTwo\n\nThree\n", true);
+		  // *     returns 3: '<br />\nOne<br />\nTwo<br />\n<br />\nThree<br />\n'
+
+		  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2');
+		}
+    	function createElementFromHTML(htmlString) {
+		  let div = document.createElement('div');
+		  div.innerHTML = htmlString.trim();
+
+		  // Change this to div.childNodes to support multiple top-level nodes.
+		  return div.firstChild;
+		}
+		function getImages(listOfValue, label, color) {
+			return listOfValue.map((val) => `<img src="https://img.shields.io/badge/${label}-${val}-${color}" alt="${label}: ${val}" />`).join(" ")
+		}
+    	function template(catalogEntry) {
+    		return createElementFromHTML(`<div class="card float-left" style="width: 45%; margin:1%; float: left;">
+  <div class="card-body">
+    <h5 class="card-title">${catalogEntry.title}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${catalogEntry.url}</h6>
+    <p class="card-text">${nl2br(catalogEntry.description)}</p>
+    <p>
+	    ${getImages(catalogEntry.language, "Language", "blue")}
+	    ${getImages(catalogEntry.script, "Script", "orange")}
+    </p>
+    <a href="${catalogEntry.url}" class="card-link">See data</a>
+  </div>
+</div>`);
+    	}
+    	async function getCatalog() {
+		    try {
+		      var res = await fetch(catalogURI);
+		      return res.json();
+		    } catch {
+		      (error) => {
+		        console.log(error.message);
+		        return;
+		      };
+		    }
+		};
+		async function showCatalog() {
+			const CATALOG = await getCatalog();
+			Object.keys(CATALOG).forEach( (key) => {
+				catalogDiv.append(template(CATALOG[key]));
+			});
+		}
+		showCatalog();
+    </script>
+      
+  </body>
+</html>
