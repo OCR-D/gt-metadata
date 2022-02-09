@@ -1,9 +1,11 @@
 vanilla-i18n-key,English,Français
+nav.home,Home,Accueil
 nav.use,Use the Data,Utiliser les données
 nav.provide,Provide Data,Proposer des données
 nav.scenario,Scenario,Scénarios
 nav.form,Go to Form,Voir le formulaire
 nav.catalog,See the Catalog,Voir le catalogue
+nav.charter,Data Reuse Charter,Charte - Réutilisation des données
 nav.team,The Team,L'Équipe
 footer.team,Who are the people behind HTR-United?,Qui est derrière HTR-United ?
 team.title,Editors,Éditrices-eurs
