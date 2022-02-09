@@ -76,6 +76,25 @@
           font-size: 3.5rem;
         }
       }
+      .catalog-card {
+        width: 45%;
+        margin:1%;
+        float: left;
+      }
+      .card h7 {
+        font-style: italic;
+        color: #555;
+        font-size: .8em;
+        text-align: right;
+        display: block;
+      }
+      @media (max-width: 1024px) {
+        .catalog-card {
+          width: 98%;
+          margin:1%;
+          float: none;
+        }
+      }
     </style>
 
     <!-- Custom styles for this template -->
@@ -129,12 +148,25 @@
 	  <div class="container">
 	  	<div class="row">
 	  		<h1><i18n vanilla-i18n="cat.title">Catalogue</i18n></h1>
-        <div class="form-group row my-2">
+        <div class="row my-2">
             <div class="col-sm-9">
               <p><small class="text-muted"><i18n vanilla-i18n="cat.nota">La langue utilisée pour la description des jeux de données correspond à celle employée lors du dépôt d'un signalement dans HTR-United.</i18n></small></p>
             </div>
+        </div>
+        <form id="card-selector">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-text">Not before:</span>
+                <input type="number" id="notBefore" aria-label="First name" class="form-control">
+                <span class="input-group-text">Not after:</span>
+                <input type="number" id="notAfter" aria-label="Last name" class="form-control">
+              </div>
+            </div>
           </div>
+        </form>
 	  		<div id="card-receiver"></div>
+
 	  	</div>
 	  </div>
 	</div>
@@ -171,7 +203,9 @@
     <!-- end of i18n -->
     <script type="text/javascript">
     	const catalogURI = "https://htr-united.github.io/htr-united/catalog.json";
-    	const catalogDiv = document.querySelector("#card-receiver");
+    	const catalogDiv = document.querySelector("#card-receiver"),
+            notAfterSelector = document.querySelector("#notAfter"),
+            notBeforeSelector = document.querySelector("#notBefore");
     	function nl2br (str, is_xhtml) {
 		  // http://kevin.vanzonneveld.net
 		  // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
@@ -199,20 +233,49 @@
 		  // Change this to div.childNodes to support multiple top-level nodes.
 		  return div.firstChild;
 		}
+    function slugify(str) {
+      str = str.replace(/^\s+|\s+$/g, '');
+
+      // Make the string lowercase
+      str = str.toLowerCase();
+
+      // Remove accents, swap ñ for n, etc
+      var from = "ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆÍÌÎÏŇÑÓÖÒÔÕØŘŔŠŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇíìîïňñóöòôõøðřŕšťúůüùûýÿžþÞĐđßÆa·/_,:;";
+      var to   = "AAAAAACCCDEEEEEEEEIIIINNOOOOOORRSTUUUUUYYZaaaaaacccdeeeeeeeeiiiinnooooooorrstuuuuuyyzbBDdBAa------";
+      for (var i=0, l=from.length ; i<l ; i++) {
+          str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+      }
+
+      // Remove invalid chars
+      str = str.replace(/[^a-z0-9 -]/g, '') 
+      // Collapse whitespace and replace by -
+      .replace(/\s+/g, '-') 
+      // Collapse dashes
+      .replace(/-+/g, '-'); 
+
+      return str;
+    }
 		function getImages(listOfValue, label, color) {
-			return listOfValue.map((val) => `<img src="https://img.shields.io/badge/${label}-${val}-${color}" alt="${label}: ${val}" />`).join(" ")
+			return listOfValue.map((val) => `<img src="https://img.shields.io/badge/${label}-${val}-${color}?style=flat-square" alt="${label}: ${val}" />`).join(" ")
 		}
-    	function template(catalogEntry) {
-    		return createElementFromHTML(`<div class="card float-left" style="width: 45%; margin:1%; float: left;">
+    	function template(catalogEntry, key) {
+    		return createElementFromHTML(`<div class="card float-left catalog-card"  data-key="${key}">
   <div class="card-body">
     <h5 class="card-title">${catalogEntry.title}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${catalogEntry.url}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">${catalogEntry['project-name'] || ''}</h6>
+    <h7>${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
     <p class="card-text">${nl2br(catalogEntry.description)}</p>
     <p>
 	    ${getImages(catalogEntry.language, "Language", "blue")}
 	    ${getImages(catalogEntry.script, "Script", "orange")}
     </p>
-    <a href="${catalogEntry.url}" class="card-link">See data</a>
+    <p>
+      <img src="https://img.shields.io/badge/License-${catalogEntry.license[0].name.replace('-',' ')}-black?style=flat-square" alt="${catalogEntry.license[0].name}" />
+      <a href="${catalogEntry.url}">
+        <img src="https://img.shields.io/badge/Link-Repository-green?style=flat-square" alt="Repository Link" />
+      </a>
+    </p>
+    
   </div>
 </div>`);
     	}
@@ -229,9 +292,55 @@
 		};
 		async function showCatalog() {
 			const CATALOG = await getCatalog();
+      let minDate = +5000, 
+          maxDate = -5000;
+      let knownDates = [];
+      let selectedDates = [];
 			Object.keys(CATALOG).forEach( (key) => {
-				catalogDiv.append(template(CATALOG[key]));
+        let div = template(CATALOG[key], key);
+        try {
+          CATALOG[key].time.notBeforeInt = parseInt(CATALOG[key].time.notBefore.split("-")[0]);
+          CATALOG[key].time.notAfterInt = parseInt(CATALOG[key].time.notAfter.split("-")[0]);
+          if (CATALOG[key].time.notAfterInt > maxDate) {
+            maxDate = CATALOG[key].time.notAfterInt;
+          }
+          if (CATALOG[key].time.notBeforeInt < minDate) {
+            minDate = CATALOG[key].time.notBeforeInt;
+          }
+          knownDates.push({start: CATALOG[key].time.notBeforeInt, end: CATALOG[key].time.notAfterInt});
+          selectedDates.push({start: CATALOG[key].time.notBeforeInt, end: CATALOG[key].time.notAfterInt});
+        } catch (e) {
+          console.log("Error on parsing time for " + key);
+          console.log(e);
+        }
+				catalogDiv.append(div);
 			});
+      notBeforeSelector.value = minDate;
+      notAfterSelector.value = maxDate;
+
+      function inRange(minStart, minEnd, dataStart, dataEnd) {
+        return (dataStart <= minEnd) && (minStart <= dataEnd);
+      }
+
+      function filterDates() {
+        let localMin = parseInt(notBeforeSelector.value),
+            localMax = parseInt(notAfterSelector.value),
+            localSelected = knownDates.filter((val) => inRange(localMin, localMax, val.start, val.end));
+
+        // Avoids rerunning things on divs if things did not change
+        if (localSelected.sort() !== selectedDates.sort()) {
+          // Refresh the list
+          selectedDates = localSelected;
+          document.querySelectorAll(".catalog-card").forEach((div) => div.style.display = "none");
+          Object.keys(CATALOG).forEach( (key) => {
+            if(inRange(localMin, localMax, CATALOG[key].time.notBeforeInt, CATALOG[key].time.notAfterInt)) {
+              document.querySelector(`.catalog-card[data-key="${key}"`).style.display = "block";
+            }
+          });
+        }
+      };
+      notBeforeSelector.addEventListener('change', filterDates);
+      notAfterSelector.addEventListener('change', filterDates);
 		}
 		showCatalog();
     </script>
