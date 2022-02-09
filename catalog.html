@@ -207,7 +207,7 @@
     }
     function getAuthors(catalogEntry) {
       if (catalogEntry.authors) {
-        return `<p class="card-text"><b>Authors:</b> ${catalogEntry.authors.map((val) => val.name + ', ' + val.surname).join(' and ')}</p>`;
+        return `<p class="card-text"><b><i18n vanilla-i18n="cat.authors">Auteur.rice.s </i18n>:</b> ${catalogEntry.authors.map((val) => val.name + ', ' + val.surname).join(' and ')}</p>`;
       } else {
         return "";
       }
