@@ -1,8 +1,9 @@
 vanilla-i18n-key,English,Français
-nav.use,Use the data,Utiliser les données
-nav.provide,Provide data,Proposer des données
+nav.use,Use the Data,Utiliser les données
+nav.provide,Provide Data,Proposer des données
 nav.scenario,Scenario,Scénarios
-nav.form,Go to form,Aller au formulaire
+nav.form,Go to Form,Voir le formulaire
+nav.catalog,See the Catalog,Voir le catalogue
 nav.team,The Team,L'Équipe
 footer.team,Who are the people behind HTR-United?,Qui est derrière HTR-United ?
 team.title,Editors,Éditrices-eurs
@@ -180,3 +181,5 @@ form.input.guidelines,"<textarea name=""transcriptionGuidelines"" class=""form-c
 form.input.quantity,"<input type=""number"" name=""metric-count"" class=""form-control"" placeholder=""Example: 200"" min=""1"">","<input type=""number"" name=""metric-count"" class=""form-control"" placeholder=""Exemple: 200"" min=""1"">"
 form.input.apa,"APA Reference for a source","Référence en mode APA"
 form.input.src,"Link to the source or a catalog description","Lien vers le catalogue ou la ressource"
+cat.title,Catalog,Catalogue
+cat.nota,The languages used to introduce the datasets depend on language used by the author(s) of a descripion.,La langue utilisée pour la description des jeux de données correspond à celle employée lors du dépôt d'un signalement dans HTR-United.
