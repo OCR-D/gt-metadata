@@ -79,7 +79,7 @@ form.field.project.link,Link to project's website,Lien vers le site du projet
 form.field.authors,Authority and role(s),Acteur-rice-s du projet
 form.field.member.add,Add a member,Ajouter une personne
 form.field.member.rm,Remove a member,Supprimer cette personne
-form.field.roles,"<div class=""col-sm-9"">
+form.field.roles,"<div class=""col-sm-12"">
                   <input type=""text"" name=""authorityName"" class=""form-control mb-2"" placeholder=""Author's last name"">
                   <input type=""text"" name=""authoritySurname"" class=""form-control mb-2"" placeholder=""Author first name"">
                   <div class=""form-check-inline checkbox checkbox-inline my-1 py-2"">
@@ -106,7 +106,7 @@ form.field.roles,"<div class=""col-sm-9"">
                     <input type=""checkbox"" value=""support"" name=""roleSupport"" id=""roleSupport"">
                     <label class=""form-check-label"" for=""roleSupport"">Support</label>
                   </div>
-                </div>","<div class=""col-sm-9"">
+                </div>","<div class=""col-sm-12"">
                   <input type=""text"" name=""authorityName"" class=""form-control mb-2"" placeholder=""Nom de l'auteur-rice"">
                   <input type=""text"" name=""authoritySurname"" class=""form-control mb-2"" placeholder=""Prénom de l'auteur-rice"">
                   <div class=""form-check-inline checkbox checkbox-inline my-1 py-2"">
