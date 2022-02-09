@@ -128,6 +128,30 @@
           float: none;
         }
       }
+      .transcriptionRules.ellipsis p {
+        display: none;
+      }
+      .transcriptionRules:hover {
+        cursor: pointer;
+      }
+      .card-header {
+        background-color: rgb(108, 117, 125)!important;
+        color: white;
+      }
+      .card-body:not(:first-of-type) {
+        border-top: 1px solid rgba(0, 0, 0, 0.09);
+      }
+      .citation pre {
+        padding: 0;
+        height: 4em;
+        overflow: scroll;
+      }
+      .citation .fa-copy {
+        cursor: pointer;
+      }
+      .card-text {
+        font-size: 0.9em;
+      }
     </style>
 
     <!-- Custom styles for this template -->
@@ -322,17 +346,30 @@
         return "";
       }
     }
+    function transcriptionRules(catalogEntry) {
+      if (catalogEntry['transcription-guidelines']) {
+        return `
+  <div class="card-body">
+    <div class="transcriptionRules ellipsis">
+      <a href="#" vanilla-i18n="form.field.guidelines.label"><span class="fas fa-plus"></span> Show transcription guidelines</a>
+      <p>${catalogEntry['transcription-guidelines']}</p>
+    </div>
+  </div>`;
+      } else {
+        return "";
+      }
+    }
     function template(catalogEntry, key) {
     		return createElementFromHTML(`<div class="card float-left catalog-card"  data-key="${key}">
+  <div class="card-header">
+  ${catalogEntry.title}
+  </div>
   <div class="card-body">
-    <h5 class="card-title">${catalogEntry.title}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${catalogEntry['project-name'] || ''}</h6>
     <h7>${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
-    <p class="card-text">${nl2br(catalogEntry.description)}</p>
-    ${getAuthors(catalogEntry)}
     <p>
-	    ${getImages(catalogEntry.language, "Language", "language")}
-	    ${getImages(catalogEntry.script, "Script", "script")}
+      ${getImages(catalogEntry.language, "Language", "language")}
+      ${getImages(catalogEntry.script, "Script", "script")}
       ${getTypeBadge(catalogEntry['script-type'])}
       <span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">Hands</span><span class="py-1 px-2 rounded-right badge-hands">${catalogEntry.hands.count}</span></span>
       <span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">License</span><span class="py-1 px-2 rounded-right badge-license">${catalogEntry.license[0].name}</span></span>
@@ -342,8 +379,22 @@
       <a href="${catalogEntry.url}"><span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">Link</span><span class="py-1 px-2 rounded-right badge-link">Data</span></span></a>
       ${citationCFF(catalogEntry['citation-file-link'])}
     </p>
-    
+    <p class="card-text">${nl2br(catalogEntry.description)}</p>
+    ${getAuthors(catalogEntry)}
   </div>
+  ${transcriptionRules(catalogEntry)}
+  <div class="card-body citation">
+  <h6>Citation <span class="fas fa-copy citation-copy"></span></h6>
+  <pre>
+@misc{htr_united_${slugify(catalogEntry.url)},
+  type       = dataset,
+  author     = {${(catalogEntry.authors || []).map((val) => val.name + ', ' + val.surname).join(' and ')}},
+  title      = {${catalogEntry.title}},
+  publisher  = {HTR United},
+  editor     = {Chagué, Alix and Clérice, Thibault},
+  url        = {${catalogEntry.url}}
+}</pre>
+</div>
 </div>`);
     	}
     	async function getCatalog() {
@@ -357,6 +408,19 @@
 		      };
 		    }
 		};
+    function selectText(node) {
+      if (document.body.createTextRange) {
+        const range = document.body.createTextRange();
+        range.moveToElementText(node);
+        range.select();
+      } else if (window.getSelection) {
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(node);
+          selection.removeAllRanges();
+          selection.addRange(range);
+      }
+    }
 		async function showCatalog() {
 			const CATALOG = await getCatalog();
       let minDate = +5000, 
@@ -382,6 +446,18 @@
         }
 				catalogDiv.append(div);
 			});
+      catalogDiv.querySelectorAll(".transcriptionRules").forEach((divEl) => {
+        divEl.querySelector("a").addEventListener("click", function(e) {
+          e.preventDefault();
+          divEl.classList.toggle("ellipsis");
+        })
+      });
+      catalogDiv.querySelectorAll(".citation").forEach((divEl) => {
+        divEl.querySelector(".citation-copy").addEventListener("click", function(e) {
+          selectText(divEl.querySelector("pre"));
+          document.execCommand("copy");
+        })
+      });
       notBeforeSelector.value = minDate;
       notAfterSelector.value = maxDate;
 
