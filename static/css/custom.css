@@ -54,32 +54,34 @@ header {
 
 /* CSS 4 catalog */
 .badge-sm {
-  height: .8em;
+  height: .9em;
   font-weight: normal!important;
   font-size: .6em;
 }
 
-.bg-script {
-  background: #5ab8aa;
-}
-.bg-license {
-  background: #000;
-}
 .bg-language {
-  background: #1d6c80;
+  background: #9A031E;
 }
-.bg-link {
-  background: #112e9e;
+.bg-script {
+  background: #E36414;
 }
 .bg-script-type {
-  background: #cc7a29;
+  background: #FF8500;
 }
 .bg-hands {
-  background: #cc4429;
+  background: #7B287B;
+}
+.bg-license {
+  background: #000814;
 }
 .bg-volumes {
-  background: #cc296a;
+  background: #3f88c5;
 }
+.bg-link {
+  background: #0D3B66;
+}
+
+
 .card h7 {
   font-style: italic;
   color: #555;

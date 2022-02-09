@@ -181,10 +181,10 @@
       return str;
     }
     function getVolumes(listOfValue) {
-      return listOfValue.map((val) => `<span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-volumes rounded-start text-white border border-dark border-end-0 py-1 px-2"><span class="fas fa-database"></span> Volume</span><span class="rounded-end text-dark border border-dark py-1 px-2">${val.count.toLocaleString()} ${val.metric}</span></span>`).join(" ")
+      return listOfValue.map((val) => `<span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-volumes rounded-start text-white border border-secondary border-end-0 py-1 px-2"><span class="fas fa-database"></span> Volume</span><span class="rounded-end text-dark border border-secondary py-1 px-2">${val.count.toLocaleString()} ${val.metric}</span></span>`).join(" ")
     }
 		function getImages(listOfValue, label, color) {
-			return listOfValue.map((val) => `<span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-${color}  rounded-start text-white border border-dark border-end-0 py-1 px-2">${label}</span><span class="rounded-end text-dark border border-dark py-1 px-2">${val}</span></span>`).join(" ")
+			return listOfValue.map((val) => `<span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-${color}  rounded-start text-white border border-secondary border-end-0 py-1 px-2">${label}</span><span class="rounded-end text-dark border border-secondary py-1 px-2">${val}</span></span>`).join(" ")
 		}
     function getTypeBadge(scriptType) {
       // fa-print
@@ -196,12 +196,12 @@
       let badge = "fa-archive";
       if (scriptType.includes("manuscript")) { badge = "fa-pen-fancy"; } else if (scriptType.includes("typed")) { badge = "fa-print"; }
       return `<span class="badge badge-sm p-0 m-1 mb-2">
-        <span class="bg-script-type rounded-start text-white border border-dark border-end-0 py-1 px-2">Script Type</span><span class="rounded-end border border-dark text-dark border border-dark py-1 px-2"><span class="fas ${badge}"></span> ${scriptType}</span>
+        <span class="bg-script-type rounded-start text-white border border-secondary border-end-0 py-1 px-2">Script Type</span><span class="rounded-end border border-secondary text-dark border py-1 px-2"><span class="fas ${badge}"></span> ${scriptType}</span>
       </span>`
     }
     function citationCFF(link) {
       if(link) {
-        return `<a href="${link}"><span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-link rounded-start text-white border border-dark border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-dark text-dark border border-dark py-1 px-2">Citation File</span></span>
+        return `<a href="${link}"><span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-secondary text-dark border py-1 px-2">Citation File</span></span>
       </a>`;
       } else { return ""; }
     }
@@ -237,12 +237,14 @@
       ${getImages(catalogEntry.language, "Language", "language")}
       ${getImages(catalogEntry.script, "Script", "script")}
       ${getTypeBadge(catalogEntry['script-type'])}
-      <span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-hands rounded-start text-white border border-dark border-end-0 py-1 px-2">Hands</span><span class="rounded-end border border-dark text-dark border border-dark py-1 px-2">${catalogEntry.hands.count}</span></span>
-      <span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-license rounded-start text-white border border-dark border-end-0 py-1 px-2">License</span><span class="rounded-end border border-dark text-dark border border-dark py-1 px-2">${catalogEntry.license[0].name}</span></span>
+      <span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-hands rounded-start text-white border border-secondary border-end-0 py-1 px-2">Hands</span><span class="rounded-end border border-secondary text-dark border py-1 px-2">${catalogEntry.hands.count}</span></span>
+    </p>
+    <p class="my-0">
+      <span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-license rounded-start text-white border border-secondary border-end-0 py-1 px-2">License</span><span class="rounded-end border border-secondary text-dark border py-1 px-2">${catalogEntry.license[0].name}</span></span>
     </p>
     <p class="my-0">${getVolumes(catalogEntry.volume)}</p>
     <p class="my-0">
-      <a href="${catalogEntry.url}"><span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-link rounded-start text-white border border-dark border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-dark text-dark border border-dark py-1 px-2">Data</span></span></a>
+      <a href="${catalogEntry.url}"><span class="badge badge-sm p-0 m-1 mb-2"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-secondary text-dark border py-1 px-2">Data</span></span></a>
       ${citationCFF(catalogEntry['citation-file-link'])}
     </p>
     <hr/>
