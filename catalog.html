@@ -22,140 +22,11 @@
 
 
     <style>
-      body {
-        background-color: #fefefe;
-      }
-
-      .btn-info {
-        background-color: #dce8ae !important;
-        color: #383c2c !important;
-        border: #89926a !important;
-
-      }
-
-      .btn-info:hover {
-        background-color: #cedf8e !important;
-        color: #383c2c !important;
-        border: #89926a !important;
-      }
-
-      .btn-info:active {
-        box-shadow: #dce8ae !important;
-      }
-
-      .btn-info:focus {
-        box-shadow: 0 0 0 .25rem #dce8ae !important;
-      }
-
-      .block-scenario {
-        background-color: #fff;
-      }
-
-      .btn-nav:hover {
-        box-shadow: 0 0 0 .25rem #dce8ae !important;
-      }
-
-      .btn-nav-ext:hover {
-        box-shadow: 0 0 0 .25rem #ffc107 !important;
-      }
-
-      header {
-        background-color: #fff;
-      }
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      .badge-sm {
-        height: .8em;
-        font-weight: normal!important;
-        font-size: .6em;
-      }
-      .badge-script {
-        background: #5ab8aa;
-      }
-      .badge-license {
-        background: #000;
-      }
-      .badge-language {
-        background: #1d6c80;
-      }
-      .badge-link {
-        background: #112e9e;
-      }
-      .badge-script-type {
-        background: #cc7a29;
-      }
-      .badge-hands {
-        background: #cc4429;
-      }
-      .badge-volumes {
-        background: #cc296a;
-      }
-      .card h7 {
-        font-style: italic;
-        color: #555;
-        font-size: .8em;
-        text-align: right;
-        display: block;
-      }
-      /*
-      #card-receiver {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: masonry;
-      }
-      */
-      .catalog-card {
-        width: 45%;
-        margin:1%;
-        float: left;
-      }
-      @media (max-width: 1024px) {
-        .catalog-card {
-          width: 98%;
-          margin:1%;
-          float: none;
-        }
-      }
-      .transcriptionRules.ellipsis p {
-        display: none;
-      }
-      .transcriptionRules:hover {
-        cursor: pointer;
-      }
-      .card-header {
-        background-color: rgb(108, 117, 125)!important;
-        color: white;
-      }
-      .card-body:not(:first-of-type) {
-        border-top: 1px solid rgba(0, 0, 0, 0.09);
-      }
-      .citation pre {
-        padding: 0;
-        height: 4em;
-        overflow: scroll;
-      }
-      .citation .fa-copy {
-        cursor: pointer;
-      }
-      .card-text {
-        font-size: 0.9em;
-      }
     </style>
 
     <!-- Custom styles for this template -->
-    <!--<link href="heroes.css" rel="stylesheet">-->
+    <link href="static/css/personalCSS.css" rel="stylesheet">
+
   </head>
 
   <body id="top">
@@ -236,9 +107,28 @@
               </div>
             </div>
           </div>
+          <hr />
           <div class="form-group row my-2">
-            <div class="col-md-3"><span  vanilla-i18n="cat.resultCount">Nombre de résultats:</span> <span id="resultCount"></span></div>
-          </div>    
+            <div class="col-md-3"><span  vanilla-i18n="cat.resultCount">Nombre de résultats:</span></div>
+            <div class="col-md-9"><span id="resultCount"></span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Options</div>
+            <div class="col-md-9">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="affiche" id="showGuidelines">
+                <label class="form-check-label" for="showGuidelines">
+                  Show Guidelines
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="affiche" id="showCitations">
+                <label class="form-check-label" for="showCitations">
+                  Show Citations
+                </label>
+              </div>
+            </div>
+          </div>
         </form>
 	  		<div id="card-receiver"></div>
 
@@ -282,16 +172,35 @@
             notAfterSelector = document.querySelector("#notAfter"),
             notBeforeSelector = document.querySelector("#notBefore"),
             scriptTypeFilter = document.querySelector("#scriptType"),
-            resultCount = document.querySelector("#resultCount");
+            resultCount = document.querySelector("#resultCount"),
+            showGuidelines = document.querySelector("#showGuidelines"),
+            showCitations = document.querySelector("#showCitations");
+
+      function toggleGuidelines() {
+        if (showGuidelines.checked) {
+          catalogDiv.classList.add("show-guidelines");
+        } else {
+          catalogDiv.classList.remove("show-guidelines");
+        }
+      }
+      function toggleCitations() {
+        if (showGuidelines.checked) {
+          catalogDiv.classList.add("show-citations");
+        } else {
+          catalogDiv.classList.remove("show-citations");
+        }
+      }
+
+
 
     	function nl2br (str, is_xhtml) { return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2'); }
     	function createElementFromHTML(htmlString) {
-		  let div = document.createElement('div');
-		  div.innerHTML = htmlString.trim();
+  		  let div = document.createElement('div');
+  		  div.innerHTML = htmlString.trim();
 
-		  // Change this to div.childNodes to support multiple top-level nodes.
-		  return div.firstChild;
-		}
+  		  // Change this to div.childNodes to support multiple top-level nodes.
+  		  return div.firstChild;
+  		}
     function slugify(str) {
       str = str.replace(/^\s+|\s+$/g, '');
 
@@ -349,11 +258,9 @@
     function transcriptionRules(catalogEntry) {
       if (catalogEntry['transcription-guidelines']) {
         return `
-  <div class="card-body">
-    <div class="transcriptionRules ellipsis">
-      <a href="#" vanilla-i18n="form.field.guidelines.label"><span class="fas fa-plus"></span> Show transcription guidelines</a>
-      <p>${catalogEntry['transcription-guidelines']}</p>
-    </div>
+  <div class="card-body transcriptionRules">
+    <h6>Transcriptions Guidelines</h6>
+    <p class="card-text">${catalogEntry['transcription-guidelines']}</p>
   </div>`;
       } else {
         return "";
@@ -446,12 +353,6 @@
         }
 				catalogDiv.append(div);
 			});
-      catalogDiv.querySelectorAll(".transcriptionRules").forEach((divEl) => {
-        divEl.querySelector("a").addEventListener("click", function(e) {
-          e.preventDefault();
-          divEl.classList.toggle("ellipsis");
-        })
-      });
       catalogDiv.querySelectorAll(".citation").forEach((divEl) => {
         divEl.querySelector(".citation-copy").addEventListener("click", function(e) {
           selectText(divEl.querySelector("pre"));
@@ -499,8 +400,12 @@
       notBeforeSelector.addEventListener('change', applyFilters);
       notAfterSelector.addEventListener('change', applyFilters);
       scriptTypeFilter.addEventListener('change', applyFilters);
+      toggleGuidelines();
+      toggleCitations();
       applyFilters();
 		}
+    showGuidelines.addEventListener("change", toggleGuidelines);
+    showCitations.addEventListener("change", toggleCitations);
 		showCatalog();
     </script>
       
