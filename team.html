@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="HTR-United Home Page">
+    <meta name="description" content="HTR-United - Team">
     <meta name="author" content="Alix Chagué">
     <meta name="author" content="Thibault Clérice">
     <title>HTR-United</title>
@@ -20,66 +20,8 @@
     <!-- Icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-
-    <style>
-      body {
-        background-color: #fefefe;
-      }
-
-      .btn-info {
-        background-color: #dce8ae !important;
-        color: #383c2c !important;
-        border: #89926a !important;
-
-      }
-
-      .btn-info:hover {
-        background-color: #cedf8e !important;
-        color: #383c2c !important;
-        border: #89926a !important;
-      }
-
-      .btn-info:active {
-        box-shadow: #dce8ae !important;
-      }
-
-      .btn-info:focus {
-        box-shadow: 0 0 0 .25rem #dce8ae !important;
-      }
-
-      .block-scenario {
-        background-color: #fff;
-      }
-
-      .btn-nav:hover {
-        box-shadow: 0 0 0 .25rem #dce8ae !important;
-      }
-
-      .btn-nav-ext:hover {
-        box-shadow: 0 0 0 .25rem #ffc107 !important;
-      }
-
-      header {
-        background-color: #fff;
-      }
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    <!-- Custom styles for this template -->
-    <!--<link href="heroes.css" rel="stylesheet">-->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/custom.css">
   </head>
 
   <body id="top">
@@ -94,23 +36,25 @@
 
         <div class="collapse navbar-collapse" id="navbar_htr-united">
           <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
-            <li class="nav-item active">
-              <a class="nav-link btn btn-nav me-2" href="index.html#use-data"><i18n vanilla-i18n="nav.use">Utiliser les données</i18n></span></a>
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i18n vanilla-i18n="nav.home">Accueil </i18n></a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="index.html#use-data"><i18n vanilla-i18n="nav.use">Utiliser les données</i18n></a>
+                <a class="dropdown-item" href="index.html#provide-data"><i18n vanilla-i18n="nav.provide">Proposer des données</i18n></a>
+                <a class="dropdown-item" href="index.html#scenarios"><i18n vanilla-i18n="nav.scenario">Scénarios</i18n></a>
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav me-2" href="index.html#provide-data"><i18n vanilla-i18n="nav.provide">Proposer des données</i18n></a>
+              <a class="nav-link btn btn-nav me-2" href="document-your-data.html"><i18n vanilla-i18n="nav.form">Voir le formulaire</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav me-2" href="index.html#scenarios"><i18n vanilla-i18n="nav.scenario">Scénarios</i18n></a>
+              <a class="nav-link btn btn-nav me-2" href="catalog.html"><i18n vanilla-i18n="nav.catalog">Voir le catalogue</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav-ext me-2" href="document-your-data.html"><i18n vanilla-i18n="nav.form">Voir le formulaire</i18n></a>
+              <a class="nav-link btn btn-nav me-2" href="data-reuse-charter.html"><i18n vanilla-i18n="nav.charter">Charte - Réutilisation des données</i18n></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-nav-ext me-2" href="catalog.html"><i18n vanilla-i18n="nav.catalog">Voir le catalogue</i18n></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link btn btn-nav-ext me-2" href="team.html"><i18n vanilla-i18n="nav.team">L'Équipe</i18n></a>
+              <a class="nav-link btn btn-nav me-2" href="team.html"><i18n vanilla-i18n="nav.team">L'Équipe</i18n></a>
             </li>
           </ul>
           <div class="col-sm-2 text-end">
@@ -118,10 +62,11 @@
               <option>Français</option>
               <option>English</option>
             </select>
-            <!--<a class="btn btn-outline-secondary me-2" href="#">English</a>-->
           </div>
         </div>
       </nav>
+
+    
 
 <!-- Main -->
 <main>
