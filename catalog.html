@@ -20,8 +20,8 @@
     <!-- Icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="static/css/custom.css">
+    <!-- Custom styles for this template -->
+    <link href="static/css/custom.css" rel="stylesheet">
   </head>
 
   <body id="top">
@@ -72,12 +72,63 @@
 	  <div class="container">
 	  	<div class="row">
 	  		<h1><i18n vanilla-i18n="cat.title">Catalogue</i18n></h1>
-        <div class="form-group row my-2">
+        <div class="row my-2">
             <div class="col-sm-9">
               <p><small class="text-muted"><i18n vanilla-i18n="cat.nota">La langue utilisée pour la description des jeux de données correspond à celle employée lors du dépôt d'un signalement dans HTR-United.</i18n></small></p>
             </div>
-          </div>
-	  		<div id="card-receiver"></div>
+        </div>
+        <div class="row">
+          <form id="card-selector" class="col-12 m-2 border p-4">
+            <h3><span  vanilla-i18n="cat.filters">Filtres</span></h3>
+            <div class="form-group row my-2">
+              <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n><span class="required">*</span></label>
+              <div class="col-sm-9">
+                <select name="scriptType" id="scriptType" class="form-control">
+                  <option value="all" vanilla-i18n="form.field.script.type.select.all">Tout</option>
+                  <option value="only-manuscript" vanilla-i18n="form.field.script.type.select.only-manuscript">Manuscrit uniquement</option>
+                  <option value="only-typed" vanilla-i18n="form.field.script.type.select.only-typed">Imprimé/dactylographié uniquement</option>
+                  <option value="mainly-manuscript" vanilla-i18n="form.field.script.type.select.mainly-manuscript">Principalement manuscrit</option>
+                  <option value="mainly-typed" vanilla-i18n="form.field.script.type.select.mainly-typed">Principalement imprimé/dactylographié</option>
+                  <option value="evenly-mixed" vanilla-i18n="form.field.script.type.select.evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row my-2">
+              <label for="scriptType" class="col-md-3 col-form-label">Dates</label>
+              <div class="col-md-6">
+                <div class="input-group">
+                  <span class="input-group-text">Not before:</span>
+                  <input type="number" id="notBefore" aria-label="First name" class="form-control">
+                  <span class="input-group-text">Not after:</span>
+                  <input type="number" id="notAfter" aria-label="Last name" class="form-control">
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="form-group row my-2">
+              <div class="col-md-3"><span  vanilla-i18n="cat.resultCount">Nombre de résultats:</span></div>
+              <div class="col-md-9"><span id="resultCount"></span></div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">Options</div>
+              <div class="col-md-9">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="affiche" id="showGuidelines">
+                  <label class="form-check-label" for="showGuidelines" vanilla-i18n="cat.showGuidelines">
+                    Show Guidelines
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="affiche" id="showCitations">
+                  <label class="form-check-label" for="showCitations" vanilla-i18n="cat.showCitations">
+                    Show Citations
+                  </label>
+                </div>
+              </div>
+            </div>
+        </form>
+        </div>
+        <div id="card-receiver" class="grid"></div>
 	  	</div>
 	  </div>
 	</div>
@@ -111,73 +162,8 @@
     <!-- i18n -->
     <script type="text/javascript" src="static/js/i18n-advanced.js"></script>
     <script type="text/javascript" src="static/js/i18n.js"></script>
-    <!-- end of i18n -->
-    <script type="text/javascript">
-    	const catalogURI = "https://htr-united.github.io/htr-united/catalog.json";
-    	const catalogDiv = document.querySelector("#card-receiver");
-    	function nl2br (str, is_xhtml) {
-		  // http://kevin.vanzonneveld.net
-		  // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-		  // +   improved by: Philip Peterson
-		  // +   improved by: Onno Marsman
-		  // +   improved by: Atli Þór
-		  // +   bugfixed by: Onno Marsman
-		  // +      input by: Brett Zamir (http://brett-zamir.me)
-		  // +   bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-		  // +   improved by: Brett Zamir (http://brett-zamir.me)
-		  // +   improved by: Maximusya
-		  // *     example 1: nl2br('Kevin\nvan\nZonneveld');
-		  // *     returns 1: 'Kevin<br />\nvan<br />\nZonneveld'
-		  // *     example 2: nl2br("\nOne\nTwo\n\nThree\n", false);
-		  // *     returns 2: '<br>\nOne<br>\nTwo<br>\n<br>\nThree<br>\n'
-		  // *     example 3: nl2br("\nOne\nTwo\n\nThree\n", true);
-		  // *     returns 3: '<br />\nOne<br />\nTwo<br />\n<br />\nThree<br />\n'
-
-		  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2');
-		}
-    	function createElementFromHTML(htmlString) {
-		  let div = document.createElement('div');
-		  div.innerHTML = htmlString.trim();
-
-		  // Change this to div.childNodes to support multiple top-level nodes.
-		  return div.firstChild;
-		}
-		function getImages(listOfValue, label, color) {
-			return listOfValue.map((val) => `<img src="https://img.shields.io/badge/${label}-${val}-${color}" alt="${label}: ${val}" />`).join(" ")
-		}
-    	function template(catalogEntry) {
-    		return createElementFromHTML(`<div class="card float-left" style="width: 45%; margin:1%; float: left;">
-  <div class="card-body">
-    <h5 class="card-title">${catalogEntry.title}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${catalogEntry.url}</h6>
-    <p class="card-text">${nl2br(catalogEntry.description)}</p>
-    <p>
-	    ${getImages(catalogEntry.language, "Language", "blue")}
-	    ${getImages(catalogEntry.script, "Script", "orange")}
-    </p>
-    <a href="${catalogEntry.url}" class="card-link">See data</a>
-  </div>
-</div>`);
-    	}
-    	async function getCatalog() {
-		    try {
-		      var res = await fetch(catalogURI);
-		      return res.json();
-		    } catch {
-		      (error) => {
-		        console.log(error.message);
-		        return;
-		      };
-		    }
-		};
-		async function showCatalog() {
-			const CATALOG = await getCatalog();
-			Object.keys(CATALOG).forEach( (key) => {
-				catalogDiv.append(template(CATALOG[key]));
-			});
-		}
-		showCatalog();
-    </script>
-      
+    <!-- end of i18n 
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>-->
+    <script type="text/javascript" src="static/js/catalog.js"></script>
   </body>
 </html>

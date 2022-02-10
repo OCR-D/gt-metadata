@@ -1,54 +1,148 @@
 body {
-        background-color: #fefefe;
-      }
+background-color: #fefefe;
+}
 
-      .btn-info {
-        background-color: #dce8ae !important;
-        color: #383c2c !important;
-        border: #89926a !important;
+header {
+background-color: #fff;
+}
 
-      }
+/**
+ * 
+ * Accueil
+ * 
+ * */
 
-      .btn-info:hover {
-        background-color: #cedf8e !important;
-        color: #383c2c !important;
-        border: #89926a !important;
-      }
+.block-scenario {
+    background-color: #fff;
+}
 
-      .btn-info:active {
-        box-shadow: #dce8ae !important;
-      }
+.btn-nav:hover {
+    box-shadow: 0 0 0 .25rem #dce8ae !important;
+}
 
-      .btn-info:focus {
-        box-shadow: 0 0 0 .25rem #dce8ae !important;
-      }
+.btn-nav-ext:hover {
+    box-shadow: 0 0 0 .25rem #ffc107 !important;
+}
 
-      .block-scenario {
-        background-color: #fff;
-      }
+/**
+ *
+ * Boutons
+ *  
+ **/
+.btn-info {
+    background-color: #dce8ae !important;
+    color: #383c2c !important;
+    border: #89926a !important;
+}
 
-      /*.btn-nav:hover {
-        box-shadow: 0 0 0 .05rem #dce8ae !important;
-      }
+.btn-info:hover {
+    background-color: #cedf8e !important;
+    color: #383c2c !important;
+    border: #89926a !important;
+}
 
-      .btn-nav-ext:hover {
-        box-shadow: 0 0 0 .05rem #ffc107 !important;
-      }*/
+.btn-info:active {
+    box-shadow: #dce8ae !important;
+}
 
-      header {
-        background-color: #fff;
-      }
+.btn-info:focus {
+    box-shadow: 0 0 0 .25rem #dce8ae !important;
+}
 
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+/**
+ * 
+ * Formulaire
+ * 
+ * */
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+.form-control {
+    background-color: #fff !important;
+}
+
+.output-field {
+    background-color: #dce8ae;
+    width: 100%; 
+    min-height:50px;
+}
+
+/**
+ * 
+ * Badges
+ * 
+ * */
+
+.badge-sm {
+    height: .9em;
+    font-weight: normal!important;
+    font-size: .6em;
+}
+.bg-language {
+  background: #9A031E;
+}
+.bg-script {
+  background: #E36414;
+}
+.bg-script-type {
+  background: #FF8500;
+}
+.bg-hands {
+  background: #7B287B;
+}
+.bg-volumes {
+  background: #0D3B66;
+}
+.bg-license {
+  background: #000814;
+}
+.bg-link {
+  background: #3f88c5;
+}
+
+/**
+ * 
+ * Catalogues
+ * 
+ * */
+.catalog-card {
+    width: 45%;
+    margin:1%;
+    float: left;
+}
+@media (max-width: 1024px) {
+    .catalog-card {
+        width: 98%;
+        margin:1%;
+        float: none;
+    }
+}
+.card h7 {
+    font-style: italic;
+    color: #555;
+    font-size: .8em;
+    text-align: right;
+    display: block;
+}
+.card-header {
+    background-color: rgb(108, 117, 125)!important;
+    color: white;
+}
+.card-body:not(:first-of-type) {
+    border-top: 1px solid rgba(0, 0, 0, 0.09);
+}
+.card-text {
+    font-size: 0.9em;
+}
+.transcriptionRules, .citation {
+    display: none;
+}
+.show-guidelines .transcriptionRules, .show-citations .citation {
+    display: block;
+}
+.citation pre {
+    padding: 0;
+    height: 4em;
+    overflow: scroll;
+}
+.citation .fa-copy {
+    cursor: pointer;
+}
