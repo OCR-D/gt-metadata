@@ -296,6 +296,7 @@ async function showCatalog() {
   scriptTypeFilter.addEventListener('change', applyFilters);
   toggleGuidelines();
   toggleCitations();
+  i18n_item.run();
   /*
   msnry = new Masonry('.grid', {
     // set itemSelector so .grid-sizer is not used in layout
