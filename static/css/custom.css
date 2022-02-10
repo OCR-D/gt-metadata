@@ -1,64 +1,81 @@
 body {
-        background-color: #fefefe;
-      }
-
-.btn-info {
-  background-color: #dce8ae !important;
-  color: #383c2c !important;
-  border: #89926a !important;
+background-color: #fefefe;
 }
 
-.btn-info:hover {
-  background-color: #cedf8e !important;
-  color: #383c2c !important;
-  border: #89926a !important;
+header {
+background-color: #fff;
 }
 
-.btn-info:active {
-  box-shadow: #dce8ae !important;
-}
-
-.btn-info:focus {
-  box-shadow: 0 0 0 .25rem #dce8ae !important;
-}
+/**
+ * 
+ * Accueil
+ * 
+ * */
 
 .block-scenario {
-  background-color: #fff;
+    background-color: #fff;
 }
 
-/*.btn-nav:hover {
-  box-shadow: 0 0 0 .05rem #dce8ae !important;
+.btn-nav:hover {
+    box-shadow: 0 0 0 .25rem #dce8ae !important;
 }
 
 .btn-nav-ext:hover {
-  box-shadow: 0 0 0 .05rem #ffc107 !important;
-}*/
-
-header {
-  background-color: #fff;
+    box-shadow: 0 0 0 .25rem #ffc107 !important;
 }
 
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+/**
+ *
+ * Boutons
+ *  
+ **/
+.btn-info {
+    background-color: #dce8ae !important;
+    color: #383c2c !important;
+    border: #89926a !important;
 }
 
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
+.btn-info:hover {
+    background-color: #cedf8e !important;
+    color: #383c2c !important;
+    border: #89926a !important;
 }
 
-/* CSS 4 catalog */
+.btn-info:active {
+    box-shadow: #dce8ae !important;
+}
+
+.btn-info:focus {
+    box-shadow: 0 0 0 .25rem #dce8ae !important;
+}
+
+/**
+ * 
+ * Formulaire
+ * 
+ * */
+
+.form-control {
+    background-color: #fff !important;
+}
+
+.output-field {
+    background-color: #dce8ae;
+    width: 100%; 
+    min-height:50px;
+}
+
+/**
+ * 
+ * Badges
+ * 
+ * */
+
 .badge-sm {
-  height: .9em;
-  font-weight: normal!important;
-  font-size: .6em;
+    height: .9em;
+    font-weight: normal!important;
+    font-size: .6em;
 }
-
 .bg-language {
   background: #9A031E;
 }
@@ -81,55 +98,49 @@ header {
   background: #3f88c5;
 }
 
-
-.card h7 {
-  font-style: italic;
-  color: #555;
-  font-size: .9em;
-  text-align: right;
-  display: block;
-}
-/*
-#card-receiver {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: masonry;
-}
-*/
+/**
+ * 
+ * Catalogues
+ * 
+ * */
 .catalog-card {
-  width: 50%;
-  /*margin:1%;*/
-  /*float: left;*/
+    width: 45%;
+    margin:1%;
 }
 @media (max-width: 1024px) {
-  .catalog-card {
-    /*width: 98%;
-    margin:1%;
-    float: none;*/
-  }
+    .catalog-card {
+        width: 98%;
+        margin:1%;
+    }
 }
-.transcriptionRules.ellipsis p {
-  display: none;
-}
-.transcriptionRules:hover {
-  cursor: pointer;
+.card h7 {
+    font-style: italic;
+    color: #555;
+    font-size: .8em;
+    text-align: right;
+    display: block;
 }
 .card-header {
-  background-color: #333B41!important;
-  color: white;
-  padding: 1rem;
+    background-color: rgb(108, 117, 125)!important;
+    color: white;
 }
 .card-body:not(:first-of-type) {
-  border-top: 1px solid rgba(0, 0, 0, 0.09);
-}
-.citation pre {
-  padding: 0;
-  height: 120px;
-  overflow: scroll;
-}
-.citation .fa-copy {
-  cursor: pointer;
+    border-top: 1px solid rgba(0, 0, 0, 0.09);
 }
 .card-text {
-  font-size: 0.9em;
+    font-size: 0.9em;
+}
+.transcriptionRules, .citation {
+    display: none;
+}
+.show-guidelines .transcriptionRules, .show-citations .citation {
+    display: block;
+}
+.citation pre {
+    padding: 0;
+    height: 4em;
+    overflow: scroll;
+}
+.citation .fa-copy {
+    cursor: pointer;
 }
