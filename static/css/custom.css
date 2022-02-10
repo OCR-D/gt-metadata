@@ -71,21 +71,21 @@ header {
 .bg-hands {
   background: #7B287B;
 }
+.bg-volumes {
+  background: #0D3B66;
+}
 .bg-license {
   background: #000814;
 }
-.bg-volumes {
-  background: #3f88c5;
-}
 .bg-link {
-  background: #0D3B66;
+  background: #3f88c5;
 }
 
 
 .card h7 {
   font-style: italic;
   color: #555;
-  font-size: .8em;
+  font-size: .9em;
   text-align: right;
   display: block;
 }
@@ -97,15 +97,15 @@ header {
 }
 */
 .catalog-card {
-  width: 45%;
-  margin:1%;
-  float: left;
+  width: 50%;
+  /*margin:1%;*/
+  /*float: left;*/
 }
 @media (max-width: 1024px) {
   .catalog-card {
-    width: 98%;
+    /*width: 98%;
     margin:1%;
-    float: none;
+    float: none;*/
   }
 }
 .transcriptionRules.ellipsis p {
@@ -117,6 +117,7 @@ header {
 .card-header {
   background-color: #333B41!important;
   color: white;
+  padding: 1rem;
 }
 .card-body:not(:first-of-type) {
   border-top: 1px solid rgba(0, 0, 0, 0.09);
