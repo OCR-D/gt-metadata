@@ -72,27 +72,7 @@
 	  <div class="container">
 	  	<div class="row">
         <div class="col">
-  	  		<p><img alt="charter version: 1" src="https://img.shields.io/badge/charter%20version-1.0-informational" /> <img alt="last_update: jan. 18. 2022" src="https://img.shields.io/badge/last%20update-Jan.%2018%2C%202022-informational" /></p>
-<h1>HTR-United Reuse Charter</h1>
-<p>HTR-United ambitions to <strong>facilitate the access to open training datasets for automatic transcription models</strong> by providing an environment composed of a collectively elaborated catalog of metadata on training datasets, continuous integration tools and data repositories. HTR-United contents are available on Github.</p>
-<p>Inspired by the <a href="https://datacharter.hypotheses.org/">Heritage Data Reuse Charter</a>, HTR-United has developed this Reuse Charter in order to declare our clear commitment to the six core principles of Reciprocity, Interoperability, Citability, Openness, Stewardship and Trustworthiness and show how this commitment is reflected in the design and the daily operations of the platform. 
-In addition, as a mutual declaration of goodwill, the charter allows us to clarify our expectations regarding the interaction between content providers, users and curators.</p>
-<h2>Reciprocity</h2>
-<p>HTR-United is a platform where content providers are able to meet with content users via a <a href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">catalog of metadata</a> and optional data repositories. Reciprocity is a core value in the design of our service as it gives the opportunity for creators of training data to signal and share their content in a sustainable way and in accordance with the licenses attributed to them, while users are given the possibility to provide feedback and contribute new data. Users of data shared through HTR-United are encouraged to make any improvements available under the same license as originally provided. In data repositories, Github’s issues system is available to facilitate this exchange. When the data is shared elsewhere, explicit contact information is provided along with the metadata.</p>
-<h2>Interoperability</h2>
-<p>Whenever possible, training data is made accessible in open and standardized formats that facilitate their reuse. We specifically encourage providers to use ALTO and PAGE XML formats. The metadata catalog is available in the form of a fully documented, human-readable and serializable YAML file. Hosted on a <a href="https://github.com/HTR-United/htr-united">Github Repository</a>, the metadata catalog can be accessed, enriched, forked or harvested by both providers and users. Continuous integration tools facilitate quality control on the validity of the shared files and the metadata catalog.  </p>
-<h2>Citability</h2>
-<p>To encourage a culture of citation for training datasets, we make our recommended citation model explicit and encourage providers to include in the metadata added to the catalog and in the data repository any relevant contributors along with their roles. In the data repository, we recommend the use of <a href="https://citation-file-format.github.io/">formated citation files</a>.</p>
-<h2>Openness</h2>
-<p>Unless stated otherwise, the content of HTR-United’s metadata catalog, related research output and the continuous integration tools are open and freely available under a Creative Commons CC-BY 4.0 license. This allows anyone to legally and freely access, copy, use, enrich, adapt and re-share the resources. Access to the metadata catalog and the continuous integration tools does not require registration or any other form of giving personal data in return for access. </p>
-<p>When possible, providers are encouraged to use licenses as open as possible and to explicitly state the applicable rights. </p>
-<h2>Stewardship</h2>
-<p>HTR-United contents (namely the metadata catalog, continuous integration tools and optional data repositories) are deployed via Github, a non-sustainable private enterprise. However, content publicly shared on Github is regularly harvested by the Software Heritage initiative for long-term archiving. </p>
-<p>Providers can modify the content of their data repository, change its visibility or remove it. Overall, we encourage the use of versioning and provide assistance to do so via the <a href="https://github.com/HTR-United/htr-united/issues/new">main repository’s issues</a>. </p>
-<p>Providers are not responsible for the availability of image data when they are hosted and published by other entities, but we encourage them to signal any change compromising the quality of the dataset. </p>
-<h2>Trustworthiness</h2>
-<p>We encourage providers to include provenance information about the training data they integrate and signal within HTR-United. This includes recognizing the diverse contributor roles to clearly document who participated in the production process in order to ensure its traceability and also to recognize and appropriately credit the many kinds of contributions that the creation of ground truth resources involves.</p>
-<p><em>The HTR-United Reuse Charter is a living document that evolves with the development of the platform.</em></p>
+  	  		{{data}}
         </div>
 	  	</div>
 	  </div>
