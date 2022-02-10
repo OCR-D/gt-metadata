@@ -71,7 +71,9 @@
   <div class="px-4 py-5 my-5" id="main">
 	  <div class="container">
 	  	<div class="row">
-	  		<!-- placeholder -->
+        <div class="col">
+  	  		{{data}}
+        </div>
 	  	</div>
 	  </div>
 	</div>
@@ -106,72 +108,6 @@
     <script type="text/javascript" src="static/js/i18n-advanced.js"></script>
     <script type="text/javascript" src="static/js/i18n.js"></script>
     <!-- end of i18n -->
-    <script type="text/javascript">
-    	const catalogURI = "https://htr-united.github.io/htr-united/catalog.json";
-    	const catalogDiv = document.querySelector("#card-receiver");
-    	function nl2br (str, is_xhtml) {
-		  // http://kevin.vanzonneveld.net
-		  // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-		  // +   improved by: Philip Peterson
-		  // +   improved by: Onno Marsman
-		  // +   improved by: Atli Þór
-		  // +   bugfixed by: Onno Marsman
-		  // +      input by: Brett Zamir (http://brett-zamir.me)
-		  // +   bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-		  // +   improved by: Brett Zamir (http://brett-zamir.me)
-		  // +   improved by: Maximusya
-		  // *     example 1: nl2br('Kevin\nvan\nZonneveld');
-		  // *     returns 1: 'Kevin<br />\nvan<br />\nZonneveld'
-		  // *     example 2: nl2br("\nOne\nTwo\n\nThree\n", false);
-		  // *     returns 2: '<br>\nOne<br>\nTwo<br>\n<br>\nThree<br>\n'
-		  // *     example 3: nl2br("\nOne\nTwo\n\nThree\n", true);
-		  // *     returns 3: '<br />\nOne<br />\nTwo<br />\n<br />\nThree<br />\n'
-
-		  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2');
-		}
-    	function createElementFromHTML(htmlString) {
-		  let div = document.createElement('div');
-		  div.innerHTML = htmlString.trim();
-
-		  // Change this to div.childNodes to support multiple top-level nodes.
-		  return div.firstChild;
-		}
-		function getImages(listOfValue, label, color) {
-			return listOfValue.map((val) => `<img src="https://img.shields.io/badge/${label}-${val}-${color}" alt="${label}: ${val}" />`).join(" ")
-		}
-    	function template(catalogEntry) {
-    		return createElementFromHTML(`<div class="card float-left" style="width: 45%; margin:1%; float: left;">
-  <div class="card-body">
-    <h5 class="card-title">${catalogEntry.title}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${catalogEntry.url}</h6>
-    <p class="card-text">${nl2br(catalogEntry.description)}</p>
-    <p>
-	    ${getImages(catalogEntry.language, "Language", "blue")}
-	    ${getImages(catalogEntry.script, "Script", "orange")}
-    </p>
-    <a href="${catalogEntry.url}" class="card-link">See data</a>
-  </div>
-</div>`);
-    	}
-    	async function getCatalog() {
-		    try {
-		      var res = await fetch(catalogURI);
-		      return res.json();
-		    } catch {
-		      (error) => {
-		        console.log(error.message);
-		        return;
-		      };
-		    }
-		};
-		async function showCatalog() {
-			const CATALOG = await getCatalog();
-			Object.keys(CATALOG).forEach( (key) => {
-				catalogDiv.append(template(CATALOG[key]));
-			});
-		}
-		showCatalog();
-    </script>
       
   </body>
 </html>
