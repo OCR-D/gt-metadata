@@ -1,295 +1,316 @@
-(function() { // Document ready
+const catalogURI = "https://htr-united.github.io/htr-united/catalog.json";
+const catalogDiv = document.querySelector("#card-receiver"),
+  notAfterSelector = document.querySelector("#notAfter"),
+  notBeforeSelector = document.querySelector("#notBefore"),
+  scriptTypeFilter = document.querySelector("#scriptType"),
+  resultCount = document.querySelector("#resultCount"),
+  showGuidelines = document.querySelector("#showGuidelines"),
+  showCitations = document.querySelector("#showCitations");
+let msnry;
 
-    const form = document.getElementById("generate"),
-        output = document.getElementById("output"),
-        link = document.getElementById("output-link"),
-        outputContainer = document.getElementById("output-container"),
-        authorOriginal = document.querySelector(".original-author"),
-        authorContainer = authorOriginal.parent;
+/**
+ * 
+ * DOM Generic functions
+ * 
+ * */
 
-    let idForAuthors = 0;
+function toggleGuidelines() {
+  /** Toggles the visibility of guidelines */
+  if (showGuidelines.checked) {
+    catalogDiv.classList.add("show-guidelines");
+  } else {
+    catalogDiv.classList.remove("show-guidelines");
+  }
+}
 
-    const addAuthor = function(event) {
-      event.preventDefault();
-      // Retrieve element and their copy
-      let new_elem = authorOriginal.cloneNode(true),
-          add_button = new_elem.querySelector(".add-author"),
-          remove_button = new_elem.querySelector(".remove-author"),
-          checkboxes = new_elem.querySelectorAll(".form-check-inline"),
-          text_inputs = new_elem.querySelectorAll("input[type='text']");
+function toggleCitations() {
+  /** Toggles the visibility of citations */
+  if (showCitations.checked) {
+    catalogDiv.classList.add("show-citations");
+  } else {
+    catalogDiv.classList.remove("show-citations");
+  }
+}
 
+function selectText(node) {
+  /** Select the text inside `node` */
+  if (document.body.createTextRange) {
+    const range = document.body.createTextRange();
+    range.moveToElementText(node);
+    range.select();
+  } else if (window.getSelection) {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(node);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+}
 
-      // Clean text inputs
-      for (var i = text_inputs.length - 1; i >= 0; i--) {
-        text_inputs[i].value = "";
-      }
+/**
+ * 
+ * UTILS
+ * 
+ * */
 
-      // Make sure the labels and input have new IDs, as IDs are unique !
-      for (var i = checkboxes.length - 1; i >= 0; i--) {
-        let inp = checkboxes[i].querySelector("input"),
-            cat = inp.value;
-        inp.setAttribute("id", `cb-${cat}-${idForAuthors.toString()}`);
-        checkboxes[i].querySelector("label").setAttribute("for", inp.id);
-        inp.checked = null;
-      }
+function nl2br(str) {
+  /* Replace line breaks with <br/> HTML tags inside `str` */
+  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2');
+}
 
-      idForAuthors++;
-      // Insert element in the DOM
-      authorOriginal.after(new_elem);
-      // Un-hide the element for removal
-      remove_button.classList.remove("invisible");
+function createElementFromHTML(htmlString) {
+  /* Transform the html string into a HTML node */
+  let div = document.createElement('div');
+  div.innerHTML = htmlString.trim();
 
-      // Register events
-      add_button.addEventListener("click", addAuthor);
-      remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
+  // Change this to div.childNodes to support multiple top-level nodes.
+  return div.firstChild;
+}
+
+function slugify(str) {
+  /* Slugify the string (normalize for id, links, etc) */
+  str = str.replace(/^\s+|\s+$/g, '');
+
+  // Make the string lowercase
+  str = str.toLowerCase();
+
+  // Remove accents, swap ñ for n, etc
+  var from = "ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆÍÌÎÏŇÑÓÖÒÔÕØŘŔŠŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇíìîïňñóöòôõøðřŕšťúůüùûýÿžþÞĐđßÆa·/_,:;";
+  var to = "AAAAAACCCDEEEEEEEEIIIINNOOOOOORRSTUUUUUYYZaaaaaacccdeeeeeeeeiiiinnooooooorrstuuuuuyyzbBDdBAa------";
+  for (var i = 0, l = from.length; i < l; i++) {
+    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+  }
+
+  // Remove invalid chars
+  str = str.replace(/[^a-z0-9 -]/g, '')
+    // Collapse whitespace and replace by -
+    .replace(/\s+/g, '-')
+    // Collapse dashes
+    .replace(/-+/g, '-');
+
+  return str;
+}
+
+/**
+ * 
+ * Catalog HTML production
+ * 
+ * */
+
+function getVolumes(listOfValue) {
+  /* Produces a HTML sequence of volume badges based on a the Volume Catalog Entry list */
+  return listOfValue.map((val) => `<span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-volumes rounded-start text-white border border-secondary border-end-0 py-1 px-2"><span class="fas fa-database"></span> Volume</span><span class="rounded-end text-dark border border-secondary py-1 px-2">${val.count.toLocaleString()} ${val.metric}</span></span>`).join(" ")
+}
+
+function getImages(listOfValue, label, color) {
+  /* Produces a HTML sequence of volume badges based on a list of string 
+   *    (label is used as the left label, color as the css color class) 
+   * */
+  return listOfValue.map((val) => `<span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-${color}  rounded-start text-white border border-secondary border-end-0 py-1 px-2">${label}</span><span class="rounded-end text-dark border border-secondary py-1 px-2">${val}</span></span>`).join(" ")
+}
+
+function getTypeBadge(scriptType) {
+  /* Produces a HTML badge based on the script type values
+   * */
+  if (typeof scriptType !== "string") {
+    return "";
+  }
+  let badge = "fa-archive";
+  if (scriptType.includes("manuscript")) {
+    badge = "fa-pen-fancy";
+  } else if (scriptType.includes("typed")) {
+    badge = "fa-print";
+  }
+  return `<span class="badge badge-sm p-0 m-1 mb-3">
+        <span class="bg-script-type rounded-start text-white border border-secondary border-end-0 py-1 px-2">Script Type</span><span class="rounded-end border border-secondary text-dark py-1 px-2"><span class="fas ${badge}"></span> ${scriptType}</span>
+      </span>`
+}
+
+function citationCFF(link) {
+  /** Creates a citation link if the entry is given */
+  if (link) {
+    return `<a href="${link}"><span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-secondary text-dark py-1 px-2">Citation File</span></span>
+      </a>`;
+  } else {
+    return "";
+  }
+}
+
+function getAuthors(catalogEntry) {
+  /** Creates a HTML paragraph with a list of authors */
+  if (catalogEntry.authors) {
+    return `<p class="card-text"><b><i18n vanilla-i18n="cat.authors">Auteur.rice.s </i18n>:</b> ${catalogEntry.authors.map((val) => val.name + ', ' + val.surname).join(' and ')}</p>`;
+  } else {
+    return "";
+  }
+}
+
+function transcriptionRules(catalogEntry) {
+  /** Creates a HTML section with the transcription guidelines */
+  if (catalogEntry['transcription-guidelines']) {
+    return `<div class="card-body transcriptionRules">
+    <h6 vanilla-i18n="form.field.guidelines.label">Transcriptions Guidelines</h6>
+    <p class="card-text">${catalogEntry['transcription-guidelines']}</p>
+  </div>`;
+  } else {
+    return "";
+  }
+}
+
+function template(catalogEntry, key) {
+  /** Generates the whole DIV for a specific catalog entry with `key` in the original JSON */
+  return createElementFromHTML(`<div class="card catalog-card" data-key="${key}">
+  <div class="card-header bg-secondary rounded-top">
+  ${catalogEntry.title}
+  </div>
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">${catalogEntry['project-name'] || ''}</h6>
+    <h7 class="pb-4">${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
+    <p class="my-0">
+      ${getImages(catalogEntry.language, "Language", "language")}
+      ${getImages(catalogEntry.script, "Script", "script")}
+      ${getTypeBadge(catalogEntry['script-type'])}
+      <span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-hands rounded-start text-white border border-secondary border-end-0 py-1 px-2">Hands</span><span class="rounded-end border border-secondary text-dark py-1 px-2">${catalogEntry.hands.count}</span></span>
+    </p>
+    <p class="my-0">${getVolumes(catalogEntry.volume)}</p>
+    <p class="my-0">
+      <span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-license rounded-start text-white border border-secondary border-end-0 py-1 px-2">License</span><span class="rounded-end border border-secondary text-dark py-1 px-2">${catalogEntry.license[0].name}</span></span>
+      <a href="${catalogEntry.url}"><span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-secondary text-dark py-1 px-2">Data</span></span></a>
+      ${citationCFF(catalogEntry['citation-file-link'])}
+    </p>
+    <hr/>
+    <p class="card-text">${nl2br(catalogEntry.description)}</p>
+    ${getAuthors(catalogEntry)}
+  </div>
+  ${transcriptionRules(catalogEntry)}
+  <div class="card-body citation">
+  <h6>Citation <span class="fa fa-copy citation-copy"></span></h6>
+  <pre>
+@misc{htr_united_${slugify(catalogEntry.url)},
+  type       = dataset,
+  author     = {${(catalogEntry.authors || []).map((val) => val.name + ', ' + val.surname).join(' and ')}},
+  title      = {${catalogEntry.title}},
+  publisher  = {HTR United},
+  editor     = {Chagué, Alix and Clérice, Thibault},
+  url        = {${catalogEntry.url}}
+}</pre>
+</div>
+</div>`);
+}
+
+/**
+ *
+ * Catalog Retrieval and display
+ * 
+ * */
+
+async function getCatalog() {
+  /* Retrieves the catalog data */
+  try {
+    var res = await fetch(catalogURI);
+    return res.json();
+  } catch {
+    (error) => {
+      console.log(error.message);
+      return;
     };
+  }
+};
 
+async function showCatalog() {
+  /* Insert the catalog in the HTML */
+  const CATALOG = await getCatalog();
 
-    document.querySelector(".add-author").addEventListener("click", addAuthor);
+  let minDate = +5000,
+    maxDate = -5000;
 
-    const metricOriginal = document.querySelector(".metric-form");
-
-    const addMetric = function(event) {
-      event.preventDefault();
-      // Retrieve element and their copy
-      let new_elem = metricOriginal.cloneNode(true),
-          add_button = new_elem.querySelector(".add-metric"),
-          remove_button = new_elem.querySelector(".remove-metric"),
-          options = new_elem.querySelectorAll("option[selected]"),
-          text_inputs = new_elem.querySelectorAll("input[type='text']");
-
-
-      // Clean text inputs
-      for (var i = text_inputs.length - 1; i >= 0; i--) {
-        text_inputs[i].value = "0";
+  // Produce and 
+  Object.keys(CATALOG).sort((key1, key2) => (CATALOG[key1].title < CATALOG[key2].title) ? -1 : 1).forEach((key) => {
+    let div = template(CATALOG[key], key);
+    try {
+      CATALOG[key].time.notBeforeInt = parseInt(CATALOG[key].time.notBefore.split("-")[0]);
+      CATALOG[key].time.notAfterInt = parseInt(CATALOG[key].time.notAfter.split("-")[0]);
+      if (CATALOG[key].time.notAfterInt > maxDate) {
+        maxDate = CATALOG[key].time.notAfterInt;
       }
-
-      idForAuthors++;
-      // Insert element in the DOM
-      metricOriginal.after(new_elem);
-      // Un-hide the element for removal
-      remove_button.classList.remove("d-none");
-
-      // Register events
-      add_button.addEventListener("click", addMetric);
-      remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
-    };
-
-    document.querySelector(".add-metric").addEventListener("click", addMetric);
-
-
-    const sourcesOriginal = document.querySelector(".sources-form");
-
-    const addSources = function(event) {
-      event.preventDefault();
-      // Retrieve element and their copy
-      let new_elem = sourcesOriginal.cloneNode(true),
-          add_button = new_elem.querySelector(".add-sources"),
-          remove_button = new_elem.querySelector(".remove-sources"),
-          text_inputs = new_elem.querySelectorAll("input[type='text']");
-
-
-      // Clean text inputs
-      for (var i = text_inputs.length - 1; i >= 0; i--) {
-        text_inputs[i].value = "";
+      if (CATALOG[key].time.notBeforeInt < minDate) {
+        minDate = CATALOG[key].time.notBeforeInt;
       }
+    } catch (e) {
+      console.log("Error on parsing time for " + key);
+      console.log(e);
+    }
+    catalogDiv.append(div);
+  });
+  catalogDiv.querySelectorAll(".citation").forEach((divEl) => {
+    divEl.querySelector(".citation-copy").addEventListener("click", function(e) {
+      selectText(divEl.querySelector("pre"));
+      document.execCommand("copy");
+    })
+  });
+  notBeforeSelector.value = minDate;
+  notAfterSelector.value = maxDate;
 
-      idForAuthors++;
-      // Insert element in the DOM
-      sourcesOriginal.after(new_elem);
-      // Un-hide the element for removal
-      remove_button.classList.remove("d-none");
+  function inRange(minStart, minEnd, dataStart, dataEnd) {
+    return (dataStart <= minEnd) && (minStart <= dataEnd);
+  }
 
-      // Register events
-      add_button.addEventListener("click", addSources);
-      remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
-    };
+  function scriptTypeFilterFn(entry, filterValue) {
+    if (filterValue == "all") {
+      return true;
+    }
+    return (entry['script-type'] == filterValue);
+  }
 
-    document.querySelector(".add-sources").addEventListener("click", addSources);
+  function updateResultCount() {
+    resultCount.innerText = catalogDiv.querySelectorAll(".card:not([style*='none'])").length;
+  }
 
-    const normalize = function(a_string) {
-      return a_string.replace("'", "’");
-    };
+  function applyFilters() {
+    let localMin = parseInt(notBeforeSelector.value),
+      localMax = parseInt(notAfterSelector.value),
+      localScriptTypeFilter = scriptTypeFilter.value;
 
-
-    const slugify = function slugify(str) {
-        str = str.replace(/^\s+|\s+$/g, '');
-
-        // Make the string lowercase
-        str = str.toLowerCase();
-
-        // Remove accents, swap ñ for n, etc
-        var from = "ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆÍÌÎÏŇÑÓÖÒÔÕØŘŔŠŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇíìîïňñóöòôõøðřŕšťúůüùûýÿžþÞĐđßÆa·/_,:;";
-        var to   = "AAAAAACCCDEEEEEEEEIIIINNOOOOOORRSTUUUUUYYZaaaaaacccdeeeeeeeeiiiinnooooooorrstuuuuuyyzbBDdBAa------";
-        for (var i=0, l=from.length ; i<l ; i++) {
-            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-        }
-
-        // Remove invalid chars
-        str = str.replace(/[^a-z0-9 -]/g, '') 
-        // Collapse whitespace and replace by -
-        .replace(/\s+/g, '-') 
-        // Collapse dashes
-        .replace(/-+/g, '-'); 
-
-        return str;
-    };
-
-    const getAuthors = function () {
-      let text = "\nauthors:",
-          authors = document.querySelectorAll(".author");
-
-      if (authors.length == 0) {
-        return "";
-      }
-      for (var i = 0; i < authors.length; i++) {
-        let surname = authors[i].querySelector("input[name='authoritySurname']").value,
-            name = authors[i].querySelector("input[name='authorityName']").value;
-
-        if (name.trim() === "") { continue; }
-
-        // DO NOT REINDENT
-        text = text + `\n    - name: '${escape_yaml(name)}'
-      surname: '${escape_yaml(surname)}'`;
-
-
-        let roles = authors[i].querySelectorAll("input[type='checkbox']:checked");
-        if (roles.length > 0) {
-          text = text + "\n      roles:"
-        }
-        for (var j = 0; j < roles.length; j++) {
-          // DO NOT REINDENT
-          text = text + `
-      - '${roles[j].value}'`;
-        }
-      }
-
-      return text;
-    };    
-
-    const getMetrics = function () {
-      let text = "\nvolume:",
-          metrics = document.querySelectorAll(".metric-form");
-
-      if (metrics.length == 0) {
-        return "";
-      }
-      for (var i = 0; i < metrics.length; i++) {
-        let metric_count = metrics[i].querySelector("input[name='metric-count']").value,
-            metric_metric = metrics[i].querySelector("select[name='metric-metric']").value;
-
-        if (metric_count.trim() === "") { continue; }
-
-        // DO NOT REINDENT
-        text = text + `\n  - metric: '${metric_metric}'\n    count: ${metric_count}`;
-      }
-      if (text.trim() === "volume:") { return ""; }
-
-      return text;
-    };
-
-    const getSources = function () {
-      let text = "\nsources:",
-          sources = document.querySelectorAll(".sources-form");
-
-      if (sources.length == 0) {
-        return "";
-      }
-      for (var i = 0; i < sources.length; i++) {
-        let sources_ref = sources[i].querySelector("input[name='sources-ref']").value,
-            sources_link = sources[i].querySelector("input[name='sources-link']").value;
-
-        if (sources_ref.trim() === "" && sources_link.trim() === "") { continue; }
-
-        // DO NOT REINDENT
-        text = text + `\n  - reference: '${escape_yaml(sources_ref)}'\n    link: '${sources_link}'`;
-      }
-      if (text.trim() === "sources:") { return ""; }
-
-      return text;
-    };
-
-    const languageSelect = new SelectPure(".language", {
-        options: languages,
-        multiple: true,
-        autocomplete: true, // default: false
-        value: ["frm", "fro", "lat", "eng", "fra"], 
-
-        icon: "fa fa-times", // uses Font Awesome
-        inlineIcon: false // custom cross icon for multiple select.
+    document.querySelectorAll(".catalog-card").forEach((div) => {
+    	div.style.display = "none";
+    	div.style.visibility = "hidden"
     });
-    const scriptSelect = new SelectPure(".scripts", {
-        options: scripts,
-        multiple: true,
-        autocomplete: true, // default: false
-        value: ["Latn"],
-            
-        icon: "fa fa-times", // uses Font Awesome
-        inlineIcon: false // custom cross icon for multiple select.
-    });
-
-    document.querySelector("#download").addEventListener("click", function (e) {
-      e.preventDefault();
-      let element = document.createElement('a');
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(document.querySelector("#output").innerText));
-      element.setAttribute('download', "htr-united.yml");
-
-      element.style.display = 'none';
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
-    });
-
-    const escape_yaml = function(str) {
-      return str.replace("'", "\\u0027")
-    };
-
-    const get_or_none = function(field, yaml) {
-      if (field !== undefined && field.trim() != ""){
-        return `${yaml}: '${escape_yaml(field)}'`
+    Object.keys(CATALOG).forEach((key) => {
+      if (
+        // Filter for dates
+        (inRange(localMin, localMax, CATALOG[key].time.notBeforeInt, CATALOG[key].time.notAfterInt)) &&
+        // Filter for script
+        (scriptTypeFilterFn(CATALOG[key], localScriptTypeFilter))
+      ) {
+        let ldiv = document.querySelector(`.catalog-card[data-key="${key}"]`)
+    	ldiv.style.display = "block";
+    	ldiv.style.visibility = "visible";
       }
-      return "";
-    };
-
-    const get_or_none_charriot = function(field, yaml) {
-      if (field !== undefined && field.trim() != ""){
-        return `${yaml}: >\n    ${field.split('\n').join('\n    ')}'`
-      }
-      return "";
-    };
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      let data = Object.fromEntries(new FormData(form));
-      let languages = languageSelect.value().join("\n  - ");
-      let scripts = scriptSelect.value().join("\n  - ");
-
-      output.innerText = `schema: "https://htr-united.github.io/schema/2021-10-15/schema.json"
-title: ${escape_yaml(normalize(data.repoName))}
-url: '${data.repoLink}'
-${get_or_none_charriot(data.projectName, 'project-name')}
-${get_or_none(data.projectWebsite, 'project-website')}${getAuthors()}
-description: >
-  ${normalize(data.desc)}
-language:
-  - ${languages}
-script: 
-  - ${scripts}
-script-type: '${data.scriptType}'
-time: 
-  notBefore: "${data["date-begin"]}"
-  notAfter: "${data["date-end"]}"
-hands: 
-  count: '${data.hands}'
-  precision: '${data.precision}'
-license:
-  - ${data.license}
-format: '${data.format}'${getMetrics()}${getSources()}
-${get_or_none(data.cff, 'citation-file-link')}
-${get_or_none_charriot(data.transcriptionGuidelines, 'transcription-guidelines')}
-`;
-    outputContainer.classList.remove("d-none");
-    link.href = `https://github.com/HTR-United/htr-united/new/master?filename=catalog/${slugify(data.projectName || data.repoName)}/${slugify(data.repoName)}.yml`;
-
     });
-})();
+    updateResultCount();
+    //msnry.reloadItems();
+    //msnry.layout();
+  };
+  notBeforeSelector.addEventListener('change', applyFilters);
+  notAfterSelector.addEventListener('change', applyFilters);
+  scriptTypeFilter.addEventListener('change', applyFilters);
+  toggleGuidelines();
+  toggleCitations();
+  /*
+  msnry = new Masonry('.grid', {
+    // set itemSelector so .grid-sizer is not used in layout
+    itemSelector: '.grid-item',
+    // use element for option
+    columnWidth: '.catalog-card',
+    percentPosition: true
+  });
+  */
+  applyFilters();
+  /**
+   * Apply Masonry
+   * 
+   * */
+}
+showGuidelines.addEventListener("change", toggleGuidelines);
+showCitations.addEventListener("change", toggleCitations);
+showCatalog();

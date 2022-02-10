@@ -187,3 +187,5 @@ cat.nota,The languages used to introduce the datasets depend on language used by
 cat.resultCount,"Number of results","Nombre de résultats"
 cat.filters,"Filters","Filtres"
 cat.authors,"Authors","Auteur.ice.s "
+cat.showGuidelines,"Show Transcription Guidelines","Afficher les normes de transcription"
+cat.showCitations,"Show Citation Informations","Afficher les informations de citation"

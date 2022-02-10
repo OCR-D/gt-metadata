@@ -106,11 +106,13 @@ background-color: #fff;
 .catalog-card {
     width: 45%;
     margin:1%;
+    float: left;
 }
 @media (max-width: 1024px) {
     .catalog-card {
         width: 98%;
         margin:1%;
+        float: none;
     }
 }
 .card h7 {
