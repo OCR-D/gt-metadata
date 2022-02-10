@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="HTR-United - Team">
+    <meta name="description" content="HTR-United - Data Reuse Charter">
     <meta name="author" content="Alix Chagué">
     <meta name="author" content="Thibault Clérice">
     <title>HTR-United</title>
@@ -66,32 +66,13 @@
         </div>
       </nav>
 
-    
-
 <!-- Main -->
 <main>
   <div class="px-4 py-5 my-5" id="main">
 	  <div class="container">
-	  	<h1><i18n vanilla-i18n="team.title">Éditrices-eurs</i18n></h1>
-	  	<section class="row" id="alix">
-	  		<div class="col-md-2">
-	  			<img src="https://alix-tz.github.io/assets/images/profile.png" class="img-fluid rounded" alt="Photo d'Alix Chagué" />
-	  		</div>
-	  		<div class="col-offset-1 col text-justify">
-	  			<h2><!--<span aria-ssml="{&quot;phoneme&quot;:{&quot;ph&quot;:&quot;a.liks ʃaɡe&quot;,&quot;alphabet&quot;:&quot;ipa&quot;}}">-->Alix Chagué</span> <!--(\a.liks ʃaɡe\)--></h2>
-	  			<p><i18n vanilla-i18n="team.alix">Je suis doctorante en Humanités numérique au sein des équipes ALMAnaCH du centre Inria de Paris et celle du CRIHN de l'Université de Montréal, en cotutelle EPHE-Université de Montréal. Mes recherches portes sur l'appropriation des outils de transcription automatique (HTR) par la communauté des humanités numériques. Initialement issue d'une formation classique en sciences humaines et en histoire de l'art, je suis co-responsable du Master 2 Documentation et Humanités Numériques de l'Ecole du Louvre, où je dispense des enseignements méthodologiques et techniques. En tant qu'ingénieure R&D pour ALMAnaCH, j'ai notamment contribué aux projets TIMEUS (ANR), LECTAUREP et DAHN. </i18n></p>
-	  		</div>
-	  	</section>
-	  	<hr />
-	  	<section class="row" id="thibault">
-	  		<div class="col-offset-1 col  text-justify">
-	  			<h2>Thibault Clérice</h2>
-	  			<p><i18n vanilla-i18n="team.thibault">Je suis responsable du master « Technologies numériques appliquées à l’histoire » de l’École nationale des chartes (Paris, France). J'ai été ingénieur au Centre for eResearch (Kings College de Londres, Royaume-Uni) et à la chaire Humboldt pour les humanités numériques (Leipzig, Allemagne), où j'ai travaillé sur les fondations de Perseus 5 et du projet CapiTainS.org. Je suis membre fondateur du Technical Committee du standard Distributed Text Services ( w3id.org/dts ). Mes enseignements portent en majeure partie sur l’ingénierie des données patrimoine, qu’il s’agisse de la gestion numérique des données, des bonnes pratiques de développement, de standards de communication ou de langages de programmation. Mes recherches portent principalement sur le traitement automatique des langues anciennes à travers l’apprentissage profond et sur la mise à disposition de corpora.</i18n></p>
-	  		</div>
-	  		<div class="col-md-2">
-	  			<img src="https://pbs.twimg.com/profile_images/922043022916902913/Xdvaypzu_400x400.jpg" class="img-fluid rounded" alt="Photo de Thibault Clérice" />
-	  		</div>
-	  	</section>
+	  	<div class="row">
+	  		<!-- placeholder -->
+	  	</div>
 	  </div>
 	</div>
 
@@ -125,6 +106,72 @@
     <script type="text/javascript" src="static/js/i18n-advanced.js"></script>
     <script type="text/javascript" src="static/js/i18n.js"></script>
     <!-- end of i18n -->
+    <script type="text/javascript">
+    	const catalogURI = "https://htr-united.github.io/htr-united/catalog.json";
+    	const catalogDiv = document.querySelector("#card-receiver");
+    	function nl2br (str, is_xhtml) {
+		  // http://kevin.vanzonneveld.net
+		  // +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+		  // +   improved by: Philip Peterson
+		  // +   improved by: Onno Marsman
+		  // +   improved by: Atli Þór
+		  // +   bugfixed by: Onno Marsman
+		  // +      input by: Brett Zamir (http://brett-zamir.me)
+		  // +   bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+		  // +   improved by: Brett Zamir (http://brett-zamir.me)
+		  // +   improved by: Maximusya
+		  // *     example 1: nl2br('Kevin\nvan\nZonneveld');
+		  // *     returns 1: 'Kevin<br />\nvan<br />\nZonneveld'
+		  // *     example 2: nl2br("\nOne\nTwo\n\nThree\n", false);
+		  // *     returns 2: '<br>\nOne<br>\nTwo<br>\n<br>\nThree<br>\n'
+		  // *     example 3: nl2br("\nOne\nTwo\n\nThree\n", true);
+		  // *     returns 3: '<br />\nOne<br />\nTwo<br />\n<br />\nThree<br />\n'
+
+		  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2');
+		}
+    	function createElementFromHTML(htmlString) {
+		  let div = document.createElement('div');
+		  div.innerHTML = htmlString.trim();
+
+		  // Change this to div.childNodes to support multiple top-level nodes.
+		  return div.firstChild;
+		}
+		function getImages(listOfValue, label, color) {
+			return listOfValue.map((val) => `<img src="https://img.shields.io/badge/${label}-${val}-${color}" alt="${label}: ${val}" />`).join(" ")
+		}
+    	function template(catalogEntry) {
+    		return createElementFromHTML(`<div class="card float-left" style="width: 45%; margin:1%; float: left;">
+  <div class="card-body">
+    <h5 class="card-title">${catalogEntry.title}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${catalogEntry.url}</h6>
+    <p class="card-text">${nl2br(catalogEntry.description)}</p>
+    <p>
+	    ${getImages(catalogEntry.language, "Language", "blue")}
+	    ${getImages(catalogEntry.script, "Script", "orange")}
+    </p>
+    <a href="${catalogEntry.url}" class="card-link">See data</a>
+  </div>
+</div>`);
+    	}
+    	async function getCatalog() {
+		    try {
+		      var res = await fetch(catalogURI);
+		      return res.json();
+		    } catch {
+		      (error) => {
+		        console.log(error.message);
+		        return;
+		      };
+		    }
+		};
+		async function showCatalog() {
+			const CATALOG = await getCatalog();
+			Object.keys(CATALOG).forEach( (key) => {
+				catalogDiv.append(template(CATALOG[key]));
+			});
+		}
+		showCatalog();
+    </script>
       
   </body>
 </html>
