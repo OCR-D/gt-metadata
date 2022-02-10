@@ -20,13 +20,8 @@
     <!-- Icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-
-    <style>
-    </style>
-
     <!-- Custom styles for this template -->
     <link href="static/css/personalCSS.css" rel="stylesheet">
-
   </head>
 
   <body id="top">
@@ -81,57 +76,58 @@
               <p><small class="text-muted"><i18n vanilla-i18n="cat.nota">La langue utilisée pour la description des jeux de données correspond à celle employée lors du dépôt d'un signalement dans HTR-United.</i18n></small></p>
             </div>
         </div>
-        <form id="card-selector" class="m-2 border p-2">
-          <h3><span  vanilla-i18n="cat.filters">Filtres</span></h3>
-          <div class="form-group row my-2">
-            <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n><span class="required">*</span></label>
-            <div class="col-sm-9">
-              <select name="scriptType" id="scriptType" class="form-control">
-                <option value="all" vanilla-i18n="form.field.script.type.select.all">Tout</option>
-                <option value="only-manuscript" vanilla-i18n="form.field.script.type.select.only-manuscript">Manuscrit uniquement</option>
-                <option value="only-typed" vanilla-i18n="form.field.script.type.select.only-typed">Imprimé/dactylographié uniquement</option>
-                <option value="mainly-manuscript" vanilla-i18n="form.field.script.type.select.mainly-manuscript">Principalement manuscrit</option>
-                <option value="mainly-typed" vanilla-i18n="form.field.script.type.select.mainly-typed">Principalement imprimé/dactylographié</option>
-                <option value="evenly-mixed" vanilla-i18n="form.field.script.type.select.evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group row my-2">
-            <label for="scriptType" class="col-md-3 col-form-label">Dates</label>
-            <div class="col-md-6">
-              <div class="input-group">
-                <span class="input-group-text">Not before:</span>
-                <input type="number" id="notBefore" aria-label="First name" class="form-control">
-                <span class="input-group-text">Not after:</span>
-                <input type="number" id="notAfter" aria-label="Last name" class="form-control">
+        <div class="row">
+          <form id="card-selector" class="col-12 m-2 border p-4">
+            <h3><span  vanilla-i18n="cat.filters">Filtres</span></h3>
+            <div class="form-group row my-2">
+              <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n><span class="required">*</span></label>
+              <div class="col-sm-9">
+                <select name="scriptType" id="scriptType" class="form-control">
+                  <option value="all" vanilla-i18n="form.field.script.type.select.all">Tout</option>
+                  <option value="only-manuscript" vanilla-i18n="form.field.script.type.select.only-manuscript">Manuscrit uniquement</option>
+                  <option value="only-typed" vanilla-i18n="form.field.script.type.select.only-typed">Imprimé/dactylographié uniquement</option>
+                  <option value="mainly-manuscript" vanilla-i18n="form.field.script.type.select.mainly-manuscript">Principalement manuscrit</option>
+                  <option value="mainly-typed" vanilla-i18n="form.field.script.type.select.mainly-typed">Principalement imprimé/dactylographié</option>
+                  <option value="evenly-mixed" vanilla-i18n="form.field.script.type.select.evenly-mixed">Egale répartition manuscrit/dactylographié et imprimé</option>
+                </select>
               </div>
             </div>
-          </div>
-          <hr />
-          <div class="form-group row my-2">
-            <div class="col-md-3"><span  vanilla-i18n="cat.resultCount">Nombre de résultats:</span></div>
-            <div class="col-md-9"><span id="resultCount"></span></div>
-          </div>
-          <div class="row">
-            <div class="col-md-3">Options</div>
-            <div class="col-md-9">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="affiche" id="showGuidelines">
-                <label class="form-check-label" for="showGuidelines">
-                  Show Guidelines
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="affiche" id="showCitations">
-                <label class="form-check-label" for="showCitations">
-                  Show Citations
-                </label>
+            <div class="form-group row my-2">
+              <label for="scriptType" class="col-md-3 col-form-label">Dates</label>
+              <div class="col-md-6">
+                <div class="input-group">
+                  <span class="input-group-text">Not before:</span>
+                  <input type="number" id="notBefore" aria-label="First name" class="form-control">
+                  <span class="input-group-text">Not after:</span>
+                  <input type="number" id="notAfter" aria-label="Last name" class="form-control">
+                </div>
               </div>
             </div>
-          </div>
+            <hr />
+            <div class="form-group row my-2">
+              <div class="col-md-3"><span  vanilla-i18n="cat.resultCount">Nombre de résultats:</span></div>
+              <div class="col-md-9"><span id="resultCount"></span></div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">Options</div>
+              <div class="col-md-9">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="affiche" id="showGuidelines">
+                  <label class="form-check-label" for="showGuidelines">
+                    Show Guidelines
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="affiche" id="showCitations">
+                  <label class="form-check-label" for="showCitations">
+                    Show Citations
+                  </label>
+                </div>
+              </div>
+            </div>
         </form>
-	  		<div id="card-receiver"></div>
-
+        </div>
+        <div id="card-receiver" class="grid"></div>
 	  	</div>
 	  </div>
 	</div>
@@ -166,6 +162,7 @@
     <script type="text/javascript" src="static/js/i18n-advanced.js"></script>
     <script type="text/javascript" src="static/js/i18n.js"></script>
     <!-- end of i18n -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script type="text/javascript">
     	const catalogURI = "https://htr-united.github.io/htr-united/catalog.json";
     	const catalogDiv = document.querySelector("#card-receiver"),
@@ -175,6 +172,7 @@
             resultCount = document.querySelector("#resultCount"),
             showGuidelines = document.querySelector("#showGuidelines"),
             showCitations = document.querySelector("#showCitations");
+      let msnry;
 
       function toggleGuidelines() {
         if (showGuidelines.checked) {
@@ -224,10 +222,10 @@
       return str;
     }
     function getVolumes(listOfValue) {
-      return listOfValue.map((val) => `<span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left"><span class="fas fa-database"></span> Volume</span><span class="py-1 px-2 rounded-right badge-volumes">${val.count.toLocaleString()} ${val.metric}</span></span>`).join(" ")
+      return listOfValue.map((val) => `<span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-volumes rounded-start text-white border border-secondary border-end-0 py-1 px-2"><span class="fas fa-database"></span> Volume</span><span class="rounded-end text-dark border border-secondary py-1 px-2">${val.count.toLocaleString()} ${val.metric}</span></span>`).join(" ")
     }
 		function getImages(listOfValue, label, color) {
-			return listOfValue.map((val) => `<span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">${label}</span><span class="py-1 px-2 rounded-right badge-${color}">${val}</span></span>`).join(" ")
+			return listOfValue.map((val) => `<span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-${color}  rounded-start text-white border border-secondary border-end-0 py-1 px-2">${label}</span><span class="rounded-end text-dark border border-secondary py-1 px-2">${val}</span></span>`).join(" ")
 		}
     function getTypeBadge(scriptType) {
       // fa-print
@@ -238,28 +236,27 @@
       }
       let badge = "fa-archive";
       if (scriptType.includes("manuscript")) { badge = "fa-pen-fancy"; } else if (scriptType.includes("typed")) { badge = "fa-print"; }
-      return `<span class="badge badge-sm text-white p-0 m-1">
-        <span class="bg-secondary py-1 px-2 rounded-left">Script Type</span><span class="py-1 px-2 rounded-right badge-script-type"><span class="fas ${badge}"></span> ${scriptType}</span>
+      return `<span class="badge badge-sm p-0 m-1 mb-3">
+        <span class="bg-script-type rounded-start text-white border border-secondary border-end-0 py-1 px-2">Script Type</span><span class="rounded-end border border-secondary text-dark py-1 px-2"><span class="fas ${badge}"></span> ${scriptType}</span>
       </span>`
     }
     function citationCFF(link) {
       if(link) {
-        return `<a href="${link}"><span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">Link</span><span class="py-1 px-2 rounded-right badge-link">Citation File</span></span>
+        return `<a href="${link}"><span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-secondary text-dark py-1 px-2">Citation File</span></span>
       </a>`;
       } else { return ""; }
     }
     function getAuthors(catalogEntry) {
       if (catalogEntry.authors) {
-        return `<p class="card-text"><b>Authors:</b> ${catalogEntry.authors.map((val) => val.name + ', ' + val.surname).join(' and ')}</p>`;
+        return `<p class="card-text"><b><i18n vanilla-i18n="cat.authors">Auteur.rice.s </i18n>:</b> ${catalogEntry.authors.map((val) => val.name + ', ' + val.surname).join(' and ')}</p>`;
       } else {
         return "";
       }
     }
     function transcriptionRules(catalogEntry) {
       if (catalogEntry['transcription-guidelines']) {
-        return `
-  <div class="card-body transcriptionRules">
-    <h6>Transcriptions Guidelines</h6>
+        return `<div class="card-body transcriptionRules">
+    <h6 vanilla-i18n="form.field.guidelines.label">Transcriptions Guidelines</h6>
     <p class="card-text">${catalogEntry['transcription-guidelines']}</p>
   </div>`;
       } else {
@@ -267,31 +264,32 @@
       }
     }
     function template(catalogEntry, key) {
-    		return createElementFromHTML(`<div class="card float-left catalog-card"  data-key="${key}">
-  <div class="card-header">
+    		return createElementFromHTML(`<div class="card catalog-card grid-item" data-key="${key}">
+  <div class="card-header bg-secondary rounded-top">
   ${catalogEntry.title}
   </div>
   <div class="card-body">
     <h6 class="card-subtitle mb-2 text-muted">${catalogEntry['project-name'] || ''}</h6>
-    <h7>${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
-    <p>
+    <h7 class="pb-4">${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
+    <p class="my-0">
       ${getImages(catalogEntry.language, "Language", "language")}
       ${getImages(catalogEntry.script, "Script", "script")}
       ${getTypeBadge(catalogEntry['script-type'])}
-      <span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">Hands</span><span class="py-1 px-2 rounded-right badge-hands">${catalogEntry.hands.count}</span></span>
-      <span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">License</span><span class="py-1 px-2 rounded-right badge-license">${catalogEntry.license[0].name}</span></span>
+      <span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-hands rounded-start text-white border border-secondary border-end-0 py-1 px-2">Hands</span><span class="rounded-end border border-secondary text-dark py-1 px-2">${catalogEntry.hands.count}</span></span>
     </p>
-    <p>${getVolumes(catalogEntry.volume)}</p>
-    <p>
-      <a href="${catalogEntry.url}"><span class="badge badge-sm text-white p-0 m-1"><span class="bg-secondary py-1 px-2 rounded-left">Link</span><span class="py-1 px-2 rounded-right badge-link">Data</span></span></a>
+    <p class="my-0">${getVolumes(catalogEntry.volume)}</p>
+    <p class="my-0">
+      <span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-license rounded-start text-white border border-secondary border-end-0 py-1 px-2">License</span><span class="rounded-end border border-secondary text-dark py-1 px-2">${catalogEntry.license[0].name}</span></span>
+      <a href="${catalogEntry.url}"><span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-secondary text-dark py-1 px-2">Data</span></span></a>
       ${citationCFF(catalogEntry['citation-file-link'])}
     </p>
+    <hr/>
     <p class="card-text">${nl2br(catalogEntry.description)}</p>
     ${getAuthors(catalogEntry)}
   </div>
   ${transcriptionRules(catalogEntry)}
   <div class="card-body citation">
-  <h6>Citation <span class="fas fa-copy citation-copy"></span></h6>
+  <h6>Citation <span class="fa fa-copy citation-copy"></span></h6>
   <pre>
 @misc{htr_united_${slugify(catalogEntry.url)},
   type       = dataset,
@@ -396,17 +394,30 @@
         });
         //}
         updateResultCount();
+        msnry.layout();
       };
       notBeforeSelector.addEventListener('change', applyFilters);
       notAfterSelector.addEventListener('change', applyFilters);
       scriptTypeFilter.addEventListener('change', applyFilters);
       toggleGuidelines();
       toggleCitations();
+      msnry = new Masonry( '.grid', {
+        // set itemSelector so .grid-sizer is not used in layout
+        itemSelector: '.grid-item',
+        // use element for option
+        columnWidth: '.catalog-card',
+        percentPosition: true
+      });
       applyFilters();
-		}
+      /**
+       * Apply Masonry
+       * 
+     * */
+ 		}
     showGuidelines.addEventListener("change", toggleGuidelines);
     showCitations.addEventListener("change", toggleCitations);
 		showCatalog();
+
     </script>
       
   </body>

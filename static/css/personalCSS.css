@@ -72,30 +72,30 @@ background-color: #fff;
  * */
 
 .badge-sm {
-    height: .8em;
+    height: .9em;
     font-weight: normal!important;
     font-size: .6em;
 }
-.badge-script {
-    background: #5ab8aa;
+.bg-language {
+  background: #9A031E;
 }
-.badge-license {
-    background: #000;
+.bg-script {
+  background: #E36414;
 }
-.badge-language {
-    background: #1d6c80;
+.bg-script-type {
+  background: #FF8500;
 }
-.badge-link {
-    background: #112e9e;
+.bg-hands {
+  background: #7B287B;
 }
-.badge-script-type {
-    background: #cc7a29;
+.bg-volumes {
+  background: #0D3B66;
 }
-.badge-hands {
-    background: #cc4429;
+.bg-license {
+  background: #000814;
 }
-.badge-volumes {
-    background: #cc296a;
+.bg-link {
+  background: #3f88c5;
 }
 
 /**
@@ -106,13 +106,11 @@ background-color: #fff;
 .catalog-card {
     width: 45%;
     margin:1%;
-    float: left;
 }
 @media (max-width: 1024px) {
     .catalog-card {
         width: 98%;
         margin:1%;
-        float: none;
     }
 }
 .card h7 {
