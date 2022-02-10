@@ -76,7 +76,7 @@
               <p><small class="text-muted"><i18n vanilla-i18n="cat.nota">La langue utilisée pour la description des jeux de données correspond à celle employée lors du dépôt d'un signalement dans HTR-United.</i18n></small></p>
             </div>
         </div>
-        <form id="card-selector" class="m-2 border p-2">
+        <form id="card-selector" class="m-2 border p-4">
           <h3><span  vanilla-i18n="cat.filters">Filtres</span></h3>
           <div class="form-group row my-2">
             <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n><span class="required">*</span></label>
@@ -106,8 +106,8 @@
             <div class="col-md-3"><span  vanilla-i18n="cat.resultCount">Nombre de résultats:</span> <span id="resultCount"></span></div>
           </div>    
         </form>
-	  		<div id="card-receiver"></div>
-
+          <div id="card-receiver"></div>
+        </div>
 	  	</div>
 	  </div>
 	</div>
@@ -227,12 +227,12 @@
     }
     function template(catalogEntry, key) {
     		return createElementFromHTML(`<div class="card float-left catalog-card"  data-key="${key}">
-  <div class="card-header">
+  <div class="card-header bg-secondary bg-gradient">
   ${catalogEntry.title}
   </div>
   <div class="card-body">
     <h6 class="card-subtitle mb-2 text-muted">${catalogEntry['project-name'] || ''}</h6>
-    <h7>${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
+    <h7 class="pb-4">${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
     <p class="my-0">
       ${getImages(catalogEntry.language, "Language", "language")}
       ${getImages(catalogEntry.script, "Script", "script")}

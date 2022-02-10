@@ -115,7 +115,7 @@ header {
   cursor: pointer;
 }
 .card-header {
-  background-color: rgb(108, 117, 125)!important;
+  background-color: #333B41!important;
   color: white;
 }
 .card-body:not(:first-of-type) {
@@ -123,7 +123,7 @@ header {
 }
 .citation pre {
   padding: 0;
-  height: 4em;
+  height: 120px;
   overflow: scroll;
 }
 .citation .fa-copy {
