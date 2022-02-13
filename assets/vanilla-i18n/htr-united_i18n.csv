@@ -3,9 +3,9 @@ nav.home,Home,Accueil
 nav.use,Use the Data,Utiliser les données
 nav.provide,Provide Data,Proposer des données
 nav.scenario,Scenario,Scénarios
-nav.form,Go to Form,Voir le formulaire
-nav.catalog,See the Catalog,Voir le catalogue
-nav.charter,Data Reuse Charter,Charte - Réutilisation des données
+nav.form,Form,Formulaire
+nav.catalog,Catalog,Catalogue
+nav.charter,Data Reuse Charter,Charte de Réutilisation des données
 nav.team,The Team,L'Équipe
 footer.team,Who are the people behind HTR-United?,Qui est derrière HTR-United ?
 team.title,Editors,Éditrices-eurs
@@ -39,7 +39,7 @@ main.desc.sc4,"<p class=""lead"">Your dataset is already online and accessible. 
 main.desc.sc5,"<p class=""lead"">You cannot freely share your data (either the images or the transcriptions) but you still wish to contribute to the HTR-United project. Still no problem: you can create a simple repository within the HTR-United Github organization only made of a README file dedicated to describing the data. Think to give contact information necessary to request an access to the data.</p>
         <p class=""lead"">Once this repository is created, you can request an update on the <a class=""text-decoration-none"" href=""https://github.com/HTR-United/htr-united/blob/master/htr-united.yml"">htr-united.yml</a> <i class=""fas fa-link""></i> file. To help you generate the required metadata, we provide you with <a class=""text-decoration-none"" href=""document-your-data.html"">a form</a> <i class=""fas fa-link""></i>.</p>","<p class=""lead"">Vous ne pouvez pas librement partager vos données (images ou transcriptions) mais vous souhaitez tout de même contribuer à HTR-United. Pas de problème : vous pouvez créer un répertoire au sein de l'organisation HTR-United uniquement dédié à la documentation de vos données grâce à un fichier README. Indiquez alors comment joindre le(s) propriétaire(s) des données afin d'en demander l'accès. Une fois ce répertoire en place, il vous suffit de demander la modification du catalogue en ajoutant les métadonnées de votre jeu au fichier <a class=""text-decoration-none"" href=""https://github.com/HTR-United/htr-united/blob/master/htr-united.yml"">htr-united.yml</a> <i class=""fas fa-link""></i>. Afin de vous aider à générer ces métadonnées, nous mettons à votre disposition <a href=""document-your-data.html"" class=""text-decoration-none"">un formulaire</a> <i class=""fas fa-link""></i>.</p>"
 main.btn.download,Download the catalog,Télécharger le catalogue
-main.btn.ghcatalog,See the catalog on Github,Voir le catalogue sur Github
+main.btn.catalog,See the catalog,Voir le catalogue
 main.btn.cite,Cite HTR-United,Citer HTR-United
 main.btn.generate,Generate a description,Générer une description
 main.btn.scenarios,Check out the scenarios,Découvrir les scénarios
