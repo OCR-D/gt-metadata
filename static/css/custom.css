@@ -1,9 +1,9 @@
 body {
-background-color: #fefefe;
+    background-color: #fefefe;
 }
 
 header {
-background-color: #fff;
+    background-color: #fff;
 }
 
 /**
@@ -16,13 +16,13 @@ background-color: #fff;
     background-color: #fff;
 }
 
-.btn-nav:hover {
+/*.btn-nav:hover {
     box-shadow: 0 0 0 .25rem #dce8ae !important;
 }
 
 .btn-nav-ext:hover {
     box-shadow: 0 0 0 .25rem #ffc107 !important;
-}
+}*/
 
 /**
  *
@@ -76,26 +76,33 @@ background-color: #fff;
     font-weight: normal!important;
     font-size: .6em;
 }
+
 .bg-language {
-  background: #9A031E;
+    background: #9A031E;
 }
+
 .bg-script {
-  background: #E36414;
+    background: #E36414;
 }
+
 .bg-script-type {
-  background: #FF8500;
+    background: #FF8500;
 }
+
 .bg-hands {
-  background: #7B287B;
+    background: #7B287B;
 }
+
 .bg-volumes {
-  background: #0D3B66;
+    background: #0D3B66;
 }
+
 .bg-license {
-  background: #000814;
+    background: #000814;
 }
+
 .bg-link {
-  background: #3f88c5;
+    background: #3f88c5;
 }
 
 /**
@@ -108,6 +115,7 @@ background-color: #fff;
     margin:1%;
     float: left;
 }
+
 @media (max-width: 1024px) {
     .catalog-card {
         width: 98%;
@@ -115,34 +123,42 @@ background-color: #fff;
         float: none;
     }
 }
+
 .card h7 {
     font-style: italic;
     color: #555;
-    font-size: .8em;
+    font-size: .9em;
     text-align: right;
     display: block;
 }
+
 .card-header {
-    background-color: rgb(108, 117, 125)!important;
+    background-color: #333B41!important;
     color: white;
+    /*padding: 1rem;*/
 }
+
 .card-body:not(:first-of-type) {
     border-top: 1px solid rgba(0, 0, 0, 0.09);
 }
 .card-text {
     font-size: 0.9em;
 }
+
 .transcriptionRules, .citation {
     display: none;
 }
+
 .show-guidelines .transcriptionRules, .show-citations .citation {
     display: block;
 }
+
 .citation pre {
     padding: 0;
-    height: 4em;
+    height: 120px;
     overflow: scroll;
 }
+
 .citation .fa-copy {
     cursor: pointer;
 }
