@@ -189,7 +189,10 @@ cat.title,Catalog,Catalogue
 cat.nota,The languages used to introduce the datasets depend on language used by the author(s) of a descripion.,La langue utilisée pour la description des jeux de données correspond à celle employée lors du dépôt d'un signalement dans HTR-United.
 cat.resultCount,"Number of results","Nombre de résultats"
 cat.filters,"Filters","Filtres"
-cat.authors,"Authors","Auteur.ice.s "
+cat.filters,"Filters","Filtres"
+cat.authors,"Authors","Auteur.ice.s"
+catalog.projectName,"Project","Projet"
+catalog.all,"All projects","Tous les projets"
 cat.showGuidelines,"Show Transcription Guidelines","Afficher les normes de transcription"
 cat.showCitations,"Show Citation Informations","Afficher les informations de citation"
 tools.title,Tools,Outils

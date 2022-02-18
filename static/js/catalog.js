@@ -5,7 +5,12 @@ const catalogDiv = document.querySelector("#card-receiver"),
   scriptTypeFilter = document.querySelector("#scriptType"),
   resultCount = document.querySelector("#resultCount"),
   showGuidelines = document.querySelector("#showGuidelines"),
-  showCitations = document.querySelector("#showCitations");
+  showCitations = document.querySelector("#showCitations"),
+  projectSelect = document.querySelector("#projectSelect"),
+  noProjectLabel = "Not defined",
+  projectObject = {
+    noProjectLabel: 0
+  };
 let msnry;
 
 /**
@@ -157,14 +162,23 @@ function transcriptionRules(catalogEntry) {
   }
 }
 
+function cleanUpString(string) {
+  return string.trim().replace(/'+$/, "");
+}
+
+function getProjectName(catalogEntry, alt_value){
+  if (alt_value === undefined){ alt_value = "";}
+  return cleanUpString(catalogEntry['project-name'] || noProjectLabel);
+}
+
 function template(catalogEntry, key) {
   /** Generates the whole DIV for a specific catalog entry with `key` in the original JSON */
-  return createElementFromHTML(`<div class="card catalog-card" data-key="${key}">
+  return createElementFromHTML(`<div class="card catalog-card" data-key="${key}" data-project="${updateProjects(getProjectName(catalogEntry))}">
   <div class="card-header bg-secondary rounded-top">
   ${catalogEntry.title}
   </div>
   <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">${catalogEntry['project-name'] || ''}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">${cleanUpString(catalogEntry['project-name'] || '')}</h6>
     <h7 class="pb-4">${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
     <p>
       <a href="${catalogEntry.url}"><span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2"><span class="fa fa-link"></span> Link</span><span class="rounded-end border border-secondary text-dark py-1 px-2">Data</span></span></a>
@@ -220,15 +234,43 @@ async function getCatalog() {
   }
 };
 
+function updateProjects(current_project) {
+  current_project = current_project.trim();
+  if (current_project in projectObject) {
+    return projectObject[current_project];
+  } else {
+    projectObject[current_project] = Object.keys(projectObject).length;
+    return projectObject[current_project];
+  }
+};
+
+function updateProjectSelect() {
+  Object.keys(projectObject).sort().forEach((key) => {
+    projectSelect.append(createElementFromHTML(`<option value="${projectObject[key]}">${key}</option>`))
+  });
+};
+
 async function showCatalog() {
   /* Insert the catalog in the HTML */
   const CATALOG = await getCatalog();
-
   let minDate = +5000,
     maxDate = -5000;
 
+
   // Produce and 
   Object.keys(CATALOG).sort((key1, key2) => (CATALOG[key1].title < CATALOG[key2].title) ? -1 : 1).forEach((key) => {
+    // Quick fix to hide CREMMA repositories
+    let counts_is_zero = false;
+    (CATALOG[key].volume || []).forEach((data) => {
+      if(data.count === 0) {
+        counts_is_zero = true;
+      } else {
+        counts_is_zero = false;
+      }
+    });
+    if (counts_is_zero) {
+      return;
+    }
     let div = template(CATALOG[key], key);
     try {
       CATALOG[key].time.notBeforeInt = parseInt(CATALOG[key].time.notBefore.split("-")[0]);
@@ -268,35 +310,48 @@ async function showCatalog() {
   function updateResultCount() {
     resultCount.innerText = catalogDiv.querySelectorAll(".card:not([style*='none'])").length;
   }
+  function projectFilterFn(catalogEntry, selectedProject) {
+    if (selectedProject === "-1") {
+      return true;
+    }
+    return (projectObject[getProjectName(catalogEntry)] == selectedProject);
+  }
 
   function applyFilters() {
     let localMin = parseInt(notBeforeSelector.value),
       localMax = parseInt(notAfterSelector.value),
-      localScriptTypeFilter = scriptTypeFilter.value;
+      localScriptTypeFilter = scriptTypeFilter.value,
+      localProjectSelect = projectSelect.value;
 
     document.querySelectorAll(".catalog-card").forEach((div) => {
     	div.style.display = "none";
     	div.style.visibility = "hidden"
     });
     Object.keys(CATALOG).forEach((key) => {
+
       if (
         // Filter for dates
         (inRange(localMin, localMax, CATALOG[key].time.notBeforeInt, CATALOG[key].time.notAfterInt)) &&
         // Filter for script
-        (scriptTypeFilterFn(CATALOG[key], localScriptTypeFilter))
+        (scriptTypeFilterFn(CATALOG[key], localScriptTypeFilter)) &&
+        // Filter for project
+        (projectFilterFn(CATALOG[key], localProjectSelect))
       ) {
         let ldiv = document.querySelector(`.catalog-card[data-key="${key}"]`)
-    	ldiv.style.display = "block";
-    	ldiv.style.visibility = "visible";
+      	ldiv.style.display = "block";
+      	ldiv.style.visibility = "visible";
       }
     });
     updateResultCount();
     //msnry.reloadItems();
     //msnry.layout();
   };
+  updateProjectSelect();
+
   notBeforeSelector.addEventListener('change', applyFilters);
   notAfterSelector.addEventListener('change', applyFilters);
   scriptTypeFilter.addEventListener('change', applyFilters);
+  projectSelect.addEventListener('change', applyFilters);
   toggleGuidelines();
   toggleCitations();
   i18n_item.run();
