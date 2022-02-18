@@ -8,6 +8,9 @@ const catalogDiv = document.querySelector("#card-receiver"),
   showCitations = document.querySelector("#showCitations"),
   projectSelect = document.querySelector("#projectSelect"),
   languageSelect = document.querySelector("#dataLanguage"),
+  table = document.querySelector("#table"),
+  tableChars = document.querySelector("#table [data-unit=\"characters\"]"),
+  tableLines = document.querySelector("#table [data-unit=\"lines\"]"),
   noProjectLabel = "Not defined",
   projectObject = {
     noProjectLabel: 0
@@ -258,12 +261,17 @@ function updateLanguageSelect(entry_langs, knownLangs) {
   }); 
 };
 
+
 async function showCatalog() {
   /* Insert the catalog in the HTML */
   const CATALOG = await getCatalog();
   let minDate = +5000,
     maxDate = -5000,
-    knownLangs = [];
+    knownLangs = [],
+    volumes = {
+      "characters": 0,
+      "lines": 0
+    };
 
   // Produce and 
   Object.keys(CATALOG).sort((key1, key2) => (CATALOG[key1].title < CATALOG[key2].title) ? -1 : 1).forEach((key) => {
@@ -335,13 +343,35 @@ async function showCatalog() {
     if (language == "-1") { return true; }
     return projectLangs.includes(language);
   }
-
+  function updateVolume(entry) {
+    (entry.volume || []).forEach((vol) => {
+      if(vol.metric in volumes) {
+        volumes[vol.metric].push(vol.count);
+      }
+    });
+  }
+  function resetVolumes(vols) {
+    Object.keys(vols).forEach((key) => {
+      volumes[key] = [];
+    });
+  }
+  function updateTableCount() {
+    tableChars.querySelector("td.amount").innerText = new Intl.NumberFormat(navigator.language || navigator.userLanguage).format(
+      volumes.characters.reduce((partialSum, a) => partialSum + a, 0)
+    );
+    tableChars.querySelector("td.project-count").innerText = volumes.characters.length;
+    tableLines.querySelector("td.amount").innerText = new Intl.NumberFormat(navigator.language || navigator.userLanguage).format(
+      volumes.lines.reduce((partialSum, a) => partialSum + a, 0)
+    );
+    tableLines.querySelector("td.project-count").innerText = volumes.lines.length;
+  }
   function applyFilters() {
     let localMin = parseInt(notBeforeSelector.value),
       localMax = parseInt(notAfterSelector.value),
       localScriptTypeFilter = scriptTypeFilter.value,
       localProjectSelect = projectSelect.value,
       localLanguageSelect = languageSelect.value;
+    resetVolumes(volumes);
 
     document.querySelectorAll(".catalog-card").forEach((div) => {
     	div.style.display = "none";
@@ -361,9 +391,11 @@ async function showCatalog() {
         let ldiv = document.querySelector(`.catalog-card[data-key="${key}"]`)
       	ldiv.style.display = "block";
       	ldiv.style.visibility = "visible";
+        updateVolume(CATALOG[key]);
       }
     });
     updateResultCount();
+    updateTableCount();
     //msnry.reloadItems();
     //msnry.layout();
   };

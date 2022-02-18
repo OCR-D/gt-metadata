@@ -128,6 +128,20 @@
               <div class="col-md-3"><span  vanilla-i18n="cat.resultCount">Nombre de résultats:</span></div>
               <div class="col-md-9"><span id="resultCount"></span></div>
             </div>
+            <div class="row" id="table">
+              <div class="col-md-3"><span  vanilla-i18n="cat.descCount">Description de résultats:</span></div>
+              <div class="col-md-9">
+                <table class="table table-bordered table-striped  table-hover text-end" id="table">
+                  <thead>
+                    <tr><th vanilla-i18n="cat.countUnit">Unit</th><th vanilla-i18n="cat.countAmount">Amount</th><th vanilla-i18n="cat.countProjects">Projects with this metric</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr data-unit="characters"><td vanilla-i18n="cat.countChars">Characters</td><td class="amount text-end">7</td><td class="project-count text-end">9</td></tr>
+                    <tr data-unit="lines"><td vanilla-i18n="cat.countLine">Lines</td><td class="amount text-end">7</td><td class="project-count text-end">9</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-3">Options</div>
               <div class="col-md-9">
