@@ -193,6 +193,8 @@ cat.filters,"Filters","Filtres"
 cat.authors,"Authors","Auteur.ice.s"
 catalog.projectName,"Project","Projet"
 catalog.all,"All projects","Tous les projets"
+catalog.allLanguage,"All languages","Toutes les langues"
+catalog.language,"Language","Langue"
 cat.showGuidelines,"Show Transcription Guidelines","Afficher les normes de transcription"
 cat.showCitations,"Show Citation Informations","Afficher les informations de citation"
 tools.title,Tools,Outils

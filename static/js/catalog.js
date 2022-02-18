@@ -7,6 +7,7 @@ const catalogDiv = document.querySelector("#card-receiver"),
   showGuidelines = document.querySelector("#showGuidelines"),
   showCitations = document.querySelector("#showCitations"),
   projectSelect = document.querySelector("#projectSelect"),
+  languageSelect = document.querySelector("#dataLanguage"),
   noProjectLabel = "Not defined",
   projectObject = {
     noProjectLabel: 0
@@ -249,13 +250,20 @@ function updateProjectSelect() {
     projectSelect.append(createElementFromHTML(`<option value="${projectObject[key]}">${key}</option>`))
   });
 };
+function updateLanguageSelect(entry_langs, knownLangs) {
+  entry_langs.forEach((lang) => {
+    if (!(knownLangs.includes(lang))) {
+      knownLangs.push(lang);
+    }
+  }); 
+};
 
 async function showCatalog() {
   /* Insert the catalog in the HTML */
   const CATALOG = await getCatalog();
   let minDate = +5000,
-    maxDate = -5000;
-
+    maxDate = -5000,
+    knownLangs = [];
 
   // Produce and 
   Object.keys(CATALOG).sort((key1, key2) => (CATALOG[key1].title < CATALOG[key2].title) ? -1 : 1).forEach((key) => {
@@ -271,6 +279,8 @@ async function showCatalog() {
     if (counts_is_zero) {
       return;
     }
+
+    updateLanguageSelect(CATALOG[key].language, knownLangs);
     let div = template(CATALOG[key], key);
     try {
       CATALOG[key].time.notBeforeInt = parseInt(CATALOG[key].time.notBefore.split("-")[0]);
@@ -286,6 +296,11 @@ async function showCatalog() {
       console.log(e);
     }
     catalogDiv.append(div);
+  });
+
+  // Add value to langs 
+  knownLangs.sort().forEach((lang) => {
+    languageSelect.append(createElementFromHTML(`<option value="${lang}">${lang}</option>`));
   });
   catalogDiv.querySelectorAll(".citation").forEach((divEl) => {
     divEl.querySelector(".citation-copy").addEventListener("click", function(e) {
@@ -316,26 +331,32 @@ async function showCatalog() {
     }
     return (projectObject[getProjectName(catalogEntry)] == selectedProject);
   }
+  function languageFilterFn(projectLangs, language) {
+    if (language == "-1") { return true; }
+    return projectLangs.includes(language);
+  }
 
   function applyFilters() {
     let localMin = parseInt(notBeforeSelector.value),
       localMax = parseInt(notAfterSelector.value),
       localScriptTypeFilter = scriptTypeFilter.value,
-      localProjectSelect = projectSelect.value;
+      localProjectSelect = projectSelect.value,
+      localLanguageSelect = languageSelect.value;
 
     document.querySelectorAll(".catalog-card").forEach((div) => {
     	div.style.display = "none";
     	div.style.visibility = "hidden"
     });
     Object.keys(CATALOG).forEach((key) => {
-
       if (
         // Filter for dates
         (inRange(localMin, localMax, CATALOG[key].time.notBeforeInt, CATALOG[key].time.notAfterInt)) &&
         // Filter for script
         (scriptTypeFilterFn(CATALOG[key], localScriptTypeFilter)) &&
         // Filter for project
-        (projectFilterFn(CATALOG[key], localProjectSelect))
+        (projectFilterFn(CATALOG[key], localProjectSelect)) &&
+        // Filter for project
+        (languageFilterFn(CATALOG[key].language, localLanguageSelect))
       ) {
         let ldiv = document.querySelector(`.catalog-card[data-key="${key}"]`)
       	ldiv.style.display = "block";
@@ -352,6 +373,7 @@ async function showCatalog() {
   notAfterSelector.addEventListener('change', applyFilters);
   scriptTypeFilter.addEventListener('change', applyFilters);
   projectSelect.addEventListener('change', applyFilters);
+  languageSelect.addEventListener('change', applyFilters);
   toggleGuidelines();
   toggleCitations();
   i18n_item.run();

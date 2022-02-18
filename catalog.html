@@ -84,6 +84,14 @@
           <form id="card-selector" class="col-12 m-2 border p-4">
             <h3><span  vanilla-i18n="cat.filters">Filtres</span></h3>
             <div class="form-group row my-2">
+              <label for="dataLanguage" class="col-sm-3 col-form-label"><i18n vanilla-i18n="catalog.language">Langue</i18n></label>
+              <div class="col-sm-9">
+                <select name="dataLanguage" id="dataLanguage" class="form-control">
+                  <option value="-1" vanilla-i18n="catalog.allLanguage">Tout</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row my-2">
               <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n></label>
               <div class="col-sm-9">
                 <select name="scriptType" id="scriptType" class="form-control">
