@@ -129,7 +129,7 @@ function getTypeBadge(scriptType) {
 function citationCFF(link) {
   /** Creates a citation link if the entry is given */
   if (link) {
-    return `<a href="${link}"><span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-secondary text-dark py-1 px-2">Citation File</span></span>
+    return `<a href="${link}"><span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2"><span class="fa fa-link"></span> Link</span><span class="rounded-end border border-secondary text-dark py-1 px-2">Citation File</span></span>
       </a>`;
   } else {
     return "";
@@ -166,6 +166,11 @@ function template(catalogEntry, key) {
   <div class="card-body">
     <h6 class="card-subtitle mb-2 text-muted">${catalogEntry['project-name'] || ''}</h6>
     <h7 class="pb-4">${catalogEntry.time.notBefore.split('-')[0]}--${catalogEntry.time.notAfter.split('-')[0]}</h7>
+    <p>
+      <a href="${catalogEntry.url}"><span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2"><span class="fa fa-link"></span> Link</span><span class="rounded-end border border-secondary text-dark py-1 px-2">Data</span></span></a>
+      ${citationCFF(catalogEntry['citation-file-link'])}
+    </p>
+    <hr />
     <p class="my-0">
       ${getImages(catalogEntry.language, "Language", "language")}
       ${getImages(catalogEntry.script, "Script", "script")}
@@ -175,8 +180,6 @@ function template(catalogEntry, key) {
     <p class="my-0">${getVolumes(catalogEntry.volume)}</p>
     <p class="my-0">
       <span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-license rounded-start text-white border border-secondary border-end-0 py-1 px-2">License</span><span class="rounded-end border border-secondary text-dark py-1 px-2">${catalogEntry.license[0].name}</span></span>
-      <a href="${catalogEntry.url}"><span class="badge badge-sm p-0 m-1 mb-3"><span class="bg-link rounded-start text-white border border-secondary border-end-0 py-1 px-2">Link</span><span class="rounded-end border border-secondary text-dark py-1 px-2">Data</span></span></a>
-      ${citationCFF(catalogEntry['citation-file-link'])}
     </p>
     <hr/>
     <p class="card-text">${nl2br(catalogEntry.description)}</p>
