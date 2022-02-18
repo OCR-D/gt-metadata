@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HTR-United - Team">
+    <meta name="author" content="Alix Chagué">
+    <meta name="author" content="Thibault Clérice">
+    <title>HTR-United</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/heroes/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">-->
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/images/favicon.ico" />
+    
+    <!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/custom.css" rel="stylesheet">
+  </head>
+
+  <body id="top">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom  py-3 mb-4 px-5 shadow-lg">
+        <a class="navbar-brand" href="index.html#top">HTR-United</a>
+        <a class="navbar-brand" href="https://github.com/HTR-United"><i class="fab fa-github"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_htr-united" aria-controls="navbar_htr-united" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span><!--<i class="far fa-minus-square"></i>-->
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar_htr-united">
+          <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i18n vanilla-i18n="nav.home">Accueil </i18n></a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="index.html#use-data"><i18n vanilla-i18n="nav.use">Utiliser les données</i18n></a>
+                <a class="dropdown-item" href="index.html#provide-data"><i18n vanilla-i18n="nav.provide">Proposer des données</i18n></a>
+                <a class="dropdown-item" href="index.html#scenarios"><i18n vanilla-i18n="nav.scenario">Scénarios</i18n></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="document-your-data.html"><i18n vanilla-i18n="nav.form">Voir le formulaire</i18n></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="catalog.html"><i18n vanilla-i18n="nav.catalog">Voir le catalogue</i18n></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="data-reuse-charter.html"><i18n vanilla-i18n="nav.charter">Charte - Réutilisation des données</i18n></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="tools.html"><i18n vanilla-i18n="nav.tools">Les Outils</i18n></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-nav me-2" href="team.html"><i18n vanilla-i18n="nav.team">L'Équipe</i18n></a>
+            </li>
+          </ul>
+          <div class="col-sm-2 text-end">
+            <select id="vanilla-i18n-toggler">
+              <option>Français</option>
+              <option>English</option>
+            </select>
+          </div>
+        </div>
+      </nav>
+
+    
+
+<!-- Main -->
+<main>
+  <div class="px-4 py-5 my-5" id="main">
+	  <div class="container">
+	  	<h1><i18n vanilla-i18n="tools.title">Tools</i18n></h1>
+      <p vanilla-i18n="tools.intro">In order to produce good data and to ensure an easy way to control or quantify the data produced, we offer a certain set of tools with tutorial (upcoming) on how to use them both in a standalone way or in a continuous integration way.</p>
+	  	
+      <section class="row">
+        <div class="col-offset-1 col  text-justify">
+          <h2>HUMGenerator <a href="https://github.com/HTR-United/htr-united-metadata-generator"><span class="fa fa-link"></span></a></h2>
+          <p><i18n vanilla-i18n="tools.humg">HUMGenerator (<em>H</em>tr <em>U</em>nited <em>M</em>etadata <em>G</em>enerator) generates metadata, specifically metrics for your corpora. It's specifically being used to generate the <code>volume</code> key of the catalog schema. It can generate a character count table, to help users choose new kind of ground truth to cover more characters.</i18n></p>
+        </div>
+        <div class="col-md-2"><a href="https://github.com/HTR-United/htr-united-metadata-generator">
+            <img class="img-fluid rounded" alt="HUM Generator" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAADICAYAAADGFbfiAAAWeElEQVR4Xu2dhZLkuBJFPcvMzMy8//8Hs8w0y8zMOy9OvVCvWm2XZVVVV2rnKKJjJrotO3VS1pVS4BMnT548PZgkIAEJSEACCwmcUEAWEvNyCUhAAhJYEVBArAgSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZqZNCVxwwQUDP+edd95w1llnrW73119/DX///ffw22+/Db/++uumjzC/BCSwYwL/aQG57bbbhmuvvfYA4XvvvTd8/fXXi5Fefvnlwz333HOQ79tvvx1OnTo1eZ+nn3764G80iM8///ziZ5LhrrvuGq688sqDvG+//fbw/fffj96L67i+TD/++OPw5ptvNj2fMlP2Mr377rvDN998s/iel1122XD11Vev7nn22Wevzf/PP/8Mv/zyy+o5/MDRJAEJxCKggFT4o2cBoXgvvvji8Oeff1aU9N9LzjnnnOGxxx4bTpw4sbGAXHTRRQNifvHFFy+yIV18+vTp4auvvho++eST1SjFdGYQoMNx7733HhSWThudN1McAgpIhS96F5CPP/54+OyzzypK+u8l11133XDrrbeO5lkyArn++uuHm2++eVSIuDnigCgw4kC01o1MuObVV18dfv/990Vl8eI+CSgg8f2mgFT4qEcBoWFOowfmFF555ZWKkv57yYMPPjgwckiNfD4SqRWQm266abjxxhuPPJcwHD1Jwmt//PHHob/znAsvvHCg8bjiiiuOjFpee+21VWjL9N8noIDE97ECUuGjHgXku+++WzXAKS1peJncfvjhhw/ylveqERCefffddx+iy8T4+++/P/z8888V1P9/CWEvRCjNxSwpR/VDvDAkAQUkpFsOd/hOnjx5Or6ZbRaeyZPon3766UpA6M2Tvvjii+HDDz+sAknI6YYbblhdy+iFSWxGEynNCQgrqx566KFD4agffvhheOedd1ahqpZEWe64447VggBHIC0E+8ujgMT3mSOQCh/1OAJBQFi5dMstt6xKyDzDCy+8UFHaYTV5fu65566uZf6EsNISAaGhZ7VVSoSpCKG1ike6DzalOZOqgnhR1wQUkPjuU0AqfNSrgHz55ZcrMUhp3TLgdM2ll1463HfffQd5WMF1zTXXVAsIjfyjjz56aNKcUQPzHftMzOcQmmOinn0nCCqjK8JpiNK2Eve+5JJLVvtbeBbPIXS3JGy3zpbjLgf+5AfxZ+5q3QIGysyIl39ZDAFXOjHkofxLOxC7EJDSP9iEj7Bv24sz0rOWMNxW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"/>
+          </a>
+        </div>
+      </section>
+      <hr />
+      <section class="row">
+	  		<div class="col-md-2">
+          <a href="https://github.com/HTR-United/htruc">
+  	  			<img src="./static/img/HTRUC.min.png" class="img-fluid rounded" alt="HTRUC" />
+          </a>
+	  		</div>
+	  		<div class="col-offset-1 col text-justify">
+	  			<h2>HTRUC <a href="https://github.com/HTR-United/htruc"><span class="fa fa-link"></span></a></h2>
+	  			<p><i18n vanilla-i18n="tools.htruc">HTRUC allows for controlling that the htr-united catalog file is parsable and HTR-United compliant. HTRUC is also meant to offer the tools to parse, augment and compile statistics about catalog file(s). This allows the HTR-United central repository to build a general catalog for everyone's use, see <a href="https://github.com/HTR-United/htr-united/blob/master/htr-united.yml">the main catalog</a>. It can also be used with <em>HUMGenerator</em> to update a catalog file with new volumes. </i18n></p>
+	  		</div>
+	  	</section>
+	  	<hr />
+	  	<section class="row">
+	  		<div class="col-offset-1 col  text-justify">
+	  			<h2>HTRVX <a href="https://github.com/HTR-United/htrvx"><span class="fa fa-link"></span></a></h2>
+	  			<p><i18n vanilla-i18n="tools.htrvx">HTRVX focuses on controlling the quality of the XML. It provides many options in terms of quality control: schema validation (checking that your ALTO or PAGE is okay), empty line or children-less region detection, Segmonto compatibility for segmentation (see <a href="https://segmonto.github.io/">Segmonto's Ontology documentation</a>)</i18n></p>
+	  		</div>
+	  		<div class="col-md-2">
+          <a href="https://github.com/HTR-United/htrvx"><img src="./static/img/htrvx.min.png" class="img-fluid rounded" alt="HTRVX" /></a>
+	  		</div>
+	  	</section>
+      <hr />
+      <section class="row">
+        <div class="col-md-2"><a href="https://github.com/ponteIneptique/choco-mufin"><img  class="img-fluid rounded" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAADICAYAAADGFbfiAAAUsUlEQVR4Xu2dB7cVNRRGBxt2RewNVFDs5f//BHsXLNiw915x7WHlGcKUTO6b+w6PnbVYCneSObNPJl9yUubA888/f7YzSUACEpCABBYSOKCALCTm5RKQgAQk0BNQQKwIEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwmYmCUhAAhJQQKwDEpCABCTQREABacJmJglIQAISUECsAxKQgAQk0ERAAWnCZiYJSEACElBArAMSkIAEJNBEQAFpwrY7ma688srummuu6Q4ePNhdfvnlfaH//PNP9/fff3e//fZb9/vvv1ff6IknnujLIf3888/dO++8U53XCyWwKYFDhw51t9xyS3fttdd21OsDBw7sFPnVV191H330Uf/32267rbv//vt3fnvrrbe6X3/9ddPbm3+PCCggWwbPy8VLxMuWGvwxExCTH374ofv666+7n376adJSBWTLjixud8UVV3RPP/30BUb8+++/3SuvvNLx36Xpjjvu6O69994LslEfPvzww6XFrXI9HZ+HHnqou+GGG0bLV0BWQR+iUAVkS2647LLLurvuuqujUch7Z7W3Z0Ty8ccfjwqJAlJLcp3rxgSEu33wwQfdt99+u/jGjz32WD9CLVMkATl27Fh30003TT6bArLY9RdNBgVkC6666qqrOl60ocYg3Z6wFSMOGqIUzhoyjVAAL2SZFJAtOHLiFlMC8uOPP3anTp1aZCB1BQEZSlEE5LrrrutOnDixYyIh108//bQPSeUjLv4//d0Q1qJqEP5iBWRlFyEevGSErvL0559/9qEpQlRlDJgRCrHkm2++uQ91UUZKn332WXfmzBkFZGW/LS2+FJCzZ8+eN9J89dVXu7/++qu6WEJXjFZJZVlRBCS3ETtff/317o8//ph8RkYrt99++841dIjm8lRD88KtE1BAVkSOECAeiEGe6KV98cUXfcMwlyiDXhvhLxopBWSO2N78XgrIL7/80s9x8e+kTz75pPd5bXrqqad2Oh3ff/9935lIKYqAPPzwwztzH4w+3njjjdrH87p9QkABWdGRZQ8NwXj//fc7GoSliYaIyUom0x2BLKW3/vWlgLASjnkrxJ/E/7/55ptVhtx4443d8ePHd66lzjz44IPhBOTxxx/vrr766t4u6uXJkyerns+L9g8BBWQlX9L7ZF4iT0yCf/nll813ZDRCbHxo2aNzIM1YdyXjkIDg70cffXSnfAQEIZlLDzzwQB+6JDF/wqjzkUceCScg+SipZZ5njoO/xyeggKzko/vuu++8WC8hjbfffnulu3W9WE3tA6GniPgwn8JIiHg8vUYm7zdN3JcJVRpRVptRJnM89MJblq8O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" alt="ChocoMufin"></a>
+        </div>
+        <div class="col-offset-1 col text-justify">
+          <h2>ChocoMufin <a href="https://github.com/ponteIneptique/choco-mufin"><span class="fa fa-link"></span></a></h2>
+          <p><i18n vanilla-i18n="tools.chocomufin">ChocoMufin focuses on the characters that are used in the ground truth. It can either help you have an overview of the character used, can be used to control which one are used (to avoid having two characters for the same purpose, which can be common with historical documents) or, using a conversion table, it can be used to normalize a whole set of ground-truth.</i18n></p>
+        </div>
+      </section>
+	  </div>
+	</div>
+
+  <!-- Footer -->
+  <div class="bg-dark text-secondary px-4 py-2 text-center">
+    <div class="py-3">
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5 mb-4">HTR-United | 2022</p>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank"><i18n vanilla-i18n="footer.team">Qui est derrière HTR-United ?</i18n></a></p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!--<script src="static/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
+
+    <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
+
+    <!-- i18n -->
+    <script type="text/javascript" src="static/js/i18n-advanced.js"></script>
+    <script type="text/javascript" src="static/js/i18n.js"></script>
+    <!-- end of i18n -->
+      
+  </body>
+</html>

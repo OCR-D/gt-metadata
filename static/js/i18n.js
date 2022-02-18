@@ -12,8 +12,8 @@ const i18n_item = new vanilla_i18n (
     debug: true,
     i18n_attr_name: "vanilla-i18n",
     toggler_id: "vanilla-i18n-toggler",
-    default_language: i18n_languages[0],
+    default_language: default_language,
   }
 );
 
-(function(){ i18n_item.run(); });
+(function(){ i18n_item.run(); })();
