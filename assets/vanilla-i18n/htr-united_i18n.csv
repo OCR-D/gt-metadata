@@ -203,6 +203,9 @@ cat.countAmount,Amount,Total
 cat.countProjects,Projects with this unit,Projets avec cette unité
 cat.countChars,Characters,Caractères
 cat.countLine,Lines,Lignes
+cat.repository,"Data repository","Dépôt de données"
+cat.link,"Link","Lien"
+cat.citationFile,"Citation File (CFF)","Fichier Citation (CFF)"
 tools.title,Tools,Outils
 tools.intro,"In order to produce good data and to ensure an easy way to control or quantify the data produced, we offer a certain set of tools with tutorial (upcoming) on how to use them both in a standalone way or in a continuous integration way.","Afin de produire de bonnes données et de garantir un moyen simple de contrôler ou de quantifier les données produites, nous proposons un certain ensemble d'outils avec tutoriel (à venir) sur la manière de les utiliser de manière autonome ou de manière continue."
 tools.humg,"HUMGenerator (<em>H</em>tr <em>U</em>nited <em>M</em>etadata <em>G</em>enerator) generates metadata, specifically metrics for your corpora. It's specifically being used to generate the <code>volume</code> key of the catalog schema. It can generate a character count table, to help users choose new kind of ground truth to cover more characters.","HumGenerator (<em>H</em>tr <em>U</em>nited <em>M</em>etadata <em>G</em>enerator) génère des métadonnées, en particulier des métriques pour vos corpus. Il est spécifiquement utilisé pour générer la touche <code> volume </code> du schéma de catalogue. Il peut générer une table de comptage de caractères afin d'aider les utilisateurs à choisir un nouveau type de vérité au sol pour couvrir plus de caractères."
