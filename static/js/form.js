@@ -5,7 +5,23 @@
         link = document.getElementById("output-link"),
         outputContainer = document.getElementById("output-container"),
         authorOriginal = document.querySelector(".original-author"),
-        authorContainer = authorOriginal.parent;
+        authorContainer = authorOriginal.parent,
+        imgTag = document.querySelector("#imageContainer");
+
+    const gif = new Image();
+    gif.src = "./static/img/catalog.gif";
+
+    document.querySelector("#startButton").addEventListener("click", function(e) {
+      e.preventDefault();
+      imgTag.src = "";
+      imgTag.src = gif.src;
+    });
+    const LICENSES = {
+      "CC-BY 4.0": 'https://creativecommons.org/licenses/by/4.0/',
+      "CC-BY-SA 4.0": 'https://creativecommons.org/licenses/by-sa/4.0/',
+      "Etalab OL 2.0": 'https://spdx.org/licenses/etalab-2.0.html',
+      "ODbL 1.0": 'https://opendatacommons.org/licenses/odbl/1-0/'
+    };
 
     let idForAuthors = 0;
 
@@ -136,11 +152,11 @@
     };
 
     const getAuthors = function () {
-      let text = "\nauthors:",
+      let out = {"authors": []},
           authors = document.querySelectorAll(".author");
 
       if (authors.length == 0) {
-        return "";
+        return {};
       }
       for (var i = 0; i < authors.length; i++) {
         let surname = authors[i].querySelector("input[name='authoritySurname']").value,
@@ -148,32 +164,26 @@
 
         if (name.trim() === "") { continue; }
 
-        // DO NOT REINDENT
-        text = text + `\n    - name: '${escape_yaml(name)}'
-      surname: '${escape_yaml(surname)}'`;
-
-
+        let a = {
+          "name": name,
+          "surname": surname
+        }
         let roles = authors[i].querySelectorAll("input[type='checkbox']:checked");
         if (roles.length > 0) {
-          text = text + "\n      roles:"
+          a.roles = [...roles].map((o) => o.value);
         }
-        for (var j = 0; j < roles.length; j++) {
-          // DO NOT REINDENT
-          text = text + `
-      - '${roles[j].value}'`;
-        }
+        out.authors.push(a);
+        
       }
 
-      return text;
+      return out;
     };    
 
     const getMetrics = function () {
-      let text = "\nvolume:",
+      let text = {"volume": []},
           metrics = document.querySelectorAll(".metric-form");
 
-      if (metrics.length == 0) {
-        return "";
-      }
+      if (metrics.length == 0) { return {}; }
       for (var i = 0; i < metrics.length; i++) {
         let metric_count = metrics[i].querySelector("input[name='metric-count']").value,
             metric_metric = metrics[i].querySelector("select[name='metric-metric']").value;
@@ -181,19 +191,22 @@
         if (metric_count.trim() === "") { continue; }
 
         // DO NOT REINDENT
-        text = text + `\n  - metric: '${metric_metric}'\n    count: ${metric_count}`;
+        text.volume.push({
+          "metric": metric_metric,
+          "count": parseInt(metric_count)
+        }); 
       }
-      if (text.trim() === "volume:") { return ""; }
+      if (text.volume.length === 0) { return {}; }
 
       return text;
     };
 
     const getSources = function () {
-      let text = "\nsources:",
+      let text = {"sources": []},
           sources = document.querySelectorAll(".sources-form");
 
       if (sources.length == 0) {
-        return "";
+        return {};
       }
       for (var i = 0; i < sources.length; i++) {
         let sources_ref = sources[i].querySelector("input[name='sources-ref']").value,
@@ -202,9 +215,12 @@
         if (sources_ref.trim() === "" && sources_link.trim() === "") { continue; }
 
         // DO NOT REINDENT
-        text = text + `\n  - reference: '${escape_yaml(sources_ref)}'\n    link: '${sources_link}'`;
+        text.sources.push({
+          "reference": sources_ref,
+          "link": sources_link
+        });
       }
-      if (text.trim() === "sources:") { return ""; }
+      if (text.sources.length == 0) { return {}; }
 
       return text;
     };
@@ -228,27 +244,18 @@
         inlineIcon: false // custom cross icon for multiple select.
     });
 
-    document.querySelector("#download").addEventListener("click", function (e) {
-      e.preventDefault();
-      let element = document.createElement('a');
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(document.querySelector("#output").innerText));
-      element.setAttribute('download', "htr-united.yml");
-
-      element.style.display = 'none';
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
-    });
+    let downloadBind = false;
 
     const escape_yaml = function(str) {
       return str.replace("'", "\\u0027")
     };
 
-    const get_or_none = function(field, yaml) {
+    const updateOrIgnore = function(field, key) {
+      let out = [];
       if (field !== undefined && field.trim() != ""){
-        return `${yaml}: '${escape_yaml(field)}'`
+        out[key] = field;
       }
-      return "";
+      return out;
     };
 
     const get_or_none_charriot = function(field, yaml) {
@@ -264,32 +271,53 @@
       let languages = languageSelect.value().join("\n  - ");
       let scripts = scriptSelect.value().join("\n  - ");
 
-      output.innerText = `schema: "https://htr-united.github.io/schema/2021-10-15/schema.json"
-title: ${escape_yaml(normalize(data.repoName))}
-url: '${data.repoLink}'
-${get_or_none_charriot(data.projectName, 'project-name')}
-${get_or_none(data.projectWebsite, 'project-website')}${getAuthors()}
-description: >
-  ${normalize(data.desc)}
-language:
-  - ${languages}
-script: 
-  - ${scripts}
-script-type: '${data.scriptType}'
-time: 
-  notBefore: "${data["date-begin"]}"
-  notAfter: "${data["date-end"]}"
-hands: 
-  count: '${data.hands}'
-  precision: '${data.precision}'
-license:
-  - ${data.license}
-format: '${data.format}'${getMetrics()}${getSources()}
-${get_or_none(data.cff, 'citation-file-link')}
-${get_or_none_charriot(data.transcriptionGuidelines, 'transcription-guidelines')}
-`;
-    outputContainer.classList.remove("d-none");
-    link.href = `https://github.com/HTR-United/htr-united/new/master?filename=catalog/${slugify(data.projectName || data.repoName)}/${slugify(data.repoName)}.yml`;
+      let obj = {
+        "schema": "https://htr-united.github.io/schema/2021-10-15/schema.json",
+        "title": normalize(data.repoName),
+        "url": data.repoLink,
+        ...getAuthors(),
+        "description": normalize(data.desc),
+        ...updateOrIgnore(data.projectName, "project-name"),
+        ...updateOrIgnore(data.projectWebsite, "project-website"),
+        "language": languageSelect.value(),
+        "scripts": scriptSelect.value(),
+        "script-type": data.scriptType,
+        "time": {
+          "notBefore": data["date-begin"],
+          "notAfter": data["date-end"]
+        },
+        "hands": {
+          "count": data.hands,
+          "precision": data.precision
+        },
+        "license": [
+          {"name": data.license, "url": LICENSES[data.license]}
+        ],
+        "format": data.format,
+        ...getSources(),
+        ...getMetrics(),
+        ...updateOrIgnore(data.cff, 'citation-file-link'),
+        ...updateOrIgnore(data.transcriptionGuidelines, 'transcription-guidelines'),
+      };
 
+      output.innerText = jsyaml.dump(obj, {"noRef": true});
+      outputContainer.classList.remove("d-none");
+      link.href = `https://github.com/HTR-United/htr-united/new/master?filename=catalog/${slugify(data.projectName || data.repoName)}/${slugify(data.repoName)}.yml`;
+
+
+      if (downloadBind === false) {
+        document.querySelector("#download").addEventListener("click", function (e) {
+          e.preventDefault();
+          let element = document.createElement('a');
+          element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(document.querySelector("#output").innerText));
+          element.setAttribute('download', "htr-united.yml");
+
+          element.style.display = 'none';
+          document.body.appendChild(element);
+          element.click();
+          document.body.removeChild(element);
+        });
+        downloadBind = true;
+      }
     });
 })();
