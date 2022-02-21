@@ -76,9 +76,9 @@
   <main>
   <div class="px-4 pt-5 pb-2 mt-5 text-center" id="main">
     <div>
-      <img src="assets/images/logo_htr-united.png" class="u-logo-image u-logo-image-1 mt-5" data-image-width="40" height="86">
-      <div class=" mt-5" style="line-height: 100%; vertical-align: middle; display: inline-block;"><span class="fa fa-plus fa-2x" aria-label="+"></span></div>
-      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"  class="u-logo-image u-logo-image-1 mt-5" alt="Github Logo" height="86">
+      <img src="assets/images/logo_htr-united.png" class="u-logo-image u-logo-image-1 mt-5" data-image-width="40" height="86" alt="HTR-United">
+      <div class=" mt-5" style="line-height: 100%; vertical-align: middle; display: inline-block;"><span class="fa fa-heart fa-2x" aria-label="loves"></span></div>
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"  class="u-logo-image u-logo-image-1 mt-5" alt="Github" height="86">
     </div>
     <h1 class="display-5 fw-bold my-4">HTR-United + Github Actions</h1>
     <div class="col-lg-6 mx-auto">
@@ -98,14 +98,23 @@
       <label for="htrUnitedFilename" class="col-sm-3 col-form-label">Nom du fichier de catalogage</label>
       <div class="col-sm-9">
         <input type="text" name="htrUnitedFilename" class="form-control" id="htrUnitedFilename" placeholder="htr-united.yml" required="true" value="htr-united.yml" aria-describedby="htrUnitedFilenameHelp">
-        <div id="htrUnitedFilenameHelp" class="form-text"><p style="text-align: justify;">This file is generally named <code>htr-united.yml</code> and should be at the root of your github repository.</p></div>
+        <div id="htrUnitedFilenameHelp" class="form-text"><p style="text-align: justify;">This file should have been generated with <a href="document-your-data.html">the form on this website</a>: it describes your whole repository with metadata, make sure you did that first ! This file is generally named <code>htr-united.yml</code> and should be at the root of your github repository.</p></div>
       </div>
     </div>
     <div class="form-group row my-2">
       <label for="dataUnixPath" class="col-sm-3 col-form-label">Chemin des données (Format UNIX)</label>
       <div class="col-sm-9">
         <input type="text" name="dataUnixPath" class="form-control" id="dataUnixPath" placeholder="./french/data/*.xml ./english/data/*.xml" required="true" value="" aria-describedby="dataUnixPathHelp">
-        <div id="dataUnixPathHelp" class="form-text"><p style="text-align: justify;">Use <code>*</code> for a filename wildcard, <code>**</code> for a folder wildcard. You can have a single path, such as <code>./data/*.xml</code> or multiple, such as <code>./french/data/*.xml ./english/data/*.xml</code>. If you have a structure such as <code>./data/a_book/some.xml</code> and <code>./data/b_book/some.xml</code>, the UNIX path is <code>./data/**/*.xml</code></p></div>
+        <div id="dataUnixPathHelp" class="row form-text">
+          <div class="col-md-8">
+            <p style="text-align: justify;">This path is the path on your repository. Use <code>*</code> for a filename wildcard, <code>**</code> for a folder wildcard. You can have a single path, such as <code>./data/*.xml</code> or multiple, such as <code>./french/data/*.xml ./english/data/*.xml</code>. If you have a structure such as <code>./data/a_book/some.xml</code> and <code>./data/b_book/some.xml</code>, the UNIX path is <code>./data/**/*.xml</code></p>
+            <p>In the example on the right, if <code>TNAH-2021-Project-Correspondance-Berlioz</code> is the root of your data repository, the path to get all XML would be <code>donnees/**/*.xml</code></p>
+          </div>
+          <div class="col-md-4">
+            <img src="static/img/folder.png" alt="folder-structure" class="img-fluid" />
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="form-group row my-2">
