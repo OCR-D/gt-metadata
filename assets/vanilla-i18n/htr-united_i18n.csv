@@ -167,7 +167,7 @@ form.field.qual.select.lines,"Lines","Lignes"
 form.field.qual.select.pages,"Pages","Pages"
 form.field.qual.select.characters,"Characters","Caractères"
 form.field.qual.select.regions,"Zones","Zones"
-form.field.qual.select.files,"Files","Fichiers"
+form.field.qual.select.files,"XML Files","Fichiers XML"
 form.field.src,Sources,Détails des sources transcrites
 form.field.apa,"<small class=""text-muted"">We prefer APA references, which can look like the following <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, see <a href=""https://apastyle.apa.org/style-grammar-guidelines/references/archival"">APA Style</a>, but simpler formats are okay too. The link or the APA reference are sufficient but you can provide both</small>","<small class=""text-muted"">Le format APA est préféré pour les citations, ce qui peut donner des références longues comme <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, cf. <a href=""https://apastyle.apa.org/style-grammar-guidelines/references/archival"">APA Style</a>. Des formats plus courts sont autorisé. Le lien ou la référence APA peuvent suffire.</small>"
 form.title.generate,Generate the <code>htr-united.yml</code> file,Générer le fichier <code>htr-united.yml</code>
