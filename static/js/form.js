@@ -5,8 +5,17 @@
         link = document.getElementById("output-link"),
         outputContainer = document.getElementById("output-container"),
         authorOriginal = document.querySelector(".original-author"),
-        authorContainer = authorOriginal.parent;
+        authorContainer = authorOriginal.parent,
+        imgTag = document.querySelector("#imageContainer");
 
+    const gif = new Image();
+    gif.src = "./static/img/catalog.gif";
+
+    document.querySelector("#startButton").addEventListener("click", function(e) {
+      e.preventDefault();
+      imgTag.src = "";
+      imgTag.src = gif.src;
+    });
     const LICENSES = {
       "CC-BY 4.0": 'https://creativecommons.org/licenses/by/4.0/',
       "CC-BY-SA 4.0": 'https://creativecommons.org/licenses/by-sa/4.0/',
@@ -184,7 +193,7 @@
         // DO NOT REINDENT
         text.volume.push({
           "metric": metric_metric,
-          "count": metric_count
+          "count": parseInt(metric_count)
         }); 
       }
       if (text.volume.length === 0) { return {}; }

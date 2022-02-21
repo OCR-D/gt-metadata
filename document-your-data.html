@@ -110,6 +110,18 @@
       </div>
     </div>
   </div>
+  <div class="px-4 pb-5 pt-2 mb-5">
+    <div class="justify-content-center col-md-8 text-center mx-auto">
+      <div class="h5">Demo</div>
+      <div class=" mb-2">
+        <a href="#" class="btn btn-sm btn-primary" id="startButton"><span class="fa fa-play"></span> <span vanilla-i18n="form.play">Play or restart</span> (GIF)</a>
+        <a href="https://youtu.be/MiBLhj4cw_c" class="btn btn-sm btn-secondary"><span class="fab fa-youtube"></span> Youtube</a>
+      </div>
+      <div>
+        <img class="img-fluid" id="imageContainer"/>
+      </div>
+    </div>
+  </div>
 
 <!-- Use data -->
   <div class="container col-xxl-8 px-4 py-4" id="use-data">
@@ -127,13 +139,13 @@
           <div class="form-group row my-2">
             <label for="repoName" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.ds_title">Nom du dépôt / dataset (titre)</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
-              <i18n vanilla-i18n="form.input.reponame"><input type="text" name="repoName" class="form-control" id="repoName" placeholder="Nom du dépôt" required="true"></i18n>
+              <input vanilla-i18n-placeholder="form.input.reponame" type="text" name="repoName" class="form-control" id="repoName" placeholder="Nom du dépôt" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
             <label for="repoLink" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.repolink">Lien vers le dépôt</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
-              <i18n vanilla-i18n="form.input.repolink"><input type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien vers le dépôt" required="true"></i18n>
+              <input vanilla-i18n-placeholder="form.input.repolink" type="text" name="repoLink" class="form-control" id="repoLink" placeholder="Lien vers le dépôt" required="true">
             </div>
           </div>
           <div class="form-group row my-2">
@@ -145,7 +157,7 @@
           <div class="form-group row my-2">
             <label for="citationCFF" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.cff.link">Lien vers un fichier CITATION.cff</i18n></label>
             <div class="col-sm-9">
-              <i18n vanilla-i18n="form.input.cff"><input type="text" name="cff" class="form-control" id="citationCFF" placeholder="Lien vers un fichier CITATION.cff"></i18n>
+              <input vanilla-i18n-placeholder="form.input.cff" type="text" name="cff" class="form-control" id="citationCFF" placeholder="Lien vers un fichier CITATION.cff">
               <p><small class="text-muted"><i18n vanilla-i18n="form.field.cff.info">Les fichiers CITATION.cff permettent de fournir un mode de citation assez simple sur github par exemple. Lien:</i18n> <a href="https://citation-file-format.github.io/">https://citation-file-format.github.io/</a></small></p>
             </div>
           </div>
@@ -178,13 +190,13 @@
           <div class="form-group row my-2">
             <label for="projectName" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.project.name">Nom du projet (si différent du nom du dépôt)</i18n></label>
             <div class="col-sm-9">
-              <i18n vanilla-i18n="form.input.projectname"><input type="text" name="projectName" class="form-control" id="projectName" placeholder="Nom du projet"></i18n>
+              <input type="text" name="projectName" class="form-control" id="projectName" placeholder="Nom du projet" vanilla-i18n-placeholder="form.input.projectname">
             </div>
           </div>
           <div class="form-group row my-2">
             <label for="projectWebsite" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.project.link">Lien vers le site du projet</i18n></label>
             <div class="col-sm-9">
-              <i18n vanilla-i18n="form.input.projectlink"><input type="text" name="projectWebsite" class="form-control" id="projectWebsite" placeholder="Lien vers le site du projet (s'il existe)"></i18n>
+              <input type="text" name="projectWebsite" class="form-control" id="projectWebsite" placeholder="Lien vers le site du projet (s'il existe)" vanilla-i18n-placeholder="form.input.projectlink">
             </div>
           </div>
           <div class="form-group row my-2">
@@ -238,11 +250,11 @@
           <div class="form-group row my-2">
             <label for="date-begin" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.year.start">Année de début des sources</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
-              <i18n vanilla-i18n="form.input.datebegin"><input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800" required="true"></i18n>
+              <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800" required="true" vanilla-i18n-placeholder="form.input.datebegin" />
             </div>
             <label for="date-end" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.year.end">Année de fin des sources</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
-              <i18n vanilla-i18n="form.input.dateend"><input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948" required="true"></i18n>
+              <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948" required="true" vanilla-i18n-placeholder="form.input.dateend" />
             </div>
           </div>
           <div class="row">
@@ -298,13 +310,13 @@
           <div class="form-group row my-2">
             <label for="transcriptionGuidelines" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.guidelines.label">Normes de transcription</i18n></label>
             <div class="col-sm-9">
-              <i18n vanilla-i18n="form.input.guidelines"><textarea name="transcriptionGuidelines" class="form-control" id="transcriptionGuidelines" placeholder="Normes de transcription"></textarea></i18n>
+              <textarea name="transcriptionGuidelines" class="form-control" id="transcriptionGuidelines" placeholder="Normes de transcription" vanilla-i18n-placeholder="form.input.guidelines"></textarea>
               <p><small class="text-muted"><i18n vanilla-i18n="form.field.guidelines.info">Normes de transcriptions utilisées (format libre). Peut concerner la résolution des abréviations, corrections de fautes d'orthographe, l'usage de caractères spéciaux, la normalisation, etc.</i18n></small></p>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <h2><i18n vanilla-i18n="form.title.detail">Informations détaillées sur les données</i18n></h2>
+              <h2 vanilla-i18n="form.title.detail">Informations détaillées sur les données</h2>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -312,7 +324,7 @@
             <div class="col-sm-9">
               <div class="metric-form">
                 <div class="input-group">
-                  <i18n vanilla-i18n="form.input.quantity"><input type="number" name="metric-count" class="form-control" placeholder="Exemple: 200" min="1"></i18n>
+                  <input vanilla-i18n-placeholder="form.input.quantity" type="number" name="metric-count" class="form-control" placeholder="Exemple: 200" min="1">
                   <select name="metric-metric" class="form-control ">
                     <option vanilla-i18n="form.field.qual.select.lines" value="lines">Lignes</option>
                     <option vanilla-i18n="form.field.qual.select.pages" value="pages">Pages</option>
@@ -359,7 +371,8 @@
     <div class="row mb-5 d-none" id="output-container">
       <div class="col-10 mx-auto">
         <hr />
-        <div class="my-3 p-4 "><i18n vanilla-i18n="form.btn.dl"><a id="download" href="#">Téléchargez</a> le fichier ci-dessous et copiez son contenu au bout de ce <a id="output-link" href="#">lien</a></i18n></div>
+        <div class="my-3 p-4 ">
+          <a id="download" href="#" vanilla-i18n="form.download.dl">Téléchargez</a> <span vanilla-i18n="form.download.text">le fichier ci-dessous et copiez son contenu au bout de ce</span> <a id="output-link" href="#" vanilla-i18n="form.download.push_link">lien</a></i18n></div>
         <pre id="output" class="my-3 p-4 rounded output-field"></pre>
       </div>
     </div>
