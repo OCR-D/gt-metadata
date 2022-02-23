@@ -172,13 +172,14 @@
 
         actions.jobs.HTR_United_Metadata_Generator.steps.push({
           "name": `Automatically update ${commitMessage.join(' & ')}`,
-            "if": `github.ref == 'refs/heads/${data.branchName}'`,
+          "if": `github.ref == 'refs/heads/${data.branchName}'`,
           "run": localRun.join("\n")
         }); 
       }
       if (data.gitRelease) {
         actions.jobs.HTR_United_Metadata_Generator.steps.push({
           "uses": "rymndhng/release-on-push-action@master",
+          "if": "${{ "+`github.ref == 'refs/heads/${data.branchName}'`+ " && github.event_name == 'push' }}",
           "with": {
             "bump_version_scheme": "patch",
             "use_github_release_notes": true
