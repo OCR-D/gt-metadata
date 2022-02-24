@@ -13,7 +13,7 @@ class vanilla_i18n {
     this._i18nDataAttr = opts.i18n_attr_name || DEFAULT_i18n_DATA_ATTR;
     this._localStorageKey = this._generateKeyFromHost();
     this._togglerID = opts.toggler_id || DEFAULT_LANG_TOGGLER_ID;
-    this._i18nDataAttr_4attr = opts.i18nDataAttr_4attr || ["vanilla-i18n-placeholder", "vanilla-i18n-value"];
+    this._i18nDataAttr_4attr = opts.i18nDataAttr_4attr || ["vanilla-i18n-placeholder", "vanilla-i18n-value", "vanilla-i18n-title"];
     if (!opts.default_language) {
       opts.default_language = this._languages[0];
     }

@@ -216,7 +216,8 @@ actions.dataUnixPath,Path to your XML data (UNIX format),Chemin des données (Fo
 actions.branchName,Main branch name,Nom de la branche principale
 actions.activateHTRUC,<b>Activate</b>,<b>Activer</b>
 actions.activateHUMG,<b>Activate</b>,<b>Activer</b>
-"actions.updateCatalogFile""",Update the catalog file,Mettre à jour le fichier catalogue
+actions.updateCatalogFile,Update the catalog file,Mettre à jour le fichier catalogue
+actions.formatGithubUrl,"Address without the github.com domain, only username/repository","Adresse sans la partie github.com, uniquement nomDutilisateur/dépôt"
 actions.generateBadge,Generate badges,Générer des badges
 actions.gitRelease,Automatically create a release,Produire des versions automatiquement
 actions.activateHTRVX,<b>Activate</b>,<b>Activer</b>

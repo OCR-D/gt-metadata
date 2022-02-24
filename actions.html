@@ -99,7 +99,7 @@
       <div class="col-sm-9">
         <div class="input-group">
           <span class="input-group-text" id="basic-addon3">https://github.com/</span>
-          <input type="text" name="githubURL" class="form-control" id="githubURL" placeholder="account/repository" required="true" aria-describedby="githubURLHelp">
+          <input type="text" name="githubURL" class="form-control" id="githubURL" placeholder="account/repository" required="true" aria-describedby="githubURLHelp" pattern="[^/]+/[^/]"  title="user/repository (No github.com/)" vanilla-i18n-title="actions.formatGithubUrl">
         </div>
         <div id="githubURLHelp" class="form-text"><p vanilla-i18n="actions.githubURLHelp" style="text-align: justify;" vanilla-i18n="actions.githubURLHelp">This should look like https://github.com/<code>htr-united/cremma-medieval</code> or https://github.com/<code>demo-user/demo-repository</code>.</p></div>
       </div>
