@@ -312,7 +312,7 @@
   </form>
   <section class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <h3 vanilla-i18n="actions.steps">Étapes de mise en place</h3>
         <p vanilla-i18n="actions.step1">(1) Récupérez le contenu, au choix:</p>
         <div class="btn-group btn-group-sm my-1">
@@ -324,10 +324,18 @@
           <li><a href="" id="goToGithub"><span class="fa fa-upload"></span> <span vanilla-i18n="actions.add">Ajouter la configuration sur</span> Github.</a></li>
           <li><a href="" id="editGithub"><span class="fa fa-edit"></span> <span vanilla-i18n="actions.edit">Éditer la configuration</span> Github.</a></li>
         </ul>
-
+        <div id="addBadgesSection" class="d-none">
+          <p><span vanilla-i18n="actions.addBadge" id="addBadge">(3) Ajoutez les badges au fichier README.MD</span></p>
+          
+          <pre class="output-field myt-1" style="overflow-y: hidden;" id="readmeBadges">![characters badge](badges/characters.svg) ![regions badge](badges/regions.svg) ![lines badge](badges/lines.svg) ![files badge](badges/files.svg) </pre>
+          <ol>
+            <li><a id="copyReadmeOutput" class="btn btn-sm btn-secondary"><span class="fa fa-copy"></span>  <span vanilla-i18n="actions.copy">Copiez</span></a></li>
+            <li><a href="" id="editReadmeGithub"><span class="fa fa-edit"></span> <span vanilla-i18n="actions.editReadme">Éditer le readme sur Github.</span></a></li>
+          </l>
+        </div>
       </div>
-      <div class="col-md-9">
-        <pre id="output" class="my-3 p-4 rounded output-field" style="overflow-y: hidden;"></pre>
+      <div class="col-md-8">
+        <pre id="output" class="my-3 p-4 rounded output-field" style="overflow-x: hidden; word-wrap: normal!important;"></pre>
       </div>
     </div>
   </section>

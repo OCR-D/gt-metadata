@@ -258,3 +258,5 @@ actions.copy,Copy,Copiez
 actions.step2,(2) Add this file in your repository in the folder ,(2) Ajoutez le à votre dépôt en l'ajoutant dans le dossier
 actions.add,Add the file on ,Ajouter la configuration sur
 actions.edit,Edit the file if it exists ,Éditer la configuration si elle existe déjà sur 
+actions.addBadge,(3) Add the following text to your README.md file if you want to show your badges,(3) Ajoutez le texte suivant à votre fichier README si vous voulez afficher les badges
+actions.editReadme,Edit the README.MD on Github,Éditez le Readme.md sur Github

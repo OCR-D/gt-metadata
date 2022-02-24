@@ -4,7 +4,10 @@
         link_downloadOutput = document.querySelector("#downloadOutput"),
         link_copyOutput = document.querySelector("#copyOutput"),
         link_goToGithub = document.querySelector("#goToGithub"),
-        link_editGithub = document.querySelector("#editGithub");
+        link_editGithub = document.querySelector("#editGithub"),
+        readmeBadges = document.querySelector("#readmeBadges"),
+        link_copyReadme = document.querySelector("#copyReadmeOutput"),
+        link_editReadme = document.querySelector("#editReadmeGithub");
 
 
   function selectText(node) {
@@ -41,14 +44,24 @@
     document.execCommand("copy");
   });
 
+  link_copyReadme.addEventListener("click", function(e) {
+    selectText(readmeBadges);
+    document.execCommand("copy");
+  });
+
   form.addEventListener("submit", function(e) {
     e.preventDefault();
     let data = Object.fromEntries(new FormData(form));
 
     link_goToGithub.href = `https://github.com/${data.githubURL}/new/${data.branchName}?filename=.github/workflows/htr-united-workflows.yml`;
     link_editGithub.href = `https://github.com/${data.githubURL}/edit/${data.branchName}/.github/workflows/htr-united-workflows.yml`;
+    link_editReadme.href = `https://github.com/${data.githubURL}`;
 
-
+    if (data.generateBadge && data.activateHUMG) {
+      document.querySelector("#addBadgesSection").classList.remove("d-none");
+    } else {
+      document.querySelector("#addBadgesSection").classList.add("d-none");
+    }
 
     let actions = {
       "name": "HTR United Workflow",
