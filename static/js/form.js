@@ -280,7 +280,7 @@
         ...updateOrIgnore(data.projectName, "project-name"),
         ...updateOrIgnore(data.projectWebsite, "project-website"),
         "language": languageSelect.value(),
-        "scripts": scriptSelect.value(),
+        "script": scriptSelect.value(),
         "script-type": data.scriptType,
         "time": {
           "notBefore": data["date-begin"],
