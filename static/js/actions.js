@@ -100,7 +100,8 @@
       };
     }
     if (data.activateHUMG) {
-      let dependencies = ["htr-united-metadata-generator"];
+      let dependencies = ["htr-united-metadata-generator"],
+          HUMGformat = (data.format == "Alto-XML") ? "alto" : "page";
       if (data.generateBadge || data.updateCatalogFile) {
         dependencies.push("htruc");
       }
@@ -130,7 +131,7 @@
           {
             "name": "Run Report",
             // No need to remote updated metrics or the envs.txt update
-            "run": `humGenerator --group ${data.dataUnixPath} --github-envs --to-json updated_metrics.json\ncat envs.txt >> $GITHUB_ENV\n`
+            "run": `humGenerator --parse ${HUMGformat} --group ${data.dataUnixPath} --github-envs --to-json updated_metrics.json\ncat envs.txt >> $GITHUB_ENV\n`
           }
         ]
       };
