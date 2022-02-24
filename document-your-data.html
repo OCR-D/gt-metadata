@@ -172,9 +172,10 @@
                 <!-- Ajouter d'autres options !-->
               </select>
             </div>
-            <label for="format" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.std">Format des données</i18n><span class="required">*</span></label>
+            <div class="col-sm-1"></div>
+            <label for="format" class="col-sm-2 col-form-label"><i18n vanilla-i18n="form.field.std">Format des données</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
-              <select name="format" id="format" class="form-control">
+              <select name="format" id="format" class="form-control" required>
                 <option value="Alto-XML">ALTO XML</option>
                 <option value="Page-XML">PAGE XML</option>
                 <!-- Ajouter d'autres options !-->
@@ -252,7 +253,8 @@
             <div class="col-sm-3">
               <input type="number" name="date-begin" class="form-control" id="date-begin" placeholder="Exemple: 1800" required="true" vanilla-i18n-placeholder="form.input.datebegin" />
             </div>
-            <label for="date-end" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.year.end">Année de fin des sources</i18n><span class="required">*</span></label>
+            <div class="col-sm-1"></div>
+            <label for="date-end" class="col-sm-2 col-form-label"><i18n vanilla-i18n="form.field.year.end">Année de fin des sources</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <input type="number" name="date-end" class="form-control" id="date-end" placeholder="Exemple: 1948" required="true" vanilla-i18n-placeholder="form.input.dateend" />
             </div>
@@ -288,7 +290,7 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.hands.label">Nombre de mains (ou de fontes)</i18n><span class="required">*</span></label>
+            <label for="hands" class="col-sm-3 col-form-label mt-2"><i18n vanilla-i18n="form.field.hands.label">Nombre de mains (ou de fontes)</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="hands" id="hands" class="form-control my-2" required="true">
                 <option value="1" selected="">1</option>
@@ -299,7 +301,8 @@
                 <option value="unknown" vanilla-i18n="form.field.hands.select.unknown">Inconnu</option>
               </select>
             </div>
-            <label for="precision" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.prec.label">Précision</i18n><span class="required">*</span></label>
+            <div class="col-sm-1"></div>
+            <label for="precision" class="col-sm-2 col-form-label mt-2"><i18n vanilla-i18n="form.field.prec.label">Précision</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="precision" id="precision" class="form-control my-2">
                 <option value="exact" selected="" vanilla-i18n="form.field.prec.select.exact">Valeur exacte</option>
