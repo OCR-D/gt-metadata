@@ -1,13 +1,10 @@
 vanilla-i18n-key,English,Français
 nav.home,Home,Accueil
-nav.use,Use the Data,Utiliser les données
-nav.provide,Provide Data,Proposer des données
-nav.scenario,Scenario,Scénarios
-nav.form,Form,Formulaire
-nav.catalog,Catalog,Catalogue
+nav.form,Record New Data,Enregistrer des données
+nav.catalog,Browse the Catalog,Explorer le catalogue
 nav.charter,Data reuse charter,Charte de réutilisation des données
 nav.team,The Team,L'Équipe
-nav.tools,Tools,Outils
+nav.tools,Tools,Les Outils
 nav.actions,Github Automation,Automatisation Github
 footer.team,Who are the people behind HTR-United?,Qui est derrière HTR-United ?
 team.title,Editors,Éditrices-eurs
