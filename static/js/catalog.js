@@ -8,6 +8,7 @@ const catalogDiv = document.querySelector("#card-receiver"),
   showCitations = document.querySelector("#showCitations"),
   projectSelect = document.querySelector("#projectSelect"),
   languageSelect = document.querySelector("#dataLanguage"),
+  scriptSelect = document.querySelector("#dataScript"),
   table = document.querySelector("#table"),
   tableChars = document.querySelector("#table [data-unit=\"characters\"]"),
   tableLines = document.querySelector("#table [data-unit=\"lines\"]"),
@@ -260,6 +261,13 @@ function updateLanguageSelect(entry_langs, knownLangs) {
     }
   }); 
 };
+function updateScriptSelect(entryScript, knownScripts) {
+  entryScript.forEach((script) => {
+    if (!(knownScripts.includes(script))) {
+      knownScripts.push(script);
+    }
+  }); 
+};
 
 
 async function showCatalog() {
@@ -268,6 +276,7 @@ async function showCatalog() {
   let minDate = +5000,
     maxDate = -5000,
     knownLangs = [],
+    knownScripts = [],
     volumes = {
       "characters": 0,
       "lines": 0
@@ -289,6 +298,7 @@ async function showCatalog() {
     }
 
     updateLanguageSelect(CATALOG[key].language, knownLangs);
+    updateScriptSelect(CATALOG[key].script, knownScripts);
     let div = template(CATALOG[key], key);
     try {
       CATALOG[key].time.notBeforeInt = parseInt(CATALOG[key].time.notBefore.split("-")[0]);
@@ -309,6 +319,9 @@ async function showCatalog() {
   // Add value to langs 
   knownLangs.sort().forEach((lang) => {
     languageSelect.append(createElementFromHTML(`<option value="${lang}">${lang}</option>`));
+  });
+  knownScripts.sort().forEach((lang) => {
+    scriptSelect.append(createElementFromHTML(`<option value="${lang}">${lang}</option>`));
   });
   catalogDiv.querySelectorAll(".citation").forEach((divEl) => {
     divEl.querySelector(".citation-copy").addEventListener("click", function(e) {
@@ -343,6 +356,10 @@ async function showCatalog() {
     if (language == "-1") { return true; }
     return projectLangs.includes(language);
   }
+  function scriptFilterFn(projectScripts, script) {
+    if (script == "-1") { return true; }
+    return projectScripts.includes(script);
+  }
   function updateVolume(entry) {
     (entry.volume || []).forEach((vol) => {
       if(vol.metric in volumes) {
@@ -370,7 +387,8 @@ async function showCatalog() {
       localMax = parseInt(notAfterSelector.value),
       localScriptTypeFilter = scriptTypeFilter.value,
       localProjectSelect = projectSelect.value,
-      localLanguageSelect = languageSelect.value;
+      localLanguageSelect = languageSelect.value,
+      localScriptSelect = scriptSelect.value;
     resetVolumes(volumes);
 
     document.querySelectorAll(".catalog-card").forEach((div) => {
@@ -386,7 +404,9 @@ async function showCatalog() {
         // Filter for project
         (projectFilterFn(CATALOG[key], localProjectSelect)) &&
         // Filter for project
-        (languageFilterFn(CATALOG[key].language, localLanguageSelect))
+        (languageFilterFn(CATALOG[key].language, localLanguageSelect)) &&
+        // Filter for project
+        (languageFilterFn(CATALOG[key].script, localScriptSelect))
       ) {
         let ldiv = document.querySelector(`.catalog-card[data-key="${key}"]`)
       	ldiv.style.display = "block";
@@ -406,6 +426,7 @@ async function showCatalog() {
   scriptTypeFilter.addEventListener('change', applyFilters);
   projectSelect.addEventListener('change', applyFilters);
   languageSelect.addEventListener('change', applyFilters);
+  scriptSelect.addEventListener('change', applyFilters);
   toggleGuidelines();
   toggleCitations();
   i18n_item.run();
