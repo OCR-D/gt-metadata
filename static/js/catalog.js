@@ -337,8 +337,15 @@ async function showCatalog() {
   }
 
   function scriptTypeFilterFn(entry, filterValue) {
+    const values = {
+      "50-print": ["only-typed","mainly-typed", "evenly-mixed"], //, "evenly-mixed"],
+      "50-mss": ["only-manuscript", "mainly-manuscript", "evenly-mixed"]
+    }
     if (filterValue == "all") {
       return true;
+    }
+    if (filterValue === "50-print" || filterValue === "50-mss") {
+      return values[filterValue].includes(entry["script-type"]);
     }
     return (entry['script-type'] == filterValue);
   }
