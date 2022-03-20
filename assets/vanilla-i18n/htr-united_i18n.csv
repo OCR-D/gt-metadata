@@ -187,6 +187,8 @@ catalog.all,All projects,Tous les projets
 catalog.script,Script,Système d'écriture
 catalog.allLanguage,All languages,Toutes les langues
 catalog.language,Language,Langue
+catalog.includeManuscript,At least half is manuscript,Au moins la moitié de manuscrit
+catalog.includePrint,At least half is printed,Au moins la moitié d'imprimé
 cat.showGuidelines,Show Transcription Guidelines,Afficher les normes de transcription
 cat.showCitations,Show Citation Informations,Afficher les informations de citation
 cat.descCount,Statistics about the results,Description statistique des résultats
