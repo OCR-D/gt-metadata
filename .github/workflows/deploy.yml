@@ -29,6 +29,4 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add ./assets/vanilla-i18n/*.json
         git commit -m "[Automatic] Update language files" || echo "Nothing to update"
-        git add data-reuse-charter.html
-        git commit -m "[Automatic] Update the charter" || echo "Nothing to update"
         git push
