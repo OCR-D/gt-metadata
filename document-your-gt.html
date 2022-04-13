@@ -3,20 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="HTR-United - Document your dataset">
+    <meta name="description" content="The metadata form for ground truth data is designed to help you create accurate metadata">
     <meta name="author" content="Alix Chagué">
     <meta name="author" content="Thibault Clérice">
-    <title>Documentez vos données pour HTR-United</title>
+    <meta name="author" content="Matthias Boenig">
+    <title>Metadata Form for Ground Truth Data</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/heroes/">
 
     <!-- Bootstrap core CSS -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/catalog.css" rel="stylesheet">
-    <!--<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">-->
+    
 
     <!-- Favicons -->
-    <link rel="icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="https://avatars0.githubusercontent.com/u/26362587?s=200&amp;v=4">
     
     <!-- Icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -30,40 +31,22 @@
 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom  py-3 mb-4 px-5 shadow-lg">
-      <a class="navbar-brand" href="index.html#top">HTR-United</a>
-      <a class="navbar-brand" href="https://github.com/HTR-United"><i class="fab fa-github"></i></a>
+      <a class="navbar-brand" href="https://ocr-d.de"><img src="https://avatars.githubusercontent.com/u/26362587?s=200&amp;v=4" alt="OCR-D" width="50"/> 
+        <i class="fab"><i18n vanilla-i18n="form.ocrd">OCR-D Initiative de soutien coordonnée pour le développement de procédés de reconnaissance optique de caractères</i18n></i></a>
+      
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_htr-united" aria-controls="navbar_htr-united" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span><!--<i class="far fa-minus-square"></i>-->
+        <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbar_htr-united">
         <ul class="navbar-nav my-2 my-md-0 mr-md-3 col-sm-10">
-          <li class="nav-item">
-            <span class="mx-4"></span>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-nav me-2" href="index.html"><i class="fas fa-home"></i> <i18n vanilla-i18n="nav.home">Accueil</i18n></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-nav me-2" href="catalog.html"><i class="fas fa-search"></i> <i18n vanilla-i18n="nav.catalog">Explorer le catalogue</i18n></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-nav me-2" href="document-your-data.html"><i class="fas fa-edit"></i> <i18n vanilla-i18n="nav.form">Enregistrer des données</i18n></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-nav me-2" href="tools.html"><i class="fas fa-hammer"></i> <i18n vanilla-i18n="nav.tools">Les Outils</i18n></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-nav me-2" href="actions.html"><i class="fas fa-cogs"></i> <i18n vanilla-i18n="nav.actions">Automatisation Github</i18n></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-nav me-2" href="team.html"><i class="fas fa-child"></i> <i18n vanilla-i18n="nav.team">L'Équipe</i18n></a>
-          </li>
+          
         </ul>
-        <div class="col-sm-2 text-end">
+        <div class="col-sm-2 text-end" >
           <select id="vanilla-i18n-toggler">
             <option>Français</option>
             <option>English</option>
+            <option>Deutsch</option>
           </select>
         </div>
       </div>
@@ -72,59 +55,36 @@
 <!-- Main -->
   <main>
   <div class="px-4 pt-5 pb-2 mt-5 text-center" id="main">
-    <img src="assets/images/logo_htr-united.png" class="u-logo-image u-logo-image-1 mt-5" data-image-width="40" height="86">
-    <h1 class="display-5 fw-bold my-4">HTR-United</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4"><i18n vanilla-i18n="form.desc.main">HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp;<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.</i18n><br></p>
-      </div>
+    
   </div>
 
-  <div class="px-4 pb-5 pt-2 mb-5" id="steps">
-    <h2 class="display-5 mb-4 text-center"><i18n vanilla-i18n="form.steps.title">Étapes</i18n></h2>
+    <div class="px-4 pb-5 pt-2 mb-5" id="steps">
+      
+      <h2 class="display-5 mb-4 text-center"><i18n vanilla-i18n="form.steps.title">à faire</i18n></h2>
     <div class="col-lg-4 mx-auto">
       <div class="list-group list-group-flush">
         <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep1" aria-expanded="false" aria-controls="collapseStep1"><i18n vanilla-i18n="form.step1.title">Remplir le formulaire</i18n> <i class="fas fa-angle-down"></i></button>
         <div class="collapse" id="collapseStep1">
-          <div class="card card-body bg-light"><i18n vanilla-i18n="form.step1.desc">Suivre les examples. Si nécessaire, modifier manuellement l'output : ce formulaire aide seulement à structurer la description et à s'assurer que toutes les rubriques sont documentées.</i18n>
+          <div class="card card-body bg-light">
+            <i18n vanilla-i18n="form.step1.desc">Suivre les examples. Si nécessaire, modifier manuellement l'output : ce formulaire aide à structurer la description et à s'assurer que toutes les rubriques sont documentées.</i18n>
           </div>
         </div>
         <!-- step 2 -->
-        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep2" aria-expanded="false" aria-controls="collapseStep2"><i18n vanilla-i18n="form.step2.title">Cliquer sur "Obtenir les métadonnées formatées"</i18n> <i class="fas fa-angle-down"></i></button>
+        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep2" aria-expanded="false" aria-controls="collapseStep2"><i18n vanilla-i18n="form.step2.title">Cliquer sur "Créer et obtenir les métadonnées formatées"</i18n> <i class="fas fa-angle-down"></i></button>
         <div class="collapse" id="collapseStep2">
-          <div class="card card-body bg-light"><i18n vanilla-i18n="form.step2.desc">Et copier le résultat !</i18n>
+          <div class="card card-body bg-light"><i18n vanilla-i18n="form.step2.desc">Téléchargez le fichier ci-dessous ou copiez son contenu dans le presse-papiers et cliquez sur ce lien. Un fichier METADATA.yml sera créé dans votre référentiel. Vous pouvez maintenant insérer les métadonnées générées.</i18n>
           </div>
         </div>
-        <!-- step 3 -->
-        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep3" aria-expanded="false" aria-controls="collapseStep3"><i18n vanilla-i18n="form.step3.title">1jouter le résultat au catalogue d'HTR-United</i18n> <i class="fas fa-angle-down"></i></button>
-        <div class="collapse" id="collapseStep3">
-          <i18n vanilla-i18n="form.step3.desc"><div class="card card-body bg-light">Il est possible de faire cela de plusieurs manières, en fonction de la maîtrise de Github : 
-            <ul>
-              <li>Forker le <a href="https://github.com/HTR-United/htr-united" target="_blank" class="text-decoration-none">projet htr-united</a>, modifier htr-united.yml et créer une Pull Request.</li>
-              <li>Or <a href="https://github.com/HTR-United/htr-united/issues/new" target="_blank" class="text-decoration-none">créer un ticket</a> au sein du projet htr-united pour que quelqu'un d'autre modifie htr-united.yml.</li>
-              <!--<li>Or send us a message using our contact form.</li>-->
-          </ul>
-          </div></i18n>
-        </div>
+        
       </div>
     </div>
   </div>
-  <div class="px-4 pb-5 pt-2 mb-5">
-    <div class="justify-content-center col-md-8 text-center mx-auto">
-      <div class="h5">Demo</div>
-      <div class=" mb-2">
-        <a href="#" class="btn btn-sm btn-primary" id="startButton"><span class="fa fa-play"></span> <span vanilla-i18n="form.play">Play or restart</span> (GIF)</a>
-        <a href="https://youtu.be/MiBLhj4cw_c" class="btn btn-sm btn-secondary"><span class="fab fa-youtube"></span> Youtube</a>
-      </div>
-      <div>
-        <img class="img-fluid" id="imageContainer"/>
-      </div>
-    </div>
-  </div>
+  
 
 <!-- Use data -->
   <div class="container col-xxl-8 px-4 py-4" id="use-data">
     <div class="row">
-      <div class="col-12 text-muted"><p>Les champs dont le nom est suivi d'un <span class="required">*</span> sont obligatoires.</p></div>
+      <div class="col-12 text-muted"><p><i18n vanilla-i18n="form.form.head">Les champs dont le nom est suivi d'un <span class="required">*</span> sont obligatoires.</i18n></p></div>
     </div>
     <div class="row">
       <div class="col-12">
@@ -149,7 +109,7 @@
           <div class="form-group row my-2">
             <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.ds_desc">Courte description</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
-              <textarea name="desc" class="form-control" id="desc" placeholder="Description" required="true"></textarea>
+              <textarea name="desc" class="form-control" id="desc" placeholder="Description" required="true" vanilla-i18n-placeholder="form.input.desc"></textarea>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -163,6 +123,7 @@
             <label for="license" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.license">Licence</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select class="form-control" name="license" id="license">
+                <option value="CC0 1.0">CC0 1.0</option>
                 <option value="CC-BY 4.0">CC-BY 4.0</option>
                 <option value="CC-BY-SA 4.0">CC-BY-SA 4.0</option>
                 <option value="Etalab OL 2.0">Etalab OL 2.0</option>
@@ -171,22 +132,38 @@
               </select>
             </div>
             <div class="col-sm-1"></div>
-            <label for="format" class="col-sm-2 col-form-label"><i18n vanilla-i18n="form.field.std">Format des données</i18n><span class="required">*</span></label>
+            <label for="gformat" class="col-sm-2 col-form-label"><i18n vanilla-i18n="form.field.gt">Type de vérités de terrain</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
-              <select name="format" id="format" class="form-control" required>
+              <select name="gformat" id="gformat" class="form-control" required>
                 <option value="" default>---</option>
-                <option value="Alto-XML">ALTO XML</option>
-                <option value="Page-XML">PAGE XML</option>
+                <option value="data_document" vanilla-i18n="form.field.gtdocument">Document GT</option>
+                <option value="data_structure" vanilla-i18n="form.field.gtstructure">Structure GT</option>
+                <option value="data_structure_and_text" vanilla-i18n="form.field.gtstructuretext">Structure et Texte GT</option>
+                <option value="data_line" vanilla-i18n="form.field.gtline">Lignes GT</option>
                 <!-- Ajouter d'autres options !-->
               </select>
             </div>
           </div>
           <p><small class="text-muted"><i18n vanilla-i18n="form.field.std_info">Les licenses sont ici proposées à titre indicatif.</i18n></small></p>
-          <div class="row">
+          
+          <div class="form-group row my-2">
+          <label for="format" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.std">Format des donn\u00e9es</i18n><span class="required">*</span></label>
+          <div class="col-sm-3">
+            <select name="format" id="format" class="form-control" required>
+              <option value="" default>---</option>
+              <option value="Alto-XML">ALTO XML</option>
+              <option value="Page-XML">PAGE XML</option>
+              <!-- Ajouter d'autres options !-->
+            </select>
+          </div>
+      </div>
+      <div class="row">
             <div class="col">
               <h2><i18n vanilla-i18n="form.title.project">Informations générales sur le projet</i18n></h2>
             </div>
-          </div>
+      </div>
+       
+          
           <div class="form-group row my-2">
             <label for="projectName" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.project.name">Nom du projet (si différent du nom du dépôt)</i18n></label>
             <div class="col-sm-9">
@@ -265,8 +242,7 @@
             <label for="language" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.fields.languages.label">Langue</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="language"></span>
-              <small class="form-text text-muted"><i18n vanilla-i18n="form.fields.languages.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n>
-              /</small>
+              <small class="form-text text-muted"><i18n vanilla-i18n="form.fields.languages.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n></small>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -280,6 +256,7 @@
             <label for="scriptType" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.script.type.label">Type d'écriture</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <select name="scriptType" id="format" class="form-control">
+                <option value="only-manuscript" vanilla-i18n="form.field.script.type.select.print">Imprimé (par exemple livres)</option>
                 <option value="only-manuscript" vanilla-i18n="form.field.script.type.select.only-manuscript">Manuscrit uniquement</option>
                 <option value="only-typed" vanilla-i18n="form.field.script.type.select.only-typed">Imprimé/dactylographié uniquement</option>
                 <option value="mainly-manuscript" vanilla-i18n="form.field.script.type.select.mainly-manuscript">Principalement manuscrit</option>
@@ -310,7 +287,7 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="transcriptionGuidelines" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.guidelines.label">Normes de transcription</i18n></label>
+            <label for="transcriptionGuidelines" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.guidelines.label">Normes de transcription</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <textarea name="transcriptionGuidelines" class="form-control" id="transcriptionGuidelines" placeholder="Normes de transcription" vanilla-i18n-placeholder="form.input.guidelines"></textarea>
               <p><small class="text-muted"><i18n vanilla-i18n="form.field.guidelines.info">Normes de transcriptions utilisées (format libre). Peut concerner la résolution des abréviations, corrections de fautes d'orthographe, l'usage de caractères spéciaux, la normalisation, etc.</i18n></small></p>
@@ -361,9 +338,34 @@
           </div>
           <div class="row">
             <div class="col">
-              <h2><i18n vanilla-i18n="form.title.generate">Générer le fichier <code>htr-united.yml</code></i18n></h2>
+              <h2 vanilla-i18n="form.title.ocrdetail">Informations détaillées sur le modèle OCR</h2>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="ocrmodel" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.ocrmodel">Nom du modèle OCR (titre)</i18n></label>
+            <div class="col-sm-9">
+              <input vanilla-i18n-placeholder="form.input.ocrmodel" type="text" name="ocrmodel" class="form-control" id="ocrmodel" placeholder="Nom du modèle OCR">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="ocrmodellink" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.ocrmodellink">Lien vers le modèle OCR</i18n></label>
+            <div class="col-sm-9">
+              <input vanilla-i18n-placeholder="form.input.ocrmodellink" type="text" name="ocrmodellink" class="form-control" id="ocrmodellink" placeholder="Lien vers le modèle OCR">
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <label for="ocrdesc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.ds_desc">Courte description</i18n></label>
+            <div class="col-sm-9">
+              <textarea name="ocrdesc" class="form-control" id="ocrdesc" placeholder="Description" vanilla-i18n-placeholder="form.input.desc"></textarea>
+            </div>
+          </div>
+           
+
+          <div class="row">
+            <div class="col">
+              <h2><i18n vanilla-i18n="form.title.generate">Générer le fichier <code>METADATA.yml</code></i18n></h2>
               <p class="text-center">
-                <button class="btn btn-info btn-lg mt-4 py-3" type="submit"><i18n vanilla-i18n="form.btn.get">Obtenir les métadonnées formatées</i18n></button>
+                <button class="btn btn-info btn-lg mt-4 py-3" type="submit"><i18n vanilla-i18n="form.btn.get">Créer et obtenir les métadonnées formatées</i18n></button>
               </p>
             </div>
           </div>
@@ -374,28 +376,21 @@
       <div class="col-10 mx-auto">
         <hr />
         <div class="my-3 p-4 ">
-          <a id="download" href="#" vanilla-i18n="form.download.dl">Téléchargez</a> <span vanilla-i18n="form.download.text">le fichier ci-dessous et copiez son contenu au bout de ce</span> <a id="output-link" href="#" vanilla-i18n="form.download.push_link">lien</a></i18n></div>
-        <pre id="output" class="my-3 p-4 rounded output-field"></pre>
+          <a id="download" href="#" vanilla-i18n="form.download.dl" class="btn btn-repo">Téléchargez</a> 
+          <span vanilla-i18n="form.download.text">le fichier ci-dessous ou</span> 
+          <a href="#" onclick="CopyToClipboard('output');return false;" vanilla-i18n="form.download.push_copy" class="btn btn-repo">copiez son contenu</a> 
+          <span vanilla-i18n="form.download.text2">dans le presse-papiers et cliquez sur ce</span> <a id="output-link" href="#" vanilla-i18n="form.download.push_link" class="btn btn-repo">lien</a>. 
+          <span vanilla-i18n="form.download.text3">Un fichier METADATA.yml sera créé dans votre référentiel. Vous pouvez maintenant insérer les métadonnées générées.</span>
+          
+          <pre id="output" class="my-3 p-4 rounded output-field"></pre>       
+        
       </div>
     </div>
   </div>
   </section>
 
   <!-- Footer -->
-  <div class="bg-dark text-secondary px-4 py-2 text-center">
-    <div class="py-3">
-      <div class="col-lg-6 mx-auto">
-        <p class="fs-5 mb-4"><a class="nav-link text-muted" href="data-reuse-charter.html"><i18n vanilla-i18n="nav.charter">Charte de réutilisation des données</i18n> - <i class="fas fa-external-link-alt"></i></a></p>
-      </div>
-      <div class="col-lg-6 mx-auto mb-5">
-        <p class="fs-5"><a class="btn btn-sm btn-outline-light" href="team.html" target="_blank"><i18n vanilla-i18n="footer.team">Qui est derrière HTR-United ?</i18n></a></p>
-      </div>
-      <div class="col-lg-6 mx-auto">
-        <p class="fs-5 mb-3">HTR-United | 2022</p>
-      </div>
-    </div>
-  </div>
-
+  
   </main>
 
 
@@ -403,13 +398,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
-    <!--<script src="static/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
-
-    <!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>-->
+    
 
 
     <script type="text/javascript" src="static/js/yaml.min.js"></script>
@@ -417,6 +409,8 @@
     <script type="text/javascript" src="static/js/typeahead.js"></script>
     <script type="text/javascript" src="static/js/form_consts.js"></script>
     <script type="text/javascript" src="static/js/form.js"></script>
+    <script type="text/javascript" src="static/js/clipboard.js"></script>
+                                                  
     <!-- i18n -->
     <script type="text/javascript" src="static/js/i18n-advanced.js"></script>
     <script type="text/javascript" src="static/js/i18n.js"></script>

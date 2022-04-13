@@ -24,7 +24,7 @@ def augment_dict(keys: List[str], dictionary: Dict[str, Union[Dict, str]]) -> Di
 
 
 # Read input
-with open("htr-united_i18n.csv") as f:
+with open("gtmetadata.csv") as f:
 	reader = csv.reader(f)
 	for lineno, line in enumerate(reader):
 		# First line gives the languages, we register it in the Output DICT

@@ -6,6 +6,11 @@ header {
     background-color: #fff;
 }
 
+.fab {
+    font-family: "Font Awesome 5 Brands", apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+}
+
+
 /**
  * 
  * Accueil
@@ -30,10 +35,23 @@ header {
  *  
  **/
 .btn-info {
-    background-color: #dce8ae !important;
+    background-color: #c6e649 !important;
     color: #383c2c !important;
     border: #89926a !important;
 }
+
+.btn-repo {
+    background-color: #c8ab37 !important;
+    color: #383c2c !important;
+    border: #89926a !important;
+} {
+    background-color: #c6e649 !important;
+    color: #383c2c !important;
+    border: #89926a !important;
+}
+
+
+
 
 .btn-info:hover {
     background-color: #cedf8e !important;

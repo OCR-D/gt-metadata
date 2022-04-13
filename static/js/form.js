@@ -8,20 +8,19 @@
         authorContainer = authorOriginal.parent,
         imgTag = document.querySelector("#imageContainer");
 
-    const gif = new Image();
-    gif.src = "./static/img/catalog.gif";
+    
 
-    document.querySelector("#startButton").addEventListener("click", function(e) {
-      e.preventDefault();
-      imgTag.src = "";
-      imgTag.src = gif.src;
-    });
+    
     const LICENSES = {
+      "CC0 1.0": 'https://creativecommons.org/licenses/zero/1.0/',
       "CC-BY 4.0": 'https://creativecommons.org/licenses/by/4.0/',
       "CC-BY-SA 4.0": 'https://creativecommons.org/licenses/by-sa/4.0/',
       "Etalab OL 2.0": 'https://spdx.org/licenses/etalab-2.0.html',
       "ODbL 1.0": 'https://opendatacommons.org/licenses/odbl/1-0/'
     };
+
+    
+
 
     let idForAuthors = 0;
 
@@ -59,10 +58,8 @@
       add_button.addEventListener("click", addAuthor);
       remove_button.addEventListener("click", function(ev) { new_elem.remove(); });
     };
-
-
+    
     document.querySelector(".add-author").addEventListener("click", addAuthor);
-
     const metricOriginal = document.querySelector(".metric-form");
 
     const addMetric = function(event) {
@@ -177,8 +174,8 @@
       }
 
       return out;
-    };    
-
+    };
+    
     const getMetrics = function () {
       let text = {"volume": []},
           metrics = document.querySelectorAll(".metric-form");
@@ -243,7 +240,7 @@
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
     });
-
+    
     let downloadBind = false;
 
     const escape_yaml = function(str) {
@@ -257,7 +254,9 @@
       }
       return out;
     };
-
+    
+    
+    
     const get_or_none_charriot = function(field, yaml) {
       if (field !== undefined && field.trim() != ""){
         return `${yaml}: >\n    ${field.split('\n').join('\n    ')}'`
@@ -272,7 +271,7 @@
       let scripts = scriptSelect.value().join("\n  - ");
 
       let obj = {
-        "schema": "https://htr-united.github.io/schema/2021-10-15/schema.json",
+        "schema": `${(data.repoLink)}schema/2022-03-15/schema.json`,
         "title": normalize(data.repoName),
         "url": data.repoLink,
         ...getAuthors(),
@@ -293,16 +292,25 @@
         "license": [
           {"name": data.license, "url": LICENSES[data.license]}
         ],
+        
+        "gtTyp": data.gformat,
+        
         "format": data.format,
         ...getSources(),
         ...getMetrics(),
         ...updateOrIgnore(data.cff, 'citation-file-link'),
         ...updateOrIgnore(data.transcriptionGuidelines, 'transcription-guidelines'),
+                  
+        ...updateOrIgnore(data.ocrmodel, "modeltitle"),
+        ...updateOrIgnore(data.ocrdesc, "modeldescription"),
+        ...updateOrIgnore(data.ocrmodellink, "modelurl"),
+       
       };
 
       output.innerText = jsyaml.dump(obj, {"noRef": true});
       outputContainer.classList.remove("d-none");
-      link.href = `https://github.com/HTR-United/htr-united/new/master?filename=catalog/${slugify(data.projectName || data.repoName)}/${slugify(data.repoName)}.yml`;
+      link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml`;
+      
 
 
       if (downloadBind === false) {
@@ -310,7 +318,7 @@
           e.preventDefault();
           let element = document.createElement('a');
           element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(document.querySelector("#output").innerText));
-          element.setAttribute('download', "htr-united.yml");
+          element.setAttribute('download', "METADATA.yml");
 
           element.style.display = 'none';
           document.body.appendChild(element);

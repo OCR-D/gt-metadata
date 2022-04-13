@@ -22,9 +22,7 @@ jobs:
     - name: Compile language files
       run: |
         cd ./assets/vanilla-i18n/ && python3 compile.py
-    - name: Update charter 
-      run: |
-        python scripts/getDataReuseCharter.py
+    
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
