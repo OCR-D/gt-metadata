@@ -88,6 +88,8 @@ form.input.ocrmodel,"OCR model name","Nom du modèle OCR","OCR-Modellname"
 form.field.ocrmodel,"OCR model name (title)","Nom du modèle OCR (titre)","OCR-Modellname (Titel)"
 form.field.ocrmodellink,"Link to the OCR model","Lien vers le modèle OCR","Link zum OCR-Modell"
 form.input.ocrmodellink,"Link to the OCR model","Lien vers le modèle OCR","Link zum OCR-Modell"
+form.field.ocrmodelengine,"Training environment","Environnement d'entraînement","Trainingsumgebung"
+form.input.ocrmodelengine,"Training environment","Environnement d'entraînement","Trainingsumgebung"
 form.title.ocrdetail,Detailed information about the OCR model,Informations détaillées sur le modèle OCR,Detaillierte Informationen zum OCR-Modell
 form.input.desc,Description,Description,Beschreibung
 footer.team,Who are the people behind HTR-United?,Qui est derrière HTR-United ?,Wer sind die Menschen hinter HTR-United?
