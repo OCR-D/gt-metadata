@@ -24,7 +24,7 @@ form.input.datebegin,Example: 1800,Exemple: 1800,Beispiel: 1800
 form.input.cff,Link to a CITATION.cff file,Lien vers un fichier CITATION.cff,Link zur CITATION.cff-Datei
 form.input.apa,APA Reference for a source,Référence en mode APA,APA-Referenz für eine Quelle
 form.form.head,"Fields followed by a <span class=""required"">*</span> are the only ones required.","Les champs dont le nom est suivi d'un <span class=""required"">*</span> sont obligatoires.","Bereiche, die mit einem <span class=""required"">*</span> gekennzeichnet sind, sind erforderlich."
-form.fields.scripts.label,Script,Système d'écriture,Schrift
+form.fields.scripts.label,Font/Writing system,Police de caractères/Système d'écriture,Schriftart/Schreibschrift
 form.fields.scripts.helper,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.","Um die Dateneingabe zu erleichtern, sind die Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um die Markierung aufzuheben, die Sie nicht wünschen."
 form.fields.languages.label,Language(s),Langue(s),Sprache(n)
 form.fields.languages.helper,"To ease data entry, default values are already selected. Just click on it to deselect the one you don't want.","Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.","Um die Dateneingabe zu erleichtern, sind die Standardwerte bereits ausgewählt. Klicken Sie einfach darauf, um die Auswahl der nicht gewünschten Sprache aufzuheben."
