@@ -266,23 +266,24 @@
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="hands" class="col-sm-3 col-form-label mt-2"><i18n vanilla-i18n="form.field.hands.label">Nombre de mains (ou de fontes)</i18n><span class="required">*</span></label>
+            <label for="hands" class="col-sm-3 col-form-label mt-2"><i18n vanilla-i18n="form.field.hands.label">Nombre de mains (ou de fontes)</i18n></label>
             <div class="col-sm-3">
               <select name="hands" id="hands" class="form-control my-2" required="true">
                 <option value="1" selected="">1</option>
-                <option value="1-per-file" vanilla-i18n="form.field.hands.select.1perfile">1 par fichier</option>
-                <option value="1-per-folder"  vanilla-i18n="form.field.hands.select.1perfolder">1 par dossier</option>
-                <option value="less-than-11" vanilla-i18n="form.field.hands.select.less10">Inférieur ou égal à 10 (peu)</option>
-                <option value="more-than-10" vanilla-i18n="form.field.hands.select.more10">Supérieur à 10 (beaucoup)</option>
+                <option value="2" selected="">2</option>
+                <option value="3" selected="">3</option>
+                <option value="more-than-3" vanilla-i18n="form.field.hands.select.more3">Supérieur à 3 (beaucoup)</option>
                 <option value="unknown" vanilla-i18n="form.field.hands.select.unknown">Inconnu</option>
               </select>
             </div>
             <div class="col-sm-1"></div>
-            <label for="precision" class="col-sm-2 col-form-label mt-2"><i18n vanilla-i18n="form.field.prec.label">Précision</i18n><span class="required">*</span></label>
+            <label for="precision" class="col-sm-2 col-form-label mt-2"><i18n vanilla-i18n="form.field.prec.label">Niveau de transcription/i18n></label>
             <div class="col-sm-3">
               <select name="precision" id="precision" class="form-control my-2">
-                <option value="exact" selected="" vanilla-i18n="form.field.prec.select.exact">Valeur exacte</option>
-                <option value="estimated" vanilla-i18n="form.field.prec.select.estimated">Estimation</option>
+                <option value="level1" selected="" vanilla-i18n="form.field.prec.select.level1">Niveau 1</option>
+                <option value="level2" selected="" vanilla-i18n="form.field.prec.select.level2">Niveau 2</option>
+                <option value="level3" selected="" vanilla-i18n="form.field.prec.select.level3">Niveau 3</option>
+                <option value="levelmix" selected="" vanilla-i18n="form.field.prec.select.levelmix">Niveau Mélange</option>
               </select>
             </div>
           </div>
@@ -359,6 +360,13 @@
               <textarea name="ocrdesc" class="form-control" id="ocrdesc" placeholder="Description" vanilla-i18n-placeholder="form.input.desc"></textarea>
             </div>
           </div>
+          <div class="form-group row my-2">
+            <label for="ocrmodelengine" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.ocrengine">Environnement d'entraînement</i18n></label>
+            <div class="col-sm-9">
+              <input vanilla-i18n-placeholder="form.input.ocrmodelengine" type="text" name="ocrmodelengine" class="form-control" id="ocrmodelengine" placeholder="Environnement d'entraînement">
+            </div>
+          </div>
+
            
 
           <div class="row">
