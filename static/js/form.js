@@ -235,7 +235,7 @@
         options: scripts,
         multiple: true,
         autocomplete: true, // default: false
-        value: ["Latn"],
+        value: ["Latn", "Goth"],
             
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
