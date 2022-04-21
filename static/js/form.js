@@ -287,7 +287,8 @@
         },
         "hands": {
           "count": data.hands,
-          "precision": data.precision
+          "precision": data.precision,
+          "level": data.level
         },
         "license": [
           {"name": data.license, "url": LICENSES[data.license]}
