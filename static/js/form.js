@@ -226,7 +226,7 @@
         options: languages,
         multiple: true,
         autocomplete: true, // default: false
-        value: ["frm", "fro", "lat", "eng", "fra"], 
+        value: ["eng", "fra", "deu"], 
 
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
