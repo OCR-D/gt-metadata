@@ -305,6 +305,7 @@
         ...updateOrIgnore(data.ocrmodel, "modeltitle"),
         ...updateOrIgnore(data.ocrdesc, "modeldescription"),
         ...updateOrIgnore(data.ocrmodellink, "modelurl"),
+        ...updateOrIgnore(data.ocrmodelengine, "modelengine"),
        
       };
 
