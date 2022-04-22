@@ -8577,10 +8577,13 @@
                     "type": "string",
                     "enum": [
                         "1",
-                        "1-per-file",
-                        "1-per-folder",
+                        "2",
+                        "3",
+                        "more-than-3",
                         "less-than-11",
                         "more-than-10",
+                        "1-per-file",
+                        "1-per-folder",
                         "unknown"
                     ]
                 },
@@ -8591,7 +8594,21 @@
                         "exact",
                         "estimated"
                     ]
+                },
+                "level": {
+                    "description": "Level of transcription of ground truth (see https://ocr-d.de/de/gt-guidelines/trans/trLevels.html)",
+                    "type": "string",
+                    "enum": [
+                        "level1",
+                        "level2",
+                        "level3",
+                        "levelmix"
+                    ]
                 }
+
+
+
+
             },
             "required": [
                 "count",
