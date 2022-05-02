@@ -271,7 +271,7 @@
       let scripts = scriptSelect.value().join("\n  - ");
 
       let obj = {
-        "schema": `${(data.repoLink)}schema/2022-03-15/schema.json`,
+        "schema": `https://github.com/tboenig/gt-metadata/tree/master/schema/2022-03-15/schema.json`,
         "title": normalize(data.repoName),
         "url": data.repoLink,
         ...getAuthors(),
