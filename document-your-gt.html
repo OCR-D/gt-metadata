@@ -58,9 +58,9 @@
     
   </div>
 
-    <div class="px-4 pb-5 pt-2 mb-5" id="steps">
+    <div class="container px-4 pb-5 pt-2 mb-5" id="steps" style="display: flex; grid-template-columns: auto auto;">
       
-      <h2 class="display-5 mb-4 text-center"><i18n vanilla-i18n="form.steps.title">à faire</i18n></h2>
+    <h2 class="display-5 mb-4"><i18n vanilla-i18n="form.steps.title">️À faire</i18n></h2>
     <div class="col-lg-4 mx-auto">
       <div class="list-group list-group-flush">
         <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep1" aria-expanded="false" aria-controls="collapseStep1"><i18n vanilla-i18n="form.step1.title">Remplir le formulaire</i18n> <i class="fas fa-angle-down"></i></button>
@@ -75,6 +75,31 @@
           <div class="card card-body bg-light"><i18n vanilla-i18n="form.step2.desc">Téléchargez le fichier ci-dessous ou copiez son contenu dans le presse-papiers et cliquez sur ce lien. Un fichier METADATA.yml sera créé dans votre référentiel. Vous pouvez maintenant insérer les métadonnées générées.</i18n>
           </div>
         </div>
+        
+      </div>
+    </div>
+    <h2 class="display-5 mb-4"><i18n vanilla-i18n="form.steps.title">Aide</i18n></h2>
+    <div class="col-lg-4 mx-auto">
+      <div class="list-group list-group-flush">
+        <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseHelp1" aria-expanded="false" aria-controls="collapseHelp1"><i18n vanilla-i18n="form.help1.title">Type de vérités de terrain (Ground Truth)</i18n> <i class="fas fa-angle-down"></i></button>
+        <div class="collapse" id="collapseHelp1">
+          <div class="card card-body bg-light">
+            <i18n vanilla-i18n="form.help1.desc">Type de vérités de terrain (Ground Truth):<br/>
+              <i18n vanilla-i18n="form.dgt.desc">Document GT<br/>
+              Le Ground Truth contient des documents annotés et des documents complets. Un document complet est, entre autres, un livre ou un article. Des annotations du texte et de la structure du document (par exemple : titres, paragraphes, notes de bas de page) ont été effectuées.</i18n>
+              <i18n vanilla-i18n="form.sgt.desc">Structure GT<br/>
+              La vérité fondamentale contient des parties de documents annotées, comme des pages ou des paragraphes individuels. Seule l'annotation de la structure du document (par exemple : titres, paragraphes, notes de bas de page) a été effectuée.</i18n>
+              <i18n vanilla-i18n="form.tsgt.desc">Structure et Texte GT<br/>
+              La vérité de base contient des parties de document annotées telles que des pages ou des paragraphes individuels. Les annotations du texte et de la structure du document (par exemple : titres, paragraphes, notes de bas de page) ont été effectuées.</i18n>
+              <i18n vanilla-i18n="form.lgt.desc">Lignes GT<br/>
+              Le Ground Truth contient uniquement des lignes de document annotées. Des annotations du texte et de la ligne ont été effectuées.</i18n>
+              
+              
+            
+            </i18n>
+          </div>
+        </div>
+        
         
       </div>
     </div>
@@ -132,7 +157,7 @@
               </select>
             </div>
             <div class="col-sm-1"></div>
-            <label for="gformat" class="col-sm-2 col-form-label"><i18n vanilla-i18n="form.field.gt">Type de vérités de terrain</i18n><span class="required">*</span></label>
+            <label for="gformat" class="col-sm-2 col-form-label"><i18n vanilla-i18n="form.field.gt">Type de vérités de terrain (Ground Truth)</i18n><span class="required">*</span></label>
             <div class="col-sm-3">
               <select name="gformat" id="gformat" class="form-control" required>
                 <option value="" default>---</option>
