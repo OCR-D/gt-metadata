@@ -95,6 +95,6 @@ form.field.ocrmodellink,"Link to the OCR model","Lien vers le modèle OCR","Link
 form.input.ocrmodellink,"Link to the OCR model","Lien vers le modèle OCR","Link zum OCR-Modell"
 form.field.ocrmodelengine,"Training environment","Environnement d'entraînement","Trainingsumgebung"
 form.input.ocrmodelengine,"Training environment","Environnement d'entraînement","Trainingsumgebung"
-form.title.ocrdetail,Detailed information about the OCR model,Informations détaillées sur le modèle OCR,Detaillierte Informationen zum OCR-Modell
+form.title.ocrdetail,Detailed information about the OCR model trained with the GT,Informations détaillées sur le modèle OCR entraîné avec le GT,Detaillierte Informationen über das mit dem GT trainierte OCR-Modell
 form.input.desc,Description,Description,Beschreibung
 footer.team,Who are the people behind HTR-United?,Qui est derrière HTR-United ?,Wer sind die Menschen hinter HTR-United?
