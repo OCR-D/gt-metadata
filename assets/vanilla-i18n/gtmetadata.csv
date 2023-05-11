@@ -20,6 +20,7 @@ form.env.title,"Training environment","Environnement d'entraînement","Trainings
 form.env.desc,"The training environment specifies the software with which the OCR model was created or trained, e.g. tesseract [version].","L'indication de l'environnement d'entraînement indique avec quel logiciel le modèle OCR a été créé ou entraîné, par ex. tesseract [version].","Die Angabe der Trainingsumgebung gibt an mit welcher Software das OCR-Model erstellt bzw. trainiert wurde, z. Bsp. tesseract [Version]."
 form.play,Play or restart,Lancer la démo ou la redémarrer,Abspielen oder neu starten
 form.input.src,Link to the source or a catalog description,Lien vers le catalogue ou la ressource,Link zur Quelle oder eine Katalogbeschreibung
+form.field.software,Software use to produce the data,Logiciel(s) utilisé(s) pour produire les données,Zur Erstellung der GT-Daten verwendete Software
 form.input.reponame,Repository's title,Nom du dépôt,Titel des Repositorys
 form.input.repolink,Link to repository,Lien vers le dépôt,Link zum Repositorium
 form.input.quantity,Example: 200,Exemple: 200,Beispiel: 200
