@@ -31,7 +31,7 @@
       let new_elem = authorOriginal.cloneNode(true),
           add_button = new_elem.querySelector(".add-author"),
           remove_button = new_elem.querySelector(".remove-author"),
-          checkboxes = new_elem.querySelectorAll(".form-check-inline"),
+          checkboxes = new_elem.querySelectorAll(".form-check"),
           text_inputs = new_elem.querySelectorAll("input[type='text']");
 
 
