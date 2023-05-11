@@ -199,7 +199,12 @@
               <!-- Ajouter d'autres options !-->
             </select>
           </div>
-      
+        <p><small class="text-muted"><i18n vanilla-i18n="form.field.std_info">Les licenses sont ici proposées à titre indicatif.</i18n></small></p>
+        <div class="form-group row my-2">
+          <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.software">Name of software(s) used to create the ground truth</i18n><span class="required">*</span></label>
+          <div class="col-sm-9">
+            <input type="text" name="software" class="form-control" id="software" placeholder="Description" vanilla-i18n-placeholder="form.field.software_placeholder" required="true"/>
+          </div>
           <div class="offset-sm-3 col-sm-9">
               <div class="row">
                 <div class="col-md-3 text-muted small">You can use the following buttons to populate the field.</div>
