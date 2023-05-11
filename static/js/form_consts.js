@@ -8250,6 +8250,7 @@
 {"label": "Zuojiang Zhuang", "value": "zzj"}];
 
 const scripts = [
+{"label": "Ackerknecht", "value": "Ackerknecht"},  
 {"label": "Adlam", "value": "Adlm"},
 {"label": "Afaka", "value": "Afak"},
 {"label": "Ahom, Tai Ahom", "value": "Ahom"},
@@ -8328,6 +8329,7 @@ const scripts = [
 {"label": "Jurchen", "value": "Jurc"},
 {"label": "Kaithi", "value": "Kthi"},
 {"label": "Kannada", "value": "Knda"},
+{"label": "Kanzlei", "value": "Kanzlei"},
 {"label": "Katakana", "value": "Kana"},
 {"label": "Kayah Li", "value": "Kali"},
 {"label": "Kharoshthi", "value": "Khar"},
@@ -8340,6 +8342,7 @@ const scripts = [
 {"label": "Klingon (KLI pIqaD)", "value": "Piqd"},
 {"label": "Korean (alias for Hangul + Han)", "value": "Kore"},
 {"label": "Kpelle", "value": "Kpel"},
+{"label": "Kurrent", "value": "Kurrent"},  
 {"label": "Lao", "value": "Laoo"},
 {"label": "Latin", "value": "Latn"},
 {"label": "Latin (Fraktur variant)", "value": "Latf"},
@@ -8383,6 +8386,7 @@ const scripts = [
 {"label": "Nyiakeng Puachue Hmong", "value": "Hmnp"},
 {"label": "Nüshu", "value": "Nshu"},
 {"label": "N’Ko", "value": "Nkoo"},
+{"label": "Offenbacher", "value": "Offenbacher"},  
 {"label": "Ogham", "value": "Ogam"},
 {"label": "Ol Chiki (Ol Cemet’, Ol, Santali)", "value": "Olck"},
 {"label": "Old Hungarian (Hungarian Runic)", "value": "Hung"},
@@ -8425,6 +8429,7 @@ const scripts = [
 {"label": "Sora Sompeng", "value": "Sora"},
 {"label": "Soyombo", "value": "Soyo"},
 {"label": "Sundanese", "value": "Sund"},
+{"label": "Sütterlin", "value": "Sütterlin"},  
 {"label": "Syloti Nagri", "value": "Sylo"},
 {"label": "Symbols", "value": "Zsym"},
 {"label": "Symbols (Emoji variant)", "value": "Zsye"},
