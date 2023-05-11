@@ -265,6 +265,15 @@
       return "";
     };
 
+    document.querySelectorAll(".software-key").forEach((el) => {
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector("#software").value = el.innerText;
+      })
+    });
+
+
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       let data = Object.fromEntries(new FormData(form));
