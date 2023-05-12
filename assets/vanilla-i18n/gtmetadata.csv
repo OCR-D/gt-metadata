@@ -65,6 +65,7 @@ form.field.prec.select.level3,Level 3,Niveau 3,Level 3
 form.field.prec.select.levelmix,Level mix,Niveau Mélange,Levelmix
 form.field.prec.label,Transcription level,Niveau de transcription,Transkriptionslevel
 form.field.member.rm,Remove person,Supprimer cette personne,Person entfernen
+form.field.software_placeholder,You can use the following buttons to populate the field.,Vous pouvez utiliser les boutons pour remplir plus rapidement le champ.,Sie können die Schaltflächen verwenden. So können Sie das Feld schneller ausfüllen.
 #,,
 # Member field,,
 #,,
