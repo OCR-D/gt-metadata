@@ -1,6 +1,6 @@
 vanilla-i18n-key,English,Français,Deutsch
 nav.charter,Data reuse charter,Charte de réutilisation des données,Charta zur Wiederverwendung von Daten
-form.ocrd,OCR-D Coordinated funding initiative for the further development of optical character recognition methods,OCR-D Initiative de soutien coordonnée pour le développement de procédés de reconnaissance optique de caractères,OCR-D Koordinierte Förderinitiative zur Weiterentwicklung von Verfahren der Optical Character Recognition
+form.ocrd,OCR-D Metadata form for ground truth data,OCR-D Formulaire de métadonnées pour les données de ground truth,OCR-D Metadatenformular für Ground-Truth-Daten
 form.title.project,General information about the project,Informations générales sur le projet,Allgemeine Informationen über das Projekt
 form.title.generate,Generate the <code>metadata.yml</code> file,Générer le fichier <code>METADATA.yml</code>,Erzeugen Sie die Datei <code>METADATA.yml</code>
 form.title.ds,General information about the dataset,Informations générales sur le set de données,Allgemeine Informationen über den Datensatz
