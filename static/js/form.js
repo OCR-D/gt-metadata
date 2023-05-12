@@ -167,6 +167,9 @@
           "name": name,
           "surname": surname
         }
+          if (orcid.trim() !== "") {
+            a["orcid"] = orcid;
+          }
         let roles = authors[i].querySelectorAll("input[type='checkbox']:checked");
         if (roles.length > 0) {
           a.roles = [...roles].map((o) => o.value);
