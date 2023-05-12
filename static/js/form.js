@@ -159,7 +159,8 @@
       for (var i = 0; i < authors.length; i++) {
         let surname = authors[i].querySelector("input[name='authoritySurname']").value,
             name = authors[i].querySelector("input[name='authorityName']").value,
-            orcid = authors[i].querySelector("input[name='authorityORCID']").value;
+            orcid = authors[i].querySelector("input[name='authorityORCID']").value,
+            status = authors[i].querySelector("input[name='authorityType']:checked");
 
         if (name.trim() === "") { continue; }
 
