@@ -66,9 +66,6 @@ form.field.prec.select.levelmix,Level mix,Niveau Mélange,Levelmix
 form.field.prec.label,Transcription level,Niveau de transcription,Transkriptionslevel
 form.field.member.rm,Remove person,Supprimer cette personne,Person entfernen
 form.field.software_placeholder,You can use the following buttons to populate the field.,Vous pouvez utiliser les boutons pour remplir plus rapidement le champ.,Sie können die Schaltflächen verwenden. So können Sie das Feld schneller ausfüllen.
-#,,
-# Member field,,
-#,,
 form.field.authors,Authority and role(s),Acteur-rice-s du projet,Autorität und Rolle(n)
 form.field.member.add,Add person,Ajouter une personne,Person hinzufügen
 form.field.member.rm,Remove person,Supprimer cette personne,Person entfernen
@@ -81,10 +78,9 @@ form.field.member.qualityControl,Quality Control,Contrôle Qualité,Qualitätsko
 form.field.member.digitizer,Digitization,Numérisation,Digitalisierung
 form.field.member.support,Support,Assistance,Unterstützung 
 form.field.member.status,This contributor is an institution,Cette contribution vient d'une institution,Dieser Beitrag stammt von einer Einrichtung
-#form.field.member.person,Person,Personne, Person
-#form.field.member.institution,Institution,Institution, Institution
+form.field.member.person,Person,Personne, Person
+form.field.member.institution,Institution,Institution, Institution
 form.field.member.roles,Roles,Rôles,Rollen
-#,,
 form.field.license,License,Licence,Lizenz
 form.field.hands.select.unknown,Unknown,Inconnu,Unbekannt
 form.field.hands.select.more3,More than 3 (many),Supérieur à 3 (beaucoup),Mehr als 3 (viele)
