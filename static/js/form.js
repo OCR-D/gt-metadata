@@ -158,7 +158,8 @@
       }
       for (var i = 0; i < authors.length; i++) {
         let surname = authors[i].querySelector("input[name='authoritySurname']").value,
-            name = authors[i].querySelector("input[name='authorityName']").value;
+            name = authors[i].querySelector("input[name='authorityName']").value,
+            orcid = authors[i].querySelector("input[name='authorityORCID']").value;
 
         if (name.trim() === "") { continue; }
 
