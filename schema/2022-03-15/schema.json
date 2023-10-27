@@ -8677,8 +8677,7 @@
                     }
                 }
             }
-        }
-    },
+        },
     "sources": {
         "description": "Sources that are present in the dataset",
         "type": "array",
@@ -8739,6 +8738,7 @@
                 "format": "uri"
             }
         }
+    }
     },
     "required": [
         "title",
