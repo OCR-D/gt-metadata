@@ -310,7 +310,7 @@
           {"name": data.license, "url": LICENSES[data.license]}
         ],
         
-        "gtTyp": data.gformat,
+        "gtType": data.gformat,
         
         "format": data.format,
         ...getSources(),

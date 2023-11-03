@@ -105,7 +105,7 @@
             "type": "string",
             "enum": ["Alto-XML", "Page-XML", "Image-Text-Pairs"]
         },
-        "gtTyp": {
+        "gtType": {
             "description": "Type of the ground truth",
             "type": "string",
             "enum": ["data_document", "data_structure", "data_structure_and_text", "data_line"]
