@@ -3,6 +3,7 @@
     const form = document.getElementById("generate"),
         output = document.getElementById("output"),
         link = document.getElementById("output-link"),
+        createIssueLink = document.getElementById("createIssueLink"),
         outputContainer = document.getElementById("output-container"),
         authorOriginal = document.querySelector(".original-author"),
         authorContainer = authorOriginal.parent,
@@ -328,6 +329,14 @@
       output.innerText = jsyaml.dump(obj, {"noRef": true});
       outputContainer.classList.remove("d-none");
       link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml`;
+
+
+      getOutputIssueText = function() {
+        return encodeURIComponent(`Hello ! [Complete your message here]\n\nHere is our dataset YAML file: \n \`\`\`yaml\n${output.innerText}\`\`\``);
+      }
+      //alert("HELLO");
+      createFileLink.href = `https://github.com/HTR-United/htr-united/new/master?filename=catalog/${slugify(data.projectName || data.repoName)}/${slugify(data.repoName)}.yml&body=${encodeURIComponent(output.innerText)}`;
+      createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${encodeURI(+data.repoName)}&body=${getOutputIssueText()}`;
       
 
 
