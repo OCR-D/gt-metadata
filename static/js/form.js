@@ -3,6 +3,7 @@
     const form = document.getElementById("generate"),
         output = document.getElementById("output"),
         link = document.getElementById("output-link"),
+        createFileLink = document.getElementById("createFileLink"),
         createIssueLink = document.getElementById("createIssueLink"),
         outputContainer = document.getElementById("output-container"),
         authorOriginal = document.querySelector(".original-author"),
