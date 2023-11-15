@@ -329,7 +329,7 @@
 
       output.innerText = jsyaml.dump(obj, {"noRef": true});
       outputContainer.classList.remove("d-none");
-      link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml`;
+      // link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml`;
 
 
       getOutputIssueText = function() {
