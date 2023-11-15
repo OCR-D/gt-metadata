@@ -2,7 +2,7 @@
 
     const form = document.getElementById("generate"),
         output = document.getElementById("output"),
-        // link = document.getElementById("output-link"),
+        link = document.getElementById("output-link"),
         createFileLink = document.getElementById("createFileLink"),
         createIssueLink = document.getElementById("createIssueLink"),
         outputContainer = document.getElementById("output-container"),
@@ -329,7 +329,7 @@
 
       output.innerText = jsyaml.dump(obj, {"noRef": true});
       outputContainer.classList.remove("d-none");
-      // link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml`;
+      link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml`;
 
 
       getOutputIssueText = function() {
