@@ -335,7 +335,7 @@
     }
 
     //alert("HELLO");
-    createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${encodeURI(+data.repoName)}&body=${getOutputIssueText()}`;
+    createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${(data.repoName)}&body=${getOutputIssueText()}`;
     
 
 
