@@ -101,10 +101,10 @@ form.download.text4,Register your Ground Truth repository with HTR-United and,In
 form.download.text3,A METADATA.yml file with the generated metadata is created in your repository.,Un fichier METADATA.yml avec les métadonnées générées sera créé dans votre référentiel.,Die Metadatendatei METADATA.yml wird in Ihrem Repository erstellt.
 form.download.text2,Click on this,Cliquez sur ce,Klicken Sie dazu auf diesen
 form.download.text,"Alternatively, you can also","Vous pouvez également","Alternativ können Sie auch"
-form.download.push_link,link,lien,Link
-form.download.push_issue,transfer the metadata,transférez les métadonnées,übertragen Sie die Metadaten
+form.download.push_link,📂 link,📂 lien,📂 Link
+form.download.push_issue,⮂ transfer the metadata,⮂ transférez les métadonnées,⮂ übertragen Sie die Metadaten
 form.download.push_copy,copy your content,copiez son contenu,kopieren Sie den Inhalt
-form.download.dl,"download the file","télécharger le fichier","die Metadatendatei herunterladen"
+form.download.dl,"📄 download the file","📄 télécharger le fichier","📄 die Metadatendatei herunterladen"
 form.desc.main,"HTR-United is a Github organization without any other form of legal personality. It aims at gathering HTR/OCR models for and transcriptions of all periods and style of writing, mostly but not exclusively in French. <br/>It was born from the mere necessity -for projects- to possess potentiel ground truth to rapidly train models on smaller corpora.","HTR-United est une organisation Github sans autre forme de personnalité juridique visant à mettre en commun des jeux de données et des modèles pour l'HTR/OCR de textes de toutes périodes et de tout style, principalement en français mais de manière non restricive.&nbsp,<br>Elle est née du simple besoin - pour des projets - d'avoir de potentiels vérités de terrain pour entraîner des modèles rapidement sur des corpus plus petits.","HTR-United ist eine Github-Organisation ohne jede andere Form von Rechtspersönlichkeit. Ihr Ziel ist es, HTR/OCR-Modelle für und Transkriptionen von allen Epochen und Schreibstilen zu sammeln, hauptsächlich, aber nicht ausschließlich in Französisch.<br/>HTR-United entstand aus der bloßen Notwendigkeit - für Projekte - potentiellen Ground-Truth zu besitzen, um Modelle schnell auf kleineren Korpora zu trainieren."
 form.btn.get,Get formatted metadata,Créer et obtenir les métadonnées formatées,Formatierte Metadaten abrufen
 form.input.ocrmodel,"OCR model name","Nom du modèle OCR","OCR-Modellname"
