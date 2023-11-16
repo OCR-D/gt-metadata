@@ -328,6 +328,11 @@
     output.innerText = jsyaml.dump(obj, {"noRef": true});
     outputContainer.classList.remove("d-none");
     link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml`;
+
+
+    getOutputIssueText = function() {
+      return encodeURIComponent(`Hello ! [Complete your message here]\n\nHere is our dataset YAML file: \n \`\`\`yaml\n${output.innerText}\`\`\``);
+    }
     
 
 
