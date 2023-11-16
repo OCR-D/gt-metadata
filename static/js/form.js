@@ -327,11 +327,11 @@
 
     output.innerText = jsyaml.dump(obj, {"noRef": true});
     outputContainer.classList.remove("d-none");
-    link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml`;
+    link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml&value=${getOutputIssueText()}`;
 
 
     getOutputIssueText = function() {
-      return encodeURIComponent(`Hello !\n Thank you for your ground truth repository and catalog.\nRegards\n\nHere is our dataset YAML file: \n \`\`\`yaml\n${output.innerText}\`\`\``);
+      return encodeURIComponent(`Hello !\nThank you for your ground truth repository and catalog.\nRegards\n\nHere is our dataset YAML file: \n \`\`\`yaml\n${output.innerText}\`\`\``);
     }
 
     //alert("HELLO");
