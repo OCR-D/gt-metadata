@@ -333,6 +333,9 @@
     getOutputIssueText = function() {
       return encodeURIComponent(`Hello ! [Complete your message here]\n\nHere is our dataset YAML file: \n \`\`\`yaml\n${output.innerText}\`\`\``);
     }
+
+    //alert("HELLO");
+    createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${encodeURI(+data.repoName)}&body=${getOutputIssueText()}`;
     
 
 
