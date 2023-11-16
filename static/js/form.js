@@ -334,8 +334,12 @@
       return encodeURIComponent(`Hello !\nThank you for your ground truth repository and catalog.\nRegards\n\nHere is our dataset YAML file: \n \`\`\`yaml\n${output.innerText}\`\`\``);
     }
 
+    getOutputMetadataText = function() {
+      return encodeURIComponent(`${output.innerText}`);
+    }
+
     //alert("HELLO");
-    link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml&value=${getOutputIssueText()}`;
+    link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml&value=${getOutputMetadataText()}`;
     createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${(data.repoName)}&body=${getOutputIssueText()}`;
     
 
