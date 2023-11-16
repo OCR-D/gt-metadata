@@ -354,10 +354,6 @@
           document.body.removeChild(element);
         });
         downloadBind = true;
-        document.querySelector("#copyOutput").addEventListener("click", function(e) {
-          selectText(output);
-          document.execCommand("copy");
-        });
       }
     });
 })();
