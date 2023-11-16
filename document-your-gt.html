@@ -479,12 +479,13 @@
       <div class="col-10 mx-auto">
         <hr />
         <div class="my-3 p-4 ">
-          <a id="download" href="#" vanilla-i18n="form.download.dl" class="btn btn-repo">Téléchargez</a> 
-          <span vanilla-i18n="form.download.text">le fichier ci-dessous ou</span> 
-          <a href="#" onclick="CopyToClipboard('output');return false;" vanilla-i18n="form.download.push_copy" class="btn btn-repo">copiez son contenu</a> 
-          <span vanilla-i18n="form.download.text2">dans le presse-papiers et cliquez sur ce</span> <a id="output-link" href="#" vanilla-i18n="form.download.push_link" class="btn btn-repo">lien</a>. 
-          <span vanilla-i18n="form.download.text3">Un fichier METADATA.yml sera créé dans votre référentiel. Vous pouvez maintenant insérer les métadonnées générées.</span>
-          <a href="" id="createIssueLink" target="_blank"><span class="fa fa-file"></span> <span vanilla-i18n="form.finale.newIssue">Ouvrir une issue</span></a>
+           
+          <span vanilla-i18n="form.download.text2">Cliquez sur ce</span> <a id="output-link" href="#" vanilla-i18n="form.download.push_link" class="btn btn-repo">lien</a>.<br/> 
+          <span vanilla-i18n="form.download.text3">Un fichier METADATA.yml avec les métadonnées générées sera créé dans votre référentiel.</span><br/>
+          <span vanilla-i18n="form.download.text4">Déclarez également votre ground truth reposity auprès de <a href="" id="createIssueLink" target="_blank" class="btn btn-repo">HTR-United en y déclarant les métadonnées</a>.</span><br/>
+          <span vanilla-i18n="form.download.text">Vous pouvez également <a id="download" href="#" vanilla-i18n="form.download.dl" class="btn btn-repo">télécharger le fichier</a>.</span><br/>
+          
+          
           <pre id="output" class="my-3 p-4 rounded output-field"></pre>       
         
       </div>
