@@ -180,3 +180,18 @@ header {
 .citation .fa-copy {
     cursor: pointer;
 }
+
+/**Symbols**/
+
+.link-file::after {
+    content: 📂;
+}
+
+.download-file::after {
+    content: ⮂;
+}
+
+.trans-file::after{
+    content:📄;
+}
+
