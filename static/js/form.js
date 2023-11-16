@@ -327,7 +327,7 @@
 
     output.innerText = jsyaml.dump(obj, {"noRef": true});
     outputContainer.classList.remove("d-none");
-    link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml&value=${getOutputIssueText()}`;
+    
 
 
     getOutputIssueText = function() {
@@ -335,6 +335,7 @@
     }
 
     //alert("HELLO");
+    link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml&value=${getOutputIssueText()}`;
     createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${(data.repoName)}&body=${getOutputIssueText()}`;
     
 
