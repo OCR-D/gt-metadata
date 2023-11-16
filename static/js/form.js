@@ -331,7 +331,7 @@
 
 
     getOutputIssueText = function() {
-      return encodeURIComponent(`Hello ! [Complete your message here]\n\nHere is our dataset YAML file: \n \`\`\`yaml\n${output.innerText}\`\`\``);
+      return encodeURIComponent(`Hello !\n Thank you for your ground truth repository and catalog.\nRegards ${(authors[1].name)}\n\nHere is our dataset YAML file: \n \`\`\`yaml\n${output.innerText}\`\`\``);
     }
 
     //alert("HELLO");
