@@ -80,7 +80,13 @@
         <!-- step 2 -->
         <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseStep2" aria-expanded="false" aria-controls="collapseStep2"><i18n vanilla-i18n="form.step2.title">Cliquer sur "Créer et obtenir les métadonnées formatées"</i18n> <i class="fas fa-angle-down"></i></button>
         <div class="collapse" id="collapseStep2">
-          <div class="card card-body bg-light"><i18n vanilla-i18n="form.step2.desc">Téléchargez le fichier ci-dessous ou copiez son contenu dans le presse-papiers et cliquez sur ce lien. Un fichier METADATA.yml sera créé dans votre référentiel. Vous pouvez maintenant insérer les métadonnées générées.</i18n>
+          <div class="card card-body bg-light"><i18n vanilla-i18n="form.step2.desc">
+            Vous pouvez maintenant :<br/>
+            <ul>
+                <li>Enregistrez le fichier METADATA.yml dans votre référentiel.</li>
+                <li>Transférez le fichier METADATA.yml dans le catalogue HTR-United.</li> 
+                <li>Télécharger le fichier METADATA.yml.</li></ul>
+            </i18n>
           </div>
         </div>
         
@@ -92,13 +98,13 @@
         <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseHelp1" aria-expanded="false" aria-controls="collapseHelp1"><i18n vanilla-i18n="form.gt.title">Type de vérités de terrain (Ground Truth)</i18n> <i class="fas fa-angle-down"></i></button>
         <div class="collapse" id="collapseHelp1">
           <div class="card card-body bg-light">
-            <i18n vanilla-i18n="form.gt.desc">Document GT<br/>
+            <i18n vanilla-i18n="form.gt.desc"><b>Document GT</b><br/>
               Le Ground Truth contient des documents annotés et des documents complets. Un document complet est, entre autres, un livre ou un article. Des annotations du texte et de la structure du document (par exemple : titres, paragraphes, notes de bas de page) ont été effectuées.<br/>
-              Structure GT<br/>
+              <b>Structure GT</b><br/>
               La vérité fondamentale contient des parties de documents annotées, comme des pages ou des paragraphes individuels. Seule l'annotation de la structure du document (par exemple : titres, paragraphes, notes de bas de page) a été effectuée.<br/>
-              Structure et Texte GT<br/>
+              <b>Structure et Texte GT</b><br/>
               La vérité de base contient des parties de document annotées telles que des pages ou des paragraphes individuels. Les annotations du texte et de la structure du document (par exemple : titres, paragraphes, notes de bas de page) ont été effectuées.<br/>
-              Lignes GT<br/>
+              <b>Lignes GT</b><br/>
               Le Ground Truth contient uniquement des lignes de document annotées. Des annotations du texte et de la ligne ont été effectuées.</i18n></div>
         </div>
         <button class="btn list-group-item" type="button" data-toggle="collapse" data-target="#collapseHelp2" aria-expanded="false" aria-controls="collapseHelp2"><i18n vanilla-i18n="form.level.title">Niveau de transcription</i18n> <i class="fas fa-angle-down"></i></button>
@@ -479,9 +485,9 @@
       <div class="col-10 mx-auto">
         <hr />
         <div class="my-3 p-4 ">
-          <span vanilla-i18n="form.download.text3">Enregistrer le fichier de métadonnées METADATA.yml </span><a id="output-link" href="#" vanilla-i18n="form.download.push_link" class="btn btn-repo">📂 dans votre référentiel.</a><br/> 
-          <span vanilla-i18n="form.download.text4">Inscrivez également votre dépôt Ground Truth sur HTR-United et</span> <a href="" id="createIssueLink" target="_blank" class="btn btn-repo" vanilla-i18n="form.download.push_issue">⮂ transférez les métadonnées.</a><br/>
-          <span vanilla-i18n="form.download.text">Vous pouvez également</span> <a id="download" href="#" vanilla-i18n="form.download.dl" class="btn btn-repo">📄 télécharger le fichier.</a><br/>
+          <span vanilla-i18n="form.download.text3">Enregistrer le fichier de métadonnées METADATA.yml </span><a id="output-link" href="#" vanilla-i18n="form.download.push_link" class="btn btn-repo">📂 dans votre référentiel.</a> 
+          <span vanilla-i18n="form.download.text4">Inscrivez également votre dépôt Ground Truth sur HTR-United et</span> <a href="" id="createIssueLink" target="_blank" class="btn btn-repo" vanilla-i18n="form.download.push_issue">⮂ transférez les métadonnées.</a>
+          <span vanilla-i18n="form.download.text">Vous pouvez également</span> <a id="download" href="#" vanilla-i18n="form.download.dl" class="btn btn-repo">📄 télécharger le fichier.</a>
           
           
           <pre id="output" class="my-3 p-4 rounded output-field"></pre>       
