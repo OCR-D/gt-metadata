@@ -279,7 +279,7 @@
 
 
 
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
     let data = Object.fromEntries(new FormData(form));
     let languages = languageSelect.value().join("\n  - ");
@@ -338,12 +338,15 @@
       return encodeURIComponent(`${output.innerText}`);
     }
 
-    const defaultBranch = data.default_branch;
-        fetch(`${(data.repoLink)}`)
-          .then(response => response.json())
-          .then(data => {
-            console.log(defaultBranch);
-    });
+    const url = '${(data.repoLink)}';
+    const defaultBranch = await fetch(url)
+      .then(response => response.json())
+      .then(data => data.default_branch);
+console.log(defaultBranch);
+
+        
+
+        
 
 
     
