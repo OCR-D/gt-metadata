@@ -338,23 +338,12 @@
       return encodeURIComponent(`${output.innerText}`);
     }
 
-    const url = data.repoLink;
-    const defaultBranch = await fetch(url)
-      .then(response => response.json())
-      .then(data => data.default_branch);
-console.log(defaultBranch);
-
-        
-
-        
-
-
-    
+      
 
 
 
     //alert("HELLO");
-    link.href = `${(data.repoLink)}/new/${(defaultBranch)}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+    link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml&value=${getOutputMetadataText()}`;
     createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${(data.repoName)}&body=${getOutputIssueText()}`;
     
 
