@@ -351,7 +351,7 @@
 
 
     //alert("HELLO");
-    link.href = `${(data.repoLink)}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+    link.href = `${(data.repoLink)}/new/${(defaultBranch)}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
     createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${(data.repoName)}&body=${getOutputIssueText()}`;
     
 
