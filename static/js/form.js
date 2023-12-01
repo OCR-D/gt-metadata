@@ -338,7 +338,7 @@
       return encodeURIComponent(`${output.innerText}`);
     }
 
-    const url = '${(data.repoLink)}';
+    const url = data.repoLink;
     const defaultBranch = await fetch(url)
       .then(response => response.json())
       .then(data => data.default_branch);
