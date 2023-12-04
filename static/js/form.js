@@ -338,9 +338,55 @@
       return encodeURIComponent(`${output.innerText}`);
     }
 
+    // Ersetze 'USERNAME' und 'REPO' durch den entsprechenden GitHub-Benutzernamen und Repository-Namen
+
+
+  const url = `${data.repoLink}`;
+  const urlPart = `url.split("/").slice(-2).join("/")`);
+
+
+// GitHub API-Endpunkt für Repository-Informationen
+const apiUrl = `https://api.github.com/repos/${urlPart}`;
+
+// Eine Funktion, um die Daten von der API abzurufen
+async function getDefaultBranch() {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    // Der Standard-GitHub-Zweig befindet sich im Feld "default_branch" der API-Antwort
+    const defaultBranch = data.default_branch;
+
+    // Hier kannst du mit dem Wert des Standard-Zweigs arbeiten, z.B. ihn in einer Variable speichern
+    console.log('Default GitHub Branch:', defaultBranch);
+    link.href = `${(data.repoLink)}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+    
+    // Du kannst die Variable auch zurückgeben, wenn du die Funktion aufrufst
+    return defaultBranch;
+  } catch (error) {
+    console.error('Fehler beim Abrufen der Daten:', error);
+    throw error; // Du könntest den Fehler auch weiterhin werfen, damit er von aufrufenden Funktionen behandelt wird
+  }
+}
+
+// Beispielaufruf der Funktion
+(async () => {
+  try {
+    const defaultBranch = await getDefaultBranch();
+    // Hier kannst du den Wert des Standard-Zweigs verwenden
+    console.log('Verwendeter Standard-Zweig:', defaultBranch);
+  } catch (error) {
+    console.error('Ein Fehler ist aufgetreten:', error);
+  }
+})();
+
+    
+
+
+
 
     //alert("HELLO");
-    link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+    // link.href = `${(data.repoLink)}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
     createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${(data.repoName)}&body=${getOutputIssueText()}`;
     
 
