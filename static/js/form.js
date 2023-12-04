@@ -359,7 +359,7 @@ async function getDefaultBranch() {
 
     // Hier kannst du mit dem Wert des Standard-Zweigs arbeiten, z.B. ihn in einer Variable speichern
     console.log('Default GitHub Branch:', defaultBranch);
-    link.href = `${(data.repoLink)}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+    link.href = `${url}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
     
     // Du kannst die Variable auch zurückgeben, wenn du die Funktion aufrufst
     return defaultBranch;
@@ -369,16 +369,7 @@ async function getDefaultBranch() {
   }
 }
 
-// Beispielaufruf der Funktion
-(async () => {
-  try {
-    const defaultBranch = await getDefaultBranch();
-    // Hier kannst du den Wert des Standard-Zweigs verwenden
-    console.log('Verwendeter Standard-Zweig:', defaultBranch);
-  } catch (error) {
-    console.error('Ein Fehler ist aufgetreten:', error);
-  }
-})();
+
 
     
 
