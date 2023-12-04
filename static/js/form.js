@@ -338,23 +338,6 @@
       return encodeURIComponent(`${output.innerText}`);
     }
 
-    async function getRepoDefaultBranch() {
-      const url = "https://api.github.com/repos/<OWNER>/<REPO>";
-      const repoUrlElement = document.getElementById("data.repoLink");
-      if (repoUrlElement === null) {
-        console.error("Das Element wurde nicht gefunden.");
-        return;
-      }
-      const response = await fetch(`https://api.github.com/repos/${repoUrlElement.value.split("/").slice(-2).join("/")}`);
-      const data = await response.json();
-      return data.default_branch;
-    }
-    
-
-    
-    
-    
-
 
     //alert("HELLO");
     link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml&value=${getOutputMetadataText()}`;
