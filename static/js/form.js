@@ -338,12 +338,12 @@
       return encodeURIComponent(`${output.innerText}`);
     }
 
-    
+    async function getRepoDefaultBranch() {
       const url = document.getElementById("data.repoLink").value;
       const response = await fetch(`https://api.github.com/repos/${url.split("/").slice(-2).join("/")}`);
       const data2 = await response.json();
       alert(`Der Standardbranch für das Repository ${data2.full_name} ist ${data2.default_branch}.`);
-      
+    };  
     
 
 
