@@ -343,11 +343,11 @@
 
   const url2 = `${data.repoLink}`;
   const urlPart = `url2.split("/").slice(-2).join("/")`;
-
+  console.log('urlpart:', urlPart );
 
 // GitHub API-Endpunkt für Repository-Informationen
 const apiUrl = `https://api.github.com/repos/${urlPart}`;
-
+console.log('apiUrl:', apiUrl );
 // Eine Funktion, um die Daten von der API abzurufen
 async function getDefaultBranch() {
   try {
