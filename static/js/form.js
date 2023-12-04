@@ -358,7 +358,6 @@ async function getDefaultBranch() {
     const defaultBranch = data.default_branch;
 
     // Hier kannst du mit dem Wert des Standard-Zweigs arbeiten, z.B. ihn in einer Variable speichern
-    console.log('Default GitHub Branch:', defaultBranch);
     link.href = `${url}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
     
     // Du kannst die Variable auch zurückgeben, wenn du die Funktion aufrufst
