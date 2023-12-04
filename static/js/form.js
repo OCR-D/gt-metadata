@@ -342,6 +342,7 @@
       const url = document.getElementById("data.repoLink").value;
       const response = await fetch(`https://api.github.com/repos/${url.split("/").slice(-2).join("/")}`);
       const data = await response.json();
+      alert(`Der Standardbranch für das Repository ${data.full_name} ist ${data.default_branch}.`);
       
     }  
 
