@@ -338,11 +338,11 @@
       return encodeURIComponent(`${output.innerText}`);
     }
 
-    // Ersetze 'USERNAME' und 'REPO' durch den entsprechenden GitHub-Benutzernamen und Repository-Namen
+    
 
 
-  const url = `${data.repoLink}`;
-  const urlPart = `url.split("/").slice(-2).join("/")`;
+  const url2 = `${data.repoLink}`;
+  const urlPart = `url2.split("/").slice(-2).join("/")`;
 
 
 // GitHub API-Endpunkt für Repository-Informationen
