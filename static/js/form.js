@@ -338,12 +338,17 @@
       return encodeURIComponent(`${output.innerText}`);
     }
 
+    async function getRepoDefaultBranch() {
+      const url = document.getElementById("data.repoLink").value;
+      const response = await fetch(`https://api.github.com/repos/${url.split("/").slice(-2).join("/")}`);
+      const data = await response.json();
       
+    }  
 
 
 
     //alert("HELLO");
-    link.href = `${(data.repoLink)}/new/main?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+    link.href = `${(data.repoLink)}/new/${data.default_branch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
     createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${(data.repoName)}&body=${getOutputIssueText()}`;
     
 
