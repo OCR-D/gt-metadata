@@ -340,45 +340,41 @@
 
     
 
-
+  // GitHub Repository-Informationen (URL, Owner, Repo)
   const url = `${data.repoLink}`;
   const urlPart = url.split("/").slice(-2).join("/");
   
 
-// GitHub API-Endpunkt für Repository-Informationen
-const apiUrl = `https://api.github.com/repos/${urlPart}`;
+  // GitHub API-Endpunkt für Repository-Informationen
+  const apiUrl = `https://api.github.com/repos/${urlPart}`;
 
-// Eine Funktion, um die Daten von der API abzurufen
-async function getDefaultBranch() {
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+  // Eine Funktion, um die Daten von der API abzurufen
+  async function getDefaultBranch() {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
 
-    // Der Standard-GitHub-Zweig befindet sich im Feld "default_branch" der API-Antwort
-    const defaultBranch = data.default_branch;
-
-    // Hier kannst du mit dem Wert des Standard-Zweigs arbeiten, z.B. ihn in einer Variable speichern
-    link.href = `${url}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+      // Der Standard-GitHub-Zweig befindet sich im Feld "default_branch" der API-Antwort
+      const defaultBranch = data.default_branch;
     
-    // Du kannst die Variable auch zurückgeben, wenn du die Funktion aufrufst
-    return defaultBranch;
-  } catch (error) {
-    //console.error('Fehler beim Abrufen der Daten:', error);
-    throw error; // Du könntest den Fehler auch weiterhin werfen, damit er von aufrufenden Funktionen behandelt wird
+      // Du kannst die Variable auch zurückgeben, wenn du die Funktion aufrufst
+      return defaultBranch;
+    } catch (error) {
+      //console.error('Fehler beim Abrufen der Daten:', error);
+      throw error; // Du könntest den Fehler auch weiterhin werfen, damit er von aufrufenden Funktionen behandelt wird
+    }
   }
-}
-// Beispielaufruf der Funktion
-(async () => {
-  try {
-    const defaultBranch = await getDefaultBranch();
-    // Hier kannst du den Wert des Standard-Zweigs verwenden
-    //console.log('Verwendeter Standard-Zweig:', defaultBranch);
-  } catch (error) {
-    console.error('Ein Fehler ist aufgetreten:', error);
-  }
-})();
+  // Beispielaufruf der Funktion
+  (async () => {
+    try {
+      const defaultBranch = await getDefaultBranch();
+      link.href = `${url}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+    } catch (error) {
+      console.error('Ein Fehler ist aufgetreten:', error);
+    }
+  })();
 
-
+  
     
 
 
