@@ -342,7 +342,7 @@
 
 
   const url = `${data.repoLink}`;
-  const urlPart = url.split("/").slice(-2).join("/");
+  const urlPart = `url.split("/").slice(-2).join("/")`;
 
 
 // GitHub API-Endpunkt für Repository-Informationen
