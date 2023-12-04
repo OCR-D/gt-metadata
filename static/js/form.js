@@ -343,11 +343,11 @@
 
   const url = `${data.repoLink}`;
   const urlPart = url.split("/").slice(-2).join("/");
-  console.log('urlpart:', urlPart );
+  
 
 // GitHub API-Endpunkt für Repository-Informationen
 const apiUrl = `https://api.github.com/repos/${urlPart}`;
-console.log('apiUrl:', apiUrl );
+
 // Eine Funktion, um die Daten von der API abzurufen
 async function getDefaultBranch() {
   try {
@@ -363,7 +363,7 @@ async function getDefaultBranch() {
     // Du kannst die Variable auch zurückgeben, wenn du die Funktion aufrufst
     return defaultBranch;
   } catch (error) {
-    console.error('Fehler beim Abrufen der Daten:', error);
+    //console.error('Fehler beim Abrufen der Daten:', error);
     throw error; // Du könntest den Fehler auch weiterhin werfen, damit er von aufrufenden Funktionen behandelt wird
   }
 }
@@ -372,7 +372,7 @@ async function getDefaultBranch() {
   try {
     const defaultBranch = await getDefaultBranch();
     // Hier kannst du den Wert des Standard-Zweigs verwenden
-    console.log('Verwendeter Standard-Zweig:', defaultBranch);
+    //console.log('Verwendeter Standard-Zweig:', defaultBranch);
   } catch (error) {
     console.error('Ein Fehler ist aufgetreten:', error);
   }
