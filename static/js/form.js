@@ -341,8 +341,8 @@
     
 
 
-  const url2 = `${data.repoLink}`;
-  const urlPart = url2.split("/").slice(-2).join("/");
+  const url = `${data.repoLink}`;
+  const urlPart = url.split("/").slice(-2).join("/");
   console.log('urlpart:', urlPart );
 
 // GitHub API-Endpunkt für Repository-Informationen
@@ -359,7 +359,7 @@ async function getDefaultBranch() {
 
     // Hier kannst du mit dem Wert des Standard-Zweigs arbeiten, z.B. ihn in einer Variable speichern
     console.log('Default GitHub Branch:', defaultBranch);
-    link.href = `${url2}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+    link.href = `${url}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
     
     // Du kannst die Variable auch zurückgeben, wenn du die Funktion aufrufst
     return defaultBranch;
@@ -368,7 +368,16 @@ async function getDefaultBranch() {
     throw error; // Du könntest den Fehler auch weiterhin werfen, damit er von aufrufenden Funktionen behandelt wird
   }
 }
-
+// Beispielaufruf der Funktion
+(async () => {
+  try {
+    const defaultBranch = await getDefaultBranch();
+    // Hier kannst du den Wert des Standard-Zweigs verwenden
+    console.log('Verwendeter Standard-Zweig:', defaultBranch);
+  } catch (error) {
+    console.error('Ein Fehler ist aufgetreten:', error);
+  }
+})();
 
 
     
