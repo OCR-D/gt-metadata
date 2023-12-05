@@ -14,6 +14,10 @@ gt-metadata supports the current metadata schema.
 - https://github.com/tboenig/gt-metadata/blob/master/schema/2022-03-15/schema.json
 - https://github.com/tboenig/gt-metadata/blob/master/schema/2023-10-25/schema.json
 
+## Language support
+- German
+- English
+- French
 
 ## Extensions that differ from those of HTR-United:
 - A German translation 
