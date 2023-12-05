@@ -357,44 +357,43 @@
         }
         
         
-        
-        // GitHub Repository-Informationen (URL, Owner, Repo)
+        // Flexibility for default branch
+        // GitHub repository information (URL, Owner, Repo)
         const url = `${data.repoLink}`;
         const urlPart = url.split("/").slice(-2).join("/");
         
         
-        // GitHub API-Endpunkt für Repository-Informationen
+        // GitHub API-endpoint for repository information
         const apiUrl = `https://api.github.com/repos/${urlPart}`;
         
-        // Eine Funktion, um die Daten von der API abzurufen
+        // function to retrieve the data from the API
         async function getDefaultBranch() {
             try {
                 const response = await fetch(apiUrl);
                 const data = await response.json();
                 
-                // Der Standard-GitHub-Zweig befindet sich im Feld "default_branch" der API-Antwort
-                const defaultBranch = data.default_branch;
                 
-                // Du kannst die Variable auch zurückgeben, wenn du die Funktion aufrufst
+                const defaultBranch = data.default_branch;
                 return defaultBranch;
             }
+            // error handling
             catch (error) {
-                //console.error('Fehler beim Abrufen der Daten:', error);
-                throw error; // Du könntest den Fehler auch weiterhin werfen, damit er von aufrufenden Funktionen behandelt wird
+                console.error('Error when retrieving the data:', error);
+                throw error; // You could also keep throwing the error so that it is handled by calling functions
             }
         }
-        // Beispielaufruf der Funktion
+        // Call the function
         (async () => {
             try {
                 const defaultBranch = await getDefaultBranch();
                 link.href = `${url}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
             }
             catch (error) {
-                console.error('Ein Fehler ist aufgetreten:', error);
+                console.error('Error when retrieving the data:', error);
             }
         })();
         
-        //alert("HELLO");
+        //Call the function <createIssueLink>
         // link.href = `${(data.repoLink)}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
         createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${(data.repoName)}&body=${getOutputIssueText()}`;
         
