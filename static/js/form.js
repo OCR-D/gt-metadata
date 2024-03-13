@@ -266,6 +266,27 @@
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
     });
+    const langDetailsContainer = document.querySelector(".script-details-container");
+    const updateScripts = function (scripts) {
+      [...document.querySelectorAll("div.script-details")].forEach(function(el) {
+        if (scripts.includes(el.getAttribute("data-script")) === false) {
+          el.remove();
+        }
+        // Remove element not in scripts.
+      });
+      [...scripts].forEach(function(single_script) {
+        let scriptDetails = document.querySelector(`div.script-details[data-script='${single_script}']`);
+        if (scriptDetails) {
+          return null;
+        }
+        langDetailsContainer.append(createElementFromHTML(`<div class="script-details row my-1" data-script="${single_script}">
+          <label class="col-sm-3 col-form-label">- Script</label>
+          <div class="col-md-3"><input type="text" value="${single_script}" name="script" class="form-control" disabled/></div>
+          <label class="col-sm-3 col-form-label" for="script-detail-${single_script}">Details</label>
+          <div class="col-md-3"><input type="text" value="" name="qualify" class="form-control" id="script-detail-${single_script}"/></div>
+        </div>`));
+      });
+    };
     const scriptSelect = new SelectPure(".scripts", {
         options: scripts,
         multiple: true,
@@ -274,8 +295,9 @@
         
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
+        onChange: (scripts) => { updateScripts(scripts) }
     });
-    
+    updateScripts(scriptSelect.value());
     let downloadBind = false;
     
     const escape_yaml = function (str) {
