@@ -305,7 +305,16 @@
             document.querySelector("#software").value = el.innerText;
         })
     });
-    
+
+    const getScripts = function(values) {
+      return values.map(function (local_script) {
+        let qualify = document.querySelector(`#script-detail-${local_script}`);
+        if (qualify && qualify.value.trim() != "") {
+          return {"iso": local_script, "qualify": qualify.value};
+        }
+        return {"iso": local_script}
+      });
+    };
     
     
     form.addEventListener('submit', async function (e) {
@@ -321,7 +330,7 @@
             "description": normalize(data.desc),...updateOrIgnore(data.projectName, "project-name"),...updateOrIgnore(data.projectWebsite, "project-website"),
             "language": languageSelect.value(),
             "production-software": data.software,
-            "script": scriptSelect.value(),
+            "script": getScripts(scriptSelect.value()),
             "script-type": data.scriptType,
             "time": {
                 "notBefore": data[ "date-begin"],
