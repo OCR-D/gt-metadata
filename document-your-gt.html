@@ -173,11 +173,11 @@
             <div class="col-sm-3">
               <select class="form-control" name="license" id="license">
                 <option value="PublicDomainMark 1.0">Public Domain Mark 1.0</option>
-                <option value="CC0 1.0">CC0 1.0</option>
-                <option value="CC-BY 4.0">CC-BY 4.0</option>
-                <option value="CC-BY-SA 4.0">CC-BY-SA 4.0</option>
-                <option value="Etalab OL 2.0">Etalab OL 2.0</option>
-                <option value="ODbL 1.0">ODbL 1.0</option>
+                <option value="CC0-1.0">CC0-1.0</option>
+                <option value="CC-BY-4.0">CC-BY-4.0</option>
+                <option value="CC-BY-SA-4.0">CC-BY-SA-4.0</option>
+                <option value="etalab-2.0">etalab-2.0</option>
+                <option value="ODbL-1.0">ODbL-1.0</option>
                 <!-- Ajouter d'autres options !-->
               </select>
             </div>
@@ -205,7 +205,7 @@
               <!-- Ajouter d'autres options !-->
             </select>
           </div>
-        <p><small class="text-muted"><i18n vanilla-i18n="form.field.std_info">Les licenses sont ici proposées à titre indicatif.</i18n></small></p>
+          </div>
         <div class="form-group row my-2">
           <label for="desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.software">Name of software(s) used to create the ground truth</i18n><span class="required">*</span></label>
           <div class="col-sm-9">
@@ -341,17 +341,17 @@
             <div class="col offset-3"><p><small class="text-muted"><i18n vanilla-i18n="form.field.year.info">Préférez, pour des données au siècle près, 1200 pour un début au 13e siècle et 1299 pour une fin au 13e siècle. Les dates n'ont pas besoin d'être précises, cela reste une indication</i18n></small></p></div>
           </div>
           <div class="form-group row my-2">
-            <label for="language" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.fields.languages.label">Langue</i18n><span class="required">*</span></label>
+            <label for="language" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.languages.label">Langue</i18n><span class="required">*</span></label>
             <div class="col-sm-9">
               <span class="language"></span>
-              <small class="form-text text-muted"><i18n vanilla-i18n="form.fields.languages.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n></small>
+              <small class="form-text text-muted"><i18n vanilla-i18n="form.field.languages.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n></small>
             </div>
           </div>
           <div class="form-group row my-2">
-            <label for="script" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.fields.scripts.label">Système d'écriture</i18n></label>
+            <label for="script" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.scripts.label">Système d'écriture</i18n></label>
             <div class="col-sm-9">
               <span class="scripts"></span>
-              <small class="form-text text-muted"><i18n vanilla-i18n="form.fields.scripts.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n></small>
+              <small class="form-text text-muted"><i18n vanilla-i18n="form.field.scripts.helper">Pour faciliter l'entrée de données, des valeurs par défaut sont sélectionnées. Cliquez dessus pour les désélectionner.</i18n></small>
             </div>
           </div>
           <div class="form-group row my-2">
@@ -379,13 +379,13 @@
               </select>
             </div>
             <div class="col-sm-1"></div>
-            <label for="level" class="col-sm-2 col-form-label mt-2"><i18n vanilla-i18n="form.field.prec.label">Niveau de transcription/i18n></label>
+            <label for="level" class="col-sm-2 col-form-label mt-2"><i18n vanilla-i18n="form.field.prec.label">Niveau de transcription</i18n></label>
             <div class="col-sm-3">
               <select name="level" id="level" class="form-control my-2">
-                <option value="level1" selected="" vanilla-i18n="form.field.prec.select.level1">Niveau 1</option>
-                <option value="level2" selected="" vanilla-i18n="form.field.prec.select.level2">Niveau 2</option>
-                <option value="level3" selected="" vanilla-i18n="form.field.prec.select.level3">Niveau 3</option>
-                <option value="levelmix" selected="" vanilla-i18n="form.field.prec.select.levelmix">Niveau Mélange</option>
+                <option value="level1" vanilla-i18n="form.field.prec.select.level1">Niveau 1</option>
+                <option value="level2" vanilla-i18n="form.field.prec.select.level2">Niveau 2</option>
+                <option value="level3" vanilla-i18n="form.field.prec.select.level3">Niveau 3</option>
+                <option value="levelmix" vanilla-i18n="form.field.prec.select.levelmix">Niveau Mélange</option>
               </select>
             </div>
           </div>
@@ -426,7 +426,7 @@
           <div class="form-group row my-2">
             <label for="source-desc" class="col-sm-3 col-form-label"><i18n vanilla-i18n="form.field.src">Détails des sources transcrites</i18n></label>
             <div class="col-sm-9">
-              <div><p><i18n vanilla-i18n="form.field.apa"><small class="text-muted">Le format APA est préféré pour les citations, ce qui peut donner des références longues comme <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, cf. <a href="https://apastyle.apa.org/style-grammar-guidelines/references/archival">APA Style</a>. Des formats plus courts sont autorisé. Le lien ou la référence APA peuvent suffire.</small></i18n></div>
+              <div><p><i18n vanilla-i18n="form.field.apa"><small class="text-muted">Le format APA est préféré pour les citations, ce qui peut donner des références longues comme <code>Allport, G. W. (1930–1967). Correspondence. Gordon W. Allport Papers (HUG 4118.10), Harvard University Archives, Cambridge, MA, United States.</code>, cf. <a href="https://apastyle.apa.org/style-grammar-guidelines/references/archival">APA Style</a>. Des formats plus courts sont autorisé. Le lien ou la référence APA peuvent suffire.</small></i18n></p></div>
               <div class="sources-form">
                 <div class="input-group">
                   <input type="text" name="sources-ref" class="form-control" placeholder="Référence en mode APA" vanilla-i18n-placeholder="form.input.apa">
@@ -496,7 +496,7 @@
       </div>
     </div>
   </div>
-  </section>
+  
 
   <!-- Footer -->
   
