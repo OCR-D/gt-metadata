@@ -396,7 +396,7 @@
         (async () => {
             try {
                 const defaultBranch = await getDefaultBranch();
-                link.href = `${url}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
+                link.href = `${url}/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
             }
             catch (error) {
                 console.error('Ein Fehler ist aufgetreten:', error);
