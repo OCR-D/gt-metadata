@@ -306,22 +306,14 @@
         })
     });
     
-    const getScripts = function(values) {
-      return values.map(function (local_script) {
-        let qualify = document.querySelector(`#script-detail-${local_script}`);
-        if (qualify && qualify.value.trim() != "") {
-          return {"iso": local_script, "qualify": qualify.value};
-        }
-        return {"iso": local_script}
-      });
-    };
+    
     
     
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
         let data = Object.fromEntries(new FormData(form));
         let languages = languageSelect.value().join("\n  - ");
-        let scripts = scriptSelect.value().join("\n  - ");
+        let scripts = scriptSelect.value().join("\n  - iso ");
         
         let obj = {
             "schema": `https://tboenig.github.io/gt-metadata/schema/2023-10-25/schema.json`,
