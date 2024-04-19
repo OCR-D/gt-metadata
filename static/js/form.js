@@ -14,11 +14,11 @@
     
     const LICENSES = {
         "PublicDomainMark 1.0": 'https://creativecommons.org/publicdomain/mark/1.0/',
-        "CC0-1.0": 'https://creativecommons.org/licenses/zero/1.0/',
-        "CC-BY-4.0": 'https://creativecommons.org/licenses/by/4.0/',
-        "CC-BY-SA-4.0": 'https://creativecommons.org/licenses/by-sa/4.0/',
-        "etalab-2.0": 'https://spdx.org/licenses/etalab-2.0.html',
-        "ODbL-1.0": 'https://opendatacommons.org/licenses/odbl/1-0/'
+        "CC0 1.0": 'https://creativecommons.org/licenses/zero/1.0/',
+        "CC-BY 4.0": 'https://creativecommons.org/licenses/by/4.0/',
+        "CC-BY-SA 4.0": 'https://creativecommons.org/licenses/by-sa/4.0/',
+        "Etalab OL 2.0": 'https://spdx.org/licenses/etalab-2.0.html',
+        "ODbL 1.0": 'https://opendatacommons.org/licenses/odbl/1-0/'
     };
     
     
@@ -266,27 +266,6 @@
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
     });
-    /*const langDetailsContainer = document.querySelector(".script-details-container");
-    const updateScripts = function (scripts) {
-      [...document.querySelectorAll("div.script-details")].forEach(function(el) {
-        if (scripts.includes(el.getAttribute("data-script")) === false) {
-          el.remove();
-        }
-        // Remove element not in scripts.
-      });
-      [...scripts].forEach(function(single_script) {
-        let scriptDetails = document.querySelector(`div.script-details[data-script='${single_script}']`);
-        if (scriptDetails) {
-          return null;
-        }
-        langDetailsContainer.append(createElementFromHTML(`<div class="script-details row my-1" data-script="${single_script}">
-          <label class="col-sm-3 col-form-label">- Script</label>
-          <div class="col-md-3"><input type="text" value="${single_script}" name="script" class="form-control" disabled/></div>
-          <label class="col-sm-3 col-form-label" for="script-detail-${single_script}">Details</label>
-          <div class="col-md-3"><input type="text" value="" name="qualify" class="form-control" id="script-detail-${single_script}"/></div>
-        </div>`));
-      });
-    };*/
     const scriptSelect = new SelectPure(".scripts", {
         options: scripts,
         multiple: true,
@@ -295,9 +274,8 @@
         
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
-        /*onChange: (scripts) => { updateScripts(scripts) }*/
     });
-    updateScripts(scriptSelect.value());
+    
     let downloadBind = false;
     
     const escape_yaml = function (str) {
@@ -327,16 +305,7 @@
             document.querySelector("#software").value = el.innerText;
         })
     });
-
-    const getScripts = function(values) {
-      return values.map(function (local_script) {
-        let qualify = document.querySelector(`#script-detail-${local_script}`);
-        if (qualify && qualify.value.trim() != "") {
-          return {"iso": local_script, "qualify": qualify.value};
-        }
-        return {"iso": local_script}
-      });
-    };
+    
     
     
     form.addEventListener('submit', async function (e) {
@@ -352,7 +321,7 @@
             "description": normalize(data.desc),...updateOrIgnore(data.projectName, "project-name"),...updateOrIgnore(data.projectWebsite, "project-website"),
             "language": languageSelect.value(),
             "production-software": data.software,
-            "script": getScripts(scriptSelect.value()),
+            "script": scriptSelect.value(),
             "script-type": data.scriptType,
             "time": {
                 "notBefore": data[ "date-begin"],
@@ -388,43 +357,44 @@
         }
         
         
-        // Flexibility for default branch
-        // GitHub repository information (URL, Owner, Repo)
+        
+        // GitHub Repository-Informationen (URL, Owner, Repo)
         const url = `${data.repoLink}`;
         const urlPart = url.split("/").slice(-2).join("/");
         
         
-        // GitHub API-endpoint for repository information
+        // GitHub API-Endpunkt für Repository-Informationen
         const apiUrl = `https://api.github.com/repos/${urlPart}`;
         
-        // function to retrieve the data from the API
+        // Eine Funktion, um die Daten von der API abzurufen
         async function getDefaultBranch() {
             try {
                 const response = await fetch(apiUrl);
                 const data = await response.json();
                 
-                
+                // Der Standard-GitHub-Zweig befindet sich im Feld "default_branch" der API-Antwort
                 const defaultBranch = data.default_branch;
+                
+                // Du kannst die Variable auch zurückgeben, wenn du die Funktion aufrufst
                 return defaultBranch;
             }
-            // error handling
             catch (error) {
-                console.error('Error when retrieving the data:', error);
-                throw error; // You could also keep throwing the error so that it is handled by calling functions
+                //console.error('Fehler beim Abrufen der Daten:', error);
+                throw error; // Du könntest den Fehler auch weiterhin werfen, damit er von aufrufenden Funktionen behandelt wird
             }
         }
-        // Call the function
+        // Beispielaufruf der Funktion
         (async () => {
             try {
                 const defaultBranch = await getDefaultBranch();
                 link.href = `${url}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
             }
             catch (error) {
-                console.error('Error when retrieving the data:', error);
+                console.error('Ein Fehler ist aufgetreten:', error);
             }
         })();
         
-        //Call the function <createIssueLink>
+        //alert("HELLO");
         // link.href = `${(data.repoLink)}/new/${defaultBranch}?filename=METADATA.yml&value=${getOutputMetadataText()}`;
         createIssueLink.href = `https://github.com/HTR-United/htr-united/issues/new?title=Adding%20dataset%20${(data.repoName)}&body=${getOutputIssueText()}`;
         
