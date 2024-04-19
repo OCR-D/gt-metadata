@@ -306,6 +306,15 @@
         })
     });
     
+    const getScripts = function(values) {
+      return values.map(function (local_script) {
+        let qualify = document.querySelector(`#script-detail-${local_script}`);
+        if (qualify && qualify.value.trim() != "") {
+          return {"iso": local_script, "qualify": qualify.value};
+        }
+        return {"iso": local_script}
+      });
+    };
     
     
     form.addEventListener('submit', async function (e) {
