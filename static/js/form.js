@@ -266,7 +266,7 @@
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
     });
-    const langDetailsContainer = document.querySelector(".script-details-container");
+    /*const langDetailsContainer = document.querySelector(".script-details-container");
     const updateScripts = function (scripts) {
       [...document.querySelectorAll("div.script-details")].forEach(function(el) {
         if (scripts.includes(el.getAttribute("data-script")) === false) {
@@ -286,7 +286,7 @@
           <div class="col-md-3"><input type="text" value="" name="qualify" class="form-control" id="script-detail-${single_script}"/></div>
         </div>`));
       });
-    };
+    };*/
     const scriptSelect = new SelectPure(".scripts", {
         options: scripts,
         multiple: true,
@@ -295,7 +295,7 @@
         
         icon: "fa fa-times", // uses Font Awesome
         inlineIcon: false // custom cross icon for multiple select.
-        onChange: (scripts) => { updateScripts(scripts) }
+        /*onChange: (scripts) => { updateScripts(scripts) }*/
     });
     updateScripts(scriptSelect.value());
     let downloadBind = false;
