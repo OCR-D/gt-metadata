@@ -306,7 +306,7 @@
         })
     });
     
-     const getScripts = function(values) {
+    const getScripts = function(values) {
       return values.map(function (local_script) {
         let qualify = document.querySelector(`#script-detail-${local_script}`);
         if (qualify && qualify.value.trim() != "") {
@@ -330,7 +330,7 @@
             "description": normalize(data.desc),...updateOrIgnore(data.projectName, "project-name"),...updateOrIgnore(data.projectWebsite, "project-website"),
             "language": languageSelect.value(),
             "production-software": data.software,
-            "script": scriptSelect.value(),
+            "script": getScripts(scriptSelect.value()),
             "script-type": data.scriptType,
             "time": {
                 "notBefore": data[ "date-begin"],
