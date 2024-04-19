@@ -313,7 +313,7 @@
         e.preventDefault();
         let data = Object.fromEntries(new FormData(form));
         let languages = languageSelect.value().join("\n  - ");
-        let scripts = scriptSelect.value().join("\n  - iso ");
+        let scripts = scriptSelect.value().join("\n  ** iso ");
         
         let obj = {
             "schema": `https://tboenig.github.io/gt-metadata/schema/2023-10-25/schema.json`,
