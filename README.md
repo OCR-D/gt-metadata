@@ -11,9 +11,9 @@ This tool builds on the [HTR-United tool](https://github.com/HTR-United/htr-unit
 ## Metadata Schema (JSON format)
 gt-metadata supports the current metadata schema.
 
-- https://github.com/tboenig/gt-metadata/blob/master/schema/2022-03-15/schema.json
-- https://github.com/tboenig/gt-metadata/blob/master/schema/2023-10-25/schema.json
-- https://github.com/tboenig/gt-metadata/blob/master/schema/2024-01-25/schema.json
+- https://github.com/OCR-D/gt-metadata/blob/master/schema/2022-03-15/schema.json
+- https://github.com/OCR-D/gt-metadata/blob/master/schema/2023-10-25/schema.json
+- https://github.com/OCR-D/gt-metadata/blob/master/schema/2024-01-25/schema.json
 
 ## Language support
 - German
